@@ -200,64 +200,56 @@ module.exports = {
       }
     ]
   ],
+  locales:{
+    "/":{
+      lang: "en-US",
+			title: "Vue.js",
+			description: "Vue.js - The Progressive JavaScript Framework"
+    },
+    "/zh/":{
+      lang: "zh-CN",
+			title: "Vue.js Vue-next 中文文档",
+			description: "渐进式 JavaScript 框架"
+    }
+  },
   themeConfig: {
     logo: '/logo.png',
-    nav: [
-      {
-        text: 'Docs',
-        ariaLabel: 'Documentation Menu',
-        items: [
-          { text: 'Guide', link: '/guide/introduction' },
-          { text: 'Style Guide', link: '/style-guide/' }
-        ]
+    locales:{
+      "/":{
+        repo: 'vuejs/docs-next',
+        editLinks: false,
+        editLinkText: 'Edit this on GitHub!',
+        lastUpdated: 'Last updated',
+        docsDir: 'src',
+        sidebarDepth: 2,
+        sidebar: {
+          collapsable: false,
+          '/guide/': sidebar.guide,
+          '/community/': sidebar.guide,
+          '/api/': sidebar.api
+        },
+        smoothScroll: false,
+        nav :require("./nav/en")
       },
-      { text: 'API Reference', link: '/api/application-config' },
-      {
-        text: 'Ecosystem',
-        items: [
-          {
-            text: 'Community',
-            ariaLabel: 'Community Menu',
-            items: [
-              { text: 'Team', link: '/community/team/' },
-              { text: 'Partners', link: '/community/partners/' },
-              { text: 'Join', link: '/community/join/' },
-              { text: 'Themes', link: '/community/themes/' }
-            ]
-          },
-          {
-            text: 'Official Projects',
-            items: [
-              { text: 'Vue Router', link: 'https://router.vuejs.org/' },
-              { text: 'Vuex', link: 'https://vuex.vuejs.org/' },
-              { text: 'Vue CLI', link: 'https://cli.vuejs.org/' },
-              {
-                text: 'Vue Test Utils',
-                link: 'https://vue-test-utils.vuejs.org/'
-              },
-              {
-                text: 'Devtools',
-                link: 'https://github.com/vuejs/vue-devtools'
-              },
-              { text: 'Weekly news', link: 'https://news.vuejs.org/' }
-            ]
-          }
-        ]
+      "/zh/":{
+        repo: 'vuejs/docs-next',
+        editLinks: false,
+        editLinkText: 'Edit this on GitHub!',
+        lastUpdated: 'Last updated',
+        docsDir: 'src',
+        sidebarDepth: 2,
+        sidebar: {
+          collapsable: false,
+          '/zh/guide/': sidebar.guide,
+          '/zh/community/': sidebar.guide,
+          '/zh/api/': sidebar.api
+        },
+        smoothScroll: false,
+        nav :require("./nav/zh")
       }
-    ],
-    repo: 'vuejs/docs-next',
-    editLinks: false,
-    editLinkText: 'Edit this on GitHub!',
-    lastUpdated: 'Last updated',
-    docsDir: 'src',
-    sidebarDepth: 2,
-    sidebar: {
-      collapsable: false,
-      '/guide/': sidebar.guide,
-      '/community/': sidebar.guide,
-      '/api/': sidebar.api
-    },
-    smoothScroll: false
+    }
+
+
   },
   plugins: [
     [
@@ -290,5 +282,6 @@ module.exports = {
         md.options.highlight
       )
     }
-  }
+  },
+  extraWatchFiles: [".vuepress/nav/en.js", ".vuepress/nav/zh.js"]
 }
