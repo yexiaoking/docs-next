@@ -2,7 +2,7 @@
 home: true
 heroImage: /logo.png
 heroText: Vue.js
-tagline: 渐进式<br> JavaScript 框架
+tagline: The Progressive<br> JavaScript Framework
 actionButtons:
   - text: Why Vue.js?
     link: /

@@ -1,10 +1,10 @@
-# Class and Style Bindings
+# Class 与 Style 绑定
 
 A common need for data binding is manipulating an element's class list and its inline styles. Since they are both attributes, we can use `v-bind` to handle them: we only need to calculate a final string with our expressions. However, meddling with string concatenation is annoying and error-prone. For this reason, Vue provides special enhancements when `v-bind` is used with `class` and `style`. In addition to strings, the expressions can also evaluate to objects or arrays.
 
-## Binding HTML Classes
+## 绑定 HTML Class
 
-### Object Syntax
+### 对象语法
 
 We can pass an object to `:class` (short for `v-bind:class`) to dynamically toggle classes:
 
@@ -82,7 +82,7 @@ computed: {
 }
 ```
 
-### Array Syntax
+### 数组语法
 
 We can pass an array to `:class` to apply a list of classes:
 
@@ -119,7 +119,7 @@ However, this can be a bit verbose if you have multiple conditional classes. Tha
 <div :class="[{ active: isActive }, errorClass]"></div>
 ```
 
-### With Components
+### 用在组件上
 
 > This section assumes knowledge of [Vue Components](component-basics.md). Feel free to skip it and come back later.
 
@@ -182,9 +182,9 @@ app.component('my-component', {
 
 You can learn more about component attribute inheritance in [Component Props](component-props.html#non-prop-attributes) section.
 
-## Binding Inline Styles
+## 绑定内联样式
 
-### Object Syntax
+### 对象语法
 
 The object syntax for `:style` is pretty straightforward - it looks almost like CSS, except it's a JavaScript object. You can use either camelCase or kebab-case (use quotes with kebab-case) for the CSS property names:
 
@@ -220,7 +220,7 @@ data() {
 
 Again, the object syntax is often used in conjunction with computed properties that return objects.
 
-### Array Syntax
+### 数组语法
 
 The array syntax for `:style` allows you to apply multiple style objects to the same element:
 
@@ -228,11 +228,11 @@ The array syntax for `:style` allows you to apply multiple style objects to the 
 <div :style="[baseStyles, overridingStyles]"></div>
 ```
 
-### Auto-prefixing
+### 自动添加前缀
 
 When you use a CSS property that requires [vendor prefixes](https://developer.mozilla.org/en-US/docs/Glossary/Vendor_Prefix) in `:style`, for example `transform`, Vue will automatically detect and add appropriate prefixes to the applied styles.
 
-### Multiple Values
+### 多重值
 
 You can provide an array of multiple (prefixed) values to a style property, for example:
 

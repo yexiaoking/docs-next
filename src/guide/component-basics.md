@@ -1,4 +1,4 @@
-# Components Basics
+# 组件基础
 
 ## Base Example
 

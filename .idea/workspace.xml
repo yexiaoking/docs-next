@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:config" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:docs" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:feature" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:fix" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:migration" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:migration" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:meta" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:phanan" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="15a870d4-b88f-45c7-a25d-da3a8db46847" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.vuepress/components/community/team/members.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/.vuepress/components/community/team/members.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.vuepress/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/.vuepress/config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/guide/a11y-basics.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/guide/a11y-basics.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/guide/class-and-style.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/guide/class-and-style.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/guide/component-basics.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/guide/component-basics.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/guide/computed.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/guide/computed.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/guide/installation.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/guide/installation.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/guide/instance.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/guide/instance.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/guide/introduction.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/guide/introduction.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/guide/migration/introduction.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/guide/migration/introduction.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/guide/template-syntax.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/guide/template-syntax.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/api/application-api.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/api/application-api.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/api/application-config.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/api/application-config.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/api/basic-reactivity.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/api/basic-reactivity.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/api/built-in-components.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/api/built-in-components.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/api/composition-api.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/api/composition-api.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/api/computed-watch-api.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/api/computed-watch-api.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/api/directives.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/api/directives.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/api/global-api.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/api/global-api.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/api/instance-methods.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/api/instance-methods.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/api/instance-properties.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/api/instance-properties.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/api/options-assets.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/api/options-assets.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/api/options-composition.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/api/options-composition.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/api/options-data.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/api/options-data.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/api/options-dom.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/api/options-dom.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/api/options-lifecycle-hooks.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/api/options-lifecycle-hooks.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/api/options-misc.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/api/options-misc.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/api/refs-api.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/api/refs-api.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/api/special-attributes.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/api/special-attributes.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/coc/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/coc/index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/community/join.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/community/join.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/community/partners.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/community/partners.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/community/team.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/community/team.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/community/themes.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/community/themes.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/examples/dynamic-components/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/examples/dynamic-components/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/examples/dynamic-components/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/examples/dynamic-components/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/examples/dynamic-components/sandbox.config.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/examples/dynamic-components/sandbox.config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/examples/dynamic-components/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/examples/dynamic-components/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/guide/a11y-basics.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/guide/a11y-basics.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/guide/a11y-resources.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/guide/a11y-resources.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/guide/a11y-semantics.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/guide/a11y-semantics.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/guide/a11y-standards.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/guide/a11y-standards.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/guide/change-detection.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/guide/change-detection.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/guide/class-and-style.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/guide/class-and-style.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/guide/component-basics.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/guide/component-basics.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/guide/component-custom-events.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/guide/component-custom-events.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/guide/component-dynamic-async.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/guide/component-dynamic-async.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/guide/component-edge-cases.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/guide/component-edge-cases.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/guide/component-props.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/guide/component-props.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/guide/component-provide-inject.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/guide/component-provide-inject.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/guide/component-registration.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/guide/component-registration.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/guide/component-slots.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/guide/component-slots.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/guide/component-template-refs.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/guide/component-template-refs.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/guide/composition-api-introduction.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/guide/composition-api-introduction.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/guide/composition-api-lifecycle-hooks.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/guide/composition-api-lifecycle-hooks.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/guide/composition-api-provide-inject.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/guide/composition-api-provide-inject.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/guide/composition-api-setup.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/guide/composition-api-setup.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/guide/composition-api-template-refs.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/guide/composition-api-template-refs.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/guide/computed.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/guide/computed.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/guide/conditional.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/guide/conditional.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/guide/contributing/doc-style-guide.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/guide/contributing/doc-style-guide.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/guide/contributing/translations.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/guide/contributing/translations.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/guide/contributing/writing-guide.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/guide/contributing/writing-guide.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/guide/custom-directive.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/guide/custom-directive.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/guide/events.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/guide/events.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/guide/forms.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/guide/forms.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/guide/installation.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/guide/installation.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/guide/instance.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/guide/instance.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/guide/introduction.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/guide/introduction.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/guide/list.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/guide/list.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/guide/migration/async-components.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/guide/migration/async-components.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/guide/migration/attribute-coercion.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/guide/migration/attribute-coercion.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/guide/migration/custom-directives.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/guide/migration/custom-directives.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/guide/migration/custom-elements-interop.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/guide/migration/custom-elements-interop.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/guide/migration/data-option.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/guide/migration/data-option.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/guide/migration/events-api.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/guide/migration/events-api.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/guide/migration/filters.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/guide/migration/filters.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/guide/migration/fragments.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/guide/migration/fragments.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/guide/migration/functional-components.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/guide/migration/functional-components.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/guide/migration/global-api-treeshaking.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/guide/migration/global-api-treeshaking.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/guide/migration/global-api.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/guide/migration/global-api.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/guide/migration/inline-template-attribute.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/guide/migration/inline-template-attribute.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/guide/migration/introduction.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/guide/migration/introduction.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/guide/migration/keycode-modifiers.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/guide/migration/keycode-modifiers.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/guide/migration/render-function-api.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/guide/migration/render-function-api.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/guide/migration/slots-unification.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/guide/migration/slots-unification.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/guide/migration/v-model.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/guide/migration/v-model.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/guide/mixins.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/guide/mixins.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/guide/optimizations.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/guide/optimizations.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/guide/plugins.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/guide/plugins.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/guide/reactivity-computed-watchers.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/guide/reactivity-computed-watchers.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/guide/reactivity-fundamentals.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/guide/reactivity-fundamentals.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/guide/reactivity.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/guide/reactivity.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/guide/render-function.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/guide/render-function.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/guide/routing.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/guide/routing.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/guide/single-file-component.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/guide/single-file-component.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/guide/ssr.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/guide/ssr.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/guide/state-management.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/guide/state-management.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/guide/teleport.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/guide/teleport.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/guide/template-syntax.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/guide/template-syntax.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/guide/testing.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/guide/testing.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/guide/transitions-enterleave.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/guide/transitions-enterleave.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/guide/transitions-list.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/guide/transitions-list.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/guide/transitions-overview.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/guide/transitions-overview.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/guide/transitions-state.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/guide/transitions-state.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zh/style-guide/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/en/style-guide/README.md" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="cfjivmwl" />
+  </component>
+  <component name="ProjectId" id="1fEHbD8bed3CJg9MP0aHTbg1yU6" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="sortByType" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="yarn" />
+  </component>
+  <component name="RunManager">
+    <configuration name="serve" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="serve" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="15a870d4-b88f-45c7-a25d-da3a8db46847" name="Default Changelist" comment="" />
+      <created>1595776400391</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1595776400391</updated>
+      <workItem from="1595776401521" duration="2838000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="734" y="355" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1595776530417">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="734" y="355" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1400/2560.363.1920.1040/-1920.207.1920.1040@0.0.2560.1400" timestamp="1595776530417" />
+    <state width="2539" height="330" key="GridCell.Tab.0.bottom" timestamp="1595778965248">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2539" height="330" key="GridCell.Tab.0.bottom/0.0.2560.1400/2560.363.1920.1040/-1920.207.1920.1040@0.0.2560.1400" timestamp="1595778965248" />
+    <state width="2539" height="330" key="GridCell.Tab.0.center" timestamp="1595778965248">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2539" height="330" key="GridCell.Tab.0.center/0.0.2560.1400/2560.363.1920.1040/-1920.207.1920.1040@0.0.2560.1400" timestamp="1595778965248" />
+    <state width="2539" height="330" key="GridCell.Tab.0.left" timestamp="1595778965248">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2539" height="330" key="GridCell.Tab.0.left/0.0.2560.1400/2560.363.1920.1040/-1920.207.1920.1040@0.0.2560.1400" timestamp="1595778965248" />
+    <state width="2539" height="330" key="GridCell.Tab.0.right" timestamp="1595778965248">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2539" height="330" key="GridCell.Tab.0.right/0.0.2560.1400/2560.363.1920.1040/-1920.207.1920.1040@0.0.2560.1400" timestamp="1595778965248" />
+    <state x="982" y="432" width="596" height="536" key="find.popup" timestamp="1595778604538">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="982" y="432" width="596" height="536" key="find.popup/0.0.2560.1400/2560.363.1920.1040/-1920.207.1920.1040@0.0.2560.1400" timestamp="1595778604538" />
+    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup" timestamp="1595779079074">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup/0.0.2560.1400/2560.363.1920.1040/-1920.207.1920.1040@0.0.2560.1400" timestamp="1595779079074" />
+  </component>
+</project>

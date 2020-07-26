@@ -1,6 +1,6 @@
-# Installation
+# 安装
 
-## Release Notes
+## 发布版本说明
 
 Latest beta version: 3.0.0-rc.1
 
@@ -39,7 +39,7 @@ NPM is the recommended installation method when building large scale application
 $ npm install vue@next
 ```
 
-## CLI
+## 命令行工具 (CLI)
 
 Vue provides an [official CLI](https://github.com/vuejs/vue-cli) for quickly scaffolding ambitious Single Page Applications. It provides batteries-included build setups for a modern frontend workflow. It takes only a few minutes to get up and running with hot-reload, lint-on-save, and production-ready builds. See [the Vue CLI docs](https://cli.vuejs.org) for more details.
 
@@ -77,7 +77,7 @@ $ yarn
 $ yarn dev
 ```
 
-## Explanation of Different Builds
+## 对不同构建版本的解释
 
 In the [`dist/` directory of the NPM package](https://cdn.jsdelivr.net/npm/vue@3.0.0-rc.1/dist/) you will find many different builds of Vue.js. Here is an overview of which `dist` file should be used depending on the use-case.
 

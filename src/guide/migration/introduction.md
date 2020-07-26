@@ -1,4 +1,4 @@
-# Introduction
+# 介绍
 
 > There's so much here! Does that mean 3.0 is completely different, I'll have to learn the basics all over again, and migrating will be practically impossible?
 
@@ -6,9 +6,9 @@ We're glad you asked! The answer is no. We've gone to great lengths to ensure mo
 
 Possibly the biggest change is our new [Composition API](/guide/composition-api-introduction.html), which is entirely additive- the previous Options API will continue to be supported, as the Composition API is an advanced feature.
 
-## Overview
+## 概览
 
-### New Features
+### 新特性
 
 Some of the new features to keep an eye on in Vue 3 include:
 
@@ -18,7 +18,7 @@ Some of the new features to keep an eye on in Vue 3 include:
 - [Emits Component Option](/guide/component-custom-events.html)
 - `createRenderer` API from `@vue/runtime-core` to create custom renderers
 
-### Breaking
+### 重大改变
 
 The following consists a list of breaking changes from 2.x:
 
@@ -40,7 +40,7 @@ The following consists a list of breaking changes from 2.x:
   - `v-leave` -> `v-leave-from`
 - [Component watch option](/api/options-data.html#watch) and [instance method `$watch`](/api/instance-methods.html#watch) no longer supports dot-delimited string paths, use a computed function as the parameter instead
 
-### Removed
+### 移除
 
 - [`keyCode` support as `v-on` modifiers](/guide/migration/keycode-modifiers.html)
 - [$on, $off and \$once instance methods](/guide/migration/events-api.html)
@@ -49,7 +49,7 @@ The following consists a list of breaking changes from 2.x:
 
 ## FAQ
 
-### Where should I start in a migration?
+### 我该从哪里开始项目迁移呢？
 
 > Migration helper is still under development
 
@@ -61,9 +61,9 @@ The following consists a list of breaking changes from 2.x:
 
 4. By now, your app should be fully migrated. If you're still hungry for more though, you can read the rest of this page - or dive in to the new and improved guide from [the beginning](#overview). Many parts will be skimmable, since you're already familiar with the core concepts.
 
-### How long will it take to migrate a Vue 2.x app to 3.0?
+### 将 Vue 2.x 应用 迁移 3.0 要花费多长时间
 
-It depends on a few factors:
+这取决于几个因素:
 
 - The size of your app (small to medium-sized apps will probably be less than a day)
 

@@ -1,6 +1,6 @@
-# The Vue Instance
+# Vue 实例
 
-## Creating a Vue Instance
+## 创建一个Vue 实例
 
 Every Vue application starts by creating a new **Vue instance** with the `createApp` function:
 
@@ -33,7 +33,7 @@ Root Instance
 
 We'll talk about [the component system](component-basics.html) in detail later. For now, just know that all Vue components are also Vue instances, and so accept the same options object (except for a few root-specific options).
 
-## Data and Methods
+## Data 和 Methods
 
 When a Vue instance is created, it adds all the properties found in its `data` to [Vue's **reactivity system**](reactivity.html). When the values of those properties change, the view will "react", updating to match the new values.
 
@@ -118,7 +118,7 @@ vm.$data.a // => 1
 
 In the future, you can consult the [API reference](../api/instance-properties.html) for a full list of instance properties and methods.
 
-## Instance Lifecycle Hooks
+## 实例声明周期钩子
 
 Each Vue instance goes through a series of initialization steps when it's created - for example, it needs to set up data observation, compile the template, mount the instance to the DOM, and update the DOM when data changes. Along the way, it also runs functions called **lifecycle hooks**, giving users the opportunity to add their own code at specific stages.
 
@@ -144,7 +144,7 @@ There are also other hooks which will be called at different stages of the insta
 Don't use [arrow functions](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions) on an options property or callback, such as `created: () => console.log(this.a)` or `vm.$watch('a', newValue => this.myMethod())`. Since an arrow function doesn't have a `this`, `this` will be treated as any other variable and lexically looked up through parent scopes until found, often resulting in errors such as `Uncaught TypeError: Cannot read property of undefined` or `Uncaught TypeError: this.myMethod is not a function`.
 :::
 
-## Lifecycle Diagram
+## 声明周期图示
 
 Below is a diagram for the instance lifecycle. You don't need to fully understand everything going on right now, but as you learn and build more, it will be a useful reference.
 

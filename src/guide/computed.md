@@ -1,4 +1,4 @@
-# Computed Properties and Watchers
+# 计算属性和侦听器
 
 ## Computed Properties
 
@@ -34,7 +34,7 @@ At this point, the template is no longer simple and declarative. You have to loo
 
 That's why for complex logic that includes reactive data, you should use a **computed property**.
 
-### Basic Example
+### 基本例子
 
 ```html
 <div id="computed-basics">
@@ -82,7 +82,7 @@ Try to change the value of `books` array in the application `data` and you will 
 
 You can data-bind to computed properties in templates just like a normal property. Vue is aware that `vm.publishedBooksMessage` depends on `vm.author.books`, so it will update any bindings that depend on `vm.publishedBooksMessage` when `vm.author.books` changes. And the best part is that we've created this dependency relationship declaratively: the computed getter function has no side effects, which makes it easier to test and understand.
 
-### Computed Caching vs Methods
+### 计算属性缓存 vs 方法
 
 You may have noticed we can achieve the same result by invoking a method in the expression:
 
@@ -115,7 +115,7 @@ In comparison, a method invocation will **always** run the function whenever a r
 
 Why do we need caching? Imagine we have an expensive computed property `list`, which requires looping through a huge array and doing a lot of computations. Then we may have other computed properties that in turn depend on `list`. Without caching, we would be executing `list`’s getter many more times than necessary! In cases where you do not want caching, use a `method` instead.
 
-### Computed Setter
+### 计算属性的Setter
 
 Computed properties are by default getter-only, but you can also provide a setter when you need it:
 
@@ -140,7 +140,7 @@ computed: {
 
 Now when you run `vm.fullName = 'John Doe'`, the setter will be invoked and `vm.firstName` and `vm.lastName` will be updated accordingly.
 
-## Watchers
+## 侦听器
 
 While computed properties are more appropriate in most cases, there are times when a custom watcher is necessary. That's why Vue provides a more generic way to react to data changes through the `watch` option. This is most useful when you want to perform asynchronous or expensive operations in response to changing data.
 
@@ -208,7 +208,7 @@ In this case, using the `watch` option allows us to perform an asynchronous oper
 
 In addition to the `watch` option, you can also use the imperative [vm.\$watch API](../api/instance-methods.html#watch).
 
-### Computed vs Watched Property
+### 计算属性 vs 侦听器
 
 Vue does provide a more generic way to observe and react to data changes on a Vue instance: **watch properties**. When you have some data that needs to change based on some other data, it is tempting to overuse `watch` - especially if you are coming from an AngularJS background. However, it is often a better idea to use a computed property rather than an imperative `watch` callback. Consider this example:
 

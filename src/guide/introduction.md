@@ -1,6 +1,11 @@
-# Introduction
+# 介绍
 
-## What is Vue.js?
+## Vue.js是什么
+
+
+Vue (读音 /vjuː/，类似于 view) 是一套用于构建用户界面的**渐进式框架**。与其它大型框架不同的是，Vue 被设计为可以自底向上逐层应用。
+Vue 的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与现代化的工具链以及各种支持类库结合使用时，Vue 也完全能够为复杂的单页应用提供驱动。
+
 
 Vue (pronounced /vjuː/, like **view**) is a **progressive framework** for building user interfaces. Unlike other monolithic frameworks, Vue is designed from the ground up to be incrementally adoptable. The core library is focused on the view layer only, and is easy to pick up and integrate with other libraries or existing projects. On the other hand, Vue is also perfectly capable of powering sophisticated Single-Page Applications when used in combination with [modern tooling](../guide/single-file-component.html) and [supporting libraries](https://github.com/vuejs/awesome-vue#components--libraries).
 
@@ -8,7 +13,7 @@ If you’d like to learn more about Vue before diving in, we <a id="modal-player
 
 If you are an experienced frontend developer and want to know how Vue compares to other libraries/frameworks, check out the [Comparison with Other Frameworks](TODO:comparison.html).
 
-## Getting Started
+## 开始
 
 <p>
   <ActionLink class="primary" url="installation.html">
@@ -24,9 +29,9 @@ The easiest way to try out Vue.js is using the [Hello World example](https://cod
 
 The [Installation](installation.md) page provides more options of installing Vue. Note: We **do not** recommend that beginners start with `vue-cli`, especially if you are not yet familiar with Node.js-based build tools.
 
-## Declarative Rendering
+## 声明式渲染
 
-At the core of Vue.js is a system that enables us to declaratively render data to the DOM using straightforward template syntax:
+Vue.js 的核心是一个允许采用简洁的模板语法来声明式地将数据渲染进 DOM 的系统：
 
 ```html
 <div id="hello-vue">
@@ -87,7 +92,7 @@ Vue.createApp(AttributeBindingApp).mount('#bind-attribute')
 
 Here we're encountering something new. The `v-bind` attribute you're seeing is called a **directive**. Directives are prefixed with `v-` to indicate that they are special attributes provided by Vue, and as you may have guessed, they apply special reactive behavior to the rendered DOM. Here we are basically saying "_keep this element's `title` attribute up-to-date with the `message` property on the Vue instance._"
 
-## Handling User Input
+## 处理用户输入
 
 To let users interact with your app, we can use the `v-on` directive to attach event listeners that invoke methods on our Vue instances:
 
@@ -155,7 +160,7 @@ Vue.createApp(TwoWayBindingApp).mount('#two-way-binding')
 </p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-## Conditionals and Loops
+## 条件与循环
 
 It's easy to toggle the presence of an element, too:
 
@@ -223,7 +228,7 @@ Vue.createApp(ListRenderingApp).mount('#list-rendering')
 </p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-## Composing with Components
+## 组件化应用构建
 
 The component system is another important concept in Vue, because it's an abstraction that allows us to build large-scale applications composed of small, self-contained, and often reusable components. If we think about it, almost any type of application interface can be abstracted into a tree of components:
 
@@ -326,7 +331,7 @@ In a large application, it is necessary to divide the whole app into components 
 </div>
 ```
 
-### Relation to Custom Elements
+### 与自定义元素的关系
 
 You may have noticed that Vue components are very similar to **Custom Elements**, which are part of the [Web Components Spec](https://www.w3.org/wiki/WebComponents/). That's because Vue's component syntax is loosely modeled after the spec. For example, Vue components implement the [Slot API](https://github.com/w3c/webcomponents/blob/gh-pages/proposals/Slots-Proposal.md) and the `is` special attribute. However, there are a few key differences:
 
@@ -338,6 +343,6 @@ You may have noticed that Vue components are very similar to **Custom Elements**
 
 Although Vue doesn't use custom elements internally, it has [great interoperability](https://custom-elements-everywhere.com/#vue) when it comes to consuming or distributing as custom elements. Vue CLI also supports building Vue components that register themselves as native custom elements.
 
-## Ready for More?
+## 准备好了吗？
 
-We've briefly introduced the most basic features of Vue.js core - the rest of this guide will cover them and other advanced features with much finer details, so make sure to read through it all!
+我们刚才简单介绍了 Vue 核心最基本的功能——本教程的其余部分将更加详细地涵盖这些功能以及其它高级功能，所以请务必读完整个教程！

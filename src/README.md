@@ -2,13 +2,13 @@
 home: true
 heroImage: /logo.png
 heroText: Vue.js
-tagline: The Progressive<br> JavaScript Framework
+tagline: 渐进式<br> JavaScript 框架
 actionButtons:
   - text: Why Vue.js?
     link: /
     extraClass: vuemastery-trigger primary
     icon: fa fa-play-circle
-  - text: Get Started
+  - text: 开始
     link: /guide/introduction
   - text: GitHub
     link: https://github.com/vuejs/vue

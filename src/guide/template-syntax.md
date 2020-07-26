@@ -1,4 +1,4 @@
-# Template Syntax
+# 模板语法
 
 Vue.js uses an HTML-based template syntax that allows you to declaratively bind the rendered DOM to the underlying Vue instance's data. All Vue.js templates are valid HTML that can be parsed by spec-compliant browsers and HTML parsers.
 

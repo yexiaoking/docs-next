@@ -1,4 +1,10 @@
-# v3.vuejs.org
+# Vue-next 中文文档翻译项目
+
+## 特性
+
+- 支持i18n
+- 同步官方英文文档
+- 默认为中文文档
 
 This site is built with [VuePress](https://vuepress.vuejs.org/). Site content is written in Markdown format located in `src`.
 
@@ -13,7 +19,7 @@ See the [Vue Docs Writing Guide](https://v3.vuejs.org/guide/writing-guide.html) 
 1. Clone repository
 
 ```bash
-git clone git@github.com:vuejs/docs-next.git
+git clone git@github.com:veaba/docs-next.git
 ```
 
 2. Install dependencies
@@ -31,3 +37,10 @@ yarn serve
 ## Deploying
 
 The site is automatically deployed when commits land in `master`, via [Netlify](https://www.netlify.com/).
+
+
+## 参考
+
+- 原 [vue2 中文文档](https://cn.vuejs.org)
+- 原[vue 2 英文文档](https://vuejs.org)
+- 原[vue 3 英文文档](https://v3.vuejs.org)
