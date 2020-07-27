@@ -125,7 +125,7 @@ module.exports = {
       ]
     },
     {
-      title: 'Contribute to the Docs',
+      title: '贡献文档',
       collapsable: true,
       children: [
         'contributing/writing-guide',

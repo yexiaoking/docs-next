@@ -1,11 +1,11 @@
-# Translations
+# 翻译
 
-Vue has spread across the globe, with the core team being in at least half a dozen different timezones. [The forum](https://forum.vuejs.org/) includes 7 languages and counting and many of our docs have [actively-maintained translations](https://github.com/vuejs?utf8=%E2%9C%93&q=vuejs.org). We'are very proud of Vue's international reach, but we can do even better.
+Vue已经遍布全球，核心团队至少在6个不同的时区。 [论坛](https://forum.vuejs.org/) 包括7种语言和计数，我们的许多文档 [积极维护翻译](https://github.com/vuejs?utf8=%E2%9C%93&q=vuejs.org). 我们为Vue的国际影响力感到骄傲，但我们可以做得更好。
 
-## Can we start translating Vue 3 docs?
+## 我们可以开始翻译Vue 3 文档了吗？
 
-At this time, the Vue 3 docs are still in beta and subject to changes at any time. As a result, we would caution against any significant work since we are still collecting feedback and rewriting it as needed. When the docs are in release candidate phase, we will make sure to make an announcement so you can get started!
+目前，VUE3文档仍处于测试阶段，随时可能更改。因此，我们会谨慎对待任何重要的工作，因为我们仍在收集反馈，并根据需要重新编写。当文档处于发布候选阶段时，我们将确保发布公告，以便您可以开始使用！
 
-## How can I get involved with translations?
+## 我如何参与翻译？
 
-The best way to get started is to check out [this pinned issue for Vuejs.org](https://github.com/vuejs/vuejs.org/issues/2015) that contains active discussions on the various initiatives happening in the community.
+开始的最好方法是检查 [此处固定 issues Vuejs.org](https://github.com/vuejs/vuejs.org/issues/2015) 其中包含了对社区内各种倡议的积极讨论。

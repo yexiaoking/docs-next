@@ -13,7 +13,7 @@
 Vue 3中需要关注的一些新功能包括：
 
 - [Composition API](/guide/composition-api-introduction.html)
-- [传送]](/guide/teleport.html)
+- [传送](/guide/teleport.html)
 - [Fragments](/guide/migration/fragments.html)
 - [Emits 组件选项](/guide/component-custom-events.html)
 - `createRenderer` API 从 `@vue/runtime-core` 创建自定义渲染器
@@ -23,7 +23,7 @@ Vue 3中需要关注的一些新功能包括：
 下面列出了从2.x开始的重大更改:
 
 - [全局Vue API已更改为使用应用程序实例](/guide/migration/global-api.html)
-- [全局和内部api已经被重构为tree-shakable的](/guide/migration/global-api-treeshaking.html)
+- [全局和内部api已经被重构为可tree-shakable](/guide/migration/global-api-treeshaking.html)
 - [`model` 组件选项和`v-bind`'s `sync` 更改和移除为了`v-model` arguments](/guide/migration/v-model.html)
 - [渲染函数 API 改变](/guide/migration/render-function-api.html)
 - [只能使用普通函数创建功能组件](/guide/migration/functional-components.html)
@@ -56,12 +56,9 @@ Vue 3中需要关注的一些新功能包括：
 1. 从运行 [迁移助手](https://github.com/vuejs/vue-migration-helper) 在当前项目. 我们仔细缩小了一个高级Vue dev并将其压缩到一个简单的命令行界面中。每当他们发现一个过时的功能，他们会让你知道，提供建议，并提供更多信息的链接。
 
 
-
 2. 之后，在侧边栏中浏览此页面的目录。如果您看到一个可能会影响您的主题，但是迁移帮助程序没有捕捉到，请查看它。
 
 3. 如果你有任何测试，运行它们看看还有什么失败。如果没有测试，只需在浏览器中打开应用程序，并在导航时留意警告或错误。
-
-4. By now, your app should be fully migrated. If you're still hungry for more though, you can read the rest of this page - or dive in to the new and improved guide from [the beginning](#overview). Many parts will be skimmable, since you're already familiar with the core concepts.
 
 4. 现在，你的应用程序应该已经完全迁移了。如果你仍然渴望更多，你可以阅读本页的其余部分，或者从[开始](#overview) 阅读新的和改进的指南。由于您已经熟悉了核心概念，所以许多部分都可以略读。
 

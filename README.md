@@ -39,8 +39,17 @@ yarn serve
 The site is automatically deployed when commits land in `master`, via [Netlify](https://www.netlify.com/).
 
 
+
+## 翻译规范
+
+- [术语翻译约定](https://github.com/vuejs/cn.vuejs.org/wiki)
+
+
+
 ## 参考
 
 - 原 [vue2 中文文档](https://cn.vuejs.org)
 - 原[vue 2 英文文档](https://vuejs.org)
 - 原[vue 3 英文文档](https://v3.vuejs.org)
+
+

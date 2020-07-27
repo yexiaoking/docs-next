@@ -1,4 +1,4 @@
-# Documentation Style Guide
+# 文档风格指南
 
 This guide will provide an overview of different design elements that are available for your use in creating documentation.
 

@@ -1,28 +1,28 @@
-# Custom Directives
+# 自定义指令
 
-## Overview
+## 概览
 
-Here is a quick summary of what has changed:
+下面是对变更的简要总结:
 
-- API has been renamed to better align with component lifecycle
-- Custom directives will be controlled by child component via `v-bind="$attrs"`
+- API已重命名，以便更好地与组件生命周期保持一致
+- 自定义指令将由子组件通过 `v-bind="$attrs"`
 
-For more information, read on!
+更多信息，请继续阅读！
 
-## 2.x Syntax
+## 2.x 语法
 
-In Vue 2, custom directives were created by using the hooks listed below to target an element’s lifecycle, all of which are optional:
+在 Vue 2, 自定义指令是通过使用下面列出的钩子来创建的，这些钩子都是可选的
 
-- **bind** - Occurs once the directive is bound to the element. Occurs only once.
-- **inserted** - Occurs once the element is inserted into the parent DOM.
-- **update** - This hook is called when the element updates, but children haven't been updated yet.
-- **componentUpdated** - This hook is called once the component and the children have been updated.
-- **unbind** - This hook is called once the directive is removed. Also called only once.
+- **bind** - 指令绑定到元素后发生。只发生一次。
+- **inserted** - 元素插入父DOM后发生。
+- **update** - 当元素更新，但子元素尚未更新时，将调用此钩子。
+- **componentUpdated** - 一旦组件和子级被更新，就会调用这个钩子。
+- **unbind** - 一旦指令被移除，就会调用这个钩子。也只调用一次。
 
-Here’s an example of this:
+下面是一个例子：
 
 ```html
-<p v-highlight="yellow">Highlight this text bright yellow</p>
+<p v-highlight="yellow">高亮显示此文本亮黄色</p>
 ```
 
 ```js
@@ -33,21 +33,21 @@ Vue.directive('highlight', {
 })
 ```
 
-Here, in the initial setup for this element, the directive binds a style by passing in a value, that can be updated to different values through the application.
+在这里，在这个元素的初始设置中，指令通过传递一个值来绑定样式，该值可以通过应用程序更新为不同的值。
 
-## 3.x Syntax
+## 3.x 语法
 
-In Vue 3, however, we’ve created a more cohesive API for custom directives. As you can see, they differ greatly from our component lifecycle methods even though we’re hooking into similar events. We’ve now unified them like so:
+然而，在Vue 3 中，我们为自定义指令创建了一个更具凝聚力的API。正如你所看到的，它们与我们的组件生命周期方法有很大的不同，即使我们正与类似的事件挂钩，我们现在把它们统一起来了：
 
 - bind → **beforeMount**
 - inserted → **mounted**
-- **beforeUpdate**: new! this is called before the element itself is updated, much like the component lifecycle hooks.
-- update → removed! There were too many similarities to updated, so this is redundant. Please use updated instead.
+- **beforeUpdate**:<sup style="color:green">新的！</sup>这是在元素本身更新之前调用的，很像组件生命周期挂钩
+- update → <sup style="color:red">移除！</sup>有太多的相似之处要更新，所以这是多余的，请改用`updated`
 - componentUpdated → **updated**
-- **beforeUnmount** new! similar to component lifecycle hooks, this will be called right before an element is unmounted.
+- **beforeUnmount** <sup style="color:green">新的！</sup> 与组件生命周期钩子类似，它将在卸载元素之前调用。
 - unbind -> **unmounted**
 
-The final API is as follows:
+最终API如下：
 
 ```js
 const MyDirective = {
@@ -55,15 +55,15 @@ const MyDirective = {
   mounted() {},
   beforeUpdate() {},
   updated() {},
-  beforeUnmount() {}, // new
+  beforeUnmount() {}, // 新
   unmounted() {}
 }
 ```
 
-The resulting API could be used like this, mirroring the example from earlier:
+生成的API可以这样使用，与前面的示例相同：
 
 ```html
-<p v-highlight="yellow">Highlight this text bright yellow</p>
+<p v-highlight="yellow">高亮显示此文本亮黄色</p>
 ```
 
 ```js
@@ -76,11 +76,11 @@ app.directive('highlight', {
 })
 ```
 
-Now that the custom directive lifecycle hooks mirror those of the components themselves, they become easier to reason about and remember!
+既然定制指令生命周期钩子映射了组件本身的那些，那么它们就更容易推理和记住了！
 
-## Implementation Details
+## 实施细节
 
-In Vue 3, we're now supporting fragments, which allow us to return more than one DOM node per component. You can imagine how handy that is for something like a component with multiple lis or the children elements of a table:
+在 Vue 3中，我们现在支持片段，这允许我们为每个组件返回多个DOM节点。您可以想象，对于具有多个lis的组件或一个表的子元素这样的组件有多方便：
 
 ```html
 <template>
@@ -90,14 +90,14 @@ In Vue 3, we're now supporting fragments, which allow us to return more than one
 </template>
 ```
 
-As wonderfully flexible as this is, we can potentially encounter a problem with a custom directive that could have multiple root nodes.
+如此灵活，我们可能会遇到一个定制指令的问题，它可能有多个根节点。
 
-As a result, custom directives are now included as part of a virtual DOM node’s data. When a custom directive is used on a component, hooks are passed down to the component as extraneous props and end up in `this.$attrs`.
+因此，自定义指令现在作为虚拟DOM节点数据的一部分包含在内。当在组件上使用自定义指令时，钩子作为无关的道具传递到组件，并以 `this.$attrs`结束。
 
-This also means it's possible to directly hook into an element's lifecycle like this in the template, which can be handy when a custom directive is too involved:
+这也意味着可以像这样在模板中直接挂接到元素的生命周期中，这在涉及到自定义指令时非常方便：
 
 ```html
 <div @vnodeMounted="myHook" />
 ```
 
-This is consistent with the attribute fallthrough behavior, so when a child component uses `v-bind="$attrs"` on an inner element, it will apply any custom directives used on it as well.
+这与属性fallthrough行为是一致的，因此，当子组件在内部元素上使用 `v-bind="$attrs"` 时，它也将应用对其使用的任何自定义指令。

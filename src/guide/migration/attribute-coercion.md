@@ -1,33 +1,33 @@
-# Attribute Coercion Behavior
+# attribute强制行为
 
-::: info Info
-This is a low-level internal API change and does not affect most developers.
+::: info 信息
+这是一个低级的内部API更改，不会影响大多数开发人员。
 :::
 
-## Overview
+## 概览
 
-Here is a high level summary of the changes:
+下面是对这些变化的高层次总结:
 
-- Drop the internal concept of enumerated attributes and treat those attributes the same as normal non-boolean attributes
-- **BREAKING**: No longer removes attribute if value is boolean `false`. Instead, it's set as attr="false" instead. To remove the attribute, use `null` or `undefined`.
+- 删除枚举attribute的内部概念，并将这些attribute视为普通的非布尔attribute
+- **重大改变**: 如果值为布尔值，则不再删除attribute `false`. 相反，它被设置为attr="false"。移除attribute, 使用 `null` 或者 `undefined`.
 
 For more information, read on!
 
-## 2.x Syntax
+## 2.x 语法
 
-In 2.x, we had the following strategies for coercing `v-bind` values:
+在 2.x, 我们有以下策略来强制`v-bind`的值:
 
-- For some attribute/element pairs, Vue is always using the corresponding IDL attribute (property): [like `value` of `<input>`, `<select>`, `<progress>`, etc](https://github.com/vuejs/vue/blob/bad3c326a3f8b8e0d3bcf07917dc0adf97c32351/src/platforms/web/util/attrs.js#L11-L18).
+- 对于某些attribute/元素对，Vue始终使用相应的IDL attribute（property）: [比如 `value` 的 `<input>`, `<select>`, `<progress>`, 等等](https://github.com/vuejs/vue/blob/bad3c326a3f8b8e0d3bcf07917dc0adf97c32351/src/platforms/web/util/attrs.js#L11-L18).
 
-- For "[boolean attributes](https://github.com/vuejs/vue/blob/bad3c326a3f8b8e0d3bcf07917dc0adf97c32351/src/platforms/web/util/attrs.js#L33-L40)" and [xlinks](https://github.com/vuejs/vue/blob/bad3c326a3f8b8e0d3bcf07917dc0adf97c32351/src/platforms/web/util/attrs.js#L44-L46), Vue removes them if they are "falsy" ([`undefined`, `null` or `false`](https://github.com/vuejs/vue/blob/bad3c326a3f8b8e0d3bcf07917dc0adf97c32351/src/platforms/web/util/attrs.js#L52-L54)) and adds them otherwise (see [here](https://github.com/vuejs/vue/blob/bad3c326a3f8b8e0d3bcf07917dc0adf97c32351/src/platforms/web/runtime/modules/attrs.js#L66-L77) and [here](https://github.com/vuejs/vue/blob/bad3c326a3f8b8e0d3bcf07917dc0adf97c32351/src/platforms/web/runtime/modules/attrs.js#L81-L85)).
+- 对于 “[布尔attribute](https://github.com/vuejs/vue/blob/bad3c326a3f8b8e0d3bcf07917dc0adf97c32351/src/platforms/web/util/attrs.js#L33-L40)” 和 [xlinks](https://github.com/vuejs/vue/blob/bad3c326a3f8b8e0d3bcf07917dc0adf97c32351/src/platforms/web/util/attrs.js#L44-L46), 如果它们是 `falsy` 的，Vue会移除它们 ([`undefined`, `null` or `false`](https://github.com/vuejs/vue/blob/bad3c326a3f8b8e0d3bcf07917dc0adf97c32351/src/platforms/web/util/attrs.js#L52-L54))另外加上它们 (见 [这里](https://github.com/vuejs/vue/blob/bad3c326a3f8b8e0d3bcf07917dc0adf97c32351/src/platforms/web/runtime/modules/attrs.js#L66-L77) 和 [这里](https://github.com/vuejs/vue/blob/bad3c326a3f8b8e0d3bcf07917dc0adf97c32351/src/platforms/web/runtime/modules/attrs.js#L81-L85)).
 
-- For "[enumerated attributes](https://github.com/vuejs/vue/blob/bad3c326a3f8b8e0d3bcf07917dc0adf97c32351/src/platforms/web/util/attrs.js#L20)" (currently `contenteditable`, `draggable` and `spellcheck`), Vue tries to [coerce](https://github.com/vuejs/vue/blob/bad3c326a3f8b8e0d3bcf07917dc0adf97c32351/src/platforms/web/util/attrs.js#L24-L31) them to string (with special treatment for `contenteditable` for now, to fix [vuejs/vue#9397](https://github.com/vuejs/vue/issues/9397)).
+- 对于 "[枚举attribute](https://github.com/vuejs/vue/blob/bad3c326a3f8b8e0d3bcf07917dc0adf97c32351/src/platforms/web/util/attrs.js#L20)" (目前 `contenteditable`, `draggable` 和 `spellcheck`), Vue会尝试 [强制](https://github.com/vuejs/vue/blob/bad3c326a3f8b8e0d3bcf07917dc0adf97c32351/src/platforms/web/util/attrs.js#L24-L31) 将它们串起来 （目前对`contenteditable` 做了特殊处理, 修复 [vuejs/vue#9397](https://github.com/vuejs/vue/issues/9397)).
 
-- For other attributes, we remove "falsy" values (`undefined`, `null`, or `false`) and set other values as-is (see [here](https://github.com/vuejs/vue/blob/bad3c326a3f8b8e0d3bcf07917dc0adf97c32351/src/platforms/web/runtime/modules/attrs.js#L92-L113)).
+-  对于其他attribute,我们移除了 `falsy` 值 (`undefined`, `null`, or `false`) 并按原样设置其他值 (见 [这里](https://github.com/vuejs/vue/blob/bad3c326a3f8b8e0d3bcf07917dc0adf97c32351/src/platforms/web/runtime/modules/attrs.js#L92-L113)).
 
-The following table describes how Vue coerce "enumerated attributes" differently with normal non-boolean attributes:
+下表描述了Vue如何使用普通非布尔attribute强制“枚举attribute”：
 
-| Binding expression       | `foo` <sup>normal</sup> | `draggable` <sup>enumerated</sup> |
+| 绑定表达式           | `foo` <sup>正常</sup> | `draggable` <sup>枚举</sup> |
 | ------------------- | ----------------------- | --------------------------------- |
 | `:attr="null"`      | /                       | `draggable="false"`               |
 | `:attr="undefined"` | /                       | /                                 |
@@ -38,22 +38,25 @@ The following table describes how Vue coerce "enumerated attributes" differently
 | `attr="foo"`        | `foo="foo"`             | `draggable="true"`                |
 | `attr`              | `foo=""`                | `draggable="true"`                |
 
-We can see from the table above, current implementation coerces `true` to `'true'` but removes the attribute if it's `false`. This also led to inconsistency and required users to manually coerce boolean values to string in very common use cases like `aria-*` attributes like `aria-selected`, `aria-hidden`, etc.
+从上表可以看出, 当前实现 `true` 强制为 `'true'` 但如果 attribute 为`false`，则移除该attribute. 这也导致了不一致性，并要求用户在非常常见的用例中手动强制布尔值为字符串，例如
+ `aria-*` attribute 像 `aria-selected`, `aria-hidden`, 等等.
 
-## 3.x Syntax
+## 3.x 语法
 
-We intend to drop this internal concept of "enumerated attributes" and treat them as normal non-boolean HTML attributes.
+我们打算放弃 “枚举attribute” 的内部概念，并将它们视为普通的非布尔HTML attribute。
 
-- This solves the inconsistency between normal non-boolean attributes and “enumerated attributes”
-- It also makes it possible to use values other than `'true'` and `'false'`, or even keywords yet to come, for attributes like `contenteditable`
+- 这解决了普通非布尔attribute和 “枚举attribute” 之间的不一致性
+- 它还可以使用 `'true'` 和 `'false'` 以外的值，甚至可以使用 `contenteditable`等attribute的关键字`
 
-For non-boolean attributes, Vue will stop removing them if they are `false` and coerce them to `'false'` instead.
 
-- This solves the inconsistency between `true` and `false` and makes outputting `aria-*` attributes easier
+对于非布尔attribute，如果attribute为 `false` ，Vue将停止删除它们，相反强制它们为 `'false'` 。
 
-The following table describes the new behavior:
 
-| Binding expression       | `foo` <sup>normal</sup>    | `draggable` <sup>enumerated</sup> |
+- 这解决了 `true` 和 `false` 之间的不一致性，并使输出 `aria-*` attributes更容易
+
+下表描述了新行为:
+
+| 绑定表达式       | `foo` <sup>正常</sup>    | `draggable` <sup>枚举</sup> |
 | ------------------- | -------------------------- | --------------------------------- |
 | `:attr="null"`      | /                          | / <sup>†</sup>                    |
 | `:attr="undefined"` | /                          | /                                 |
@@ -64,44 +67,45 @@ The following table describes the new behavior:
 | `attr="foo"`        | `foo="foo"`                | `draggable="foo"` <sup>†</sup>    |
 | `attr`              | `foo=""`                   | `draggable=""` <sup>†</sup>       |
 
-<small>†: changed</small>
+<small>†: 变更</small>
 
-Coercion for boolean attributes is left untouched.
+布尔attributes的强制保持不变。
 
-## Migration Strategy
+## 迁移策略
 
-### Enumerated attributes
+### 枚举attribute
 
-The absence of an enumerated attribute and `attr="false"` may produce different IDL attribute values (which will reflect the actual state), described as follows:
+缺少枚举attribute和 `attr="false"` 可能会产生不同的IDL attribute值（将反映实际状态），描述如下：
 
-| Absent enumerated attr | IDL attr & value                     |
+| 缺少枚举attr | IDL attr & 值                     |
 | ---------------------- | ------------------------------------ |
 | `contenteditable`      | `contentEditable` &rarr; `'inherit'` |
 | `draggable`            | `draggable` &rarr; `false`           |
 | `spellcheck`           | `spellcheck` &rarr; `true`           |
 
-To keep the old behavior work, and as we will be coercing `false` to `'false'`, in 3.x Vue developers need to make `v-bind` expression resolve to `false` or `'false'` for `contenteditable` and `spellcheck`.
 
-In 2.x, invalid values were coerced to `'true'` for enumerated attributes. This was usually unintended and unlikely to be relied upon on a large scale. In 3.x `true` or `'true'` should be explicitly specified.
+为了保持原有的行为，并且我们将强制使用 `false` 为 `'false'`，在3.x Vue中，开发人员需要将 `v-bind` 表达式解析为 `false` 或 `'false'`，表示 `contenteditable` 和 `spellcheck` 。
 
-### Coercing `false` to `'false'` instead of removing the attribute
+在2.x中，枚举attribute的无效值被强制为 `'true'` 。这通常是无意的，不太可能大规模依赖。在3.x中，应显式指定 `true` 或 `'true'` 。
 
-In 3.x, `null` or `undefined` should be used to explicitly remove an attribute.
+### 将`false` 强制为 `'false'` 而不是删除attribute
 
-### Comparison between 2.x & 3.x behavior
+在 3.x, `null` 或 `undefined` 应用于显式删除attribute。
+
+### 2.x和3.x行为的比较
 
 <table>
   <thead>
     <tr>
-      <th>Attribute</th>
+      <th>Attributes</th>
       <th><code>v-bind</code> value <sup>2.x</sup></th>
       <th><code>v-bind</code> value <sup>3.x</sup></th>
-      <th>HTML output</th>
+      <th>HTML 输出</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td rowspan="3">2.x “Enumerated attrs”<br><small>i.e. <code>contenteditable</code>, <code>draggable</code> and <code>spellcheck</code>.</small></td>
+      <td rowspan="3">2.x “枚举attribute”<br><small>i.e. <code>contenteditable</code>, <code>draggable</code> and <code>spellcheck</code>.</small></td>
       <td><code>undefined</code>, <code>false</code></td>
       <td><code>undefined</code>, <code>null</code></td>
       <td><i>removed</i></td>
@@ -120,7 +124,7 @@ In 3.x, `null` or `undefined` should be used to explicitly remove an attribute.
       <td><code>"false"</code></td>
     </tr>
     <tr>
-      <td rowspan="2">Other non-boolean attrs<br><small>eg. <code>aria-checked</code>, <code>tabindex</code>, <code>alt</code>, etc.</small></td>
+      <td rowspan="2">其他非布尔attribute<br><small>eg. <code>aria-checked</code>, <code>tabindex</code>, <code>alt</code>, etc.</small></td>
       <td><code>undefined</code>, <code>null</code>, <code>false</code></td>
       <td><code>undefined</code>, <code>null</code></td>
       <td><i>removed</i></td>

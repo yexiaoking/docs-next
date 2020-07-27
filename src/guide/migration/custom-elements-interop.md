@@ -3,15 +3,15 @@ types:
   - breaking
 ---
 
-# Custom Elements Interop changes <span v-for="type in $frontmatter.types" class="badge" :key="`type-${type}`">{{ type }}</span>
+# 自定义元素交互变更 <span v-for="type in $frontmatter.types" class="badge" :key="`type-${type}`">{{ type }}</span>
 
-# Overview
+# 概览
 
 - **BREAKING:** Custom elements whitelisting is now performed during template compilation, and should be configured via compiler options instead of runtime config.
 - **BREAKING:** Special `is` prop usage is restricted to the reserved `<component>` tag only.
 - **NEW:** There is new `v-is` directive to support 2.x use cases where `is` was used on native elements to work around native HTML parsing restrictions.
 
-## Autonomous Custom Elements
+## 自主定制元素
 
 If we want to add a custom element defined outside of Vue (e.g. using the Web Components API), we need to 'instruct' Vue to treat it as a custom element. Let's use the following template as an example.
 
@@ -19,7 +19,7 @@ If we want to add a custom element defined outside of Vue (e.g. using the Web Co
 <plastic-button></plastic-button>
 ```
 
-### 2.x Syntax
+### 2.x 语法
 
 In Vue 2.x, whitelisting tags as custom elements was done via `Vue.config.ignoredElements`:
 
@@ -30,7 +30,7 @@ In Vue 2.x, whitelisting tags as custom elements was done via `Vue.config.ignore
 Vue.config.ignoredElements = ['plastic-button']
 ```
 
-### 3.x Syntax
+### 3.x 语法
 
 **In Vue 3.0, this check is performed during template compilation.** To instruct the compiler to treat `<plastic-button>` as a custom element:
 
@@ -61,7 +61,7 @@ Vue.config.ignoredElements = ['plastic-button']
 
   It's important to note the runtime config only affects runtime template compilation - it won't affect pre-compiled templates.
 
-## Customized Built-in Elements
+## 定制内置元素
 
 The Custom Elements specification provides a way to use custom elements as [Customized Built-in Element](https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements-customized-builtin-example) by adding the `is` attribute to a built-in element:
 
@@ -96,12 +96,12 @@ In 3.0, we are limiting Vue's special treatment of the `is` prop to the `<compon
     document.createElement('button', { is: 'plastic-button' })
     ```
 
-## `v-is` for In-DOM Template Parsing Workarounds
+## `v-is` 用于DOM内模板解析解决方案
 
 > Note: this section only affects cases where Vue templates are directly written in the page's HTML.
 > When using in-DOM templates, the template is subject to native HTML parsing rules. Some HTML elements, such as `<ul>`, `<ol>`, `<table>` and `<select>` have restrictions on what elements can appear inside them, and some elements such as `<li>`, `<tr>`, and `<option>` can only appear inside certain other elements.
 
-### 2x Syntax
+### 2x 语法
 
 In Vue 2 we recommended working around with these restrictions by using the `is` prop on a native tag:
 
@@ -111,7 +111,7 @@ In Vue 2 we recommended working around with these restrictions by using the `is`
 </table>
 ```
 
-### 3.x Syntax
+### 3.x 语法
 
 With the behavior change of `is`, we introduce a new directive `v-is` for working around these cases:
 
@@ -121,7 +121,7 @@ With the behavior change of `is`, we introduce a new directive `v-is` for workin
 </table>
 ```
 
-:::warning
+::: warning
 `v-is` functions like a dynamic 2.x `:is` binding - so to render a component by its registered name, its value should be a JavaScript string literal:
 
 ```html
@@ -134,7 +134,7 @@ With the behavior change of `is`, we introduce a new directive `v-is` for workin
 
 :::
 
-## Migration Strategy
+## 迁移策略
 
 - Replace `config.ignoredElements` with either `vue-loader`'s `compilerOptions` (with the build step) or `app.config.isCustomElement` (with on-the-fly template compilation)
 
