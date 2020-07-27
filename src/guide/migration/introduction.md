@@ -1,76 +1,80 @@
 # 介绍
 
-> There's so much here! Does that mean 3.0 is completely different, I'll have to learn the basics all over again, and migrating will be practically impossible?
+> 这里有这么多东西！这是否意味着3.0是完全不同的，我必须重新学习基础知识，而迁移实际上是不可能的？
 
-We're glad you asked! The answer is no. We've gone to great lengths to ensure most of the API is the same and the core concepts haven't changed. It's long because we like to offer very detailed explanations and include a lot of examples. Rest assured, **this is not something you have to read from top to bottom!**
+很高兴你这么问！ 答案是不。我们已经尽了很大的努力来确保大部分API是相同的，核心概念没有改变。它很长，因为我们喜欢提供非常详细的解释和包括很多例子。放心。**这不是你必须从头开始阅读的东西**
 
-Possibly the biggest change is our new [Composition API](/guide/composition-api-introduction.html), which is entirely additive- the previous Options API will continue to be supported, as the Composition API is an advanced feature.
+我们最大的改变可能是新的 [Composition API](/guide/composition-api-introduction.html), 这完全是附加的-前面的选项API将继续受到支持，因为组合API是一个高级特性。
 
 ## 概览
 
 ### 新特性
 
-Some of the new features to keep an eye on in Vue 3 include:
+Vue 3中需要关注的一些新功能包括：
 
 - [Composition API](/guide/composition-api-introduction.html)
-- [Teleport](/guide/teleport.html)
+- [传送]](/guide/teleport.html)
 - [Fragments](/guide/migration/fragments.html)
-- [Emits Component Option](/guide/component-custom-events.html)
-- `createRenderer` API from `@vue/runtime-core` to create custom renderers
+- [Emits 组件选项](/guide/component-custom-events.html)
+- `createRenderer` API 从 `@vue/runtime-core` 创建自定义渲染器
 
 ### 重大改变
 
-The following consists a list of breaking changes from 2.x:
+下面列出了从2.x开始的重大更改:
 
-- [Global Vue API is changed to use an application instance](/guide/migration/global-api.html)
-- [Global and internal APIs have been restructured to be tree-shakable](/guide/migration/global-api-treeshaking.html)
-- [`model` component option and `v-bind`'s `sync` modifier are removed in favor of `v-model` arguments](/guide/migration/v-model.html)
-- [Render function API changed](/guide/migration/render-function-api.html)
-- [Functional components can only be created using a plain function](/guide/migration/functional-components.html)
-- [`functional` attribute on single-file component (SFC) `<template>` and `functional` component option are deprecated](/guide/migration/functional-components.html)
-- [Async components now require `defineAsyncComponent` method to be created](/guide/migration/async-components.html)
-- [Component data option should always be declared as a function](/guide/migration/data-option.html)
-- [Custom elements whitelisting is now performed during template compilation](/guide/migration/custom-elements-interop.html)
-- [Special `is` prop usage is restricted to the reserved `<component>` tag only](/guide/migration/custom-elements-interop.html)
-- [`$scopedSlots` property is removed and need to be replaced with `$slots`](/guide/migration/slots-unification.html)
-- [Attributes coercion strategy changed](/guide/migration/attribute-coercion.html)
-- [Custom directive API changed to align with component lifecycle](/guide/migration/custom-directives.html)
-- Some transition classes got a rename:
+- [全局Vue API已更改为使用应用程序实例](/guide/migration/global-api.html)
+- [全局和内部api已经被重构为tree-shakable的](/guide/migration/global-api-treeshaking.html)
+- [`model` 组件选项和`v-bind`'s `sync` 更改和移除为了`v-model` arguments](/guide/migration/v-model.html)
+- [渲染函数 API 改变](/guide/migration/render-function-api.html)
+- [只能使用普通函数创建功能组件](/guide/migration/functional-components.html)
+- [`functional` 属性在单文件组件 (SFC) `<template>` 和 `functional` 组件选项被抛弃](/guide/migration/functional-components.html)
+- [异步组件现在需要`defineAsyncComponent` 方法来创建](/guide/migration/async-components.html)
+- [组件数据选项应始终声明为函数](/guide/migration/data-option.html)
+- [自定义元素白名单现在在模板编译期间执行](/guide/migration/custom-elements-interop.html)
+- [特殊的 `is` prop 用法仅限于保留 `<component>` tag ](/guide/migration/custom-elements-interop.html)
+- [`$scopedSlots` 属性已删除，需要替换为 `$slots`](/guide/migration/slots-unification.html)
+- [属性强制策略已更改](/guide/migration/attribute-coercion.html)
+- [自定义指令API已更改为与组件生命周期一致](/guide/migration/custom-directives.html)
+- 一些转换class被重命名了:
   - `v-enter` -> `v-enter-from`
   - `v-leave` -> `v-leave-from`
-- [Component watch option](/api/options-data.html#watch) and [instance method `$watch`](/api/instance-methods.html#watch) no longer supports dot-delimited string paths, use a computed function as the parameter instead
+- [组件watch 选项](/api/options-data.html#watch) 和 [实例方法 `$watch`](/api/instance-methods.html#watch) 不再支持点分隔字符串路径，请改用计算函数作为参数
 
 ### 移除
 
-- [`keyCode` support as `v-on` modifiers](/guide/migration/keycode-modifiers.html)
-- [$on, $off and \$once instance methods](/guide/migration/events-api.html)
+- [`keyCode` 支持像 `v-on` 修饰](/guide/migration/keycode-modifiers.html)
+- [$on, $off and \$once 实例方法](/guide/migration/events-api.html)
 - [Filters](/guide/migration/filters.html)
-- [Inline templates attributes](/guide/migration/inline-template-attribute.html)
+- [内链模板属性](/guide/migration/inline-template-attribute.html)
 
 ## FAQ
 
 ### 我该从哪里开始项目迁移呢？
 
-> Migration helper is still under development
+> 迁移助手仍在开发中
 
-1. Start by running the [migration helper](https://github.com/vuejs/vue-migration-helper) on a current project. We've carefully minified and compressed a senior Vue dev into a simple command line interface. Whenever they recognize an obsolete feature, they'll let you know, offer suggestions, and provide links to more info.
+1. 从运行 [迁移助手](https://github.com/vuejs/vue-migration-helper) 在当前项目. 我们仔细缩小了一个高级Vue dev并将其压缩到一个简单的命令行界面中。每当他们发现一个过时的功能，他们会让你知道，提供建议，并提供更多信息的链接。
 
-2. After that, browse through the table of contents for this page in the sidebar. If you see a topic you may be affected by, but the migration helper didn't catch, check it out.
 
-3. If you have any tests, run them and see what still fails. If you don't have tests, just open the app in your browser and keep an eye out for warnings or errors as you navigate around.
+
+2. 之后，在侧边栏中浏览此页面的目录。如果您看到一个可能会影响您的主题，但是迁移帮助程序没有捕捉到，请查看它。
+
+3. 如果你有任何测试，运行它们看看还有什么失败。如果没有测试，只需在浏览器中打开应用程序，并在导航时留意警告或错误。
 
 4. By now, your app should be fully migrated. If you're still hungry for more though, you can read the rest of this page - or dive in to the new and improved guide from [the beginning](#overview). Many parts will be skimmable, since you're already familiar with the core concepts.
+
+4. 现在，你的应用程序应该已经完全迁移了。如果你仍然渴望更多，你可以阅读本页的其余部分，或者从[开始](#overview) 阅读新的和改进的指南。由于您已经熟悉了核心概念，所以许多部分都可以略读。
 
 ### 将 Vue 2.x 应用 迁移 3.0 要花费多长时间
 
 这取决于几个因素:
 
-- The size of your app (small to medium-sized apps will probably be less than a day)
+- 你的app的尺寸(小到中等尺寸的应用可能需要不到一天的时间)
 
-- How many times you get distracted and start playing with a cool new feature. 😉 &nbsp;Not judging, it also happened to us while building 3.0!
+- 有多少次你分心了，开始玩一个很酷的新功能。😉 &nbsp; 这里摊牌了，这也发生在我们建设3.0的时候！
 
-- Which obsolete features you're using. Most can be upgraded with find-and-replace, but others might take a few minutes. If you're not currently following best practices according to [our styleguide](/style-guide/), Vue 3.0 will also try harder to force you to. This is a good thing in the long run, but could also mean a significant (though possibly overdue) refactor.
+- 你正在使用哪些过时的功能。大多数都可以使用find-and-replace进行升级，但其他一些可能需要几分钟的时间。如果您当前没有按照 [our styleguide](/style-guide/), VUE3.0也会更加努力地迫使你这么做。从长远来看，这是一件好事，但也可能意味着一个重要的（尽管可能过期）重构。
 
-### If I upgrade to Vue 3, will I also have to upgrade Vuex and Vue Router?
+### 如果我升级到Vue 3, 我还需要升级 Vuex 和 Vue-router 吗？
 
-Yes, currently both [Vuex](https://github.com/vuejs/vuex/tree/4.0#vuex-4) and [Vue Router](https://github.com/vuejs/vue-router-next) are in beta
+是的, 当前这两者， [Vuex](https://github.com/vuejs/vuex/tree/4.0#vuex-4) 和 [Vue Router](https://github.com/vuejs/vue-router-next) 是 beta 版本
