@@ -1,25 +1,25 @@
-# Render Function API
+# render函数 API
 
-## Overview
+## 概览
 
-This change will not affect `<template>` users.
+此更改不会影响`<template>`用户。
 
-Here is a quick summary of what has changed:
+以下是更改的简要总结：
 
-- `h` is now globally imported instead of passed to render functions as an arguments
-- render function arguments changed to be more consistent between stateful and functional components
-- VNodes now have a flat props structure
+- `h` 现在全局导入，而不是作为参数传递给渲染函数
+- 渲染函数参数更改为在有状态组件和函数组件之间更加一致
+- vnode现在有一个扁平的prop结构
 
-For more information, read on!
+更多信息，请继续阅读！
 
-## Render Function Argument
+## Render函数参数
 
-### 2.x Syntax
+### 2.x 语法
 
-In 2.x, the `render` function would automatically receive the `h` function (which is a conventional alias for `createElement`) as an argument:
+在2.x中，e `render` 函数将自动接收 `h` 函数（它是 `createElement` 的常规别名）作为参数：
 
 ```js
-// Vue 2 Render Function Example
+// Vue 2 渲染函数示例
 export default {
   render(h) {
     return h('div')
@@ -27,12 +27,13 @@ export default {
 }
 ```
 
-### 3.x Syntax
+### 3.x 语法
 
-In 3.x, `h` is now globally imported instead of being automatically passed as an argument.
+在3.x中，`h` 现在是全局导入的，而不是作为参数自动传递。
+
 
 ```js
-// Vue 3 Render Function Example
+// Vue 3 渲染函数示例
 import { h } from 'vue'
 
 export default {
@@ -42,14 +43,14 @@ export default {
 }
 ```
 
-## Render Function Signature Change
+## render函数签名更改
 
-### 2.x Syntax
+### 2.x 语法
 
-In 2.x, the `render` function automatically received arguments such as `h`.
+在2.x中， `render` 函数自动接收诸如 `h` 之类的参数。
 
 ```js
-// Vue 2 Render Function Example
+// Vue 2 渲染函数示例
 export default {
   render(h) {
     return h('div')
@@ -57,9 +58,10 @@ export default {
 }
 ```
 
-### 3.x Syntax
+### 3.x 语法
 
-In 3.x, since the `render` function no longer receives any arguments, it will primarily be used inside of the `setup()` function. This has the added benefit of gaining access to reactive state and functions declared in scope, as well as the arguments passed to `setup()`.
+在3.x中，由于 `render` 函数不再接收任何参数，它将主要用于 `setup()` 函数内部。这还有一个好处：可以访问作用域中声明的被动状态和函数，以及传递给 `setup()` 的参数。
+
 
 ```js
 import { h, reactive } from 'vue'
@@ -74,7 +76,7 @@ export default {
       state.count++
     }
 
-    // return the render function
+    // 返回render函数
     return () =>
       h(
         'div',
@@ -87,13 +89,13 @@ export default {
 }
 ```
 
-For more information on how `setup()` works, see our [Composition API Guide](/guide/composition-api-introduction.html).
+有关 `setup()` 如何工作的详细信息, 见 [Composition API Guide](/guide/composition-api-introduction.html).
 
-## VNode Props Format
+## VNode Props 格式化
 
-### 2.x Syntax
+### 2.x 语法
 
-In 2.x, `domProps` contained a nested list within the VNode props:
+在 2.x 中, `domProps` 包含VNode props中的嵌套列表：
 
 ```js
 // 2.x
@@ -107,12 +109,12 @@ In 2.x, `domProps` contained a nested list within the VNode props:
 }
 ```
 
-### 3.x Syntax
+### 3.x 语法
 
-In 3.x, the entire VNode props structure is flattened. Using the example from above, here is what it would look like now.
+在3.x中，整个VNode props结构是扁平的，使用上面的例子，下面是它现在的样子
 
 ```js
-// 3.x Syntax
+// 3.x 语法
 {
   class: ['button', 'is-outlined'],
   style: { color: '#34495E' },
@@ -123,16 +125,16 @@ In 3.x, the entire VNode props structure is flattened. Using the example from ab
 }
 ```
 
-## Migration Strategy
+## 迁移策略
 
-### Library Authors
+### 工具库作者
 
-`h` being globally imported means that any library that contains Vue components will include `import { h } from 'vue'` somewhere. As a result, this creates a bit of overhead since it requires library authors to properly configure the externalization of Vue in their build setup:
+全局导入`h` 意味着任何包含Vue组件的库都将在某处包含`import { h } from 'vue'`，因此，这会带来一些开销，因为它需要库作者在其构建设置中正确配置Vue的外部化：
 
-- Vue should not be bundled into the library
-- For module builds, the import should be left alone and be handled by the end user bundler
-- For UMD / browser builds, it should try the global Vue.h first and fallback to require calls
+- Vue不应绑定到库中
+- 对于模块构建，导入应该保持独立，由最终用户绑定器处理
+- 对于UMD/browser版本，它应该首先尝试全局Vue.h，然后回退以请求调用
 
-## Next Steps
+## 下一步
 
-See [Render Function Guide](/guide/render-function) for more detailed documentation!
+见 [Render函数指南](/guide/render-function) 更详细的文档！

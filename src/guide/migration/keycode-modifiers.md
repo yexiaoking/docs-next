@@ -1,25 +1,25 @@
-# KeyCode Modifiers
+# 按键修饰符
 
-## Overview
+## 概览
 
-Here is a quick summary of what has changed:
+以下是变更的简要总结：
 
-- **BREAKING**: Using numbers, i.e. keyCodes, as `v-on` modifiers is no longer supported
-- **BREAKING**: `config.keyCodes` is no longer supported
+- **BREAKING**: 不再支持使用数字（即键码）作为`v-on` 修饰符
+- **BREAKING**: 不再支持 `config.keyCodes`
 
-## 2.x Syntax
+## 2.x 语法
 
-In Vue 2, `keyCodes` were supported as a way to modify a `v-on` method.
+在Vue 2 中, 支持 `keyCodes` 作为修改 `v-on` 方法的方法。
 
 ```html
-<!-- keyCode version -->
+<!-- 键码版本 -->
 <input v-on:keyup.13="submit" />
 
-<!-- alias version -->
+<!-- 别名版本 -->
 <input v-on:keyup.enter="submit" />
 ```
 
-In addition, you could define your own aliases via the global `config.keyCodes` option.
+此外，你可以通过全局 `config.keyCodes` 选项。
 
 ```js
 Vue.config.keyCodes = {
@@ -28,24 +28,27 @@ Vue.config.keyCodes = {
 ```
 
 ```html
-<!-- keyCode version -->
+<!-- 键码版本 -->
 <input v-on:keyup.112="showHelpText" />
 
-<!-- custom alias version -->
+<!-- 自定别名版本 -->
 <input v-on:keyup.f1="showHelpText" />
 ```
 
-## 3.x Syntax
+## 3.x 语法
 
-Since [`KeyboardEvent.keyCode` has been deprecated](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/keyCode), it no longer makes sense for Vue 3 to continue supporting this as well. As a result, it is now recommended to use the kebab-case name for any key you want to use as a modifier.
+从[`KeyboardEvent.keyCode` has been deprecated](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/keyCode)开始，Vue 3 继续支持这一点就不再有意义了。因此，现在建议对任何要用作修饰符的键使用kebab-cased（短横线）大小写名称。
+
 
 ```html
-<!-- Vue 3 Key Modifier on v-on -->
+<!-- Vue 3 在 v-on 上使用 按键修饰符 -->
 <input v-on:keyup.delete="confirmDelete" />
 ```
 
-As a result, this means that `config.keyCodes` is now also deprecated and will no longer be supported.
+因此, 这意味着 `config.keyCodes` 现在也已弃用，不再受支持。
 
-## Migration Strategy
+## 迁移策略
 
 For those using `keyCode` in their codebase, we recommend converting them to their kebab-cased named equivalents.
+
+对于那些在代码库中使用 `keyCode` 的用户，我们建议将它们转换为它们的kebab-cased（短横线）命名对齐。

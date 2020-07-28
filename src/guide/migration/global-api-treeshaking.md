@@ -1,18 +1,18 @@
-# Global API Treeshaking
+# 全局 API Treeshaking
 
-## 2.x Syntax
+## 2.x  语法
 
-If you’ve ever had to manually manipulate DOM in Vue, you might have come across this pattern:
+如果你曾经在Vue中手动操作过DOM，你可能会遇到以下模式：
 
 ```js
 import Vue from 'vue'
 
 Vue.nextTick(() => {
-  // something something DOM-related
+  // 一些和DOM有关的东西
 })
 ```
 
-Or, if you’ve been unit-testing an application involving [async components](/guide/component-dynamic-async.html), chances are you’ve written something like this:
+或者，如果你一直在对涉及 [async components](/guide/component-dynamic-async.html)的应用程序进行单元测试，那么很可能你编写了以下内容：
 
 ```js
 import { shallowMount } from '@vue/test-utils'
@@ -21,29 +21,28 @@ import { MyComponent } from './MyComponent.vue'
 test('an async feature', async () => {
   const wrapper = shallowMount(MyComponent)
 
-  // execute some DOM-related tasks
+  // 执行一些DOM相关的任务
 
   await wrapper.vm.$nextTick()
 
-  // run your assertions
+  // 运行你的断言
 })
 ```
+`Vue.nextTick()` 是一个全局的API 直接暴露在单个Vue对象上 —— 事实上，实例方法 `$nextTick()` 只是一个方便的包装 `Vue.nextTick()`为方便起见，回调的 `this` 上下文自动绑定到当前Vue实例。
 
-`Vue.nextTick()` is a global API exposed directly on a single Vue object – in fact, the instance method `$nextTick()` is just a handy wrapper around `Vue.nextTick()` with the callback’s `this` context automatically bound to the current Vue instance for convenience.
+但是，如果你从未处理过手动DOM操作，也没有在我们的应用程序中使用或测试异步组件呢？或者，不管出于什么原因，你更喜欢用旧的 `window.setTimeout()` 替代？在这种情况下，`nextTick()`的代码将变成死代码，即编写但从未使用过的代码。死代码也不是什么好事，尤其是在我们的客户端环境中，每 kb 都很重要。
 
-But what if you’ve never had to deal with manual DOM manipulation, nor are you using or testing async components in our app? Or, what if, for whatever reason, you prefer to use the good old `window.setTimeout()` instead? In such a case, the code for `nextTick()` will become dead code – that is, code that’s written but never used. And dead code is hardly a good thing, especially in our client-side context where every kilobyte matters.
+模块捆绑程序，如[webpack](https://webpack.js.org/) 支持 [tree-shaking](网址：https://webpack.js/webpack/js//)，这是 “死代码消除” 的一个花哨术语。不幸的是，由于代码是如何在以前的Vue版本中编写的，全局API`Vue.nextTick()`不可摇动，将包含在最终捆绑中不管它们实际在哪里使用。
 
-Module bundlers like [webpack](https://webpack.js.org/) support [tree-shaking](https://webpack.js.org/guides/tree-shaking/), which is a fancy term for “dead code elimination.” Unfortunately, due to how the code is written in previous Vue versions, global APIs like `Vue.nextTick()` are not tree-shakeable and will be included in the final bundle regardless of where they are actually used or not.
+## 3.x 语法
 
-## 3.x Syntax
-
-In Vue 3, the global and internal APIs have been restructured with tree-shaking support in mind. As a result, the global APIs can now only be accessed as named exports for the ES Modules build. For example, our previous snippets should now look like this:
+在Vue 3中，全局和内部API都经过了重构，并考虑到了tree-shaking的支持。因此，全局API现在只能作为ES模块构建的命名导出进行访问。例如，我们之前的片段现在应该如下所示：
 
 ```js
 import { nextTick } from 'vue'
 
 nextTick(() => {
-  // something something DOM-related
+  // 一些和DOM有关的东西
 })
 ```
 
@@ -57,32 +56,32 @@ import { nextTick } from 'vue'
 test('an async feature', async () => {
   const wrapper = shallowMount(MyComponent)
 
-  // execute some DOM-related tasks
+  // 执行一些DOM相关的任务
 
   await nextTick()
 
-  // run your assertions
+  // 运行你的断言
 })
 ```
 
-Calling `Vue.nextTick()` directly will now result in the infamous `undefined is not a function` error.
+直接调用 `Vue.nextTick()` 将导致臭名昭著的 `undefined is not a function` 错误。
 
-With this change, provided the module bundler supports tree-shaking, global APIs that are not used in a Vue application will be eliminated from the final bundle, resulting in an optimal file size.
+通过这一更改，如果模块绑定器支持tree-shaking，则Vue应用程序中未使用的全局api将从最终捆绑包中消除，从而获得最佳的文件大小。
 
-## Affected APIs
+## 受影响的API
 
-These global APIs in Vue 2.x are affected by this change:
+Vue 2.x中的这些全局API受此更改的影响：
 
 - `Vue.nextTick`
-- `Vue.observable` (replaced by `Vue.reactive`)
+- `Vue.observable` (用 `Vue.reactive` 替换)
 - `Vue.version`
-- `Vue.compile` (only in full builds)
-- `Vue.set` (only in compat builds)
-- `Vue.delete` (only in compat builds)
+- `Vue.compile` (仅全构建)
+- `Vue.set` (仅兼容构建)
+- `Vue.delete` (仅兼容构建)
 
-## Internal Helpers
+## 内部帮助器
 
-In addition to public APIs, many of the internal components/helpers are now exported as named exports as well. This allows the compiler to output code that only imports features when they are used. For example the following template:
+除了公共api，许多内部组件/帮助器现在也被导出为命名导出，只有当编译器的输出是这些特性时，才允许编译器导入这些特性，例如以下模板：
 
 ```html
 <transition>
@@ -90,7 +89,7 @@ In addition to public APIs, many of the internal components/helpers are now expo
 </transition>
 ```
 
-is compiled into something similar to the following:
+被编译为类似于以下的内容：
 
 ```js
 import { h, Transition, withDirectives, vShow } from 'vue'
@@ -104,17 +103,17 @@ export function render() {
 }
 ```
 
-This essentially means the `Transition` component only gets imported when the application actually makes use of it. In other words, if the application doesn’t have any `<transition>` component, the code supporting this feature will not be present in the final bundle.
+这实际上意味着只有在应用程序实际使用了 `Transition` 组件时才会导入它。换句话说，如果应用程序没有任何 `Transition` 组件，那么支持此功能的代码将不会出现在最终的捆绑包中。
 
-With global tree-shaking, the user only “pay” for the features they actually use. Even better, knowing that optional features won't increase the bundle size for applications not using them, framework size has become much less a concern for additional core features in the future, if at all.
+随着 全局 tree-shaking，用户只需为他们实际使用的功能 “付费”，更好的是，知道了可选特性不会增加不使用它们的应用程序的捆绑包大小，框架大小在将来已经不再是其他核心功能的考虑因素了，如果有的话。
 
-::: warning Important
-The above only applies to the [ES Modules builds](/guide/installation.html#explanation-of-different-builds) for use with tree-shaking capable bundlers - the UMD build still includes all features and exposes everything on the Vue global variable (and the compiler will produce appropriate output to use APIs off the global instead of importing).
+::: warning 重要
+以上仅适用于 [ES Modules builds](/guide/installation.html#explanation-of-different-builds) ，用于支持tree-shaking的绑定器 —— UMD构建仍然包括所有特性，并暴露Vue全局变量上的所有内容（编译器将生成适当的输出，以使用全局外的api而不是导入）。
 :::
 
-## Usage in Plugins
+## 插件中的用法
 
-If your plugin relies on an affected Vue 2.x global API, for instance:
+如果你的插件依赖受影响的Vue 2.x全局API，例如：
 
 ```js
 const plugin = {
@@ -126,7 +125,7 @@ const plugin = {
 }
 ```
 
-In Vue 3, you’ll have to import it explicitly:
+在Vue 3中，必须显式导入：
 
 ```js
 import { nextTick } from 'vue'
@@ -140,7 +139,7 @@ const plugin = {
 }
 ```
 
-If you use a module bundle like webpack, this may cause Vue’s source code to be bundled into the plugin, and more often than not that’s not what you'd expect. A common practice to prevent this from happening is to configure the module bundler to exclude Vue from the final bundle. In webpack's case, you can use the [`externals`](https://webpack.js.org/configuration/externals/) configuration option:
+如果使用webpack这样的模块捆绑包，这可能会导致Vue的源代码绑定到插件中，而且通常情况下，这并不是你所期望的。防止这种情况发生的一种常见做法是配置模块绑定器以将Vue从最终捆绑中排除。对于webpack，你可以使用 [`externals`](https://webpack.js.org/configuration/externals/) 配置选项：
 
 ```js
 // webpack.config.js
@@ -152,9 +151,9 @@ module.exports = {
 }
 ```
 
-This will tell webpack to treat the Vue module as an external library and not bundle it.
+这将告诉webpack将Vue模块视为一个外部库，而不是捆绑它。
 
-If your module bundler of choice happens to be [Rollup](https://rollupjs.org/), you basically get the same effect for free, as by default Rollup will treat absolute module IDs (`'vue'` in our case) as external dependencies and not include them in the final bundle. During bundling though, it might emit a [“Treating vue as external dependency”](https://rollupjs.org/guide/en/#warning-treating-module-as-external-dependency) warning, which can be suppressed with the `external` option:
+如果你选择的模块绑定器恰好是 [Rollup](https://rollupjs.org/)，你基本上可以免费获得相同的效果，因为默认情况下，Rollup会将绝对模块id（在我们的例子中为 `'vue'` ）作为外部依赖项，而不会将它们包含在最终的bundle中。但是在绑定期间，它可能会发出一个[“将vue作为外部依赖”](https://rollupjs.org/guide/en/#warning-treating-module-as-external-dependency）警告，可使用 `external` 选项抑制该警告：
 
 ```js
 // rollup.config.js

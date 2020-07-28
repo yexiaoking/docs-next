@@ -1,41 +1,41 @@
-# Slots Unification
+# Slot 统一
 
-## Overview
+## 概览
 
-This change unifies normal and scoped slots in 3.x.
+此更改统一了3.x中的普通slot和作用域slot。
 
-Here is a quick summary of what has changed:
+以下是变化的变更总结：
 
-- `this.$slots` now exposes slots as functions
-- **BREAKING**: `this.$scopedSlots` is removed
+- `this.$slots` 现在将slots作为函数公开
+- **BREAKING**: 移除 `this.$scopedSlots`
 
-For more information, read on!
+更多信息，请继续阅读！
 
-## 2.x Syntax
+## 2.x 语法
 
-When using the render function, i.e., `h`, 2.x used to define the `slot` data property on the content nodes.
+当使用render函数时，即 `h`，2.x用于在内容节点上定义  `slot` data property。
 
 ```js
-// 2.x Syntax
+// 2.x 语法
 h(LayoutComponent, [
   h('div', { slot: 'header' }, this.header),
   h('div', { slot: 'content' }, this.content)
 ])
 ```
 
-In addition, when referencing scoped slots, they could be referenced using the following syntax:
+此外，在引用作用域slot时，可以使用以下方法引用它们：
 
 ```js
-// 2.x Syntax
+// 2.x 语法
 this.$scopedSlots.header
 ```
 
-## 3.x Syntax
+## 3.x 语法
 
-In 3.x, render functions will have a `slots` option where they can be defined instead.
+在3.x中，呈现函数将有一个 `slots` 选项，可以在其中定义它们。
 
 ```js
-// 3.x Syntax
+// 3.x 语法
 h(LayoutComponent, {
   slots: {
     header: () => h('div', this.header),
@@ -44,18 +44,18 @@ h(LayoutComponent, {
 })
 ```
 
-And when you need to reference scoped slots programmatically, they are now unified into the `$slots` option.
+当你需要以编程方式引用作用域slot时，它们现在被统一到 `$slots` 选项中。
 
 ```js
-// 2.x Syntax
+// 2.x 语法
 this.$scopedSlots.header
 
-// 3.x Syntax
+// 3.x 语法
 this.$slots.header
 ```
 
-## Migration Strategy
+## 迁移策略
 
-A majority of the change has already been shipped in 2.6. As a result, the migration can happen in one step:
+大部分更改已经在2.6中发布。因此，迁移可以一步到位：
 
-1. Replace all `this.$scopedSlots` occurrences with `this.$slots` in 3.x.
+1. 在3.x中，将所有 `this.$scopedSlots` 替换为 `this.$slots` 。
