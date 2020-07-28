@@ -4,15 +4,15 @@ types:
   - breaking
 ---
 
-# Events API <span v-for="type in $frontmatter.types" class="badge" :key="`type-${type}`">{{ type }}</span>
+# 事件 API <span v-for="type in $frontmatter.types" class="badge" :key="`type-${type}`">{{ type }}</span>
 
-## Overview
+## 概览
 
-`$on`, `$off` and `$once` instance methods are removed. Vue instances no longer implement the event emitter interface.
+`$on`, `$off` 和 `$once` 实例方法已被移除，Vue实例不再实现事件触发接口。
 
-## 2.x Syntax
+## 2.x 语法
 
-In 2.x, Vue instance could be used to trigger handlers attached imperatively via the event emitter API (`$on`, `$off` and `$once`). This was used to create _event hubs_ to create global event listeners used across the whole application:
+在 2.x 中, Vue实例可用于触发通过事件触发API强制附加的处理程序 (`$on`, `$off` 和 `$once`)，这用于创建 event hub，以创建在整个应用程序中使用的全局事件侦听器：
 
 ```js
 // eventHub.js
@@ -28,13 +28,13 @@ import eventHub from './eventHub'
 
 export default {
   mounted() {
-    // adding eventHub listener
+    // 添加 eventHub listener
     eventHub.$on('custom-event', () => {
       console.log('Custom event triggered!')
     })
   },
   beforeDestroy() {
-    // removing eventHub listener
+    // 移除 eventHub listener
     eventHub.$off('custom-event')
   }
 }
@@ -47,18 +47,19 @@ import eventHub from './eventHub'
 export default {
   methods: {
     callGlobalCustomEvent() {
-      eventHub.$emit('custom-event') // if ChildComponent is mounted, we will have a message in the console
+      eventHub.$emit('custom-event') // 如果ChildComponent mounted，控制台中将显示一条消息
     }
   }
 }
 ```
 
-## 3.x Update
+## 3.x 更新
 
-We removed `$on`, `$off` and `$once` methods from Vue instance completely. `$emit` is still a part of the existing API as it's used to trigger event handlers declaratively attached by a parent component
+我们整个从Vue实例中移除了 `$on`, `$off` 和 `$once` 方法， `$emit` 仍然是现有API的一部分，因为它用于触发由父组件以声明方式附加的事件处理程序
 
-## Migration Strategy
 
-Existing event hubs can be replaced by using an external library implementing the event emitter interface, for example [mitt](https://github.com/developit/mitt).
+## 迁移策略
 
-These methods can also be supported in compatibility builds.
+例如，可以通过使用实现事件发射器接口的外部库来替换现有的 event hub [mitt](https://github.com/developit/mitt).
+
+在兼容性构建中也可以支持这些方法。

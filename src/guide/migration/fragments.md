@@ -1,12 +1,13 @@
-# Fragments
+# 片段
 
-## Overview
+## 概览
 
-In Vue 3, components now have official support for multi-root node components, i.e., fragments!
+在 Vue 3 中, 组件现在正式支持多根节点组件，即片段！
 
-## 2.x Syntax
+## 2.x 语法
 
-In 2.x, multi-root components were not supported and would emit a warning when a user accidentally created one. As a result, many components are wrapped in a single `<div>` in order to fix this error.
+在 2.x 中, 不支持多根组件，当用户意外创建多根组件时会发出警告，因此，为了修复此错误，许多组件被包装在一个 `<div>` 中。
+
 
 ```html
 <!-- Layout.vue -->
@@ -19,9 +20,9 @@ In 2.x, multi-root components were not supported and would emit a warning when a
 </template>
 ```
 
-## 3.x Syntax
+## 3.x Synta语法x
 
-In 3.x, components now can have multiple root nodes! However, this does require developers to explicitly define where attributes should be distributed.
+在 3.x 中, 组件现在可以有多个根节点！但是，这确实要求开发者明确定义属性应该分布在哪里。
 
 ```html
 <!-- Layout.vue -->
@@ -32,4 +33,4 @@ In 3.x, components now can have multiple root nodes! However, this does require 
 </template>
 ```
 
-For more information on how attribute inheritance works, see [Non-Prop Attributes](/guide/component-props.html#disabling-attribute-inheritance).
+有关attribute继承如何工作的详细信息，见 [非 Prop Attributes](/guide/component-props.html#disabling-attribute-inheritance).

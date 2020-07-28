@@ -3,20 +3,20 @@ types:
   - breaking
 ---
 
-# Data Option <span v-for="type in $frontmatter.types" class="badge" :key="`type-${type}`">{{ type }}</span>
+# Data 选项 <span v-for="type in $frontmatter.types" class="badge" :key="`type-${type}`">{{ type }}</span>
 
-## Overview
+## 概览
 
-- **BREAKING**: `data` component option declaration no longer accepts a plain JavaScript `object` and expects a `function` declaration.
+- **BREAKING**: `data` 组件选项声明不再接收纯 JavaScript `object`，而需要 `function` 声明
 
 ## 2.x Syntax
 
-In 2.x, developers could define the `data` option with either an `object` or a `function`.
+在 2.x 中, 开发者可以定义 `data` 选项是 `object` 或者是 `function`
 
-For example:
+例如：
 
 ```html
-<!-- Object Declaration -->
+<!-- Object 声明 -->
 <script>
   const app = new Vue({
     data: {
@@ -25,7 +25,7 @@ For example:
   })
 </script>
 
-<!-- Function Declaration -->
+<!-- Function 声明 -->
 <script>
   const app = new Vue({
     data() {
@@ -37,13 +37,13 @@ For example:
 </script>
 ```
 
-Though this provided some convenience in terms of root instances having a shared state, this has led to confusion due to the fact that its only possible on the root instance.
+虽然这对于具有共享状态的根实例提供了一些便利，但是由于只有在根实例上才有可能，这导致了混乱。
 
 ## 3.x Update
 
-In 3.x, the `data` option has been standardized to only accept a `function` that returns an `object`.
+在 3.x, `data` 选项已标准化为只接受返回`object`的`function`。
 
-Using the example above, there would only be one possible implementation of the code:
+使用上面的示例，代码只有一个可能的实现：
 
 ```html
 <script>
@@ -59,9 +59,9 @@ Using the example above, there would only be one possible implementation of the 
 </script>
 ```
 
-## Migration Strategy
+## 迁移策略
 
-For users relying on the object declaration, we recommend:
+对于依赖对象声明的用户，我们建议：
 
-- Extracting the shared data into an external object and using it as a property in `data`
-- Rewrite references to the shared data to point to a new shared object
+- 将共享数据提取到外部对象并将其用作`data`中的property
+- 重写对共享数据的引用以指向新的共享对象

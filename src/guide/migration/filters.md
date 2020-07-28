@@ -4,17 +4,17 @@ types:
   - breaking
 ---
 
-# Filters <span v-for="type in $frontmatter.types" class="badge" :key="`type-${type}`">{{ type }}</span>
+# 过滤器 <span v-for="type in $frontmatter.types" class="badge" :key="`type-${type}`">{{ type }}</span>
 
-## Overview
+## 概览
 
-Filters are removed from Vue 3.0 and no longer be supported.
+Filters 已从Vue 3.0中删除，不再受支持。
 
-## 2.x Syntax
+## 2.x 语法
 
-In 2.x, developers could use filters in order to apply common text formatting.
+在 2.x, 开发者可以使用过滤器来应用通用文本格式。
 
-For example:
+例如:
 
 ```html
 <template>
@@ -39,13 +39,13 @@ For example:
 </script>
 ```
 
-While this seems like a convenience, it requires a custom syntax that breaks the assumption of expressions inside of curly braces being "just JavaScript," which has both learning and implementation costs.
+虽然这看起来很方便，但它需要一个自定义语法，打破大括号内表达式是“只是JavaScript”的假设，这既有学习成本，也有实现成本。
 
-## 3.x Update
+## 3.x 更新
 
-In 3.x, filters are removed and no longer supported. Instead, we recommend replacing them with method calls or computed properties.
+在 3.x 中, filters 已删除，不再受支持。相反，我们建议用方法调用或计算属性替换它们。
 
-Using the example above, here is one example of how it could be implemented.
+使用上面的例子，这里是一个如何实现它的例子。
 
 ```html
 <template>
@@ -70,6 +70,6 @@ Using the example above, here is one example of how it could be implemented.
 </script>
 ```
 
-## Migration Strategy
+## 迁移策略
 
-Instead of using filters, we recommend replacing them with computed properties or methods.
+我们建议用计算属性或方法代替过滤器，而不是使用过滤器。

@@ -1,33 +1,33 @@
-# Functional Components
+# 功能组件
 
-## Overview
+## 概览
 
-In terms of what has changed, at a high level:
+就变化而言，属于高等级内容：
 
-- Performance gains from 2.x for functional components are now negligible in 3.x, so we recommend just using stateful components
-- Functional components can only be created using a plain function that receives `props` and `context` (i.e., `slots`, `attrs`, `emit`)
-- **DEPRECATED:** `functional` attribute on single-file component (SFC) `<template>` is deprecated
-- **DEPRECATED:** `{ functional: true }` option in components created by functions is deprecated
 
-For more information, read on!
+- 在3.x中，功能性组件2.x的性能提升可以忽略不计，因此我们建议只使用有状态的组件
+- 功能组件只能使用接收`props` 和 `context`的普通函数创建 (即： `slots`, `attrs`, `emit`)。
+- **已弃用:** `functional` attribute 在单文件组件 (SFC) `<template>` 已被弃用
+- **已弃用:** `{ functional: true }` 选项在通过函数创建组件已被弃用
 
-## Introduction
+更多信息，请继续阅读！
 
-In Vue 2, functional components had two primary use cases:
+## 介绍
 
-- as a performance optimization, because they initialized much faster than stateful components
-- to return multiple root nodes
+在Vue 2 中, 功能组件有两个主要用例:
 
-However, in Vue 3, the performance of stateful components has improved to the point that the difference is negligible. In addition, stateful components now also include the ability to return multiple root nodes.
+- 作为性能优化，因为它们的初始化速度比有状态组件快得多
+- 返回多个根节点
 
-As a result, the only remaining use case for functional components is simple components, such as a component to create a dynamic heading. Otherwise, it is recommended to use stateful components as you normally would.
+然而，在Vue 3中，有状态组件的性能已经提高到可以忽略不计的程度。此外，有状态组件现在还包括返回多个根节点的能力。
 
-## 2.x Syntax
+因此，功能组件剩下的唯一用例就是简单组件，比如创建动态标题的组件。否则，建议你像平常一样使用有状态组件。
 
-Using the `<dynamic-heading>` component, which is responsible for rendering out the appropriate heading (i.e., `h1`, `h2`, `h3`, etc.), this could have been written as a single-file component in 2.x as:
+## 2.x 语法
 
+使用 `<dynamic-heading>` 组件, 负责提供适当的标题(即：`h1`, `h2`, `h3`, 等等), 在2.x中，这可能是作为单个文件组件编写的：
 ```js
-// Vue 2 Functional Component Example
+// Vue 2 功能组件示例
 export default {
   functional: true,
   props: ['level'],
@@ -37,10 +37,10 @@ export default {
 }
 ```
 
-Or, for those who preferred the `<template>` in a single-file component:
+或者，对于喜欢在单个文件组件中使用 `<template>`的用户：
 
 ```js
-// Vue 2 Functional Component Example with <template>
+// Vue 2 功能组件示例使用 <template>
 <template functional>
   <component
     :is="`h${props.level}`"
@@ -56,17 +56,17 @@ export default {
 </script>
 ```
 
-## 3.x Syntax
+## 3.x 语法
 
-### Components Created by Functions
+### 通过函数创建组件
 
-Now in Vue 3, all functional components are created with a plain function. In other words, there is no need to define the `{ functional: true }` component option.
+现在在 Vue 3中，所有的功能组件都是用普通函数创建的，换句话说，不需要定义 `{ functional: true }` 组件选项。
 
-They will receive two arguments: `props` and `context`. The `context` argument is an object that contains a component's `attrs`, `slots`, and `emit` properties.
+他们将接收两个参数: `props` 和 `context`. `context` 参数是一个对象，包含组件的 `attrs`, `slots`, 和 `emit` properties.
 
-In addition, rather than implicitly provide `h` in a `render` function, `h` is now imported globally.
+此外，现在不是在 `render` 函数中隐式提供 `h` ，而是全局导入 `h` 。
 
-Using the previously mentioned example of a `<dynamic-heading>` component, here is how it looks now.
+使用前面提到的 `<dynamic-heading>` 组件的示例，下面是它现在的样子。
 
 ```js
 import { h } from 'vue'
@@ -80,11 +80,11 @@ DynamicHeading.props = ['level']
 export default DynamicHeading
 ```
 
-### Single File Components (SFCs)
+### 单文件组件 (SFC)
 
-In 3.x, the performance difference between stateful and functional components has been drastically reduced and will be insignificant in most use cases. As a result, the migration path for developers using `functional` on SFCs is to remove the attribute. No additional work required.
+在3.x中，有状态组件和功能组件之间的性能差异已经大大减少，并且在大多数用例中是微不足道的。因此，在SFCs上使用 `functional` 的开发人员的迁移路径是删除该attribute，无需额外工作。
 
-Using our `<dynamic-heading>` example from before, here is how it would look now.
+使用之前的 `<dynamic-heading>`示例，下面是它现在的样子。
 
 ```js{1}
 <template>
@@ -101,14 +101,14 @@ export default {
 </script>
 ```
 
-The main differences are that:
+主要的区别在于：
 
-1. `functional` attribute removed on `<template>`
-1. `listeners` are now passed as part of `$attrs` and can be removed
+1. `functional` attribute 在 `<template>` 中移除
+2. `listeners` 现在作为 `$attrs` 的一部分传递，可以将其删除
 
-## Next Steps
+## 下一步
 
-For more information on the usage of the new functional components and the changes to render functions in general, see:
+有关新功能组件的用法和对呈现函数的更改的详细信息，见：
 
-- [Migration: Render Functions](/guide/migration/render-function-api.html)
-- [Guide: Render Functions](/guide/render-function.html)
+- [迁移: 渲染函数](/guide/migration/render-function-api.html)
+- [指南: 渲染函数](/guide/render-function.html)
