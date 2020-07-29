@@ -6,12 +6,57 @@
 - 同步官方英文文档
 - 默认为中文文档
 
+## 如何参与Vue 3 中文仓库项目+注意事项？
+
+#### 如何参与？
+
+1. 然后clone 本仓库
+```bash
+git clone git@github.com:veaba/docs-next.git
+
+  - 可以更新readme的 [进度](#进度) ，填写上你的Github账号，发起pr，以免重复翻译
+```
+2. 安装依赖
+```bash
+yarn # or npm install
+```
+3. 项目启动
+```bash
+yarn serve # or npm run serve
+```
+4. 翻译文档
+
+5. 发起pr+会有专人记录
+
+
+### 添加一个译者注
+> 基本参考或者直接搬用原[cn.vuejs.org](https://github.com/vuejs/cn.vuejs.org)
+
+到需要注释的地方
+```md
+安装<sup>[[1]](#footnote-1)</sup>
+```
+在该注释文档的底部
+
+```md
+<small>
+**译者注**
+<a id="footnote-1"></a>[1] 对于中国大陆用户，建议将 NPM 源设置为[国内的镜像](https://npm.taobao.org/)，可以大幅提升安装速度。
+</small>
+```
+
+## 存在争议的翻译
+|记录|翻译|校验|状态|
+|----|----|----|----|
+|[[argue-1]](/src/guide/installation.md#argue-1)||||
+|||||
+|||||
+|||||
 
 ## 进度
 
 |模块章节|翻译|校验|状态|
 |----|----|----|----|
-|[/guide/installation.md](/src/guide/installation.md)|[@veaba](https://github.com/veaba)|||
 |[/guide/installation.md](/src/guide/installation.md)|[@veaba](https://github.com/veaba)|||
 |[/guide/introduction.md](/src/guide/introduction.md)|[@veaba](https://github.com/veaba)|||
 |[/guide/instance.md](/src/guide/instance.md)|[@veaba](https://github.com/veaba)|||
@@ -122,7 +167,7 @@
 
 ## 参考
 
-- 原 [vue2 中文文档.md](https://cn.vuejs.org)
+- 原[vue2 中文文档.md](https://cn.vuejs.org)
 - 原[vue 2 英文文档.md](https://vuejs.org)
 - 原[vue 3 英文文档.md](https://v3.vuejs.org)
 - tag 还是保留
@@ -135,34 +180,12 @@
 |||
 
 
-
-This site is built with [VuePress.md](https://vuepress.vuejs.org/). Site content is written in Markdown format located in `src`.
-
 ## Writing
 
 See the [Vue Docs Writing Guide.md](https://v3.vuejs.org/guide/writing-guide.html) for our rules and recommendations on writing and maintaining documentation.
 
 > The docs are in beta: The team is currently in the midst of changes and we are not ready for additional contributions yet. All content is subject to change. If you see a problem that you would like to bring to our attention, please [create an issue.md](https://github.com/vuejs/docs-next/issues/new) and we will get to it when we can. You may want to wait until the content is finalized, though.
 
-## Developing
-
-1. Clone repository
-
-```bash
-git clone git@github.com:veaba/docs-next.git
-```
-
-2. Install dependencies
-
-```bash
-yarn # or npm install
-```
-
-3. Start local development environment
-
-```bash
-yarn serve
-```
 
 ## Deploying
 
