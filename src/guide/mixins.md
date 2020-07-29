@@ -1,6 +1,6 @@
-# Mixins
+# 混入
 
-## Basics
+## 基础
 
 Mixins are a flexible way to distribute reusable functionalities for Vue components. A mixin object can contain any component options. When a component uses a mixin, all options in the mixin will be "mixed" into the component's own options.
 
@@ -27,7 +27,7 @@ const app = Vue.createApp({
 app.mount('#mixins-basic') // => "hello from mixin!"
 ```
 
-## Option Merging
+## 选项合并
 
 When a mixin and the component itself contain overlapping options, they will be "merged" using appropriate strategies.
 
@@ -110,7 +110,7 @@ vm.bar() // => "bar"
 vm.conflicting() // => "from self"
 ```
 
-## Global Mixin
+## 全局混入
 
 You can also apply a mixin globally for a Vue application:
 
@@ -162,7 +162,7 @@ app.mount('#mixins-global')
 
 In most cases, you should only use it for custom option handling like demonstrated in the example above. It's also a good idea to ship them as [Plugins](plugins.html) to avoid duplicate application.
 
-## Custom Option Merge Strategies
+## 自定义选项合并策略
 
 When custom options are merged, they use the default strategy which overwrites the existing value. If you want a custom option to be merged using custom logic, you need to attach a function to `app.config.optionMergeStrategies`:
 

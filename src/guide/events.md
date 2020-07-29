@@ -1,8 +1,8 @@
-# Event Handling
+# 事件处理
 
 <div class="vueschool"><a href="https://vueschool.io/lessons/vuejs-user-events?friend=vuejs" target="_blank" rel="sponsored noopener" title="Learn how to handle events on Vue School">Learn how to handle events in a free Vue School lesson</a></div>
 
-## Listening to Events
+## 监听事件
 
 We can use the `v-on` directive, which we typically shorten to the `@` symbol, to listen to DOM events and run some JavaScript when they're triggered. The usage would be `v-on:click="methodName"` or with the shortcut, `@click="methodName"`
 
@@ -34,7 +34,7 @@ Result:
 </p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-## Method Event Handlers
+## 事件处理方法
 
 The logic for many event handlers will be more complex though, so keeping your JavaScript in the value of the `v-on` attribute isn't feasible. That's why `v-on` can also accept the name of a method you'd like to call.
 
@@ -76,7 +76,7 @@ Result:
 </p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-## Methods in Inline Handlers
+## 内链处理器中的方法
 
 Instead of binding directly to a method name, we can also use methods in an inline JavaScript statement:
 
@@ -127,7 +127,7 @@ methods: {
 }
 ```
 
-## Multiple Event Handlers
+## 多事件处理器
 
 You can have multiple methods in an event handler separated by a comma operator like this:
 
@@ -150,7 +150,7 @@ methods: {
 }
 ```
 
-## Event Modifiers
+## 事件修饰符
 
 It is a very common need to call `event.preventDefault()` or `event.stopPropagation()` inside event handlers. Although we can do this easily inside methods, it would be better if the methods can be purely about data logic rather than having to deal with DOM event details.
 
@@ -211,7 +211,7 @@ The `.passive` modifier is especially useful for improving performance on mobile
 Don't use `.passive` and `.prevent` together, because `.prevent` will be ignored and your browser will probably show you a warning. Remember, `.passive` communicates to the browser that you _don't_ want to prevent the event's default behavior.
 :::
 
-## Key Modifiers
+## 按键修饰符
 
 When listening for keyboard events, we often need to check for specific keys. Vue allows adding key modifiers for `v-on` or `@` when listening for key events:
 
@@ -228,7 +228,7 @@ You can directly use any valid key names exposed via [`KeyboardEvent.key`](https
 
 In the above example, the handler will only be called if `$event.key` is equal to `'PageDown'`.
 
-### Key Aliases
+### 按键别名
 
 Vue provides aliases for the most commonly used keys:
 
@@ -242,7 +242,7 @@ Vue provides aliases for the most commonly used keys:
 - `.left`
 - `.right`
 
-## System Modifier Keys
+## 系统修饰键
 
 You can use the following modifiers to trigger mouse or keyboard event listeners only when the corresponding modifier key is pressed:
 
@@ -269,7 +269,7 @@ For example:
 Note that modifier keys are different from regular keys and when used with `keyup` events, they have to be pressed when the event is emitted. In other words, `keyup.ctrl` will only trigger if you release a key while holding down `ctrl`. It won't trigger if you release the `ctrl` key alone
 :::
 
-### `.exact` Modifier
+### `.exact` 修饰符
 
 The `.exact` modifier allows control of the exact combination of system modifiers needed to trigger an event.
 
@@ -284,7 +284,7 @@ The `.exact` modifier allows control of the exact combination of system modifier
 <button @click.exact="onClick">A</button>
 ```
 
-### Mouse Button Modifiers
+### 鼠标按钮修饰符
 
 - `.left`
 - `.right`
@@ -292,7 +292,7 @@ The `.exact` modifier allows control of the exact combination of system modifier
 
 These modifiers restrict the handler to events triggered by a specific mouse button.
 
-## Why Listeners in HTML?
+## 为什么在 HTML 中监听事件？
 
 You might be concerned that this whole event listening approach violates the good old rules about "separation of concerns". Rest assured - since all Vue handler functions and expressions are strictly bound to the ViewModel that's handling the current view, it won't cause any maintenance difficulty. In fact, there are several benefits in using `v-on` or `@`:
 

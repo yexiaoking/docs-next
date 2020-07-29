@@ -45,7 +45,7 @@ module.exports = {
       ]
     },
     {
-      title: 'Reusability & Composition',
+      title: '可复用性 & 组合',
       collapsable: false,
       children: [
         '/guide/mixins',
@@ -60,7 +60,7 @@ module.exports = {
       collapsable: false,
       children: [
         {
-          title: 'Reactivity',
+          title: '响应式',
           children: [
             '/guide/reactivity',
             '/guide/reactivity-fundamentals',
@@ -68,7 +68,7 @@ module.exports = {
           ]
         },
         {
-          title: 'Composition API',
+          title: '组合 API',
           children: [
             '/guide/composition-api-introduction',
             '/guide/composition-api-setup',
@@ -92,7 +92,7 @@ module.exports = {
       children: ['/guide/routing', '/guide/state-management', '/guide/ssr']
     },
     {
-      title: 'Accessibility',
+      title: '无障碍',
       collapsable: false,
       children: [
         '/guide/a11y-basics',
@@ -139,7 +139,7 @@ module.exports = {
     '/api/application-api',
     '/api/global-api',
     {
-      title: 'Options',
+      title: '选项',
       collapsable: false,
       children: [
         '/api/options-data',

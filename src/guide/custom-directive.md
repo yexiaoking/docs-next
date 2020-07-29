@@ -1,8 +1,8 @@
-# Custom Directives
+# 自定义指令
 
-## Intro
+## 简介
 
-In addition to the default set of directives shipped in core (like `v-model` or `v-show`), Vue also allows you to register your own custom directives. Note that in Vue, the primary form of code reuse and abstraction is components - however, there may be cases where you need some low-level DOM access on plain elements, and this is where custom directives would still be useful. An example would be focusing on an input element, like this one:
+除了核心功能默认内置的指令 (v-model 和 v-show)，Vue 也允许注册自定义指令。注意，在 Vue2.0 中，代码复用和抽象的主要形式是组件。然而，有的情况下，你仍然需要对普通 DOM 元素进行底层操作，这时候就会用到自定义指令。举个聚焦输入框的例子，如下：
 
 <p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="JjdxaJW" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Custom directives: basic example">
   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/JjdxaJW">
@@ -46,7 +46,7 @@ Then in a template, you can use the new `v-focus` attribute on any element, like
 <input v-focus />
 ```
 
-## Hook Functions
+## 钩子函数
 
 A directive definition object can provide several hook functions (all optional):
 
@@ -68,7 +68,7 @@ We'll cover VNodes in more detail [later](render-function.html#the-virtual-dom-t
 
 You can check the arguments passed into these hooks (i.e. `el`, `binding`, `vnode`, and `prevVnode`) in [Custom Directive API](../api/application-api.html#directive)
 
-### Dynamic Directive Arguments
+### 动态指令参数
 
 Directive arguments can be dynamic. For example, in `v-mydirective:[argument]="value"`, the `argument` can be updated based on data properties in our component instance! This makes our custom directives flexible for use throughout our application.
 
@@ -180,7 +180,7 @@ Result:
 </p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-## Function Shorthand
+## 函数简写
 
 In previous example, you may want the same behavior on `mounted` and `updated`, but don't care about the other hooks. You can do it by passing the callback to directive:
 
@@ -192,7 +192,7 @@ app.directive('pin', (el, binding) => {
 })
 ```
 
-## Object Literals
+## 对象字面量
 
 If your directive needs multiple values, you can also pass in a JavaScript object literal. Remember, directives can take any valid JavaScript expression.
 
@@ -207,7 +207,7 @@ app.directive('demo', (el, binding) => {
 })
 ```
 
-## Usage on Components
+## 在组件中使用
 
 In 3.0, with fragments support, components can potentially have more than one root nodes. This creates an issue when a custom directive is used on a component with multiple root nodes.
 

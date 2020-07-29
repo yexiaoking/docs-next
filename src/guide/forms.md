@@ -1,6 +1,6 @@
-# Form Input Bindings
+# 表单输入绑定
 
-## Basic Usage
+## 基础用法
 
 You can use the `v-model` directive to create two-way data bindings on form input, textarea, and select elements. It automatically picks the correct way to update the element based on the input type. Although a bit magical, `v-model` is essentially syntax sugar for updating data on user input events, plus special care for some edge cases.
 
@@ -19,7 +19,7 @@ You can use the `v-model` directive to create two-way data bindings on form inpu
 For languages that require an [IME](https://en.wikipedia.org/wiki/Input_method) (Chinese, Japanese, Korean etc.), you'll notice that `v-model` doesn't get updated during IME composition. If you want to cater for these updates as well, use `input` event instead.
 :::
 
-### Text
+### 文本(Text)
 
 ```html
 <input v-model="message" placeholder="edit me" />
@@ -33,7 +33,7 @@ For languages that require an [IME](https://en.wikipedia.org/wiki/Input_method) 
 </p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-### Multiline text
+### 多行文本(textarea)
 
 ```html
 <span>Multiline message is:</span>
@@ -59,7 +59,7 @@ Interpolation on textareas won't work. Use `v-model` instead.
 <textarea v-model="text"></textarea>
 ```
 
-### Checkbox
+### 复选框(Checkbox)
 
 Single checkbox, boolean value:
 
@@ -107,7 +107,7 @@ Vue.createApp({
 </p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-### Radio
+### 单选框(Radio)
 
 ```html
 <div id="v-model-radiobutton">
@@ -138,7 +138,7 @@ Vue.createApp({
 </p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-### Select
+### 选择框(Select)
 
 Single select:
 
@@ -229,7 +229,7 @@ Vue.createApp({
 </p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-## Value Bindings
+## 值绑定
 
 For radio, checkbox and select options, the `v-model` binding values are usually static strings (or booleans for checkbox):
 
@@ -248,7 +248,7 @@ For radio, checkbox and select options, the `v-model` binding values are usually
 
 But sometimes we may want to bind the value to a dynamic property on the Vue instance. We can use `v-bind` to achieve that. In addition, using `v-bind` allows us to bind the input value to non-string values.
 
-### Checkbox
+### 复选框（Checkbox）
 
 ```html
 <input type="checkbox" v-model="toggle" true-value="yes" false-value="no" />
@@ -265,7 +265,7 @@ vm.toggle === 'no'
 The `true-value` and `false-value` attributes don't affect the input's `value` attribute, because browsers don't include unchecked boxes in form submissions. To guarantee that one of two values is submitted in a form (e.g. "yes" or "no"), use radio inputs instead.
 :::
 
-### Radio
+### 单选框（Radio）
 
 ```html
 <input type="radio" v-model="pick" v-bind:value="a" />
@@ -291,7 +291,7 @@ typeof vm.selected // => 'object'
 vm.selected.number // => 123
 ```
 
-## Modifiers
+## 修饰符
 
 ### `.lazy`
 
@@ -320,7 +320,7 @@ If you want whitespace from user input to be trimmed automatically, you can add 
 <input v-model.trim="msg" />
 ```
 
-## `v-model` with Components
+## 在组件上使用`v-model`
 
 > If you're not yet familiar with Vue's components, you can skip this for now.
 

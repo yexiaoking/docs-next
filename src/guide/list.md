@@ -1,6 +1,6 @@
-# List Rendering
+# 列表渲染
 
-## Mapping an Array to Elements with `v-for`
+## 用 `v-for` 把一个数组对应为一组元素
 
 We can use the `v-for` directive to render a list of items based on an array. The `v-for` directive requires a special syntax in the form of `item in items`, where `items` is the source data array and `item` is an **alias** for the array element being iterated on:
 
@@ -67,7 +67,7 @@ You can also use `of` as the delimiter instead of `in`, so that it is closer to 
 <div v-for="item of items"></div>
 ```
 
-## `v-for` with an Object
+## 在 `v-for` 里使用对象
 
 You can also use `v-for` to iterate through the properties of an object.
 
@@ -136,7 +136,7 @@ And another for the index:
 When iterating over an object, the order is based on the enumeration order of `Object.keys()`, which isn't guaranteed to be consistent across JavaScript engine implementations.
 :::
 
-## Maintaining State
+## 维护状态
 
 When Vue is updating a list of elements rendered with `v-for`, by default it uses an "in-place patch" strategy. If the order of the data items has changed, instead of moving the DOM elements to match the order of the items, Vue will patch each element in-place and make sure it reflects what should be rendered at that particular index.
 
@@ -160,9 +160,9 @@ Don't use non-primitive values like objects and arrays as `v-for` keys. Use stri
 
 For detailed usage of the `key` attribute, please see the [`key` API documentation](../api/special-attributes.html#key).
 
-## Array Change Detection
+## 数组更新检测
 
-### Mutation Methods
+### 变更方法
 
 Vue wraps an observed array's mutation methods so they will also trigger view updates. The wrapped methods are:
 
@@ -176,7 +176,7 @@ Vue wraps an observed array's mutation methods so they will also trigger view up
 
 You can open the console and play with the previous examples' `items` array by calling their mutation methods. For example: `example1.items.push({ message: 'Baz' })`.
 
-### Replacing an Array
+### 替换数组
 
 Mutation methods, as the name suggests, mutate the original array they are called on. In comparison, there are also non-mutating methods, e.g. `filter()`, `concat()` and `slice()`, which do not mutate the original array but **always return a new array**. When working with non-mutating methods, you can replace the old array with the new one:
 
@@ -186,7 +186,7 @@ example1.items = example1.items.filter(item => item.message.match(/Foo/))
 
 You might think this will cause Vue to throw away the existing DOM and re-render the entire list - luckily, that is not the case. Vue implements some smart heuristics to maximize DOM element reuse, so replacing an array with another array containing overlapping objects is a very efficient operation.
 
-## Displaying Filtered/Sorted Results
+## 显示过滤/排序后的结果
 
 Sometimes we want to display a filtered or sorted version of an array without actually mutating or resetting the original data. In this case, you can create a computed property that returns the filtered or sorted array.
 
@@ -230,7 +230,7 @@ methods: {
 }
 ```
 
-## `v-for` with a Range
+## 在`v-for` 里使用值的范围
 
 `v-for` can also take an integer. In this case it will repeat the template that many times.
 
@@ -249,7 +249,7 @@ Result:
 </p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-## `v-for` on a `<template>`
+## 在`<template>`在使用`v-for`
 
 Similar to template `v-if`, you can also use a `<template>` tag with `v-for` to render a block of multiple elements. For example:
 
@@ -262,7 +262,7 @@ Similar to template `v-if`, you can also use a `<template>` tag with `v-for` to 
 </ul>
 ```
 
-## `v-for` with `v-if`
+## `v-for` 与 `v-if` 一同使用
 
 :::tip
 Note that it's **not** recommended to use `v-if` and `v-for` together. Refer to [style guide](../style-guide/#avoid-v-if-with-v-for-essential) for details.
@@ -289,7 +289,7 @@ If instead, your intent is to conditionally skip execution of the loop, you can 
 <p v-else>No todos left!</p>
 ```
 
-## `v-for` with a Component
+## 在组件上使用`v-for`
 
 > This section assumes knowledge of [Components](component-basics.md). Feel free to skip it and come back later.
 
