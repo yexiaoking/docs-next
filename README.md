@@ -13,20 +13,22 @@
 1. 然后clone 本仓库
 ```bash
 git clone git@github.com:veaba/docs-next.git
-
-  - 可以更新readme的 [进度](#进度) ，填写上你的Github账号，发起pr，以免重复翻译
 ```
+  - 可以更新readme的 [进度](#进度) ，填写上你的Github账号，发起pr，以免重复翻译
+
 2. 安装依赖
 ```bash
 yarn # or npm install
 ```
+
 3. 项目启动
 ```bash
 yarn serve # or npm run serve
 ```
+
 4. 翻译文档
 
-5. 发起pr+会有专人记录
+5. 发起pr，会有专人记录
 
 
 ### 添加一个译者注
@@ -46,7 +48,10 @@ yarn serve # or npm run serve
 ```
 
 ## 存在争议的翻译
-|记录|翻译|校验|状态|
+
+如果发现某些段落有疑虑，不顺畅的，可以打个记号，以让其他人协助完成。
+
+|记录|翻译人|校验人|状态|
 |----|----|----|----|
 |[[argue-1]](/src/guide/installation.md#argue-1)||||
 |||||
@@ -55,7 +60,7 @@ yarn serve # or npm run serve
 
 ## 进度
 
-|模块章节|翻译|校验|状态|
+|模块章节|翻译人|校验人|状态|
 |----|----|----|----|
 |[/guide/installation.md](/src/guide/installation.md)|[@veaba](https://github.com/veaba)|||
 |[/guide/introduction.md](/src/guide/introduction.md)|[@veaba](https://github.com/veaba)|||
@@ -165,19 +170,11 @@ yarn serve # or npm run serve
 
 
 
-## 参考
+## 引用与参考
 
 - 原[vue2 中文文档.md](https://cn.vuejs.org)
 - 原[vue 2 英文文档.md](https://vuejs.org)
 - 原[vue 3 英文文档.md](https://v3.vuejs.org)
-- tag 还是保留
-
-
-|如果是上下文中tag单标html 的元素则保留||
-|----|----|
-|tag||
-|||
-|||
 
 
 ## Writing
