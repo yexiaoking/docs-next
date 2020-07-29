@@ -10,7 +10,7 @@ Vue.js 使用了基于 HTML 的模板语法，允许开发者声明式地将 DOM
 
 ### 文本
 
-The most basic form of data binding is text interpolation using the "Mustache" syntax (double curly braces):
+数据绑定最常见的形式就是使用“Mustache”语法 (双大括号) 的文本插值：
 
 ```html
 <span>Message: {{ msg }}</span>
@@ -42,7 +42,7 @@ Mustache 标签将会被替代为对应数据对象上 `msg` property 的值。�
 
 这个 `span` 的内容将会被替换成为 property 值 `rawHtml`，直接作为 HTML——会忽略解析 property 值中的数据绑定。注意，你不能使用 `v-html` 来复合局部模板，因为 Vue 不是基于字符串的模板引擎。反之，对于用户界面 (UI)，组件更适合作为可重用和可组合的基本单位。
 
-::: tip
+::: tip 提示
 你的站点上动态渲染的任意 HTML 可能会非常危险，因为它很容易导致 [XSS 攻击](https://en.wikipedia.org/wiki/Cross-site_scripting)。请只对可信内容使用 HTML 插值，**绝不要**对用户提供的内容使用插值。
 :::
 
