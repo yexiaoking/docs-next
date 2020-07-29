@@ -4,7 +4,7 @@
 module.exports = {
   guide: [
     {
-      title: '先决条件',
+      title: '基础',
       collapsable: false,
       children: [
         '/guide/installation',
