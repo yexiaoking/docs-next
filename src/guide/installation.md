@@ -109,30 +109,29 @@ $ yarn dev
 - <a id="argue-1"></a>TODO：将 prod/dev 分支留给 `process.env.NODE_ENV guards` (需要更换构建工具)
 - 不提供最小化版本（捆绑后与其余代码一起完成）
 - import 依赖 (例如： `@vue/runtime-core`, `@vue/runtime-compiler`)
-  - Imported dependencies are also esm-bundler builds and will in turn import their dependencies (例如：@vue/runtime-core imports @vue/reactivity)
-  - This means you **can** install/import these deps individually without ending up with different instances of these dependencies, but you must make sure they all resolve to the same version.
-- In-browser template compilation:
-  - `vue.runtime.esm-bundler.js` **(default)** is runtime only, and requires all templates to be pre-compiled. This is the default entry for bundlers (via module field in `package.json`) because when using a bundler templates are typically pre-compiled (例如：in `*.vue` files).
-  - `vue.esm-bundler.js`: includes the runtime compiler. Use this if you are using a bundler but still want runtime template compilation (例如：in-DOM templates or templates via inline JavaScript strings). You will need to configure your bundler to alias vue to this file.
+  - 导入的依赖项也是esm bundler构建，并将依次导入其依赖项(例如：@vue/runtime-core imports @vue/reactivity)
+  - 这意味着你**可以**单独安装/导入这些依赖，而不会导致这些依赖项的不同实例，但你必须确保它们都为同一版本。
+-  浏览器内模板编译：
+  - `vue.runtime.esm-bundler.js` **(默认)**  仅运行时, 并要求所有模板都要预先编译。这是打包工具的默认入口 (通过`package.json` 中的module 字段)， 因为在使用bundler时，模板通常是预先编译的 (例如：在 `*.vue`  文件中)，你需要将打包工具配置vue别名到这个文件
 
 ### 对于服务端渲染
 
 - `vue.cjs(.prod).js`:
-  - For use in Node.js server-side rendering via `require()`.
-  - If you bundle your app with webpack with `target: 'node'` and properly externalize `vue`, this is the build that will be loaded.
-  - The dev/prod files are pre-built, but the appropriate file is automatically required based on `process.env.NODE_ENV`.
+  - 或用于Node.js通过`require()`进行服务器端渲染。
+  - 如果你将应用程序与带有 `target: 'node'` 的webpack打包在一起，并正确地将`vue`外部化，则将加载此构建。
+  - dev/prod文件是预构建的，但是根据`process.env.NODE_env`会自动需要相应的文件。
 
-## Runtime + Compiler vs. Runtime-only
+## 运行时 + 编译器 vs. 仅运行时
 
-If you need to compile templates on the client (例如：passing a string to the template option, or mounting to an element using its in-DOM HTML as the template), you will need the compiler and thus the full build:
+如果需要在客户端上编译模板 (即：将字符串传递给template选项，或使用其在DOM中HTML作为模板挂载到元素), 你需要编译器，因此需要完整的版本：
 
 ```js
-// this requires the compiler
+//  需要编译器
 Vue.createApp({
   template: '<div>{{ hi }}</div>'
 })
 
-// this does not
+// 不需要
 Vue.createApp({
   render() {
     return Vue.h('div', {}, this.hi)
@@ -140,7 +139,7 @@ Vue.createApp({
 })
 ```
 
-When using `vue-loader`, templates inside `*.vue` files are pre-compiled into JavaScript at build time. You don’t really need the compiler in the final bundle, and can therefore use the runtime-only build.
+当使用`vue-loader`时，`*.vue` 文件中的模板在生成时预编译为JavaScript，在最终的打包器中并不需要编译器，因此可以只使用运行时构建。
 
 <small>
 **译者注**

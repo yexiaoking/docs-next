@@ -184,6 +184,6 @@ See the [Vue Docs Writing Guide.md](https://v3.vuejs.org/guide/writing-guide.htm
 > The docs are in beta: The team is currently in the midst of changes and we are not ready for additional contributions yet. All content is subject to change. If you see a problem that you would like to bring to our attention, please [create an issue.md](https://github.com/vuejs/docs-next/issues/new) and we will get to it when we can. You may want to wait until the content is finalized, though.
 
 
-## Deploying
+## 部署
 
 The site is automatically deployed when commits land in `master`, via [Netlify.md](https://www.netlify.com/).

@@ -122,7 +122,7 @@ app.use(VueRouter)
 
 ## 挂载 App 实例
 
-使用 `createApp(VueInstance)` 初始化后，应用实例 `app` 可用于装载具有 `app.mount(domTarget)`：
+使用 `createApp(VueInstance)` 初始化后，应用实例 `app` 可用于挂载具有 `app.mount(domTarget)`：
 
 ```js
 import { createApp } from 'vue'
