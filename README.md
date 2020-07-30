@@ -67,17 +67,17 @@ yarn serve # or npm run serve
 
 |模块章节|翻译人|校验人|状态|
 |----|----|----|----|
-|[/guide/installation.md](/src/guide/installation.md)|[@veaba](https://github.com/veaba)|||
-|[/guide/introduction.md](/src/guide/introduction.md)|[@veaba](https://github.com/veaba)|||
-|[/guide/instance.md](/src/guide/instance.md)|[@veaba](https://github.com/veaba)|||
-|[/guide/template-syntax.md](/src/guide/template-syntax.md)|[@veaba](https://github.com/veaba)|||
-|[/guide/computed.md](/src/guide/computed.md)|[@veaba](https://github.com/veaba)|||
-|[/guide/class-and-style.md](/src/guide/class-and-style.md)|[@veaba](https://github.com/veaba)|||
+|[/guide/installation.md](/src/guide/installation.md)|[@veaba](https://github.com/veaba)||完成翻译|
+|[/guide/introduction.md](/src/guide/introduction.md)|[@veaba](https://github.com/veaba)||完成翻译|
+|[/guide/instance.md](/src/guide/instance.md)|[@veaba](https://github.com/veaba)||完成翻译|
+|[/guide/template-syntax.md](/src/guide/template-syntax.md)|[@veaba](https://github.com/veaba)||完成翻译|
+|[/guide/computed.md](/src/guide/computed.md)|[@veaba](https://github.com/veaba)||完成翻译|
+|[/guide/class-and-style.md](/src/guide/class-and-style.md)|[@veaba](https://github.com/veaba)||完成翻译|
 |[/guide/conditional.md](/src/guide/conditional.md)|[@veaba](https://github.com/veaba)|||
-|[/guide/list.md](/src/guide/list.md)|[@veaba](https://github.com/veaba)|||
-|[/guide/events.md](/src/guide/events.md)|[@veaba](https://github.com/veaba)|||
-|[/guide/forms.md](/src/guide/forms.md)|[@veaba](https://github.com/veaba)|||
-|[/guide/component-basic.md](/src/guide/component-basics.md)|[@veaba](https://github.com/veaba)|||
+|[/guide/list.md](/src/guide/list.md)|[@veaba](https://github.com/veaba)||完成翻译|
+|[/guide/events.md](/src/guide/events.md)|[@veaba](https://github.com/veaba)||完成翻译|
+|[/guide/forms.md](/src/guide/forms.md)|[@veaba](https://github.com/veaba)||完成翻译|
+|[/guide/component-basic.md](/src/guide/component-basics.md)|[@veaba](https://github.com/veaba)||完成翻译|
 |-|-|-|-|
 |[/guide/component-registration.md](/src/guide/component-registration.md)||||
 |[/guide/component-props.md](/src/guide/component-props.md)||||
