@@ -8,7 +8,7 @@
 
 ## 如何参与Vue 3 中文仓库项目+注意事项？
 
-#### 如何参与？
+### 如何参与？
 
 1. 然后clone 本仓库
 ```bash
@@ -31,7 +31,7 @@ yarn serve # or npm run serve
 5. 发起pr，会有专人记录
 
 
-### 添加一个译者注
+### 如何添加一个译者注释？
 > 基本参考或者直接搬用原[cn.vuejs.org](https://github.com/vuejs/cn.vuejs.org)
 
 到需要注释的地方
@@ -41,13 +41,12 @@ yarn serve # or npm run serve
 在该注释文档的底部
 
 ```md
-<small>
-**译者注**
-<a id="footnote-1"></a>[1] 对于中国大陆用户，建议将 NPM 源设置为[国内的镜像](https://npm.taobao.org/)，可以大幅提升安装速度。
-</small>
+<small>**译者注**<a id="footnote-1"></a>[1] 对于中国大陆
+用户，建议将 NPM 源设置为[国内的镜像](https://npm.taobao.org/)，可以
+大幅提升安装速度。</small>
 ```
 
-## 存在争议的翻译
+### 存在争议的翻译
 
 如果发现某些段落有疑虑，不顺畅的，可以打个记号，以让其他人协助完成。
 
@@ -57,6 +56,12 @@ yarn serve # or npm run serve
 |||||
 |||||
 |||||
+
+### 翻译规范
+
+- [术语翻译约定.md](https://github.com/vuejs/cn.vuejs.org/wiki)
+
+
 
 ## 进度
 
@@ -72,7 +77,7 @@ yarn serve # or npm run serve
 |[/guide/list.md](/src/guide/list.md)|[@veaba](https://github.com/veaba)|||
 |[/guide/events.md](/src/guide/events.md)|[@veaba](https://github.com/veaba)|||
 |[/guide/forms.md](/src/guide/forms.md)|[@veaba](https://github.com/veaba)|||
-|[/guide/component-basic.md](/src/guide/component-basic.md)|[@veaba](https://github.com/veaba)|||
+|[/guide/component-basic.md](/src/guide/component-basics.md)|[@veaba](https://github.com/veaba)|||
 |-|-|-|-|
 |[/guide/component-registration.md](/src/guide/component-registration.md)||||
 |[/guide/component-props.md](/src/guide/component-props.md)||||
@@ -164,10 +169,6 @@ yarn serve # or npm run serve
 |-|-|-|-|
 |[/api/composition-api.md](/src/api/composition-api.md)||||
 |||||
-## 翻译规范
-
-- [术语翻译约定.md](https://github.com/vuejs/cn.vuejs.org/wiki)
-
 
 
 ## 引用与参考

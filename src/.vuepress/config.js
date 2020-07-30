@@ -38,7 +38,7 @@ module.exports = {
   locales: {
     '/': {
       lang: 'zh-CN',
-      title: 'Vue.js Vue-next 中文文档',
+      title: 'Vue.js',
       description: 'Vue.js 3 渐进式 JavaScript 框架'
     },
     '/en/': {

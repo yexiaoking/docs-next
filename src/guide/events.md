@@ -1,12 +1,12 @@
 # 事件处理
 
-<div class="vueschool"><a href="https://vueschool.io/lessons/vuejs-user-events?friend=vuejs" target="_blank" rel="sponsored noopener" title="Learn how to handle events on Vue School">Learn how to handle events in a free Vue School lesson</a></div>
+<div class="vueschool"><a href="https://vueschool.io/lessons/vuejs-user-events?friend=vuejs" target="_blank" rel="sponsored noopener" title="Learn how to handle events on Vue School">了解如何处理事件,一个免费的Vue School课程</a></div>
 
 ## 监听事件
 
-We can use the `v-on` directive, which we typically shorten to the `@` symbol, to listen to DOM events and run some JavaScript when they're triggered. The usage would be `v-on:click="methodName"` or with the shortcut, `@click="methodName"`
+我们可以使用 `v-on` 指令（通常缩写为 `@` 符号）来监听DOM事件，并在触发事件时执行一些JavaScript。用法为 `v-on:click=”methodName` 或使用快捷方式 `@click="methodName"`
 
-For example:
+例如:
 
 ```html
 <div id="basic-event">
@@ -25,7 +25,7 @@ Vue.createApp({
 }).mount('#basic-event')
 ```
 
-Result:
+结果:
 
 <p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="html,result" data-user="Vue" data-slug-hash="xxGadPZ" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Event handling: basic">
   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/xxGadPZ">
@@ -36,13 +36,13 @@ Result:
 
 ## 事件处理方法
 
-The logic for many event handlers will be more complex though, so keeping your JavaScript in the value of the `v-on` attribute isn't feasible. That's why `v-on` can also accept the name of a method you'd like to call.
+然而许多事件处理逻辑会更为复杂，所以直接把 JavaScript 代码写在 `v-on` 指令中是不可行的。因此 `v-on` 还可以接收一个需要调用的方法名称。
 
-For example:
+例如:
 
 ```html
 <div id="event-with-method">
-  <!-- `greet` is the name of a method defined below -->
+  <!-- `greet` 在下面定义的方法名 -->
   <button @click="greet">Greet</button>
 </div>
 ```
@@ -56,9 +56,9 @@ Vue.createApp({
   },
   methods: {
     greet(event) {
-      // `this` inside methods points to the Vue instance
+      // `this` 内部 `methods` 指向Vue实例
       alert('Hello ' + this.name + '!')
-      // `event` is the native DOM event
+      // `event` 是原生 DOM event
       if (event) {
         alert(event.target.tagName)
       }
@@ -67,7 +67,7 @@ Vue.createApp({
 }).mount('#event-with-method')
 ```
 
-Result:
+结果:
 
 <p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="js,result" data-user="Vue" data-slug-hash="jOPvmaX" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Event handling: with a method">
   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/jOPvmaX">
@@ -78,7 +78,7 @@ Result:
 
 ## 内链处理器中的方法
 
-Instead of binding directly to a method name, we can also use methods in an inline JavaScript statement:
+除了直接绑定到一个方法，也可以在内联 JavaScript 语句中调用方法：
 
 ```html
 <div id="inline-handler">
@@ -97,7 +97,7 @@ Vue.createApp({
 }).mount('#inline-handler')
 ```
 
-Result:
+结果:
 
 <p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="html,result" data-user="Vue" data-slug-hash="WNvgjda" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Event handling: with an inline handler">
   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/WNvgjda">
@@ -106,7 +106,7 @@ Result:
 </p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-Sometimes we also need to access the original DOM event in an inline statement handler. You can pass it into a method using the special `$event` variable:
+有时也需要在内联语句处理器中访问原始的 DOM 事件。可以用特殊变量 `$event` 把它传入方法：
 
 ```html
 <button @click="warn('Form cannot be submitted yet.', $event)">
@@ -129,10 +129,10 @@ methods: {
 
 ## 多事件处理器
 
-You can have multiple methods in an event handler separated by a comma operator like this:
+事件处理程序中可以有多个方法，这些方法由逗号运算符分隔：
 
 ```html
-<!-- both one() and two() will execute on button click -->
+<!-- 这两个 one() 和 two() 将执行按钮点击事件 -->
 <button @click="one($event), two($event)">
   Submit
 </button>
@@ -152,9 +152,9 @@ methods: {
 
 ## 事件修饰符
 
-It is a very common need to call `event.preventDefault()` or `event.stopPropagation()` inside event handlers. Although we can do this easily inside methods, it would be better if the methods can be purely about data logic rather than having to deal with DOM event details.
+在事件处理程序中调用 `event.preventDefault()` 或 `event.stopPropagation()` 是非常常见的需求。尽管我们可以在方法中轻松实现这点，但更好的方式是：方法只有纯粹的数据逻辑，而不是去处理 DOM 事件细节。
 
-To address this problem, Vue provides **event modifiers** for `v-on`. Recall that modifiers are directive postfixes denoted by a dot.
+为了解决这个问题，Vue.js 为 `v-on` 提供了**事件修饰符**。之前提过，修饰符是由点开头的指令后缀来表示的。
 
 - `.stop`
 - `.prevent`
@@ -164,77 +164,76 @@ To address this problem, Vue provides **event modifiers** for `v-on`. Recall tha
 - `.passive`
 
 ```html
-<!-- the click event's propagation will be stopped -->
+<!-- 阻止单击事件继续传播 -->
 <a @click.stop="doThis"></a>
 
-<!-- the submit event will no longer reload the page -->
+<!-- 阻止单击事件继续传播 -->
 <form @submit.prevent="onSubmit"></form>
 
-<!-- modifiers can be chained -->
+<!-- 修饰符可以串联 -->
 <a @click.stop.prevent="doThat"></a>
 
-<!-- just the modifier -->
+<!-- 只有修饰符 -->
 <form @submit.prevent></form>
 
-<!-- use capture mode when adding the event listener -->
-<!-- i.e. an event targeting an inner element is handled here before being handled by that element -->
+<!-- 添加事件监听器时使用事件捕获模式 -->
+<!-- 即内部元素触发的事件先在此处理，然后才交由内部元素进行处理 -->
 <div @click.capture="doThis">...</div>
 
-<!-- only trigger handler if event.target is the element itself -->
-<!-- i.e. not from a child element -->
+<!-- 只当在 event.target 是当前元素自身时触发处理函数 -->
+<!-- 即事件不是从内部元素触发的 -->
 <div @click.self="doThat">...</div>
 ```
 
 ::: tip
-Order matters when using modifiers because the relevant code is generated in the same order. Therefore using `@click.prevent.self` will prevent **all clicks** while `@click.self.prevent` will only prevent clicks on the element itself.
+使用修饰符时，顺序很重要；相应的代码会以同样的顺序产生。因此，用 `v-on:click.prevent.self` 会阻止所有的点击，而 `v-on:click.self.prevent` 只会阻止对元素自身的点击。
 :::
 
 ```html
-<!-- the click event will be triggered at most once -->
+<!-- 点击事件将只会触发一次 -->
 <a @click.once="doThis"></a>
 ```
+不像其它只能对原生的 DOM 事件起作用的修饰符，.once 修饰符还能被用到自定义的[组件事件](component-custom-events.html)上。如果你还没有阅读关于组件的文档，现在大可不必担心。
 
-Unlike the other modifiers, which are exclusive to native DOM events, the `.once` modifier can also be used on [component events](component-custom-events.html). If you haven't read about components yet, don't worry about this for now.
-
-Vue also offers the `.passive` modifier, corresponding to [`addEventListener`'s `passive` option](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#Parameters).
+Vue 还对应 [`addEventListener` 中的 passive 选项](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#Parameters)提供了 `.passive` 修饰符。
 
 ```html
-<!-- the scroll event's default behavior (scrolling) will happen -->
-<!-- immediately, instead of waiting for `onScroll` to complete  -->
-<!-- in case it contains `event.preventDefault()`                -->
+<!-- 滚动事件的默认行为 (即滚动行为) 将会立即触发   -->
+<!-- 而不会等待 `onScroll` 完成                   -->
+<!-- 这其中包含 `event.preventDefault()` 的情况   -->
 <div @scroll.passive="onScroll">...</div>
 ```
 
-The `.passive` modifier is especially useful for improving performance on mobile devices.
+这个 `.passive` 修饰符尤其能够提升移动端的性能。
 
 ::: tip
-Don't use `.passive` and `.prevent` together, because `.prevent` will be ignored and your browser will probably show you a warning. Remember, `.passive` communicates to the browser that you _don't_ want to prevent the event's default behavior.
+不要把 `.passive` 和 `.prevent` 一起使用，因为 `.prevent` 将会被忽略，同时浏览器可能会向你展示一个警告。请记住，`.passive` 会告诉浏览器你 *不想* 阻止事件的默认行为。
 :::
 
 ## 按键修饰符
 
-When listening for keyboard events, we often need to check for specific keys. Vue allows adding key modifiers for `v-on` or `@` when listening for key events:
+在监听键盘事件时，我们经常需要检查详细的按键。Vue 允许为 `v-on`或者 `@` 在监听键盘事件时添加按键修饰符：
 
 ```html
-<!-- only call `vm.submit()` when the `key` is `Enter` -->
+<!-- 只有在 `key` 是 `Enter` 时调用 `vm.submit()` -->
 <input @keyup.enter="submit" />
 ```
 
-You can directly use any valid key names exposed via [`KeyboardEvent.key`](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values) as modifiers by converting them to kebab-case.
+你可以直接将 [`KeyboardEvent.key`](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values) 暴露的任意有效按键名转换为 kebab-case 来作为修饰符。
 
 ```html
 <input @keyup.page-down="onPageDown" />
 ```
 
-In the above example, the handler will only be called if `$event.key` is equal to `'PageDown'`.
+在上述示例中，处理函数只会在` $event.key` 等于 `'PageDown'` 时被调用。
 
 ### 按键别名
 
-Vue provides aliases for the most commonly used keys:
+Vue为最常用的键提供了别名：
 
 - `.enter`
 - `.tab`
-- `.delete` (captures both "Delete" and "Backspace" keys)
+- `.delete`  (捕获“删除”和“退格”键)
 - `.esc`
 - `.space`
 - `.up`
@@ -244,18 +243,18 @@ Vue provides aliases for the most commonly used keys:
 
 ## 系统修饰键
 
-You can use the following modifiers to trigger mouse or keyboard event listeners only when the corresponding modifier key is pressed:
+可以用如下修饰符来实现仅在按下相应按键时才触发鼠标或键盘事件的监听器。
 
 - `.ctrl`
 - `.alt`
 - `.shift`
 - `.meta`
 
-::: tip Note
-On Macintosh keyboards, meta is the command key (⌘). On Windows keyboards, meta is the Windows key (⊞). On Sun Microsystems keyboards, meta is marked as a solid diamond (◆). On certain keyboards, specifically MIT and Lisp machine keyboards and successors, such as the Knight keyboard, space-cadet keyboard, meta is labeled “META”. On Symbolics keyboards, meta is labeled “META” or “Meta”.
+::: tip 提示
+注意：在 Mac 系统键盘上，meta 对应 command 键 (⌘)。在 Windows 系统键盘 meta 对应 Windows 徽标键 (⊞)。在 Sun 操作系统键盘上，meta 对应实心宝石键 (◆)。在其他特定键盘上，尤其在 MIT 和 Lisp 机器的键盘、以及其后继产品，比如 Knight 键盘、space-cadet 键盘，meta 被标记为“META”。在 Symbolics 键盘上，meta 被标记为“META”或者“Meta”。
 :::
 
-For example:
+例如:
 
 ```html
 <!-- Alt + Enter -->
@@ -266,21 +265,21 @@ For example:
 ```
 
 ::: tip
-Note that modifier keys are different from regular keys and when used with `keyup` events, they have to be pressed when the event is emitted. In other words, `keyup.ctrl` will only trigger if you release a key while holding down `ctrl`. It won't trigger if you release the `ctrl` key alone
+请注意修饰键与常规按键不同，在和 `keyup` 事件一起用时，事件触发时修饰键必须处于按下状态。换句话说，只有在按住 `ctrl` 的情况下释放其它按键，才能触发 `keyup.ctrl`。而单单释放 `ctrl` 也不会触发事件。
 :::
 
 ### `.exact` 修饰符
 
-The `.exact` modifier allows control of the exact combination of system modifiers needed to trigger an event.
+`.exact` 修饰符允许你控制由精确的系统修饰符组合触发的事件。
 
 ```html
-<!-- this will fire even if Alt or Shift is also pressed -->
+<!-- 即使 Alt 或 Shift 被一同按下时也会触发 -->
 <button @click.ctrl="onClick">A</button>
 
-<!-- this will only fire when Ctrl and no other keys are pressed -->
+<!-- 有且只有 Ctrl 被按下的时候才触发 -->
 <button @click.ctrl.exact="onCtrlClick">A</button>
 
-<!-- this will only fire when no system modifiers are pressed -->
+<!-- 没有任何系统修饰符被按下的时候才触发 -->
 <button @click.exact="onClick">A</button>
 ```
 
@@ -290,14 +289,14 @@ The `.exact` modifier allows control of the exact combination of system modifier
 - `.right`
 - `.middle`
 
-These modifiers restrict the handler to events triggered by a specific mouse button.
+这些修饰符会限制处理函数仅响应特定的鼠标按钮。
 
 ## 为什么在 HTML 中监听事件？
 
-You might be concerned that this whole event listening approach violates the good old rules about "separation of concerns". Rest assured - since all Vue handler functions and expressions are strictly bound to the ViewModel that's handling the current view, it won't cause any maintenance difficulty. In fact, there are several benefits in using `v-on` or `@`:
+你可能注意到这种事件监听的方式违背了关注点分离 (separation of concern) 这个长期以来的优良传统。但不必担心，因为所有的 Vue.js 事件处理方法和表达式都严格绑定在当前视图的 ViewModel 上，它不会导致任何维护上的困难。实际上，使用 `v-on` 或 `@` 有几个好处：
 
-1. It's easier to locate the handler function implementations within your JS code by skimming the HTML template.
+扫一眼 HTML 模板便能轻松定位在 JavaScript 代码里对应的方法。
 
-2. Since you don't have to manually attach event listeners in JS, your ViewModel code can be pure logic and DOM-free. This makes it easier to test.
+因为你无须在 JavaScript 里手动绑定事件，你的 ViewModel 代码可以是非常纯粹的逻辑，和 DOM 完全解耦，更易于测试。
 
-3. When a ViewModel is destroyed, all event listeners are automatically removed. You don't need to worry about cleaning it up yourself.
+当一个 ViewModel 被销毁时，所有的事件处理器都会自动被删除。你无须担心如何清理它们。

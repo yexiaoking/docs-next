@@ -1,14 +1,14 @@
 # 组件基础
 
-## Base Example
+## 基本实例
 
-Here's an example of a Vue component:
+这里有一个 Vue 组件的示例：
 
 ```js
-// Create a Vue application
+// 创建一个Vue 应用
 const app = Vue.createApp({})
 
-// Define a new global component called button-counter
+// 定义一个名为 button-counter 的新全局组件
 app.component('button-counter', {
   data() {
     return {
@@ -23,10 +23,10 @@ app.component('button-counter', {
 ```
 
 ::: info
-We're showing you a simple example here, but in a typical Vue application we use Single File Components instead of a string template. You can find more information about them [in this section](single-file-component.html).
+在这里演示的是一个简单的示例，但是在典型的Vue应用程序中，我们使用单个文件组件而不是字符串模板。你可以[在本节](single-file-component.html)找到有关它们的更多信息。
 :::
 
-Components are reusable Vue instances with a name: in this case, `<button-counter>`. We can use this component as a custom element inside a root Vue instance:
+组件是可复用的 Vue 实例，且带有一个名字：在这个例子中是 `<button-counter>`。我们可以在一个通过 new Vue 创建的 Vue 根实例中，把这个组件作为自定义元素来使用：
 
 ```html
 <div id="components-demo">
@@ -45,11 +45,11 @@ app.mount('#components-demo')
 </p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-Since components are reusable Vue instances, they accept the same options as a root instance, such as `data`, `computed`, `watch`, `methods`, and lifecycle hooks. The only exceptions are a few root-specific options like `el`.
+因为组件是可复用的 Vue 实例，所以它们与 new Vue 接收相同的选项，例如 `data` 、`computed` 、`watch` 、`methods` 以及生命周期钩子等。仅有的例外是像 `el` 这样根实例特有的选项。
 
-## Reusing Components
+## 组件的复用
 
-Components can be reused as many times as you want:
+你可以将组件进行任意次数的复用：
 
 ```html
 <div id="components-demo">
@@ -66,35 +66,35 @@ Components can be reused as many times as you want:
 </p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-Notice that when clicking on the buttons, each one maintains its own, separate `count`. That's because each time you use a component, a new **instance** of it is created.
+注意当点击按钮时，每个组件都会各自独立维护它的 `count`。因为你每用一次组件，就会有一个它的**新实例**被创建。
 
-## Organizing Components
+## 组件的组织
 
-It's common for an app to be organized into a tree of nested components:
+通常一个应用会以一棵嵌套的组件树的形式来组织：
 
 ![Component Tree](/images/components.png)
 
-For example, you might have components for a header, sidebar, and content area, each typically containing other components for navigation links, blog posts, etc.
+例如，你可能会有页头、侧边栏、内容区等组件，每个组件又包含了其它的像导航链接、博文之类的组件。
 
-To use these components in templates, they must be registered so that Vue knows about them. There are two types of component registration: **global** and **local**. So far, we've only registered components globally, using `component` method of created app:
+为了能在模板中使用，这些组件必须先注册以便 Vue 能够识别。这里有两种组件的注册类型：**全局注册**和**局部注册**。至此，我们的组件都只是通过 `component` 全局注册的：
 
 ```js
 const app = Vue.createApp({})
 
 app.component('my-component-name', {
-  // ... options ...
+  // ... 选项 ...
 })
 ```
 
-Globally registered components can be used in the template of `app` instance created afterwards - and even inside all subcomponents of that Vue instance's component tree.
+全局注册的组件可以在随后创建的 `app` 实例模板中使用，也包括其组件树中的所有子组件的模板中。
 
-That's all you need to know about registration for now, but once you've finished reading this page and feel comfortable with its content, we recommend coming back later to read the full guide on [Component Registration](component-registration.md).
+到目前为止，关于组件注册你需要了解的就这些了，如果你阅读完本页内容并掌握了它的内容，我们会推荐你再回来把[组件注册](component-registration.md)读完。
 
-## Passing Data to Child Components with Props
+##通过 Prop 向子组件传递数据
 
-Earlier, we mentioned creating a component for blog posts. The problem is, that component won't be useful unless you can pass data to it, such as the title and content of the specific post we want to display. That's where props come in.
+早些时候，我们提到了创建一个博文组件的事情。问题是如果你不能向这个组件传递某一篇博文的标题或内容之类的我们想展示的数据的话，它是没有办法使用的。这也正是 prop 的由来。
 
-Props are custom attributes you can register on a component. When a value is passed to a prop attribute, it becomes a property on that component instance. To pass a title to our blog post component, we can include it in the list of props this component accepts, using a `props` option:
+Prop 是你可以在组件上注册的一些自定义 attribute。当一个值传递给一个 prop attribute 的时候，它就变成了那个组件实例的一个 property。为了给博文组件传递一个标题，我们可以用一个 props 选项将其包含在该组件可接受的 `prop` 列表中：
 
 ```js
 const app = Vue.createApp({})
@@ -107,9 +107,9 @@ app.component('blog-post', {
 app.mount('#blog-post-demo')
 ```
 
-A component can have as many props as you'd like and by default, any value can be passed to any prop. In the template above, you'll see that we can access this value on the component instance, just like with `data`.
+一个组件默认可以拥有任意数量的 prop，任何值都可以传递给任何 prop。在上述模板中，你会发现我们能够在组件实例中访问这个值，就像访问 `data` 中的值一样。
 
-Once a prop is registered, you can pass data to it as a custom attribute, like this:
+一个 prop 被注册之后，你就可以像这样把数据作为一个自定义 attribute 传递进来：
 
 ```html
 <div id="blog-post-demo" class="demo">
@@ -126,7 +126,7 @@ Once a prop is registered, you can pass data to it as a custom attribute, like t
 </p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-In a typical app, however, you'll likely have an array of posts in `data`:
+然而在一个典型的应用中，你可能在 `data` 里有一个博文的数组：
 
 ```js
 const App = {
@@ -151,7 +151,7 @@ app.component('blog-post', {
 app.mount('#blog-posts-demo')
 ```
 
-Then want to render a component for each one:
+并想要为每篇博文渲染一个组件：
 
 ```html
 <div id="blog-posts-demo">
@@ -165,13 +165,15 @@ Then want to render a component for each one:
 
 Above, you'll see that we can use `v-bind` to dynamically pass props. This is especially useful when you don't know the exact content you're going to render ahead of time.
 
-That's all you need to know about props for now, but once you've finished reading this page and feel comfortable with its content, we recommend coming back later to read the full guide on [Props](component-props.html).
+如上所示，你会发现我们可以使用 `v-bind` 来动态传递 prop。这在你一开始不清楚要渲染的具体内容，是非常有用的。
 
-## Listening to Child Components Events
+到目前为止，关于 prop 你需要了解的大概就这些了，如果你阅读完本页内容并掌握了它的内容，我们会推荐你再回来把 [prop](component-props.html) 读完。
 
-As we develop our `<blog-post>` component, some features may require communicating back up to the parent. For example, we may decide to include an accessibility feature to enlarge the text of blog posts, while leaving the rest of the page its default size.
+## 监听子组件事件
 
-In the parent, we can support this feature by adding a `postFontSize` data property:
+在我们开发 `<blog-post>` 组件时，它的一些功能可能要求我们和父级组件进行沟通。例如我们可能会引入一个辅助功能来放大博文的字号，同时让页面的其它部分保持默认的字号。
+
+在其父组件中，我们可以通过添加一个 `postFontSize` 数据 property 来支持这个功能：
 
 ```js
 const App = {
@@ -186,7 +188,7 @@ const App = {
 }
 ```
 
-Which can be used in the template to control the font size of all blog posts:
+它可以在模板中用来控制所有博文的字号：
 
 ```html
 <div id="blog-posts-events-demo">
@@ -196,7 +198,7 @@ Which can be used in the template to control the font size of all blog posts:
 </div>
 ```
 
-Now let's add a button to enlarge the text right before the content of every post:
+现在我们在每篇博文正文之前添加一个按钮来放大字号：
 
 ```js
 app.component('blog-post', {
@@ -212,7 +214,7 @@ app.component('blog-post', {
 })
 ```
 
-The problem is, this button doesn't do anything:
+问题是这个按钮不会做任何事：
 
 ```html
 <button>
@@ -220,13 +222,14 @@ The problem is, this button doesn't do anything:
 </button>
 ```
 
-When we click on the button, we need to communicate to the parent that it should enlarge the text of all posts. Fortunately, Vue instances provide a custom events system to solve this problem. The parent can choose to listen to any event on the child component instance with `v-on` or `@`, just as we would with a native DOM event:
+当点击这个按钮时，我们需要告诉父级组件放大所有博文的文本。幸好 Vue 实例提供了一个自定义事件的系统来解决这个问题。父级组件可以像处理 native DOM 事件一样通过 `v-on` 或 `@` 监听子组件实例的任意事件：
 
 ```html
 <blog-post ... @enlarge-text="postFontSize += 0.1"></blog-post>
 ```
 
-Then the child component can emit an event on itself by calling the built-in [**`$emit`** method](../api/instance-methods.html#emit), passing the name of the event:
+同时子组件可以通过调用内建的 [**$emit** 方法](../api/instance-methods.html#emit) 并传入事件名称来触发一个事件：
+
 
 ```html
 <button @click="$emit('enlarge-text')">
@@ -243,9 +246,9 @@ Thanks to the `v-on:enlarge-text="postFontSize += 0.1"` listener, the parent wil
 </p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-### Emitting a Value With an Event
+### 使用事件抛出一个值
 
-It's sometimes useful to emit a specific value with an event. For example, we may want the `<blog-post>` component to be in charge of how much to enlarge the text by. In those cases, we can use `$emit`'s 2nd parameter to provide this value:
+有的时候用一个事件来抛出一个特定的值是非常有用的。例如我们可能想让 `<blog-post>` 组件决定它的文本要放大多少。这时可以使用 `$emit` 的第二个参数来提供这个值：
 
 ```html
 <button @click="$emit('enlarge-text', 0.1)">
@@ -253,19 +256,19 @@ It's sometimes useful to emit a specific value with an event. For example, we ma
 </button>
 ```
 
-Then when we listen to the event in the parent, we can access the emitted event's value with `$event`:
+然后当在父级组件监听这个事件的时候，我们可以通过 `$event` 访问到被抛出的这个值：
 
 ```html
 <blog-post ... @enlarge-text="postFontSize += $event"></blog-post>
 ```
 
-Or, if the event handler is a method:
+或者，如果这个事件处理函数是一个方法：
 
 ```html
 <blog-post ... @enlarge-text="onEnlargeText"></blog-post>
 ```
 
-Then the value will be passed as the first parameter of that method:
+那么这个值将会作为第一个参数传入这个方法：
 
 ```js
 methods: {
@@ -275,21 +278,21 @@ methods: {
 }
 ```
 
-### Using `v-model` on Components
+### 在组件上使用 v-model
 
-Custom events can also be used to create custom inputs that work with `v-model`. Remember that:
+自定义事件也可以用于创建支持 `v-model` 的自定义输入组件。记住：
 
 ```html
 <input v-model="searchText" />
 ```
 
-does the same thing as:
+等价于：
 
 ```html
 <input :value="searchText" @input="searchText = $event.target.value" />
 ```
 
-When used on a component, `v-model` instead does this:
+当用在组件上时，`v-model` 则会这样：
 
 ```html
 <custom-input
@@ -299,15 +302,15 @@ When used on a component, `v-model` instead does this:
 ```
 
 ::: warning
-Please note we used `model-value` with kebab-case here because we are working with in-DOM template. You can find a detailed explanation on kebab-cased vs camelCased attributes in the [DOM Template Parsing Caveats](#dom-template-parsing-caveats) section
+请注意，我们在这里使用的是 `model value`，因为我们使用的是DOM模板中的kebab-case。你可以在 [DOM Template Parsing Caveats](#dom-template-parsing-caveats) 部分找到关于kebab cased和camelCased属性的详细说明
 :::
 
-For this to actually work though, the `<input>` inside the component must:
+为了让它正常工作，这个组件内的 `<input>` 必须：
 
-- Bind the `value` attribute to a `modelValue` prop
-- On `input`, emit an `update:modelValue` event with the new value
+- 将其 `value` attribute 绑定到一个名叫 `modelValue` 的 prop 上
+- 在其 `input` 事件被触发时，将新的值通过自定义的 `update:modelValue` 事件抛出
 
-Here's that in action:
+写成代码之后是这样的：
 
 ```js
 app.component('custom-input', {
@@ -321,17 +324,17 @@ app.component('custom-input', {
 })
 ```
 
-Now `v-model` should work perfectly with this component:
+现在 `v-model` 就应该可以在这个组件上完美地工作起来了：
 
 ```html
 <custom-input v-model="searchText"></custom-input>
 ```
 
-That's all you need to know about custom component events for now, but once you've finished reading this page and feel comfortable with its content, we recommend coming back later to read the full guide on [Custom Events](component-custom-events.md).
+到目前为止，关于组件自定义事件你需要了解的大概就这些了，如果你阅读完本页内容并掌握了它的内容，我们会推荐你再回来把 [自定义事件](component-custom-events.md) 读完。
 
-## Content Distribution with Slots
+## 通过插槽分发内容
 
-Just like with HTML elements, it's often useful to be able to pass content to a component, like this:
+和 HTML 元素一样，我们经常需要向一个组件传递内容，像这样：
 
 ```html
 <alert-box>
@@ -339,7 +342,7 @@ Just like with HTML elements, it's often useful to be able to pass content to a 
 </alert-box>
 ```
 
-Which might render something like:
+可能会渲染出这样的东西：
 
 <p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="jOPeaob" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Component basics: slots">
   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/jOPeaob">
@@ -348,7 +351,7 @@ Which might render something like:
 </p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-Fortunately, this task is made very simple by Vue's custom `<slot>` element:
+幸好，Vue 自定义的 `<slot>` 元素让这变得非常简单：
 
 ```js
 app.component('alert-box', {
@@ -361,13 +364,13 @@ app.component('alert-box', {
 })
 ```
 
-As you'll see above, we just add the slot where we want it to go -- and that's it. We're done!
+如你所见，我们只要在需要的地方加入插槽就行了——就这么简单！
 
-That's all you need to know about slots for now, but once you've finished reading this page and feel comfortable with its content, we recommend coming back later to read the full guide on [Slots](component-slots.md).
+到目前为止，关于插槽你需要了解的大概就这些了，如果你阅读完本页内容并掌握了它的内容，我们会推荐你再回来把[插槽](component-slots.md))读完。
 
-## Dynamic Components
+## 动态组件
 
-Sometimes, it's useful to dynamically switch between components, like in a tabbed interface:
+有的时候，在不同组件之间进行动态切换是非常有用的，比如在一个多标签的界面里：
 
 <p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="oNXaoKy" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Component basics: dynamic components">
   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/oNXaoKy">
@@ -376,37 +379,37 @@ Sometimes, it's useful to dynamically switch between components, like in a tabbe
 </p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-The above is made possible by Vue's `<component>` element with the `is` special attribute:
+上述内容可以通过 Vue 的 `<component>` 元素加一个特殊的 `is` attribute 来实现：
 
 ```html
-<!-- Component changes when currentTabComponent changes -->
+<!-- 组件会在 `currentTabComponent` 改变时改变 -->
 <component :is="currentTabComponent"></component>
 ```
 
-In the example above, `currentTabComponent` can contain either:
+在上述示例中，`currentTabComponent` 可以包括
 
-- the name of a registered component, or
-- a component's options object
+- 已注册组件的名字，或
+- 一个组件的选项对象
 
-See [this sandbox](https://codepen.io/team/Vue/pen/oNXaoKy) to experiment with the full code, or [this version](https://codepen.io/team/Vue/pen/oNXapXM) for an example binding to a component's options object, instead of its registered name.
+你可以在[这里](https://codepen.io/team/Vue/pen/oNXaoKy))查阅并体验完整的代码，或在[这个版本](https://codepen.io/team/Vue/pen/oNXapXM)了解绑定组件选项对象，而不是已注册组件名的示例。
 
-Keep in mind that this attribute can be used with regular HTML elements, however they will be treated as components, which means all attributes **will be bound as DOM attributes**. For some properties such as `value` to work as you would expect, you will need to bind them using the [`.prop` modifier](../api/directives.html#v-bind).
+请留意，这个 attribute 可以用于常规 HTML 元素，但这些元素将被视为组件，这意味着所有的 attribute **都会作为 DOM attribute 被绑定**。对于像 `value` 这样的 property，若想让其如预期般工作，你需要使用 [.prop 修饰器](../api/directives.html#v-bind)。
 
-That's all you need to know about dynamic components for now, but once you've finished reading this page and feel comfortable with its content, we recommend coming back later to read the full guide on [Dynamic & Async Components](./components-dynamic-async.html).
+到目前为止，关于动态组件你需要了解的大概就这些了，如果你阅读完本页内容并掌握了它的内容，我们会推荐你再回来把[动态 & 异步组件](./components-dynamic-async.html)读完。
 
-## DOM Template Parsing Caveats
 
-Some HTML elements, such as `<ul>`, `<ol>`, `<table>` and `<select>` have restrictions on what elements can appear inside them, and some elements such as `<li>`, `<tr>`, and `<option>` can only appear inside certain other elements.
+## 解析 DOM 模板时的注意事项
 
-This will lead to issues when using components with elements that have such restrictions. For example:
+有些 HTML 元素，诸如 `<ul>`、`<ol>`、`<table>` 和 `<select>`，对于哪些元素可以出现在其内部是有严格限制的。而有些元素，诸如 `<li>`、`<tr>` 和 `<option>`，只能出现在其它某些特定的元素内部。
+
+这会导致我们使用这些有约束条件的元素时遇到一些问题。例如：
 
 ```html
 <table>
   <blog-post-row></blog-post-row>
 </table>
 ```
-
-The custom component `<blog-post-row>` will be hoisted out as invalid content, causing errors in the eventual rendered output. Fortunately, we can use `v-is` special directive as a workaround:
+这个自定义组件 `<blog-post-row>` 会被作为无效的内容提升到外部，并导致最终渲染结果出错。幸好这个特殊的 `v-is` attribute 给了我们一个变通的办法：
 
 ```html
 <table>
@@ -415,7 +418,7 @@ The custom component `<blog-post-row>` will be hoisted out as invalid content, c
 ```
 
 :::warning
-`v-is` value should be a JavaScript string literal:
+`v-is` 值应为JavaScript字符串文本：
 
 ```html
 <!-- Incorrect, nothing will be rendered -->
@@ -427,10 +430,10 @@ The custom component `<blog-post-row>` will be hoisted out as invalid content, c
 
 :::
 
-Also, HTML attribute names are case-insensitive, so browsers will interpret any uppercase characters as lowercase. That means when you’re using in-DOM templates, camelCased prop names and event handler parameters need to use their kebab-cased (hyphen-delimited) equivalents:
+另外，HTML属性名不区分大小写，因此浏览器将把所有大写字符解释为小写。这意味着当你在DOM模板中使用时，驼峰 prop 名称和event 处理器参数需要使用它们的kebab-cased（横线字符分隔）等效值：
 
 ```js
-// camelCase in JavaScript
+//  在JavaScript中的驼峰
 
 app.component('blog-post', {
   props: ['postTitle'],
@@ -441,17 +444,18 @@ app.component('blog-post', {
 ```
 
 ```html
-<!-- kebab-case in HTML -->
+<!-- 在HTML则是横线字符分割 -->
 
 <blog-post post-title="hello!"></blog-post>
 ```
 
-It should be noted that **these limitations does _not_ apply if you are using string templates from one of the following sources**:
+需要注意的是**如果我们从以下来源使用模板的话，这条限制是*不存在*的**：
 
-- String templates (e.g. `template: '...'`)
-- [Single-file (`.vue`) components](single-file-component.html)
+- 字符串模板 (例如：`template: '...'`)
+- [单文件组件 (.vue)](single-file-component.html)
 - `<script type="text/x-template">`
 
-That's all you need to know about DOM template parsing caveats for now - and actually, the end of Vue's _Essentials_. Congratulations! There's still more to learn, but first, we recommend taking a break to play with Vue yourself and build something fun.
 
-Once you feel comfortable with the knowledge you've just digested, we recommend coming back to read the full guide on [Dynamic & Async Components](component-dynamic-async.html), as well as the other pages in the Components In-Depth section of the sidebar.
+到这里，你需要了解的解析 DOM 模板时的注意事项——实际上也是 Vue 的全部*必要*内容，大概就是这些了。恭喜你！接下来还有很多东西要去学习，不过首先，我们推荐你先休息一下，试用一下 Vue，自己随意做些好玩的东西。
+
+如果你感觉已经掌握了这些知识，我们推荐你再回来把完整的[组件 & 异步组件](component-dynamic-async.html)指南，包括侧边栏中组件深入章节的所有页面读完。

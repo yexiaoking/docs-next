@@ -2,21 +2,23 @@
 
 ## 基础用法
 
-You can use the `v-model` directive to create two-way data bindings on form input, textarea, and select elements. It automatically picks the correct way to update the element based on the input type. Although a bit magical, `v-model` is essentially syntax sugar for updating data on user input events, plus special care for some edge cases.
+你可以用 v-model 指令在表单 `<input>`、`<textarea>` 及 `<select>` 元素上创建双向数据绑定。它会根据控件类型自动选取正确的方法来更新元素。尽管有些神奇，但 `v-model` 本质上不过是语法糖。它负责监听用户的输入事件以更新数据，并对一些极端场景进行一些特殊处理。
 
-::: tip Note
-`v-model` will ignore the initial `value`, `checked` or `selected` attributes found on any form elements. It will always treat the Vue instance data as the source of truth. You should declare the initial value on the JavaScript side, inside the `data` option of your component.
+
+::: tip 提示
+`v-model` 会忽略所有表单元素的 `value` 、`checked`、`selected` attribute 的初始值而总是将 Vue 实例的数据作为数据来源。你应该通过 JavaScript 在组件的 `data` 选项中声明初始值。
 :::
 
-`v-model` internally uses different properties and emits different events for different input elements:
+`v-model` 在内部为不同的输入元素使用不同的 property 并抛出不同的事件：
 
-- text and textarea elements use `value` property and `input` event;
-- checkboxes and radiobuttons use `checked` property and `change` event;
-- select fields use `value` as a prop and `change` as an event.
+- text 和 textarea 元素使用 `value` property 和 `input` 事件；
+- checkbox 和 radio 使用 `checked` property 和 `change` 事件；
+- select 字段将 `value` 作为 prop 并将 `change` 作为事件。
 
 <span id="vmodel-ime-tip"></span>
-::: tip Note
-For languages that require an [IME](https://en.wikipedia.org/wiki/Input_method) (Chinese, Japanese, Korean etc.), you'll notice that `v-model` doesn't get updated during IME composition. If you want to cater for these updates as well, use `input` event instead.
+
+::: tip 提示
+对于需要使用[输入法](https://en.wikipedia.org/wiki/Input_method) (如中文、日文、韩文等) 的语言，你会发现 `v-model` 不会在输入法组合文字过程中得到更新。如果你也想处理这个过程，请使用 `input` 事件。
 :::
 
 ### 文本(Text)
@@ -49,7 +51,7 @@ For languages that require an [IME](https://en.wikipedia.org/wiki/Input_method) 
 </p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-Interpolation on textareas won't work. Use `v-model` instead.
+在文本区域插值不起作用，应该使用 `v-model` 来代替。
 
 ```html
 <!-- bad -->
@@ -61,7 +63,7 @@ Interpolation on textareas won't work. Use `v-model` instead.
 
 ### 复选框(Checkbox)
 
-Single checkbox, boolean value:
+单个复选框，绑定到布尔值：
 
 ```html
 <input type="checkbox" id="checkbox" v-model="checked" />
@@ -75,7 +77,7 @@ Single checkbox, boolean value:
 </p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-Multiple checkboxes, bound to the same Array:
+多个复选框，绑定到同一个数组：
 
 ```html
 <div id="v-model-multiple-checkboxes">
@@ -172,10 +174,10 @@ Vue.createApp({
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 :::tip Note
-If the initial value of your `v-model` expression does not match any of the options, the `<select>` element will render in an "unselected" state. On iOS this will cause the user not being able to select the first item because iOS does not fire a change event in this case. It is therefore recommended to provide a disabled option with an empty value, as demonstrated in the example above.
+如果 `v-model` 表达式的初始值未能匹配任何选项，`<select>` 元素将被渲染为“未选中”状态。在 iOS 中，这会使用户无法选择第一个选项。因为这样的情况下，iOS 不会触发 change 事件。因此，更推荐像上面这样提供一个值为空的禁用选项。
 :::
 
-Multiple select (bound to Array):
+多选时 (绑定到一个数组)：
 
 ```html
 <select v-model="selected" multiple>
@@ -194,7 +196,7 @@ Multiple select (bound to Array):
 </p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-Dynamic options rendered with `v-for`:
+用 `v-for` 渲染的动态选项：
 
 ```html
 <div id="v-model-select-dynamic" class="demo">
@@ -231,22 +233,22 @@ Vue.createApp({
 
 ## 值绑定
 
-For radio, checkbox and select options, the `v-model` binding values are usually static strings (or booleans for checkbox):
+对于单选按钮，复选框及选择框的选项，`v-model` 绑定的值通常是静态字符串 (对于复选框也可以是布尔值)：
 
 ```html
-<!-- `picked` is a string "a" when checked -->
+<!-- 当选中时，`picked` 为字符串 "a" -->
 <input type="radio" v-model="picked" value="a" />
 
-<!-- `toggle` is either true or false -->
+<!-- `toggle` 为 true 或 false -->
 <input type="checkbox" v-model="toggle" />
 
-<!-- `selected` is a string "abc" when the first option is selected -->
+<!-- 当选中第一个选项时，`selected` 为字符串 "abc" -->
 <select v-model="selected">
   <option value="abc">ABC</option>
 </select>
 ```
 
-But sometimes we may want to bind the value to a dynamic property on the Vue instance. We can use `v-bind` to achieve that. In addition, using `v-bind` allows us to bind the input value to non-string values.
+但是有时我们可能想把值绑定到 Vue 实例的一个动态 property 上，这时可以用 `v-bind` 实现，此外，使用 `v-bind` 可以将输入值绑定到非字符串。
 
 ### 复选框（Checkbox）
 
@@ -262,7 +264,7 @@ vm.toggle === 'no'
 ```
 
 :::tip Tip
-The `true-value` and `false-value` attributes don't affect the input's `value` attribute, because browsers don't include unchecked boxes in form submissions. To guarantee that one of two values is submitted in a form (e.g. "yes" or "no"), use radio inputs instead.
+这里的 `true-value` 和 `false-value` attribute 并不会影响输入控件的 `value` attribute，因为浏览器在提交表单时并不会包含未被选中的复选框。如果要确保表单中这两个值中的一个能够被提交，(即“yes”或“no”)，请换用单选按钮。
 :::
 
 ### 单选框（Radio）
@@ -272,7 +274,7 @@ The `true-value` and `false-value` attributes don't affect the input's `value` a
 ```
 
 ```js
-// when checked:
+// 当选中时
 vm.pick === vm.a
 ```
 
@@ -280,13 +282,13 @@ vm.pick === vm.a
 
 ```html
 <select v-model="selected">
-  <!-- inline object literal -->
+  <!-- 内联对象字面量 -->
   <option :value="{ number: 123 }">123</option>
 </select>
 ```
 
 ```js
-// when selected:
+// 当被选中时
 typeof vm.selected // => 'object'
 vm.selected.number // => 123
 ```
@@ -295,26 +297,26 @@ vm.selected.number // => 123
 
 ### `.lazy`
 
-By default, `v-model` syncs the input with the data after each `input` event (with the exception of IME composition as [stated above](#vmodel-ime-tip)). You can add the `lazy` modifier to instead sync after `change` events:
+在默认情况下，`v-model` 在每次 `input` 事件触发后将输入框的值与数据进行同步 (除了[上述](#vmodel-ime-tip)输入法组合文字时)。你可以添加 `lazy` 修饰符，从而转为在 `change` 事件_之后_进行同步：
 
 ```html
-<!-- synced after "change" instead of "input" -->
+<!-- 在“change”时而非“input”时更新 -->
 <input v-model.lazy="msg" />
 ```
 
 ### `.number`
 
-If you want user input to be automatically typecast as a number, you can add the `number` modifier to your `v-model` managed inputs:
+如果想自动将用户的输入值转为数值类型，可以给 `v-model` 添加 `number` 修饰符：
 
 ```html
 <input v-model.number="age" type="number" />
 ```
 
-This is often useful, because even with `type="number"`, the value of HTML input elements always returns a string. If the value cannot be parsed with `parseFloat()`, then the original value is returned.
+这通常很有用，因为即使在 `type="number"` 时，HTML 输入元素的值也总会返回字符串。如果这个值无法被 `parseFloat()` 解析，则会返回原始的值。
 
 ### `.trim`
 
-If you want whitespace from user input to be trimmed automatically, you can add the `trim` modifier to your `v-model`-managed inputs:
+如果要自动过滤用户输入的首尾空白字符，可以给 `v-model` 添加 `trim` 修饰符：
 
 ```html
 <input v-model.trim="msg" />
@@ -322,6 +324,8 @@ If you want whitespace from user input to be trimmed automatically, you can add 
 
 ## 在组件上使用`v-model`
 
-> If you're not yet familiar with Vue's components, you can skip this for now.
+> 如果你还不熟悉 Vue 的组件，可以暂且跳过这里。
 
-HTML's built-in input types won't always meet your needs. Fortunately, Vue components allow you to build reusable inputs with completely customized behavior. These inputs even work with `v-model`! To learn more, read about [custom inputs](./component-basics.html#using-v-model-on-components) in the Components guide.
+HTML 原生的输入元素类型并不总能满足需求。幸好，Vue 的组件系统允许你创建具有完全自定义行为且可复用的输入组件。这些输入组件甚至可以和 `v-model` 一起使用！
+
+要了解更多，请参阅组件指南中的[自定义输入](./component-basics.html#using-v-model-on-components)组件。
