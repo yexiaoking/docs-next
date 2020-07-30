@@ -79,7 +79,7 @@ yarn serve # or npm run serve
 |[/guide/forms.md](/src/guide/forms.md)|[@veaba](https://github.com/veaba)||完成翻译|
 |[/guide/component-basic.md](/src/guide/component-basics.md)|[@veaba](https://github.com/veaba)||完成翻译|
 |-|-|-|-|
-|[/guide/component-registration.md](/src/guide/component-registration.md)||||
+|[/guide/component-registration.md](/src/guide/component-registration.md)|@veaba](https://github.com/veaba|||
 |[/guide/component-props.md](/src/guide/component-props.md)||||
 |[/guide/component-custom-events.md](/src/guide/component-custom-events.md)||||
 |[/guide/component-slots.md](/src/guide/component-slots.md)||||
