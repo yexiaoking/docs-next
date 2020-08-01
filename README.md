@@ -88,9 +88,9 @@ yarn serve # or npm run serve
 |[/guide/component-template-refs.md](/src/guide/component-template-refs.md)|@veaba](https://github.com/veaba|||
 |[/guide/component-edge-cases.md](/src/guide/component-edge-cases.md)|@veaba](https://github.com/veaba|||
 |-|-|-|-|
-|[/guide/transitions-overview.md](/src/guide/transitions-overview.md)||||
-|[/guide/transitions-enterleave.md](/src/guide/transitions-enterleave.md)||||
-|[/guide/transitions-list.md](/src/guide/transitions-list.md)||||
+|[/guide/transitions-overview.md](/src/guide/transitions-overview.md)||@veaba](https://github.com/veaba|||
+|[/guide/transitions-enterleave.md](/src/guide/transitions-enterleave.md)||@veaba](https://github.com/veaba|||
+|[/guide/transitions-list.md](/src/guide/transitions-list.md)||@veaba](https://github.com/veaba|||
 |[/guide/transitions-stat.md](/src/guide/transitions-stat.md)||||
 |-|-|-|-|
 |[/guide/mixins.md](/src/guide/mixins.md)||||
