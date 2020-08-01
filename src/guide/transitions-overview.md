@@ -1,19 +1,19 @@
-# Transition & Animations Overview
+# 过渡 & 动画概述
 
-Vue offers some abstractions that can help work with transitions and animations, particularly in response to something changing. Some of these abstractions include:
+Vue提供了一些抽象，可以帮助处理过渡和动画，特别是在对变化的响应中。其中一些摘要包括：
 
-- Hooks for components entering and leaving the DOM, in both CSS and JS, using the built-in `<transition>` component.
-- Transition Modes so that you can orchestrate ordering during a transition.
-- Hooks for when multiple elements are updating in position, with FLIP techniques applied under the hood to increase performance, using the `<transition-group>` component.
-- Transitioning different states in an application, with `watchers`.
+- 在CSS和JS中，使用内置的 `<transition>` 组件来钩住进入和离开DOM的组件。
+- 过渡模式，以便你可以在过渡期间协调顺序。
+- 钩子用于多个元素更新到位时，使用 `transition group>` 组件中，在FLIP 技术下使用钩子以提高性能。
+- 使用 `watchers` 过渡应用程序中的不同状态。
 
-We will cover all of these and more in the next three sections in this Guide. However, aside from these useful API offerings, it's worth mentioning that the class and style declarations we covered earlier can be used to apply animations and transitions as well, for more simple use cases.
+我们将在本指南接下来的三个部分中介绍所有这些以及更多内容。然而，除了这些有用的API之外，值得一提的是，对于更简单的用例，我们前面介绍的 class 和 style 声明也可以用于应用动画和transtion。
 
-In this next section, we'll go over some web animation and transitions basics, and link off to some resources for further exploration. If you're already familiar with web animation and how those principles might work with some of Vue's directives, feel free to skip this next section. For anyone else looking to learn a little more about web animation basics before diving in, read on.
+在下一节中，我们将回顾一些web动画和过渡的基础知识，并链接到一些资源以进行进一步的研究。如果你已经熟悉web动画，以及这些原则如何与Vue的某些指令配合使用，请跳过下一节。如果其他人想在深入了解网络动画基础知识之前，继续阅读。
 
-## Class-based Animations & Transitions
+## 基于class 的动画和过渡
 
-Though the `<transition>` component can be wonderful for components entering and leaving, you can also activate an animation without mounting a component, by adding a conditional class.
+尽管 `<transition>` 组件对于组件的进入和离开非常有用，但是你也可以通过添加一个条件class来激活动画，而无需挂载组件。
 
 ```html
 <div id="demo">
@@ -77,9 +77,9 @@ Vue.createApp(Demo).mount('#demo')
 </p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-# Transitions with Style Bindings
+## 过渡与Style绑定
 
-Some transition affects can be applied by interpolating values, for instance by binding a style to an element while an interaction occurs. Take this example for instance:
+一些过渡影响可以通过插值来应用，例如在交互发生时将样式绑定到元素。以这个例子为例：
 
 ```html
 <div id="demo">
@@ -124,27 +124,28 @@ Vue.createApp(Demo).mount('#demo')
 </p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-In this example, we are creating animation through the use of interpolation, attached to the mouse movement. The CSS transition is applied to the element as well, to let the element know what kind of easing to use while it's updating.
+在这个例子中，我们通过使用插值来创建动画，附加到鼠标的移动上。CSS过渡也应用于元素，让元素知道在更新时要使用什么easing。
 
-## Performance
+## 性能
 
-You may notice that the animations shown above are using things like `transforms`, and applying strange properties like `perspective`- why were they built that way instead of just using `margin` and `top` etc?
+你可能注意到上面显示的动画使用了 `transforms` 之类的东西，并应用了诸如 `perspective` 之类的奇怪属性 —— 为什么它们是这样构建的，而不是仅仅使用 `margin` 和 `TOP`等？
 
-We can create extremely smooth animations on the web by being aware of performance. We want to hardware accelerate elements when we can, and use properties that don't trigger repaints. Let's go over some of how we can accomplish this.
+通过对性能的了解，我们可以在网络上创建非常流畅的动画。我们希望尽可能用硬件加速元素，并使用不触发重绘的属性。让我们来回顾一下我们如何做到这一点。
 
-### Transform and Opacity
+### Transform 和 Opacity
 
-We can check resources like [CSS-Triggers](https://csstriggers.com/) to see which properties will trigger repaints if we animate them. Here, if you look under `transform`, you will see:
 
-> Changing transform does not trigger any geometry changes or painting, which is very good. This means that the operation can likely be carried out by the compositor thread with the help of the GPU.
+我们可以检查资源，比如[CSS Triggers](https://csstriggers.com/)以查看如果我们设置了动画，哪些属性将触发重绘。在这里，如果你在 `transform` 下查看，你将看到：
 
-Opacity behaves similarly. Thus, they are ideal candidates for movement on the web.
+> 更改transform不会触发任何几何体更改或绘制，这非常好。这意味着该操作可以由合成器线程在GPU的帮助下执行。
 
-### Hardware Acceleration
+不透明度的行为类似。因此，他们是网络运动的理想人选。
 
-Properties such as `perspective`, `backface-visibility`, and `transform: translateZ(x)` will allow the browser to know you need hardware acceleration.
+### 硬件加速
 
-If you wish to hardware-accelerate an element, you can apply any of these properties (not all are necessary, only one):
+诸如 `perspective`、`backface visibility` 和 `transform:translateZ(x)`等 property 将允许浏览器知道你需要硬件加速。
+
+如果要对元素进行硬件加速，可以应用以下任何property（并不是都必需，仅一个）：
 
 ```css
 perspective: 1000px;
@@ -152,30 +153,30 @@ backface-visibility: hidden;
 transform: translateZ(0);
 ```
 
-Many JS libraries like GreenSock will assume you want hardware acceleration and will apply them by default, so you do not need to set them manually.
+许多像GreenSock这样的JS库都会假设你需要硬件加速，并在默认情况下应用它们，所以你不需要手动设置它们。
 
 ## Timing
 
-For simple UI transitions, meaning from just one state to another with no intermediary states, it's common to use timings between 0.1s and 0.4s, and most folks find that _0.25s_ tends to be a sweet spot. Can you use that timing for everything? No, not really. If you have something that needs to move a greater distance or has more steps or state changes, 0.25s is not going to work as well and you will have to be much more intentional, and the timing will need to be more unique. That doesn't mean you can't have nice defaults that you repeat within your application, though.
+对于简单的UI转换，即从一个状态到另一个没有中间状态的状态，通常使用0.1s到0.4s之间的计时，大多数人发现0.25s是一个最佳选择。你能用这个时间做任何事情吗？不，不是。如果你有一些东西需要移动更大的距离，或者有更多的步骤或状态变化，0.25s是不起作用的，你必须要有更多的目的性，而且时间需要更加独特。但这并不意味着你不能在应用程序中重复使用好的默认值。
 
-You may also find that entrances look better with slightly more time than an exit. The user typically is being guided during the entrance, and is a little less patient upon exit because they want to go on their way.
+你也可能会发现入口看起来比出口的时间稍微长一些。用户通常是在入口时被引导的，而在出口时耐心一点，因为他们想继续前进。
 
 ## Easing
 
-Easing is an important way to convey depth in an animation. One of the most common mistakes newcomers to animation have is to use `ease-in` for entrances, and `ease-out` for exits. You'll actually need the opposite.
+Easing 是在动画中传达深度的重要方式。动画新手最常犯的一个错误是在入口使用 `ease-in`，在出口使用 `ease out`。你实际上需要的是反过来。
 
-If we were to apply these states to a transition, it would look something like this:
+如果我们将这些状态应用于过渡，它会看起来像这样：
 
 ```css
 .button {
   background: #1b8f5a;
-  /* applied to the initial state, so this transition will be applied to the return state */
+  /* 应用于初始状态，因此此转换将应用于返回状态 */
   transition: background 0.25s ease-in;
 }
 
 .button:hover {
   background: #3eaf7c;
-  /* applied to the hover state, so this trnaisition will be applied when a hover is triggered */
+  /* 应用于悬停状态，因此在触发悬停时将应用此过渡 */
   transition: background 0.35s ease-out;
 }
 ```
@@ -187,7 +188,7 @@ If we were to apply these states to a transition, it would look something like t
 </p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-Easing can also convey the quality of material being animated. Take this pen for example, which ball do you think is hard and which is soft?
+Easing也可以传达动画素材的质量。 以这支笔为例，你认为哪个球硬而哪个软？
 
 <p class="codepen" data-height="500" data-theme-id="39028" data-default-tab="result" data-user="sdras" data-slug-hash="zxJWBJ" data-preview="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Bouncing Ball Demo">
   <span>See the Pen <a href="https://codepen.io/sdras/pen/zxJWBJ">
@@ -196,15 +197,15 @@ Easing can also convey the quality of material being animated. Take this pen for
 </p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-You can get a lot of unique effects and make your animation very stylish by adjusting your easing. CSS allows you to modify this by adjusting a cubic bezier property, [this playground](https://cubic-bezier.com/#.17,.67,.83,.67) by Lea Verou is very helpful for exploring this.
+你可以得到很多独特的效果，并使你的动画非常时尚，通过调整你的放松。CSS允许你通过调整立方bezier属性来修改它，Lea Verou的[这个 playground](https://cubic-bezier.com/#.17,.67,.83,.67) 对探索这一点非常有帮助。
 
-Though you can achieve great effects for simple animation with the two handles the cubic-bezier ease offers, JavaScript allows multiple handles, and therefore, allows for much more variance.
+虽然使用cubic-bezier ease提供的两个控制柄可以为简单的动画获得很好的效果，但是JavaScript允许多个控制柄，因此允许更多的变化。
 
-![Ease Comparison](/images/css-vs-js-ease.svg)
+![Ease 比较](/images/css-vs-js-ease.svg)
 
-Take a bounce, for instance. In CSS we have to declare each keyframe, up and down. In JavaScript, we can express all of that movement within the ease, by declaring `bounce` in the [GreenSock API (GSAP)](https://greensock.com/) (other JS libraries have other types of easing defaults).
+比如说弹跳。在CSS中，我们必须向上和向下声明每个关键帧。在JavaScript中，我们可以通过在[greensock API（GSAP）](https://greensock.com/)中声明 `bounce` 来在ease中表达所有这些移动（其他JS库有其他类型的 easing 默认值）。
 
-Here is the code used for a bounce in CSS (example from animate.css):
+这里使用的是CSS中的bounce（例如animate.css):
 
 ```css
 @keyframes bounceInDown {
@@ -244,15 +245,15 @@ Here is the code used for a bounce in CSS (example from animate.css):
 }
 ```
 
-And here is the same bounce in JS using GreenSock:
+下面是JS中使用GreenSock的相同弹跳：
 
 ```js
 gsap.from(element, { duration: 1, ease: 'bounce.out', y: -500 })
 ```
 
-We'll be using GreenSock in some of the examples in the sections following. They have a great [ease visualizer](https://greensock.com/ease-visualizer) that will help you build nicely crafted eases.
+我们将在以下部分的一些示例中使用GreenSock。他们有一个很棒的[ease visualizer](https://greensock.com/ease-visualizer) ，将帮助你建立精心制作的画架。
 
-## Further Reading
+## 进一步阅读
 
-- [Designing Interface Animation: Improving the User Experience Through Animation by Val Head](https://www.amazon.com/dp/B01J4NKSZA/)
-- [Animation at Work by Rachel Nabors](https://abookapart.com/products/animation-at-work)
+- [动画设计接口: 通过Val Head动画改善用户体验](https://www.amazon.com/dp/B01J4NKSZA/)
+- [Rachel Nabors 动画作品](https://abookapart.com/products/animation-at-work)
