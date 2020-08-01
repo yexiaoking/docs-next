@@ -204,6 +204,7 @@ Vue 实现了一套内容分发的 API，这套 API 的设计灵感源自 [Web C
 现在 `<template>` 元素中的所有内容都将会被传入相应的插槽。
 
 渲染的HTML将会是：
+
 ```html
 <div class="container">
   <header>
@@ -265,7 +266,7 @@ app.component('todo-list', {
 </ul>
 ```
 
-绑定在 <slot> 元素上的 attribute 被称为**插槽 prop**。现在在父级作用域中，我们可以使用带值的 v-slot 来定义我们提供的插槽 prop 的名字：
+绑定在 `<slot`> 元素上的 attribute 被称为**插槽 prop**。现在在父级作用域中，我们可以使用带值的 v-slot 来定义我们提供的插槽 prop 的名字：
 
 ```html
 <todo-list>

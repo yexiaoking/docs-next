@@ -82,8 +82,8 @@ yarn serve # or npm run serve
 |[/guide/component-registration.md](/src/guide/component-registration.md)|@veaba](https://github.com/veaba|||
 |[/guide/component-props.md](/src/guide/component-props.md)|@veaba](https://github.com/veaba|||
 |[/guide/component-custom-events.md](/src/guide/component-custom-events.md)|@veaba](https://github.com/veaba|||
-|[/guide/component-slots.md](/src/guide/component-slots.md)||||
-|[/guide/component-provide-inject.md](/src/guide/component-provide-inject.md)||||
+|[/guide/component-slots.md](/src/guide/component-slots.md)@veaba](https://github.com/veaba||||
+|[/guide/component-provide-inject.md](/src/guide/component-provide-inject.md)|@veaba](https://github.com/veaba|||
 |[/guide/component-dynamic-async.md](/src/guide/component-dynamic-async.md)||||
 |[/guide/component-template-refs.md](/src/guide/component-template-refs.md)||||
 |[/guide/component-edge-case.md](/src/guide/component-edge-case.md)||||
