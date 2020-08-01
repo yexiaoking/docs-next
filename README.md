@@ -91,7 +91,7 @@ yarn serve # or npm run serve
 |[/guide/transitions-overview.md](/src/guide/transitions-overview.md)||@veaba](https://github.com/veaba|||
 |[/guide/transitions-enterleave.md](/src/guide/transitions-enterleave.md)||@veaba](https://github.com/veaba|||
 |[/guide/transitions-list.md](/src/guide/transitions-list.md)||@veaba](https://github.com/veaba|||
-|[/guide/transitions-stat.md](/src/guide/transitions-stat.md)||||
+|[/guide/transitions-state.md](/src/guide/transitions-state.md)||||
 |-|-|-|-|
 |[/guide/mixins.md](/src/guide/mixins.md)||||
 |[/guide/custom-directive.md](/src/guide/custom-directive.md)||||
