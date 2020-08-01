@@ -1,29 +1,29 @@
-# Custom Events
+# 自定义事件
 
-> This page assumes you've already read the [Components Basics](component-basics.md). Read that first if you are new to components.
+> 该页面假设你已经阅读过了[组件基础](component-basics.md)。如果你还对组件不太了解，推荐你先阅读它。
 
-## Event Names
+## 事件名 
 
-Unlike components and props, event names don't provide any automatic case transformation. Instead, the name of an emitted event must exactly match the name used to listen to that event. For example, if emitting a camelCased event name:
+不同于组件和 prop，事件名不存在任何自动化的大小写转换。而是触发的事件名需要完全匹配监听这个事件所用的名称。举个例子，如果触发一个 camelCase 名字的事件：
 
 ```js
 this.$emit('myEvent')
 ```
 
-Listening to the kebab-cased version will have no effect:
+则监听这个名字的 kebab-case 版本是不会有任何效果的：
 
 ```html
-<!-- Won't work -->
+<!-- 没有效果 -->
 <my-component @my-event="doSomething"></my-component>
 ```
 
-Since event names will never be used as variable or property names in JavaScript, there is no reason to use camelCase or PascalCase. Additionally, `v-on` event listeners inside DOM templates will be automatically transformed to lowercase (due to HTML's case-insensitivity), so `@myEvent` would become `@myevent` -- making `myEvent` impossible to listen to.
+不同于组件和 prop，事件名不会被用作一个 JavaScript 变量名或 property 名，所以就没有理由使用 camelCase 或 PascalCase 了。并且 `v-on` 事件监听器在 DOM 模板中会被自动转换为全小写 (因为 HTML 是大小写不敏感的)，所以 `@myEvent` 将会变成 `@myevent`——导致 `myEvent` 不可能被监听到。
 
-For these reasons, we recommend you **always use kebab-case for event names**.
+因此，我们推荐你始终使用 **kebab-case 的事件名**。
 
-## Defining Custom Events
+## 定义自定义事件
 
-Emitted events can be defined on the component via the `emits` option.
+可以通过`emits`选项在组件上定义已发出的事件。
 
 ```js
 app.component('custom-form', {
@@ -31,25 +31,25 @@ app.component('custom-form', {
 })
 ```
 
-In the event a native event (e.g., `click`) is defined in the `emits` option, it will be overwritten by the event in the component instead of being treated as a native listener.
+如果在 `emits` 选项中定义了本机事件（如 `click` ），则它将被组件中的事件覆盖，而不是被视为本机侦听器。
 
 ::: tip
-It is recommended to define all emitted events in order to better document how a component should work.
+建议定义所有发出的事件，以便更好地记录组件应该如何工作。
 :::
 
-### Validate Emitted Events
+### 验证抛出的事件
 
-Similar to prop type validation, an emitted event can be validated if it is defined with the Object syntax instead of the Array syntax.
+与prop类型验证类似，如果使用对象语法而不是数组语法定义发出的事件，则可以验证它。
 
-To add validation, the event is assigned a function that receives the arguments passed to the `$emit` call and returns a boolean to indicate whether the event is valid or not.
+要添加验证，将为事件分配一个函数，该函数接收传递给 `$emit` 调用的参数，并返回一个布尔值以指示事件是否有效。
 
 ```js
 app.component('custom-form', {
   emits: {
-    // No validation
+    // 没有验证
     click: null,
 
-    // Validate submit event
+    // 验证submit 事件
     submit: ({ email, password }) => {
       if (email && password) {
         return true
@@ -67,15 +67,16 @@ app.component('custom-form', {
 })
 ```
 
-## `v-model` arguments
+## `v-model` 参数
 
-By default, `v-model` on a component uses `modelValue` as the prop and `update:modelValue` as the event. We can modify these names passing an argument to `v-model`:
+默认情况下，组件上的 `v-model` 使用 `modelValue` 作为prop和 `update:modelValue` 作为事件。我们可以通过向 `v-model` 传递参数来修改这些名称：
 
 ```html
 <my-component v-model:foo="bar"></my-component>
 ```
 
-In this case, child component will expect a `foo` prop and emits `update:foo` event to sync:
+在本例中，子组件将需要一个 `foo` prop并发出 `update:foo` 要同步的事件：
+
 
 ```js
 const app = Vue.createApp({})
@@ -97,11 +98,11 @@ app.component('my-component', {
 <my-component v-model:foo="bar"></my-component>
 ```
 
-## Multiple `v-model` bindings
+## 多个 `v-model` 绑定
 
-By leveraging the ability to target a particular prop and event as we learned before with [`v-model` arguments](#v-model-arguments), we can now create multiple v-model bindings on a single component instance.
+通过利用以特定prop和事件为目标的能力，正如我们之前在[`v-model` 参数](#v-model-参数)中所学的那样，我们现在可以在单个组件实例上创建多 个v-model 绑定。
 
-Each v-model will sync to a different prop, without the need for extra options in the component:
+每个v-model 将同步到不同的prop，而不需要在组件中添加额外的选项：
 
 ```html
 <user-name
@@ -139,9 +140,9 @@ app.component('user-name', {
 </p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-## Handling `v-model` modifiers
+## 处理 `v-model` 修饰符
 
-In 2.x, we have hard-coded support for modifiers like `.trim` on component `v-model`. However, it would be more useful if the component can support custom modifiers. In 3.x, modifiers added to a component `v-model` will be provided to the component via the modelModifiers prop:
+在2.x中，我们对组件 `v-model` 上的 `.trim` 等修饰符提供了硬编码支持。但是，如果组件可以支持自定义修饰符，则会更有用。在3.x中，添加到组件 `v-model` 的修饰符将通过modelModifiers prop提供给组件：
 
 ```html
 <my-component v-model.capitalize="bar"></my-component>
@@ -166,7 +167,7 @@ app.component('my-component', {
 })
 ```
 
-We can check `modelModifiers` object keys and write a handler to change the emitted value. In the code below we will capitalize the string:
+我们可以检查 `modelModifiers` 对象键并编写一个处理程序来更改发出的值。在下面的代码中，我们将字符串大写：
 
 ```html
 <div id="app">
@@ -209,7 +210,8 @@ app.component('my-component', {
 app.mount('#app')
 ```
 
-For `v-model` with arguments, the generated prop name will be `arg + "Modifiers"`:
+对于带参数的 `v-model` ，生成的 prop 名称将为 `arg + "Modifiers"`：
+
 
 ```html
 <my-component v-model:foo.capitalize="bar"></my-component>
