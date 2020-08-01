@@ -68,11 +68,11 @@ const MyComp = {
 </my-comp>
 ```
 
-子级现在应该呈现默认slot*，而不是不提供模板：
+子级现在应该渲染默认slot*，而不是不提供模板：
 
 ```html
 <!--
-  在子模板中，在传递时呈现默认slot
+  在子模板中，在传递时渲染默认slot
   在必要的private状态下。
 -->
 <template>

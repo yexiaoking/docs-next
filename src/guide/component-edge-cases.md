@@ -1,24 +1,25 @@
-# Handling Edge Cases
+# 处理边界情况
 
-> This page assumes you've already read the [Components Basics](components.md). Read that first if you are new to components.
+> 该页面假设你已经阅读过了[组件基础](component-basics.md)。如果你还对组件不太了解，推荐你先阅读它。
 
-:::tip Note
-All the features on this page document the handling of edge cases, meaning unusual situations that sometimes require bending Vue's rules a little. Note however, that they all have disadvantages or situations where they could be dangerous. These are noted in each case, so keep them in mind when deciding to use each feature.
+:::tip 提示
+这里记录的都是和处理边界情况有关的功能，即一些需要对 Vue 的规则做一些小调整的特殊情况。不过注意这些功能都是有劣势或危险的场景的。我们会在每个案例中注明，所以当你使用每个功能的时候请稍加留意。
+
 :::
 
-## Controlling Updates
+## 控制更新
 
-Thanks to Vue's Reactivity system, it always knows when to update (if you use it correctly). There are edge cases, however, when you might want to force an update, despite the fact that no reactive data has changed. Then there are other cases when you might want to prevent unnecessary updates.
+感谢Vue的反应系统，它总是知道什么时候更新（如果你使用正确的话）。但是，在某些边缘情况下，你可能希望强制更新，尽管事实上没有任何反应性数据发生更改。还有一些情况下，你可能希望防止不必要的更新。
 
-### Forcing an Update
+### 强制更新
 
-If you find yourself needing to force an update in Vue, in 99.99% of cases, you've made a mistake somewhere. For example, you may be relying on state that isn't tracked by Vue's reactivity system, e.g. with `data` property added after component creation.
+如果你发现自己需要在Vue中强制更新，在99.99%的情况下，你在某个地方犯了错误。例如，你可能依赖于Vue反应性系统未跟踪的状态，例如，在组件创建之后添加了`data`属性。
 
-However, if you've ruled out the above and find yourself in this extremely rare situation of having to manually force an update, you can do so with [`$forceUpdate`](../api/instance-methods.html#forceupdate).
+但是，如果你已经排除了上述情况，并且发现自己处于这种非常罕见的情况下，必须手动强制更新，那么你可以使用[`$forceUpdate`](../api/instance-methods.html#forceupdate)。
 
-### Cheap Static Components with `v-once`
+### 低级静态组件 与 `v-once
 
-Rendering plain HTML elements is very fast in Vue, but sometimes you might have a component that contains **a lot** of static content. In these cases, you can ensure that it's only evaluated once and then cached by adding the `v-once` directive to the root element, like this:
+在Vue中渲染纯HTML元素的速度非常快，但有时你可能有一个包含**很多**静态内容的组件。在这些情况下，可以通过向根元素添加 `v-once` 指令来确保只对其求值一次，然后进行缓存，如下所示：
 
 ``` js
 app.component('terms-of-service', {
@@ -32,5 +33,5 @@ app.component('terms-of-service', {
 ```
 
 :::tip
-Once again, try not to overuse this pattern. While convenient in those rare cases when you have to render a lot of static content, it's simply not necessary unless you actually notice slow rendering - plus, it could cause a lot of confusion later. For example, imagine another developer who's not familiar with `v-once` or simply misses it in the template. They might spend hours trying to figure out why the template isn't updating correctly.
+再次提醒，不要过度使用这种模式。虽然在极少数情况下需要渲染大量静态内容时很方便，但除非你注意到渲染速度——慢，否则就没有必要这样做—另外，这可能会在以后引起很多混乱。例如，假设另一个开发人员不熟悉 `v-once` 或者只是在模板中遗漏了它。他们可能会花上几个小时来弄清楚为什么模板没有正确更新。
 :::

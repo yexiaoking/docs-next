@@ -68,7 +68,7 @@ Vue.config.ignoredElements = ['plastic-button']
 <button is="plastic-button">点击我!</button>
 ```
 
-Vue对 `is` 特殊prop的使用是在模拟native attribute 在浏览器中普遍可用之前的作用。但是，在2.x中，它被解释为呈现一个名为 `plastic-button`的Vue组件，这将阻止上面提到的自定义内置元素的原生使用。
+Vue对 `is` 特殊prop的使用是在模拟native attribute 在浏览器中普遍可用之前的作用。但是，在2.x中，它被解释为渲染一个名为 `plastic-button`的Vue组件，这将阻止上面提到的自定义内置元素的原生使用。
 
 在3.0中, 我们仅将Vue对 `is` 属性的特殊处理限制到`<component>` tag。
 
@@ -82,7 +82,7 @@ Vue对 `is` 特殊prop的使用是在模拟native attribute 在浏览器中普�
   - 2.x 行为: 渲染 `bar` 组件.
   - 3.x 行为: 通过 `is` prop 渲染 `foo` 组件。
 
-- 在普通元素上使用时，它将作为 `is` 选项传递给 `createElement` 调用，并作为原生attribute呈现，这支持使用自定义的内置元素。
+- 在普通元素上使用时，它将作为 `is` 选项传递给 `createElement` 调用，并作为原生attribute渲染，这支持使用自定义的内置元素。
 
   ```html
   <button is="plastic-button">点击我！</button>
@@ -121,10 +121,10 @@ Vue对 `is` 特殊prop的使用是在模拟native attribute 在浏览器中普�
 ```
 
 ::: warning
-`v-is` 函数像一个动态的2.x `:is` 绑定 —— 因此，要按注册名称呈现组件，其值应为JavaScript字符串文本：
+`v-is` 函数像一个动态的2.x `:is` 绑定 —— 因此，要按注册名称渲染组件，其值应为JavaScript字符串文本：
 
 ```html
-<!-- 不正确，不会呈现任何内容 -->
+<!-- 不正确，不会渲染任何内容 -->
 <tr v-is="blog-post-row"></tr>
 
 <!-- 正确 -->

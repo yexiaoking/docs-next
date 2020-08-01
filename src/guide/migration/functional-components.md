@@ -108,7 +108,7 @@ export default {
 
 ## 下一步
 
-有关新功能组件的用法和对呈现函数的更改的详细信息，见：
+有关新功能组件的用法和对渲染函数的更改的详细信息，见：
 
 - [迁移: 渲染函数](/guide/migration/render-function-api.html)
 - [指南: 渲染函数](/guide/render-function.html)
