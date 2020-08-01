@@ -99,6 +99,4 @@ The async component can opt-out of `Suspense` control and let the component alwa
 
 异步组件可以选择退出 `Suspense` 控制，并通过在其选项中指定 `suspensable:false` ，让组件始终控制自己的加载状态。
 
-
-
 你可以在中查看可用选项的列表 [API Reference](../api/global-api.html#arguments-4)
