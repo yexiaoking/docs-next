@@ -1,5 +1,7 @@
 # Vue-next 中文文档翻译项目
 
+> 使用声明：鉴于个人英文水平有限，个别术语翻译可能不太准确，不代表最终版！建议大家去看英文版，或有能力的，可以发起PR，来修正该问题，我会尽快回应！谢谢！！
+
 ## 特性
 
 - 支持i18n
@@ -97,7 +99,7 @@ yarn serve # or npm run serve
 |[/guide/custom-directive.md](/src/guide/custom-directive.md)|[@veaba](https://github.com/veaba)|||
 |[/guide/teleport.md](/src/guide/teleport.md)|[@veaba](https://github.com/veaba)|||
 |[/guide/render-function.md](/src/guide/render-function.md)|[@veaba](https://github.com/veaba)|||
-|[/guide/plugin.md](/src/guide/plugin.md)||||
+|[/guide/plugins.md](/src/guide/plugins.md)|[@veaba](https://github.com/veaba)|||
 |-|-|-|-|
 |[/guide/reactivity.md](/src/guide/reactivity.md)||||
 |[/guide/reactivity-fundamentals.md](/src/guide/reactivity-fundamentals.md)||||
