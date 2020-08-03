@@ -1,19 +1,19 @@
-# Reactivity in Depth
+# 深入响应式原理
 
-Now it’s time to take a deep dive! One of Vue’s most distinct features is the unobtrusive reactivity system. Models are proxied JavaScript objects. When you modify them, the view updates. It makes state management simple and intuitive, but it’s also important to understand how it works to avoid some common gotchas. In this section, we are going to dig into some of the lower-level details of Vue’s reactivity system.
+现在是时候深入一下了！Vue 最独特的特性之一，是其非侵入性的响应式系统。数据模型仅仅是普通的 JavaScript 对象。而当你修改它们时，视图会进行更新。这使得状态管理非常简单直接，不过理解其工作原理同样重要，这样你可以避开一些常见的问题。在这个章节，我们将研究一下 Vue 响应式系统的底层的细节。
 
-## What is Reactivity?
+## 什么是响应式
 
-This term comes up in programming quite a bit these days, but what do people mean when they say it? Reactivity is a programming paradigm that allows us to adjust to changes in a declarative manner. The canonical example that people usually show, because it’s a great one, is an excel spreadsheet.
+这些天在编程中经常出现，但是人们说的意思是什么？ 响应式是一种编程范例，允许我们以声明的方式适应变化。 人们经常展示的典型示例（因为它是一个很棒的示例）是excel电子表格。
 
 <video width="550" height="400" controls>
   <source src="/images/reactivity-spreadsheet.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
-If you put the number two in the first cell, and the number 3 in the second and asked for the SUM, the spreadsheet would give it to you. No surprises there. But if you update that first number, the SUM automagically updates too.
+如果将数字 2 放在第一个单元格中，将数字 3 放在第二个单元格中并要求提供SUM，则电子表格会将其计算出来给你。 没有惊喜， 但是，如果你更新第一个数字，SUM也会自动更新。
 
-JavaScript doesn’t usually work like this -- If we were to write something comparable in JavaScript:
+JavaScript通常不是这样工作的 —— 如果我们要用JavaScript编写类似的东西：
 
 ```js
 var val1 = 2
@@ -29,17 +29,17 @@ val1 = 3
 // 5
 ```
 
-If we update the first value, the sum is not adjusted.
+如果我们更新第一个值，则不会调整总和。
 
-So how would we do this in JavaScript?
+那么我们如何用JavaScript做到这一点呢？
 
-- Detect when there’s a change in one of the values
-- Track the function that changes it
-- Trigger the function so it can update the final value
+- 检测其中一个值是否发生变化
+- 跟踪更改它的函数
+- 触发函数，以便可以更新最终值
 
-## How Vue Tracks These Changes
+## Vue如何追踪变化？
 
-When you pass a plain JavaScript object to a Vue instance as its `data` option, Vue will walk through all of its properties and convert them to [Proxies](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) using a handler with getters and setters. This is an ES6-only feature, but we offer a version of Vue 3 that uses the older `Object.defineProperty` to support IE browsers. Both have the same surface API, but the Proxy version is slimmer and offers improved performance.
+当你把一个普通的 JavaScript 对象传入 Vue 实例作为 data 选项，Vue将遍历其所有属性并将其转换为 [proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) ，使用带有getter和setter的处理程序。 这是仅ES6的功能，但是我们提供了Vue 3版本，该版本使用较旧的 `Object.defineProperty` 支持IE浏览器。 两者具有相同的Surface API，但是proxy版本更精简，并提供了改进的性能。
 
 <div class="reactivecontent">
   <iframe height="500" style="width: 100%;" scrolling="no" title="Proxies and Vue's Reactivity Explained Visually" src="https://codepen.io/sdras/embed/zYYzjBg?height=500&theme-id=light&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
@@ -48,9 +48,11 @@ When you pass a plain JavaScript object to a Vue instance as its `data` option, 
   </iframe>
 </div>
 
-That was rather quick and requires some knowledge of [Proxies](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) to understand! So let’s dive in a bit. There’s a lot of literature on Proxies, but what you really need to know is that a **Proxy is an object that encases another object or function and allows you to intercept it.**
+That was rather quick and requires some knowledge of [proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) to understand! So let’s dive in a bit. There’s a lot of literature on Proxies, but what you really need to know is that a **Proxy is an object that encases another object or function and allows you to intercept it.**
 
-We use it like this: `new Proxy(target, handler)`
+这需要稍微地了解下[proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) 的某些知识！ 因此，让我们深入一点。 关于proxy的文献很多，但是你真正需要知道的是**proxy是一个包含另一个对象或函数并允许您对其进行拦截的对象。**
+
+我们像这样使用它: `new Proxy(target, handler)`
 
 ```js
 const dinner = {
@@ -69,7 +71,7 @@ console.log(proxy.meal)
 // tacos
 ```
 
-Ok, so far, we’re just wrapping that object and returning it. Cool, but not that useful yet. But watch this, we can also intercept this object while we wrap it in the Proxy. This interception is called a trap.
+好的，到目前为止，我们只是包装这个对象并返回它。很酷，但还没那么有用。但请注意，我们也可以截获这个对象，同时将它包装在proxy中。这种拦截被称为陷阱。
 
 ```js
 const dinner = {
@@ -90,9 +92,9 @@ console.log(proxy.meal)
 // tacos
 ```
 
-Beyond a console log, we could do anything here we wish. We could even _not_ return the real value if we wanted to. This is what makes Proxies so powerful for creating APIs.
+除了控制台日志，我们可以在这里做任何我们想做的事情。如果我们愿意，我们甚至可以不返回实际值。这就是为什么proxy对于创建API如此强大。
 
-Furthermore, there’s another feature Proxies offer us. Rather than just returning the value like this: `target[prop]`, we could take this a step further and use a feature called `Reflect`, which allows us to do proper `this` binding. It looks like this:
+此外，proxy还提供了另一个特性。我们不必像这样返回值：`target[prop]`，而是可以进一步使用一个名为 `Reflect`的特性，它允许我们正确地执行 `this` 绑定，看起来像这样：
 
 [//]: # 'TODO: line highlighting?'
 
@@ -114,7 +116,7 @@ console.log(proxy.meal)
 // tacos
 ```
 
-We mentioned before that in order to have an API that updates a final value when something changes, we’re going to have to set new values when something changes. We do this in the handler, in a function called `track`, where pass in the `target` and `key`.
+我们之前提到过，为了有一个API在某些东西发生变化时更新最终值，我们必须在某些东西发生变化时设置新的值。我们在处理程序中，在一个名为 `track` 的函数中执行此操作，其中传入 `target` 和 `key`。
 
 ```js
 const dinner = {
@@ -135,7 +137,7 @@ console.log(proxy.meal)
 // tacos
 ```
 
-Finally, we also set new values when something changes. For this, we’re going to set the changes on our new proxy, by triggering those changes:
+最后，我们还设置了一些新的值。为此，我们将通过触发这些更改来设置新proxy的更改：
 
 ```js
 const dinner = {
@@ -160,19 +162,20 @@ console.log(proxy.meal)
 // tacos
 ```
 
-Remember this list from a few paragraphs ago? Now we have some answers to how Vue handles these changes:
+还记得几段前的列表吗？现在我们有了一些关于Vue如何处理这些更改的答案：
 
-- <strike>Detect when there’s a change in one of the values</strike>: we no longer have to do this, as Proxies allow us to intercept it
-- **Track the function that changes it**: We do this in a getter within the proxy, called `effect`
-- **Trigger the function so it can update the final value**: We do in a setter within the proxy, called `trigger`
+- <strike>当某个值发生变化时进行检测</strike>：我们不再需要这样做，因为proxy允许我们拦截它
+- **跟踪更改它的函数**：我们在proxy中的getter中执行此操作，称为 `effect`
+- **触发函数以便它可以更新最终值**：我们在proxy中使用了一个setter，名为 `Trigger`
 
-The proxied object is invisible to the user, but under the hood they enable Vue to perform dependency-tracking and change-notification when properties are accessed or modified. As of Vue 3, our reactivity is now available in a [separate package](https://github.com/vuejs/vue-next/tree/master/packages/reactivity). One caveat is that browser consoles format differently when converted data objects are logged, so you may want to install [vue-devtools](https://github.com/vuejs/vue-devtools) for a more inspection-friendly interface.
+proxy对象对用户是不可见的，但是在后台，它们使Vue在访问或修改属性时能够执行依赖项跟踪和更改通知。 从Vue 3开始，我们的响应式现在可以在[separate package](https://github.com/vuejs/vue-next/tree/master/packages/reactivity) 中使用。 需要注意的是，记录转换后的数据对象时，浏览器控制台的格式会有所不同，因此你可能需要安装 [vue-devtools](https://github.com/vuejs/vue-devtools)，以提供一种更易于检查的界面。
 
-### Proxied Objects
 
-Vue internally tracks all objects that have been made reactive, so it always returns the same proxy for the same object.
+### proxy 对象
 
-When a nested object is accessed from a reactive proxy, that object is _also_ converted into a proxy before being returned:
+Vue在内部跟踪所有已被激活的对象，因此它始终为同一对象返回相同的proxy。
+
+从响应式proxy访问嵌套对象时，该对象在返回之前*也*被转换为proxy：
 
 ```js
 const handler = {
@@ -189,9 +192,9 @@ const handler = {
 }
 ```
 
-### Proxy vs. original identity
+### Proxy vs 原始标识
 
-The use of Proxy does introduce a new caveat to be aware with: the proxied object is not equal to the original object in terms of identity comparison (`===`). For example:
+proxy的使用确实引入了一个需要注意的新警告：在身份比较方面，被代理对象与原始对象不相等（`===`）。例如：
 
 ```js
 const obj = {}
@@ -200,10 +203,9 @@ const wrapped = new Proxy(obj, handlers)
 console.log(obj === wrapped) // false
 ```
 
-The original and the wrapped version will behave the same in most cases, but be aware that they will fail
-operations that rely on strong identity comparisons, such as `.filter()` or `.map()`. This caveat is unlikely to come up when using the options API, because all reactive state is accessed from `this` and guaranteed to already be proxies.
+在大多数情况下，原始版本和包装版本的行为相同，但请注意，它们将失败依赖恒等于比较的操作，例如 `.filter()` 或 `.map()`。 使用选项API时，这种警告不太可能出现，因为所有响应式都是从 `this` 访问的，并保证已经是proxy。
 
-However, when using the composition API to explicitly create reactive objects, the best practice is to never hold a reference to the original raw object and only work with the reactive version:
+但是，当使用合成API显式创建响应式对象时，最佳做法是从不保留对原始原始对象的引用，而只使用响应式版本：
 
 ```js
 const obj = reactive({
@@ -211,9 +213,9 @@ const obj = reactive({
 }) // no reference to original
 ```
 
-## Watchers
+## 侦听器
 
-Every component instance has a corresponding watcher instance, which records any properties "touched" during the component’s render as dependencies. Later on when a dependency’s setter is triggered, it notifies the watcher, which in turn causes the component to re-render.
+每个组件实例都有一个相应的侦听器实例，该实例将在组件渲染期间 “触摸” 的所有property记录为依赖项。 稍后，当触发依赖项的setter时，它会通知侦听器，从而使得组件重新呈现。
 
 <div class="reactivecontent">
   <iframe height="500" style="width: 100%;" scrolling="no" title="Second Reactivity with Proxies in Vue 3 Explainer" src="https://codepen.io/sdras/embed/GRJZddR?height=500&theme-id=light&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
@@ -222,10 +224,10 @@ Every component instance has a corresponding watcher instance, which records any
   </iframe>
 </div>
 
-When you pass an object to a Vue instance as data, Vue converts it to a proxy. This proxy enables Vue to perform dependency-tracking and change-notification when properties are accessed or modified. Each property is considered a dependency.
+将对象作为数据传递给Vue实例时，Vue会将其转换为proxy。此proxy使Vue能够在访问或修改属性时执行依赖项跟踪和更改通知。每个property都被视为一个依赖项。
 
-After the first render, a component would have tracked a list of dependencies &mdash; the properties it accessed during the render. Conversely, the component becomes a subscriber to each of these properties. When a proxy intercepts a set operation, the property will notify all of its subscribed components to re-render.
+在第一次渲染之后，组件将跟踪依赖项列表 —— 即在渲染过程中访问的property。相反，组件成为这些property中每个property的订阅者。当proxy拦截set操作时，该property将通知其所有订阅的组件重新渲染
 
 [//]: # 'TODO: Insert diagram'
 
-> If you are using Vue 2.x and below, you may be interested in some of the change detection caveats that exist for those versions, [explored in more detail here](change-detection.md).
+> 如果您使用的是Vue2.x及以下版本，你可能会对这些版本中存在的一些更改检测警告感兴趣, [在这里进行更详细的探讨](change-detection.md).

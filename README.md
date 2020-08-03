@@ -54,10 +54,10 @@ yarn serve # or npm run serve
 
 |记录|翻译人|校验人|状态|
 |----|----|----|----|
-|[[argue-1]](/src/guide/installation.md#argue-1)||||
-|||||
-|||||
-|||||
+|[[argue-1]](/src/guide/installation.md#argue-1)||-||
+||-|||
+||-|||
+||-|||
 
 ### 翻译规范
 
@@ -65,66 +65,66 @@ yarn serve # or npm run serve
 
 
 
-## 进度
+## 进度&贡献
 
 |模块章节|翻译人|校验人|状态|
 |----|----|----|----|
-|[/guide/installation.md](/src/guide/installation.md)|[@veaba](https://github.com/veaba)||完成翻译|
-|[/guide/introduction.md](/src/guide/introduction.md)|[@veaba](https://github.com/veaba)||完成翻译|
-|[/guide/instance.md](/src/guide/instance.md)|[@veaba](https://github.com/veaba)||完成翻译|
-|[/guide/template-syntax.md](/src/guide/template-syntax.md)|[@veaba](https://github.com/veaba)||完成翻译|
+|[/guide/installation.md](/src/guide/installation.md)|[@veaba](https://github.com/veaba)|-|完成翻译|
+|[/guide/introduction.md](/src/guide/introduction.md)|[@veaba](https://github.com/veaba)|-|完成翻译|
+|[/guide/instance.md](/src/guide/instance.md)|[@veaba](https://github.com/veaba)|-|完成翻译|
+|[/guide/template-syntax.md](/src/guide/template-syntax.md)|[@veaba](https://github.com/veaba)|-|完成翻译|
 |[/guide/computed.md](/src/guide/computed.md)|[@veaba](https://github.com/veaba)||完成翻译|
-|[/guide/class-and-style.md](/src/guide/class-and-style.md)|[@veaba](https://github.com/veaba)||完成翻译|
+|[/guide/class-and-style.md](/src/guide/class-and-style.md)|[@veaba](https://github.com/veaba)|-|完成翻译|
 |[/guide/conditional.md](/src/guide/conditional.md)|[@veaba](https://github.com/veaba)|||
-|[/guide/list.md](/src/guide/list.md)|[@veaba](https://github.com/veaba)||完成翻译|
+|[/guide/list.md](/src/guide/list.md)|[@veaba](https://github.com/veaba)|-|完成翻译|
 |[/guide/events.md](/src/guide/events.md)|[@veaba](https://github.com/veaba)||完成翻译|
-|[/guide/forms.md](/src/guide/forms.md)|[@veaba](https://github.com/veaba)||完成翻译|
-|[/guide/component-basic.md](/src/guide/component-basics.md)|[@veaba](https://github.com/veaba)||完成翻译|
+|[/guide/forms.md](/src/guide/forms.md)|[@veaba](https://github.com/veaba)|-|完成翻译|
+|[/guide/component-basic.md](/src/guide/component-basics.md)|[@veaba](https://github.com/veaba)|-|完成翻译|
 |-|-|-|-|
-|[/guide/component-registration.md](/src/guide/component-registration.md)|[@veaba](https://github.com/veaba|||
-|[/guide/component-props.md](/src/guide/component-props.md)|[@veaba](https://github.com/veaba|||
-|[/guide/component-custom-events.md](/src/guide/component-custom-events.md)|[@veaba](https://github.com/veaba|||
-|[/guide/component-slots.md](/src/guide/component-slots.md)|[@veaba](https://github.com/veaba)||||
-|[/guide/component-provide-inject.md](/src/guide/component-provide-inject.md)|[@veaba](https://github.com/veaba)|||
-|[/guide/component-dynamic-async.md](/src/guide/component-dynamic-async.md)|[@veaba](https://github.com/veaba)|||
-|[/guide/component-template-refs.md](/src/guide/component-template-refs.md)|[@veaba](https://github.com/veaba)|||
-|[/guide/component-edge-cases.md](/src/guide/component-edge-cases.md)|[@veaba](https://github.com/veaba|||
+|[/guide/component-registration.md](/src/guide/component-registration.md)|[@veaba](https://github.com/veaba)|-|完成翻译|
+|[/guide/component-props.md](/src/guide/component-props.md)|[@veaba](https://github.com/veaba)|-|完成翻译|
+|[/guide/component-custom-events.md](/src/guide/component-custom-events.md)|[@veaba](https://github.com/veaba)|-|完成翻译|
+|[/guide/component-slots.md](/src/guide/component-slots.md)|[@veaba](https://github.com/veaba)|-|完成翻译|
+|[/guide/component-provide-inject.md](/src/guide/component-provide-inject.md)|[@veaba](https://github.com/veaba)|-|完成翻译|
+|[/guide/component-dynamic-async.md](/src/guide/component-dynamic-async.md)|[@veaba](https://github.com/veaba)|-|完成翻译|
+|[/guide/component-template-refs.md](/src/guide/component-template-refs.md)|[@veaba](https://github.com/veaba)|-|完成翻译|
+|[/guide/component-edge-cases.md](/src/guide/component-edge-cases.md)|[@veaba](https://github.com/veaba)|-|完成翻译|
 |-|-|-|-|
-|[/guide/transitions-overview.md](/src/guide/transitions-overview.md)|[@veaba](https://github.com/veaba|||
-|[/guide/transitions-enterleave.md](/src/guide/transitions-enterleave.md)|[@veaba](https://github.com/veaba)|||
-|[/guide/transitions-list.md](/src/guide/transitions-list.md)|[@veaba](https://github.com/veaba)|||
-|[/guide/transitions-state.md](/src/guide/transitions-state.md)|[@veaba](https://github.com/veaba)|||
+|[/guide/transitions-overview.md](/src/guide/transitions-overview.md)|[@veaba](https://github.com/veaba)|-|完成翻译|
+|[/guide/transitions-enterleave.md](/src/guide/transitions-enterleave.md)|[@veaba](https://github.com/veaba)|-|完成翻译|
+|[/guide/transitions-list.md](/src/guide/transitions-list.md)|[@veaba](https://github.com/veaba)|-|完成翻译|
+|[/guide/transitions-state.md](/src/guide/transitions-state.md)|[@veaba](https://github.com/veaba)|-|完成翻译|
 |-|-|-|-|
-|[/guide/mixins.md](/src/guide/mixins.md)|[@veaba](https://github.com/veaba)|||
-|[/guide/custom-directive.md](/src/guide/custom-directive.md)|[@veaba](https://github.com/veaba)|||
-|[/guide/teleport.md](/src/guide/teleport.md)|[@veaba](https://github.com/veaba)|||
-|[/guide/render-function.md](/src/guide/render-function.md)|[@veaba](https://github.com/veaba)|||
-|[/guide/plugins.md](/src/guide/plugins.md)|[@veaba](https://github.com/veaba)|||
+|[/guide/mixins.md](/src/guide/mixins.md)|[@veaba](https://github.com/veaba)|-|完成翻译|
+|[/guide/custom-directive.md](/src/guide/custom-directive.md)|[@veaba](https://github.com/veaba)|-|完成翻译|
+|[/guide/teleport.md](/src/guide/teleport.md)|[@veaba](https://github.com/veaba)|-|完成翻译|
+|[/guide/render-function.md](/src/guide/render-function.md)|[@veaba](https://github.com/veaba)|-|完成翻译|
+|[/guide/plugins.md](/src/guide/plugins.md)|[@veaba](https://github.com/veaba)|-|完成翻译|
 |-|-|-|-|
-|[/guide/reactivity.md](/src/guide/reactivity.md)||||
-|[/guide/reactivity-fundamentals.md](/src/guide/reactivity-fundamentals.md)||||
-|[/guide/reactivity-computed-watchers.md](/src/guide/reactivity-computed-watchers.md)||||
+|[/guide/reactivity.md](/src/guide/reactivity.md)|[@veaba](https://github.com/veaba)|-||
+|[/guide/reactivity-fundamentals.md](/src/guide/reactivity-fundamentals.md)||-||
+|[/guide/reactivity-computed-watchers.md](/src/guide/reactivity-computed-watchers.md)||-||
 |-|-|-|-|
-|[/guide/composition-api-introduction.md](/src/guide/composition-api-introduction.md)||||
-|[/guide/composition-api-setup.md](/src/guide/composition-api-setup.md)||||
-|[/guide/composition-api-lifecycle-hooks.md](/src/guide/composition-api-lifecycle-hooks.md)||||
-|[/guide/composition-api-provide-inject.md](/src/guide/composition-api-provide-inject.md)||||
-|[/guide/composition-api-template-ref.md](/src/guide/composition-api-template-ref.md)||||
+|[/guide/composition-api-introduction.md](/src/guide/composition-api-introduction.md)||-||
+|[/guide/composition-api-setup.md](/src/guide/composition-api-setup.md)||-||
+|[/guide/composition-api-lifecycle-hooks.md](/src/guide/composition-api-lifecycle-hooks.md)||-||
+|[/guide/composition-api-provide-inject.md](/src/guide/composition-api-provide-inject.md)||-||
+|[/guide/composition-api-template-ref.md](/src/guide/composition-api-template-ref.md)||-||
 |-|-|-|-|
-|[/guide/optimizations.md](/src/guide/optimizations.md)||||
-|[/guide/change-detection.md](/src/guide/change-detection.md)||||
+|[/guide/optimizations.md](/src/guide/optimizations.md)||-||
+|[/guide/change-detection.md](/src/guide/change-detection.md)||-||
 |-|-|-|-|
-|[/guide/single-file-component.md](/src/guide/single-file-component.md)||||
-|[/guide/testing.md](/src/guide/testing.md)||||
+|[/guide/single-file-component.md](/src/guide/single-file-component.md)||-||
+|[/guide/testing.md](/src/guide/testing.md)||-||
 |-|-|-|-|
-|[/guide/routing.md](/src/guide/routing.md)||||
-|[/guide/state-management.md](/src/guide/state-management.md)||||
-|[/guide/ssr.md](/src/guide/ssr.md)||||
+|[/guide/routing.md](/src/guide/routing.md)||-||
+|[/guide/state-management.md](/src/guide/state-management.md)||-||
+|[/guide/ssr.md](/src/guide/ssr.md)||-||
 |-|-|-|-|
-|[/guide/a11y-basics.md](/src/guide/a11y-basics.md)||||
-|[/guide/a11y-semantics.md](/src/guide/a11y-semantics.md)||||
-|[/guide/a11y-standards.md](/src/guide/a11y-standards.md)||||
-|[/guide/a11y-resource.md](/src/guide/a11y-resource.md)||||
+|[/guide/a11y-basics.md](/src/guide/a11y-basics.md)||-||
+|[/guide/a11y-semantics.md](/src/guide/a11y-semantics.md)||-||
+|[/guide/a11y-standards.md](/src/guide/a11y-standards.md)||-||
+|[/guide/a11y-resource.md](/src/guide/a11y-resource.md)||-||
 |-|-|-|-|
 |[/migration/introduction.md](/src/migration/introduction.md)|[@veaba](https://github.com/veaba)|-|- 翻译完成|
 |[/migration/async-components.md](/src/migration/async-components.md)|[@veaba](https://github.com/veaba)|-|- 翻译完成|
@@ -144,33 +144,33 @@ yarn serve # or npm run serve
 |[/migration/slots-unification.md](/src/migration/slots-unification.md)|[@veaba](https://github.com/veaba)|-|- 翻译完成|
 |[/migration/v-model.md](/src/migration/v-model.md)|[@veaba](https://github.com/veaba)|-|- 翻译完成|
 |-|-|-|-|
-|[contributing/writing-guide.md](/src/writing-guide.md)||||
-|[contributing/doc-style-guide.md](/src/doc-style-guide.md)||||
-|[contributing/translations.md](/src/translations.md)||||
+|[contributing/writing-guide.md](/src/writing-guide.md)||-||
+|[contributing/doc-style-guide.md](/src/doc-style-guide.md)||-||
+|[contributing/translations.md](/src/translations.md)||-||
 |-|-|-|-|
-|[/api/application-config.md](/src/api/application-config.md)||||
-|[/api/application-api.md](/src/api/application-api.md)||||
-|[/api/global-api.md](/src/api/global-api.md)||||
+|[/api/application-config.md](/src/api/application-config.md)||-||
+|[/api/application-api.md](/src/api/application-api.md)||-||
+|[/api/global-api.md](/src/api/global-api.md)||-||
 |-|-|-|-|
-|[/api/options-data.md](/src/api/options-data.md)||||
-|[/api/options-dom.md](/src/api/options-dom.md)||||
-|[/api/options-lifecycle-hooks.md](/src/api/options-lifecycle-hooks.md)||||
-|[/api/options-assets.md](/src/api/options-assets.md)||||
-|[/api/options-composition.md](/src/api/options-composition.md)||||
-|[/api/options-misc.md](/src/api/options-misc.md)||||
+|[/api/options-data.md](/src/api/options-data.md)||-||
+|[/api/options-dom.md](/src/api/options-dom.md)||-||
+|[/api/options-lifecycle-hooks.md](/src/api/options-lifecycle-hooks.md)||-||
+|[/api/options-assets.md](/src/api/options-assets.md)||-||
+|[/api/options-composition.md](/src/api/options-composition.md)||-||
+|[/api/options-misc.md](/src/api/options-misc.md)||-||
 |-|-|-|-|
-|[/api/instance-properties.md](/src/api/instance-properties.md)||||
-|[/api/instance-methods.md](/src/api/instance-methods.md)||||
-|[/api/directives.md](/src/api/directives.md)||||
-|[/api/special-attributes.md](/src/api/special-attributes.md)||||
-|[/api/built-in-components.md](/src/api/built-in-components.md)||||
+|[/api/instance-properties.md](/src/api/instance-properties.md)||-||
+|[/api/instance-methods.md](/src/api/instance-methods.md)||-||
+|[/api/directives.md](/src/api/directives.md)||-||
+|[/api/special-attributes.md](/src/api/special-attributes.md)||-||
+|[/api/built-in-components.md](/src/api/built-in-components.md)||-||
 |-|-|-|-|
-|[/api/basic-reactivity.md](/src/api/basic-reactivity.md)||||
-|[/api/refs-api.md](/src/api/refs-api.md)||||
-|[/api/computed-watch-api.md](/src/api/computed-watch-api.md)||||
+|[/api/basic-reactivity.md](/src/api/basic-reactivity.md)||-||
+|[/api/refs-api.md](/src/api/refs-api.md)||-||
+|[/api/computed-watch-api.md](/src/api/computed-watch-api.md)||-||
 |-|-|-|-|
-|[/api/composition-api.md](/src/api/composition-api.md)||||
-|||||
+|[/api/composition-api.md](/src/api/composition-api.md)||-||
+|-|-|-|-|
 
 
 ## 引用与参考
