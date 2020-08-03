@@ -1,8 +1,8 @@
-# Teleport
+# 传送
 
-Vue encourages us to build our UIs by encapsulating UI and related behavior into components. We can nest them inside one another to build a tree that makes up an application UI.
+Vue 鼓励我们通过将 UI 和相关行为封装到组件中来构建 UI。我们可以将它们嵌套在另一个内部，以构建一个组成应用程序 UI 的树。
 
-However, sometimes a part of a component's template belongs into this component logically, while from a technical point of view, it would be preferable to move this part of the template somewhere else in the DOM, outside of Vue app. For example, due to styling requirements, we want to move `<p id="content">` from it's deeply nested position to the `<div>` with `id="endofbody"`
+然而，有时组件模板的一部分逻辑上属于该组件，而从技术角度来看，最好将模板的这一部分移动到 DOM 中 Vue app 之外的其他位置。例如，由于样式要求，我们希望使用`id="endofbody"`将 `<p id="content">` 从它的深层嵌套位置移动到 `<div>`
 
 ```html
 <body>
@@ -19,7 +19,7 @@ However, sometimes a part of a component's template belongs into this component 
 </body>
 ```
 
-To do so, we can use Vue's built-in `<teleport>` component:
+为此，我们可以使用 Vue 的内置 `<teleport>` 组件：
 
 ```html
 <body>
@@ -38,7 +38,7 @@ To do so, we can use Vue's built-in `<teleport>` component:
 </body>
 ```
 
-As a result, we will have `teleport` content moved in the rendered DOM tree:
+因此，我们将在渲染的 DOM 树中移动 `teleport` 内容：
 
 <p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="html,result" data-user="Vue" data-slug-hash="WNrXYXd" data-preview="true" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Teleport">
   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/WNrXYXd">
@@ -47,11 +47,11 @@ As a result, we will have `teleport` content moved in the rendered DOM tree:
 </p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-As you can see, all of the children of `<teleport>` will be appended to `<div id="endofbody">`.
+如你所见， `<teleport>` 的所有子元素将追加到 `<div id="endofbody">`
 
-## Using with Vue components
+## 在 Vue 组件中使用
 
-If `<teleport>` contains a Vue component, it will remain a logical child component of the `<teleport>`'s parent:
+如果 `<teleport>` 包含 Vue 组件，则它仍将是 `<teleport>` 父组件的逻辑子组件：
 
 ```js
 const app = Vue.createApp({
@@ -78,13 +78,15 @@ app.component('child-component', {
 })
 ```
 
-In this case, even when `child-component` is rendered in the different place, it will remain a child of `parent-component` and will receive a `name` prop from it.
+在这种情况下，即使在不同的地方渲染 `child-component` ，它仍将是 `parent-component` 的子级，并将从中接收 `name` prop。
 
-This also means that injections from a parent component work as expected, and that the child component will be nested below the parent component in the Vue Devtools, instead of being placed where the actual content moved to.
+这也意味着来自父组件的注入按预期工作，并且子组件将嵌套在 Vue Devtools 中的父组件之下，而不是放在实际内容移动到的位置。
 
-## Using multiple teleports on the same target
+## 在同一目标上使用多个传送
 
 A common use case scenario would be a reusable `<Modal>` component of which there might be multiple instances active at the same time. For this kind of scenario, multiple `<teleport>` components can mount their content to the same target element. The order will be a simple append - later mounts will be located after earlier ones within the target element.
+
+一个常见的用例场景是一个可重用的 `<Modal>` 组件，它可能同时有多个实例处于活动状态。对于这种情况，多个 `<teleport>` 组件可以将其内容挂载到同一个目标元素。顺序将是一个简单的追加 —— 稍后挂载将位于目标元素中较早的挂载之后。
 
 ```html
 <teleport to="#modals">
@@ -101,4 +103,4 @@ A common use case scenario would be a reusable `<Modal>` component of which ther
 </div>
 ```
 
-You can check `<teleport>` component options in the [API reference](../api/built-in-components.html#teleport)
+你可以在[API reference](../api/built-in-components.html#teleport)查看 `teleport` 组件。

@@ -135,7 +135,7 @@ app.mount('#dynamic-arguments-example')
 </p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-我们的定制指令现在已经足够灵活，可以支持一些不同的用例。为了使其更具动态性，我们还可以允许修改绑定值。让我们创建一个附加属性 `pinPadding` ，并将其绑定到 `<input type=”range“>`。
+我们的定制指令现在已经足够灵活，可以支持一些不同的用例。为了使其更具动态性，我们还可以允许修改绑定值。让我们创建一个附加属性 `pinPadding` ，并将其绑定到 `<input type="range">`。
 
 ```vue-html{4}
 <div id="dynamicexample">
@@ -219,7 +219,7 @@ app.directive('demo', (el, binding) => {
 <div v-demo="test"></div>
 ```
 
-Will roughly compile into this:
+将大概编译成：
 
 ```js
 const vFoo = resolveDirective('demo')
@@ -246,4 +246,4 @@ return withDirectives(h('div'), [[vDemo, test]])
 <div @vnodeMounted="myHook" />
 ```
 
-这与[attribute fallthrough behavior](component-props.html#non-prop-attributes)。因此，组件上自定义指令的规则将与其他无关attribute相同：由子组件决定在哪里以及是否应用它。当子组件在内部元素上使用 `v-bind=”$attrs“` 时，它也将应用对其使用的任何自定义指令。
+这与[attribute fallthrough behavior](component-props.html#non-prop-attributes)。因此，组件上自定义指令的规则将与其他无关attribute相同：由子组件决定在哪里以及是否应用它。当子组件在内部元素上使用 `v-bind="$attrs"` 时，它也将应用对其使用的任何自定义指令。
