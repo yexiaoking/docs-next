@@ -1,29 +1,30 @@
-# Reactivity Fundamentals
+# 响应式基础
 
-## Declaring Reactive State
+## 声明响应式状态
 
-To create a reactive state from a JavaScript object, we can use a `reactive` method:
+要从JavaScript对象创建响应式状态，可以使用 `reactive` 方法：
 
 ```js
 import { reactive } from 'vue'
 
-// reactive state
+// 响应式状态
 const state = reactive({
   count: 0
 })
 ```
 
-`reactive` is the equivalent of the `Vue.observable()` API in Vue 2.x, renamed to avoid confusion with RxJS observables. Here, the returned state is a reactive object. The reactive conversion is "deep" - it affects all nested properties of the passed object.
+`reactive` 相当于`Vue.observable()` API在Vue 2.x中，重命名以避免与RxJS observables混淆。在这里，返回的状态是一个响应式对象。响应式转换是 “深入” 的 —— 它影响传递对象的所有嵌套property. 
 
-The essential use case for reactive state in Vue is that we can use it during render. Thanks to dependency tracking, the view automatically updates when reactive state changes.
+Vue中响应式状态的基本用例是我们可以在渲染期间使用它。由于依赖关系跟踪，视图在被动状态更改时自动更新。
 
-This is the very essence of Vue's reactivity system. When you return an object from `data()` in a component, it is internally made reactive by `reactive()`. The template is compiled into a [render function](render-function.html) that makes use of these reactive properties.
+这就是Vue响应式系统的本质。当从组件中的 `data()` 返回一个对象时，它在内部由 `reactive()` 使其成为反应对象。模板被编译成 [渲染 function](render-function.html) 利用了这些响应式性质。
 
-You can learn more about `reactive` in the [Basic Reactivity API's](../api/basic-reactivity.html) section
 
-## Creating Standalone Reactive Values as `refs`
+ 在 [基础响应式API](../api/basic-reactivity.html) 章节你可以学习更多关于`响应式`的内容
 
-Imagine the case where we have a standalone primitive value (for example, a string) and we want to make it reactive. Of course, we could make an object with a single property equal to our string, and pass it to `reactive`. Vue has a method that will do the same for us - it's a `ref`:
+## 创建独立的响应式值作为 `refs`
+
+想象一下，我们有一个独立的原始值（例如，一个字符串），我们想让它成为响应式的。当然，我们可以用一个与字符串相等的property创建一个对象，并将其传递给 `reactive` 。Vue有一个方法可以为我们做同样的事情-它是一个 `ref` 。
 
 ```js
 import { ref } from 'vue'
@@ -32,6 +33,8 @@ const count = ref(0)
 ```
 
 `ref` will return a reactive and mutable object that serves as a reactive **ref**erence to the internal value it is holding - that's where the name comes from. This object contains the only one property named `value`:
+
+`ref`将返回一个响应式和可变对象，该对象作为它所拥有的内部值 —— 一个响应式 **ref**的引用，这就是名称的来源。此对象只包含一个名为 `value` 的property` ：
 
 ```js
 import { ref } from 'vue'
@@ -43,9 +46,9 @@ count.value++
 console.log(count.value) // 1
 ```
 
-### Ref Unwrapping
+### Ref 展开
 
-When a ref is returned as a property on the render context (the object returned from [setup()](composition-api-setup.html)) and accessed in the template, it automatically unwraps to the inner value. There is no need to append `.value` in the template:
+当ref作为渲染上下文 （从 [setup()](composition-api-setup.html)中返回的对象）上的property返回并在模板中访问时，它将自动展开为内部值。不需要在模板中追加 `.value`：
 
 ```vue-html
 <template>
@@ -68,9 +71,9 @@ When a ref is returned as a property on the render context (the object returned 
 </script>
 ```
 
-### Access in Reactive Objects
+### 访问响应式对象
 
-When a `ref` is accessed or mutated as a property of a reactive object, it automatically unwraps to the inner value so it behaves like a normal property:
+当 `ref`作为响应式对象的property被访问或更改时，它会自动展开为内部值，以便其行为类似于普通property性：
 
 ```js
 const count = ref(0)
@@ -84,7 +87,7 @@ state.count = 1
 console.log(count.value) // 1
 ```
 
-If a new ref is assigned to a property linked to an existing ref, it will replace the old ref:
+如果将新 ref 指定给链接到现有 ref 的property，则它将替换旧 ref：
 
 ```js
 const otherCount = ref(2)
@@ -94,21 +97,22 @@ console.log(state.count) // 2
 console.log(count.value) // 1
 ```
 
-Ref unwrapping only happens when nested inside a reactive `Object`. There is no unwrapping performed when the ref is accessed from an `Array` or a native collection type like [`Map`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map):
+Ref展开仅在嵌套在响应式 `Object` 中时发生。当从 `Array` 或原生集合类型如 [`Map`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map)访问ref时，不会执行展开:
+
 
 ```js
 const books = reactive([ref('Vue 3 Guide')])
-// need .value here
+// 这里需要 .value
 console.log(books[0].value)
 
 const map = reactive(new Map([['count', ref(0)]]))
-// need .value here
+// 这里需要 .value
 console.log(map.get('count').value)
 ```
 
-## Destructuring Reactive State
+## 响应式状态解构
 
-When we want to use a few properties of the large reactive object, it could be tempting to use [ES6 destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) to get properties we want:
+当我们想使用大型响应式对象的一些property时，可能很容易使用[ES6 解构](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) 要获得我们想要的property：
 
 ```js
 import { reactive } from 'vue'
@@ -124,7 +128,7 @@ const book = reactive({
 let { author, title } = book
 ```
 
-Unfortunately, with such a destructuring the reactivity for both properties would be lost. For such case, we need to convert our reactive object to a set of `refs`. These refs will retaining the reactive connection to the source object:
+遗憾的是，随着这种结构的破坏，这两个property的响应式都将丢失。对于这种情况，我们需要将我们的响应式对象转换为一组 `refs`。这些 ref 将保留与源对象的响应式关联：
 
 ```js
 import { reactive, toRefs } from 'vue'
@@ -139,24 +143,26 @@ const book = reactive({
 
 let { author, title } = toRefs(book)
 
-title.value = 'Vue 3 Detailed Guide' // we need to use .value as title is a ref now
+title.value = 'Vue 3 Detailed Guide' // 我们需要使用 .value 作为标题，现在是ref
 console.log(book.title) // 'Vue 3 Detailed Guide'
 ```
 
-You can learn more about `refs` in the [Refs API](../api/refs-api.html#ref) section
+你可以在 [Refs API](../api/refs-api.html#ref) 部分中了解有关 `refs' 的更多信息
 
-## Prevent Mutating Reactive Objects with `readonly`
+## 防止使用 `readonly` 转换响应式对象
 
-Sometimes we want to track changes of the reactive object (`ref` or `reactive`) but we also want prevent changing it from a certain place of the application. For example, when we have a [provided](component-provide-inject.html) reactive object, we want to prevent mutating it where it's injected. To do so, we can create a readonly proxy to the original object:
+有时我们想跟踪反应对象（ `ref` 或 `reactive` ）的变化，但我们也希望防止从应用程序的某个位置更改它。例如，当我们有一个 [provide](component-provide-inject.html) 响应式对象，我们要防止它在注射的地方发生转换。为此，我们可以为原始对象创建一个只读proxy：
+
 
 ```js
 const original = reactive({ count: 0 })
 
 const copy = readonly(original)
 
-// mutating original will trigger watchers relying on the copy
+// 在copy上转换original 会触发侦听器依赖
+
 original.count++
 
-// mutating the copy will fail and result in a warning
-copy.count++ // warning: "Set operation on key 'count' failed: target is readonly."
+// 转换copy 将导失败并导致警告
+copy.count++ // 警告: "Set operation on key 'count' failed: target is readonly."
 ```

@@ -48,8 +48,6 @@ val1 = 3
   </iframe>
 </div>
 
-That was rather quick and requires some knowledge of [proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) to understand! So let’s dive in a bit. There’s a lot of literature on Proxies, but what you really need to know is that a **Proxy is an object that encases another object or function and allows you to intercept it.**
-
 这需要稍微地了解下[proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) 的某些知识！ 因此，让我们深入一点。 关于proxy的文献很多，但是你真正需要知道的是**proxy是一个包含另一个对象或函数并允许您对其进行拦截的对象。**
 
 我们像这样使用它: `new Proxy(target, handler)`

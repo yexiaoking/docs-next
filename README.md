@@ -101,8 +101,8 @@ yarn serve # or npm run serve
 |[/guide/render-function.md](/src/guide/render-function.md)|[@veaba](https://github.com/veaba)|-|完成翻译|
 |[/guide/plugins.md](/src/guide/plugins.md)|[@veaba](https://github.com/veaba)|-|完成翻译|
 |-|-|-|-|
-|[/guide/reactivity.md](/src/guide/reactivity.md)|[@veaba](https://github.com/veaba)|-||
-|[/guide/reactivity-fundamentals.md](/src/guide/reactivity-fundamentals.md)||-||
+|[/guide/reactivity.md](/src/guide/reactivity.md)|[@veaba](https://github.com/veaba)|-|完成翻译|
+|[/guide/reactivity-fundamentals.md](/src/guide/reactivity-fundamentals.md)|[@veaba](https://github.com/veaba)|-|完成翻译|
 |[/guide/reactivity-computed-watchers.md](/src/guide/reactivity-computed-watchers.md)||-||
 |-|-|-|-|
 |[/guide/composition-api-introduction.md](/src/guide/composition-api-introduction.md)||-||
