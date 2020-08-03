@@ -96,7 +96,7 @@ yarn serve # or npm run serve
 |[/guide/mixins.md](/src/guide/mixins.md)|[@veaba](https://github.com/veaba)|||
 |[/guide/custom-directive.md](/src/guide/custom-directive.md)|[@veaba](https://github.com/veaba)|||
 |[/guide/teleport.md](/src/guide/teleport.md)|[@veaba](https://github.com/veaba)|||
-|[/guide/render-function.md](/src/guide/render-function.md)||||
+|[/guide/render-function.md](/src/guide/render-function.md)|[@veaba](https://github.com/veaba)|||
 |[/guide/plugin.md](/src/guide/plugin.md)||||
 |-|-|-|-|
 |[/guide/reactivity.md](/src/guide/reactivity.md)||||
