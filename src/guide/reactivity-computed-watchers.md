@@ -1,10 +1,10 @@
-# Computed and Watch
+# 计算和帧听
 
-> This section uses [single-file component](single-file-component.html) syntax for code examples
+> 本节使用 [单文件组件](single-file-component.html) 语法作为代码示例
 
-## Computed values
+## 计算值
 
-Sometimes we need state that depends on other state - in Vue this is handled with component [computed properties](computed.html#computed-properties). To directly create a computed value, we can use the `computed` method: it takes a getter function and returns an immutable reactive [ref](reactivity-fundamentals.html#creating-standalone-reactive-values-as-refs) object for the returned value from the getter.
+有时我们需要依赖于其他状态的状态 —— 在Vue中，这是用组件 [计算属性](computed.html#computed-properties) 处理的，以直接创建计算值，我们可以使用 `computed` 方法：它接受getter函数并为getter返回的值返回一个不可变的响应式[ref](reactivity-fundamentals.html#creating-standalone-reactive-values-as-refs) 对象。
 
 ```js
 const count = ref(1)
@@ -15,7 +15,7 @@ console.log(plusOne.value) // 2
 plusOne.value++ // error
 ```
 
-Alternatively, it can take an object with `get` and `set` functions to create a writable ref object.
+或者，它可以使用一个带有 `get` 和 `set`函数的对象来创建一个可写的ref对象。
 
 ```js
 const count = ref(1)
@@ -32,7 +32,7 @@ console.log(count.value) // 0
 
 ## `watchEffect`
 
-To apply and _automatically re-apply_ a side effect based on reactive state, we can use the `watchEffect` method. It runs a function immediately while reactively tracking its dependencies and re-runs it whenever the dependencies are changed.
+为了根据反应状态*自动应用*和*重新应用*副作用，我们可以使用 `watchEffect` 方法。它立即运行一个函数，同时反应性地跟踪其依赖项，并在依赖项发生更改时重新运行它。
 
 ```js
 const count = ref(0)
@@ -46,11 +46,11 @@ setTimeout(() => {
 }, 100)
 ```
 
-### Stopping the Watcher
+### 阻止侦听器
 
-When `watchEffect` is called during a component's [setup()](composition-api-setup.html) function or [lifecycle hooks](composition-api-lifecycle-hooks.html), the watcher is linked to the component's lifecycle and will be automatically stopped when the component is unmounted.
+当在组件的 [setup()](composition-api-setup.html) 函数或 [生命周期钩子](composition-api-lifecycle-hooks.html) 期间调用 `watchEffect` 时，侦听器链接到组件的生命周期，并在组件卸载时自动停止。
 
-In other cases, it returns a stop handle which can be called to explicitly stop the watcher:
+在其他情况下，它返回一个停止句柄，可以调用该句柄显式停止侦听器：
 
 ```js
 const stop = watchEffect(() => {
@@ -61,12 +61,12 @@ const stop = watchEffect(() => {
 stop()
 ```
 
-### Side Effect Invalidation
+### 副作用失效
 
-Sometimes the watched effect function will perform asynchronous side effects that need to be cleaned up when it is invalidated (i.e state changed before the effects can be completed). The effect function receives an `onInvalidate` function that can be used to register an invalidation callback. This invalidation callback is called when:
+有时监视效果函数会执行异步副作用，当它失效时（即在效果完成之前状态改变）需要清除这些副作用。effect函数接收一个 `onInvalidate` 函数，该函数可用于注册无效回调。此无效回调在以下情况下调用：
 
-- the effect is about to re-run
-- the watcher is stopped (i.e. when the component is unmounted if `watchEffect` is used inside `setup()` or lifecycle hooks)
+- 效果将重新运行
+- <a id="argue-3"></a>TODO侦听器被停止（即，当组件卸载时，如果在 `setup()` 或生命周期钩子使用了 `watchEffect`）
 
 ```js
 watchEffect(onInvalidate => {
@@ -79,21 +79,21 @@ watchEffect(onInvalidate => {
 })
 ```
 
-We are registering the invalidation callback via a passed-in function instead of returning it from the callback because the return value is important for async error handling. It is very common for the effect function to be an async function when performing data fetching:
+我们通过传入函数注册无效回调，而不是从回调返回它，因为返回值对于异步错误处理很重要。在执行数据获取时，effect函数通常是异步函数：
 
 ```js
 const data = ref(null)
 watchEffect(async onInvalidate => {
-  onInvalidate(() => {...}) // we register cleanup function before Promise resolves
+  onInvalidate(() => {...}) // 我们在Promise解析之前注册清除函数
   data.value = await fetchData(props.id)
 })
 ```
 
-An async function implicitly returns a Promise, but the cleanup function needs to be registered immediately before the Promise resolves. In addition, Vue relies on the returned Promise to automatically handle potential errors in the Promise chain.
+异步函数隐式返回一个Promise，但需要在Promise解析之前立即注册清除p函数。此外，Vue依赖于返回的Promise来自动处理Promise链中的潜在错误。
 
-### Effect Flush Timing
+### <a id="argue-2"></a>TODO 效果冲刷 Timing ？
 
-Vue's reactivity system buffers invalidated effects and flushes them asynchronously to avoid unnecessary duplicate invocation when there are many state mutations happening in the same "tick". Internally, a component's `update` function is also a watched effect. When a user effect is queued, it is always invoked after all component `update` effects:
+Vue的响应性系统缓冲无效的效果，并异步刷新它们，以避免在同一个 “tick” 中发生许多状态转换时不必要的重复调用。在内部，组件的 `update` 功能也是一种监视效果。当把用户效果加入队列时，它总是在所有组件 `update` 效果之后调用：
 
 ```html
 <template>
@@ -117,25 +117,25 @@ Vue's reactivity system buffers invalidated effects and flushes them asynchronou
 </script>
 ```
 
-In this example:
+在这例子中:
 
-- The count will be logged synchronously on initial run.
-- When `count` is mutated, the callback will be called **after** the component has updated.
+- 计数将在首次运行时同步记录。
+- 当 `count` 发生变化时，将在**组件更新后调用**回调。
 
 Note the first run is executed before the component is mounted. So if you wish to access the DOM (or template refs) in a watched effect, do it in the mounted hook:
 
 ```js
 onMounted(() => {
   watchEffect(() => {
-    // access the DOM or template refs
+    // 访问DOM 或者 模板引用
   })
 })
 ```
 
-In cases where a watcher effect needs to be re-run synchronously or before component updates, we can pass an additional `options` object with the `flush` option (default is `'post'`):
+在需要同步或在组件更新之前重新运行侦听器效果的情况下，我们可以使用 `flush` 选项传递一个附加的 `options` 对象（默认为 `post`）：
 
 ```js
-// fire synchronously
+// 同步交火
 watchEffect(
   () => {
     /* ... */
@@ -156,19 +156,19 @@ watchEffect(
 )
 ```
 
-### Watcher Debugging
+### 侦听器调试
 
-The `onTrack` and `onTrigger` options can be used to debug a watcher's behavior.
+`onTrack` 和 `onTrigger` 选项可用于调试侦听器的行为。
 
-- `onTrack` will be called when a reactive property or ref is tracked as a dependency
-- `onTrigger` will be called when the watcher callback is triggered by the mutation of a dependency
+- 当响应式property或ref作为依赖项被跟踪时，将调用`onTrack`
+- 当依赖项的变化触发侦听器回调时，将调用 `onTrigger`
 
-Both callbacks will receive a debugger event which contains information on the dependency in question. It is recommended to place a `debugger` statement in these callbacks to interactively inspect the dependency:
+两个回调都将接收一个调试器事件，其中包含有关相关依赖项的信息。建议在这些回调中放置 `debugger` 语句以交互方式检查依赖关系：
 
 ```js
 watchEffect(
   () => {
-    /* side effect */
+    /* 副作用 */
   },
   {
     onTrigger(e) {
@@ -178,24 +178,24 @@ watchEffect(
 )
 ```
 
-`onTrack` and `onTrigger` only work in development mode.
+`onTrack` 和 `onTrigger` 只能在开发模式下工作。
 
 ## `watch`
 
-The `watch` API is the exact equivalent of the component [watch](computed.html#watchers) property. `watch` requires watching a specific data source and applies side effects in a separate callback function. It also is lazy by default - i.e. the callback is only called when the watched source has changed.
+`watch` API完全等同于组件[侦听](computed.html#侦听器) property。`watch`需要监视特定的数据源，并在单独的回调函数中应用副作用。默认情况下，它也是惰性的，即只有当被监视的源发生变化时才调用回调。
 
-- Compared to [watchEffect](#watcheffect), `watch` allows us to:
+- 与 [watchEffect](#watcheffect) 比较, `watch` 允许我们：
 
-  - Perform the side effect lazily;
-  - Be more specific about what state should trigger the watcher to re-run;
-  - Access both the previous and current value of the watched state.
+  - 懒性地执行副作用；
+  - 更具体地说明什么状态应该触发侦听器重新运行；
+  - 访问被侦听状态的先前值和当前值。
 
-### Watching a Single Source
+### 侦听单一源
 
-A watcher data source can either be a getter function that returns a value, or directly a `ref`:
+侦听器数据源可以是返回值的getter函数，也可以直接是 `ref`：
 
 ```js
-// watching a getter
+// 侦听一个 getter
 const state = reactive({ count: 0 })
 watch(
   () => state.count,
@@ -204,16 +204,16 @@ watch(
   }
 )
 
-// directly watching a ref
+// 直接侦听ref
 const count = ref(0)
 watch(count, (count, prevCount) => {
   /* ... */
 })
 ```
 
-### Watching Multiple Sources
+### 侦听多个源
 
-A watcher can also watch multiple sources at the same time using an array:
+侦听器还可以使用数组同时监视多个源：
 
 ```js
 watch([fooRef, barRef], ([foo, bar], [prevFoo, prevBar]) => {
@@ -221,6 +221,6 @@ watch([fooRef, barRef], ([foo, bar], [prevFoo, prevBar]) => {
 })
 ```
 
-### Shared Behavior with `watchEffect`
+### 使用 `watchEffect` 共享行为
 
-`watch` shares behavior with [`watchEffect`](#watcheffect) in terms of [manual stoppage](#stopping-the-watcher), [side effect invalidation](#side-effect-invalidation) (with `onInvalidate` passed to the callback as the 3rd argument instead), [flush timing](#effect-flush-timing) and [debugging](#watcher-debugging).
+`watch` 与 [`watchEffect`](#watcheffect) 共享 [manual stoppage](#stopping-the-watcher), [side effect invalidation](#side-effect-invalidation) （改造 将 `onInvalidate` 作为第三个参数传递给回调）、[flush timing](#effect-flush-timing 和 [debugging](#watcher-debugging) 行为。

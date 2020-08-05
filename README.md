@@ -55,7 +55,8 @@ yarn serve # or npm run serve
 |记录|翻译人|校验人|状态|
 |----|----|----|----|
 |[[argue-1]](/src/guide/installation.md#argue-1)||-||
-||-|||
+|[[argue-2]](/src/guide/reactivity-computed-watchers.md#argue-2)|-|||
+|[[argue-3]](/src/guide/reactivity-computed-watchers.md#argue-3)|-|||
 ||-|||
 ||-|||
 
@@ -103,7 +104,7 @@ yarn serve # or npm run serve
 |-|-|-|-|
 |[/guide/reactivity.md](/src/guide/reactivity.md)|[@veaba](https://github.com/veaba)|-|完成翻译|
 |[/guide/reactivity-fundamentals.md](/src/guide/reactivity-fundamentals.md)|[@veaba](https://github.com/veaba)|-|完成翻译|
-|[/guide/reactivity-computed-watchers.md](/src/guide/reactivity-computed-watchers.md)||-||
+|[/guide/reactivity-computed-watchers.md](/src/guide/reactivity-computed-watchers.md)|[@veaba](https://github.com/veaba)|-|完成翻译|
 |-|-|-|-|
 |[/guide/composition-api-introduction.md](/src/guide/composition-api-introduction.md)||-||
 |[/guide/composition-api-setup.md](/src/guide/composition-api-setup.md)||-||
