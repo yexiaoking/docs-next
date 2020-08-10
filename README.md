@@ -106,7 +106,7 @@ yarn serve # or npm run serve
 |[/guide/reactivity-fundamentals.md](/src/guide/reactivity-fundamentals.md)|[@veaba](https://github.com/veaba)|-|完成翻译|
 |[/guide/reactivity-computed-watchers.md](/src/guide/reactivity-computed-watchers.md)|[@veaba](https://github.com/veaba)|-|完成翻译|
 |-|-|-|-|
-|[/guide/composition-api-introduction.md](/src/guide/composition-api-introduction.md)||-||
+|[/guide/composition-api-introduction.md](/src/guide/composition-api-introduction.md)|[@veaba](https://github.com/veaba)|-|完成翻译|
 |[/guide/composition-api-setup.md](/src/guide/composition-api-setup.md)||-||
 |[/guide/composition-api-lifecycle-hooks.md](/src/guide/composition-api-lifecycle-hooks.md)||-||
 |[/guide/composition-api-provide-inject.md](/src/guide/composition-api-provide-inject.md)||-||
