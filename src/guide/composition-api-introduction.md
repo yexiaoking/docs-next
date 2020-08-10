@@ -1,14 +1,14 @@
-# Introduction
+# 介绍
 
-## Why Composition API?
+## 什么是 Composition API?
 
-::: tip Note
-Reaching this far in the documentation, you should already be familiar with both [the basics of Vue](introduction.md) and [creating components](component-basics.md).
+::: tip 提示
+在阅读文档之前，你应该已经熟悉了这两个[Vue基础]((introduction.md)和 [创建组件](component-basics.md)。
 :::
 
-Creating Vue components allows us to extract repeatable parts of the interface coupled with its functionality into reusable pieces of code. This alone can get our application pretty far in terms of maintainability and flexibility. However, our collective experience has proved that this alone might not be enough, especially when your application is getting really big – think several hundreds of components. When dealing with such large applications, sharing and reusing code becomes especially important.
+通过创建Vue组件，我们可以将接口的可重复部分及其功能提取到可重用的代码段中。仅此一项就可以使我们的应用程序在可维护性和灵活性方面走得更远。然而，我们的经验已经证明，光靠这一点可能是不够的，尤其是当你的应用程序变得非常大的时候——想想几百个组件。在处理如此大的应用程序时，共享和重用代码变得尤为重要。
 
-Let’s imagine that in our app, we have a view to show a list of repositories of a certain user. On top of that, we want to apply search and filter capabilities. Our component handling this view could look like this:
+假设在我们的应用程序中，我们有一个视图来显示某个用户的仓库列表。除此之外，我们还希望应用搜索和筛选功能。处理此视图的组件可能如下所示：
 
 ```js
 // src/components/UserRepositories.vue
@@ -34,7 +34,7 @@ export default {
   },
   methods: {
     getUserRepositories () {
-      // using `this.user` to fetch user repositories
+      // 使用`这个用户`获取用户仓库
     }, // 2
     updateFilters () { ... }, // 3
   },
@@ -44,37 +44,38 @@ export default {
 }
 ```
 
-This component has several responsibilities:
 
-1. Getting repositories from a presumedly external API for that user name and refreshing it whenever the user changes
-2. Searching for repositories using a `searchQuery` string
-3. Filtering repositories using a `filters` object
+该组件有以下几个职责：
 
-Organizing logics with component's options (`data`, `computed`, `methods`, `watch`) works in most cases. However, when our components get bigger, the list of **logical concerns** also grows. This can lead to components that are hard to read and understand, especially for people who didn't write them in the first place.
+1. 从假定的外部API获取该用户名的仓库，并在用户更改时刷新它
+2. 使用 `searchQuery` 字符串搜索存储库
+3. 使用 `filters` 对象筛选仓库
 
-![Vue Option API: Code grouped by option type](https://user-images.githubusercontent.com/499550/62783021-7ce24400-ba89-11e9-9dd3-36f4f6b1fae2.png)
+用组件的选项（`data`、`computed`、`methods`、`watch`）组织逻辑在大多数情况下都有效。然而，当我们的组件变得更大时，**逻辑关注点**的列表也会增长。这可能会导致组件难以阅读和理解，尤其是对于那些一开始就没有编写这些组件的人来说。
 
-Example presenting a large component where its **logical concerns** are grouped by colors.
+![Vue 选项 API: 按选项类型分组的代码](https://user-images.githubusercontent.com/499550/62783021-7ce24400-ba89-11e9-9dd3-36f4f6b1fae2.png)
 
-Such fragmentation is what makes it difficult to understand and maintain a complex component. The separation of options obscures the underlying logical concerns. In addition, when working on a single logical concern, we have to constantly "jump" around option blocks for the relevant code.
+一个大型组件的示例，其中**逻辑关注点**是按颜色分组。
 
-It would be much nicer if we could collocate code related to the same logical concern. And this is exactly what the Composition API enables us to do.
+这种碎片化使得理解和维护复杂组件变得困难。选项的分离掩盖了潜在的逻辑问题。此外，在处理单个逻辑关注点时，我们必须不断地“跳转”相关代码的选项块。
 
-## Basics of Composition API
+如果我们能够将与同一个逻辑关注点相关的代码配置在一起会更好。而这正是Composition API使我们能够做到的。
+
+## Composition API 基础
 
 Now that we know the **why** we can get to the **how**. To start working with the Compsition API we first need a place where we can actually use it. In a Vue component, we call this place the `setup`.
 
-### `setup` Component Option
+### `setup` 组件选项
 
-The new `setup` component option is executed **before** the component is created, once the `props` are resolved, and serves as the entry point for composition API's.
+新的 `setup` 组件选项在**创建组件之前**执行，一旦 `props` 被解析，并充当合成API的入口点。
 
 ::: warning
-Because the component instance is not yet created when `setup` is executed, there is no `this` inside a `setup` option. This means, with the exception of `props`, you won't be able to access any properties declared in the component – **local state**, **computed properties** or **methods**.
+由于在执行 `setup` 时尚未创建组件实例，因此在 `setup` 选项中没有 `this`。这意味着，除了`props`之外，您将无法访问组件中声明的任何属性 —— **本地状态**、**计算属性**或**方法**。
 :::
 
-The `setup` option should be a function that accepts `props` and `context` which we will talk about [later](composition-api-setup.html#arguments). Additionally, everything that we return from `setup` will be exposed to the rest of our component (computed properties, methods, lifecycle hooks and so on) as well as to the component's template.
+`setup` 选项应该是一个接受 `props` 和 `context` 的函数，我们将在[稍后](composition-api-setup.html#arguments) 讨论。 此外，我们从 `setup` 返回的所有内容都将暴露给组件的其余部分（计算属性、方法、生命周期钩子等等）以及组件的模板。
 
-Let’s add `setup` to our component:
+让我们添加 `setup` 到我们的组件中：
 
 ```js
 // src/components/UserRepositories.vue
@@ -87,27 +88,27 @@ export default {
   setup(props) {
     console.log(props) // { user: '' }
 
-    return {} // anything returned here will be available for the rest of the component
+    return {} // 这里返回的任何内容都可以用于组件的其余部分
   }
-  // the "rest" of the component
+  // 组件的“其余部分”
 }
 ```
 
-Now let’s start with extracting the first logical concern (marked as "1" in the original snippet).
+现在让我们从提取第一个逻辑关注点开始（在原始代码段中标记为“1”）。
 
-> 1. Getting repositories from a presumedly external API for that user name and refreshing it whenever the user changes
+> 1. 从假定的外部API获取该用户名的仓库，并在用户更改时刷新它
 
-We will start with the most obvious parts:
+我们将从最明显的部分开始：
 
-- The list of repositories
-- The function to update the list of repositories
-- Returning both the list and the function so they are accessible by other component options
+- 仓库列表
+- 更新仓库列表的函数
+- 返回列表和函数，以便其他组件选项可以访问它们
 
 ```js
 // src/components/UserRepositories.vue `setup` function
 import { fetchUserRepositories } from '@/api/repositories'
 
-// inside our component
+// 在我们的组件内
 setup (props) {
   let repositories = []
   const getUserRepositories = async () => {
@@ -116,16 +117,16 @@ setup (props) {
 
   return {
     repositories,
-    getUserRepositories // functions returned behave the same as methods
+    getUserRepositories // 返回的函数与方法的行为相同
   }
 }
 ```
 
-This is our starting point, except it's not working yet because our `repositories` variable is not reactive. This means from a user's perspective, the repository list would remain empty. Let's fix that!
+这是我们的出发点，但它还不能工作，因为我们的 `repositories` 变量不是被动的。这意味着从用户的角度来看，仓库列表将保持为空。我们来解决这个问题！
 
-### Reactive Variables with `ref`
+### 带 `ref` 的响应式变量
 
-In Vue 3.0 we can make any variable reactive anywhere with a new `ref` function, like this:
+在Vue 3.0中，我们可以通过一个新的 `ref` 函数使任何响应式变量在任何地方起作用，如下所示：
 
 ```js
 import { ref } from 'vue'
@@ -133,7 +134,7 @@ import { ref } from 'vue'
 const counter = ref(0)
 ```
 
-`ref` takes the argument and returns it wrapped within an object with a `value` property, which can then be used to access or mutate the value of the reactive variable:
+`ref` 接受参数并返回它包装在具有 `value` property 的对象中，然后可以使用该 property 访问或更改响应式变量的值：
 
 ```js
 import { ref } from 'vue'
@@ -227,7 +228,7 @@ We have moved several pieces of our first logical concern into the `setup` metho
 
 We will start with the lifecycle hook.
 
-### Lifecycle Hook Registration Inside `setup`
+### 生命周期钩子注册内部 `setup`
 
 To make Composition API feature-complete compared to Options API, we also need a way to register lifecycle hooks inside `setup`. This is possible thanks to several new functions exported from Vue. Lifecycle hooks on composition API have the same name as for Options API but are prefixed with `on`: i.e. `mounted` would look like `onMounted`.
 
@@ -258,7 +259,7 @@ setup (props) {
 
 Now we need to react to the changes made to the `user` prop. For that we will use the standalone `watch` function.
 
-### Reacting to Changes with `watch`
+### `watch` 响应式更改
 
 Just like how we set up a watcher on the `user` property inside our component using the `watch` option, we can do the same using the `watch` function imported from Vue. It accepts 3 arguments:
 
@@ -332,7 +333,7 @@ You probably have noticed the use of `toRefs` at the top of our `setup`. This is
 
 With those changes in place, we've just moved the whole first logical concern into a single place. We can now do the same with the second concern – filtering based on `searchQuery`, this time with a computed property.
 
-### Standalone `computed` properties
+### 独立的 `computed` 属性
 
 Similar to `ref` and `watch`, computed properties can also be created outside of a Vue component with the `computed` function imported from Vue. Let’s get back to our counter example:
 
