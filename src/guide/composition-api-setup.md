@@ -4,18 +4,18 @@
 
 > This guide assumes that you have already read the [Composition API Introduction](composition-api-introduction.html) and [Reactivity Fundamentals](reactivity-fundamentals.html). Read that first if you are new to Composition API.
 
-## Arguments
+## 参数
 
-When using the `setup` function, it will take two arguments:
+使用 `setup` 函数时，它将接受两个参数：
 
 1. `props`
 2. `context`
 
-Let's dive deeper into how each argument can be used.
+让我们更深入地研究如何使用每个参数。
 
 ### Props
 
-The first argument in the `setup` function is the `props` argument. Just as you would expect in a standard component, `props` inside of a `setup` function are reactive and will be updated when new props are passed in.
+`setup` 函数中的第一个参数是 `props` 参数。正如您在标准组件中所期望的那样，`setup` 函数中的 `props` 是响应式的，当传入新的prop时，它将被更新。
 
 ```js
 // MyBook.vue
@@ -31,10 +31,10 @@ export default {
 ```
 
 :::warning
-However, because `props` are reactive, you **cannot use ES6 destructuring** because it will remove props reactivity.
+但是，因为 `props` 是响应性的，你不能**使用ES6解构**，因为它会消除道具的反应性。
 :::
 
-If you need to destructure your props, you can do this safely by utilizing the [toRefs](reactivity-fundamentals.html#destructuring-reactive-state) inside of the `setup` function.
+如果需要销毁prop，可以通过使用 `setup` 函数中的 [toRefs](reactivity-fundamentals.html#destructuring-reactive-state) 来安全地完成此操作。
 
 ```js
 // MyBook.vue
@@ -48,28 +48,28 @@ setup(props) {
 }
 ```
 
-### Context
+### 上下文
 
-The second argument passed to the `setup` function is the `context`. The `context` is a normal JavaScript object that exposes three component properties:
+传递给 `setup` 函数的第二个参数是 `context` 。`context` 是一个普通的JavaScript对象，它暴露三个组件 property：
 
 ```js
 // MyBook.vue
 
 export default {
   setup(props, context) {
-    // Attributes (Reactive Property)
+    // Attribute (响应式 Property)
     console.log(context.attrs)
 
-    // Slots (Reactive Property)
+    // Slots (响应式 Property)
     console.log(context.slots)
 
-    // Emit Events (Method)
+    // Emit 事件 (方法)
     console.log(context.emit)
   }
 }
 ```
 
-Because it is a normal JavaScript object, i.e., it is not reactive, this means you can safely use ES6 destructuring on `context`.
+因为它是一个普通的JavaScript对象，也就是说，它不是被动的，这意味着您可以安全地对 `context` 使用ES6解构。
 
 ```js
 // MyBook.vue
@@ -80,7 +80,7 @@ export default {
 }
 ```
 
-As a result, similar to `props`, if you need to destructure either of these properties, you can utilize the `toRefs` method to create a similar effects.
+因此，与 `props` 类似，如果需要分解这些property中的任何一个，可以使用 `toRefs` 方法创建类似的效果。
 
 ```jsx
 // MyBook.vue
@@ -95,24 +95,24 @@ export default {
 )
 ```
 
-## Accessing Component Properties
+## 访问组件property
 
-When `setup` is executed, the component instance has not been created yet. As a result, you will only be able to access the following properties:
+执行 `setup` 时，尚未创建组件实例。因此，你只能访问以下property：
 
 - `props`
 - `attrs`
 - `slots`
 - `emit`
 
-In other words, you **will not have access** to the following component options:
+换句话说，你**将无法**访问以下组件选项：
 
 - `data`
 - `computed`
 - `methods`
 
-## Usage with Templates
+## 使用模板
 
-If `setup` returns an object, the properties on the object can be accessed in the component's template:
+如果 `setup` 返回一个对象，则可以在组件的模板中访问该对象的property：
 
 ```vue-html
 <!-- MyBook.vue -->
@@ -138,11 +138,12 @@ If `setup` returns an object, the properties on the object can be accessed in th
 </script>
 ```
 
-Note that [refs](../api/refs-api.html#ref) returned from `setup` are [automatically unwrapped](../api/refs-api.html#access-in-templates) when accessed in the template so you shouldn't use `.value` in templates.
+注意，从 `setup` 返回的[refs](../api/refs-api.html#ref) 在模板中访问时是[automatically unwrapped](../api/refs-api.html#access-in-templates)，因此不应在模板中使用 `.value` 。
 
-## Usage with Render Functions
 
-`setup` can also return a render function which can directly make use of the reactive state declared in the same scope:
+## 使用渲染函数
+
+`setup`还可以返回一个渲染函数，该函数可以直接使用在同一作用域中声明的响应式状态：
 
 ```js
 // MyBook.vue
@@ -159,6 +160,6 @@ export default {
 }
 ```
 
-## Usage of `this`
+## 使用 `this`
 
-**Inside `setup()`, `this` won't be a reference to Vue instance** Since `setup()` is called before other component options are resolved, `this` inside `setup()` will behave quite differently from `this` in other options. This might cause confusions when using `setup()` along other Options API.
+**在 `setup()` 内部，`this` 不会引用Vue实例**，因为在解析其他组件选项之前调用了 `setup()` ，因此 `this` 内部 `setup()` 的行为与其他选项中的 `this` 完全不同。在使用 `setup()` 和其他选项API时，这可能会导致混淆。
