@@ -1,6 +1,6 @@
-# Application Config
+# 应用程序配置
 
-`config` is an object containing Vue application global configurations. You can modify its properties listed below before mounting your application:
+`config` 是一个对象，包含 Vue 的全局配置。可以在启动应用之前修改下列 property：
 
 ```js
 const app = Vue.createApp({})
@@ -10,61 +10,62 @@ app.config = {...}
 
 ## devtools
 
-- **Type:** `boolean`
+- **类型：** `boolean`
 
-- **Default:** `true` (`false` in production builds)
+- **默认:** `true` (在生成打包中是`false`)
 
-- **Usage:**
+- **用法：**
 
 ```js
 app.config.devtools = true
 ```
 
-Configure whether to allow [vue-devtools](https://github.com/vuejs/vue-devtools) inspection. This option's default value is `true` in development builds and `false` in production builds. You can set it to `true` to enable inspection for production builds.
+配置是否允许 [vue devtools](https://github.com/vuejs/vue-devtools) 检查代码。开发版本默认为 `true`，生产版本默认为 `false`。生产版本设为 `true` 可以启用检查。
 
 ## errorHandler
 
-- **Type:** `Function`
+- **类型：** `Function`
 
-- **Default:** `undefined`
+- **默认：** `undefined`
 
-- **Usage:**
+- **用法：**
 
 ```js
 app.config.errorHandler = (err, vm, info) => {
-  // handle error
-  // `info` is a Vue-specific error info, e.g. which lifecycle hook
-  // the error was found in
+  // 处理错误
+  // `info` 是 Vue 特定的错误信息，比如错误所在的生命周期钩子
+  // 发现错误
 }
 ```
 
-Assign a handler for uncaught errors during component render function and watchers. The handler gets called with the error and the Vue instance.
+指定组件的渲染和观察期间未捕获错误的处理函数。这个处理函数被调用时，可获取错误信息和 Vue 实例。
 
-> Error tracking services [Sentry](https://sentry.io/for/vue/) and [Bugsnag](https://docs.bugsnag.com/platforms/browsers/vue/) provide official integrations using this option.
+
+> 错误追踪服务 [Sentry](https://sentry.io/for/vue/) 和 [Bugsnag](https://docs.bugsnag.com/platforms/browsers/vue/)使用此选项提供官方集成。
 
 ## warnHandler
 
-- **Type:** `Function`
+- **类型：** `Function`
 
-- **Default:** `undefined`
+- **默认：** `undefined`
 
-- **Usage:**
+- **用法：**
 
 ```js
 app.config.warnHandler = function(msg, vm, trace) {
-  // `trace` is the component hierarchy trace
+  // `trace` 是组件的继承关系追踪
 }
 ```
 
-Assign a custom handler for runtime Vue warnings. Note this only works during development and is ignored in production.
+为 Vue 的运行时警告赋予一个自定义处理函数。注意这只会在开发者环境下生效，在生产环境下它会被忽略。
 
 ## globalProperties
 
-- **Type:** `[key: string]: any`
+- **类型：** `[key: string]: any`
 
-- **Default:** `undefined`
+- **默认：** `undefined`
 
-- **Usage:**
+- **用法：**
 
 ```js
 app.config.globalProperties.foo = 'bar'
@@ -76,9 +77,9 @@ app.component('child-component', {
 })
 ```
 
-Adds a global property that can be accessed in any component instance inside the application. The component’s property will take priority when there are conflicting keys.
+添加可以在应用程序内的任何组件实例中访问的全局property。 按键冲突时，组件的属性将具有优先权。
 
-This can replace Vue 2.x `Vue.prototype` extending:
+这可以代替Vue 2.x `Vue.prototype` 扩展：
 
 ```js
 // Before
@@ -91,28 +92,28 @@ app.config.globalProperties.$http = () => {}
 
 ## isCustomElement
 
-- **Type:** `(tag: string) => boolean`
+- **类型：** `(tag: string) => boolean`
 
-- **Default:** `undefined`
+- **默认：** `undefined`
 
-- **Usage:**
+- **用法：**
 
 ```js
-// any element starting with 'ion-' will be recognized as a custom one
+// 任何以“ion-”开头的元素都将被识别为自定义元素
 app.config.isCustomElement = tag => tag.startsWith('ion-')
 ```
 
-Specifies a method to recognize custom elements defined outside of Vue (e.g., using the Web Components APIs). If component matches this condition, it won't need local or global registration and Vue won't throw a warning about an `Unknown custom element`.
+指定识别在Vue外部定义的自定义元素的方法（例如，使用Web组件API）。如果组件符合此条件，则不需要本地或全局注册，并且Vue不会抛出关于 `未知自定义元素` 的警告。
 
-> Note that all native HTML and SVG tags don't need to be matched in this function - Vue parser performs this check automatically
+> 注意，所有原生HTML和SVG标记不需要在此函数中匹配 —— Vue解析器自动执行此检查
 
 ## optionMergeStrategies
 
-- **Type:** `{ [key: string]: Function }`
+- **类型：** `{ [key: string]: Function }`
 
-- **Default:** `{}`
+- **默认：** `{}`
 
-- **Usage:**
+- **用法：**
 
 ```js
 const app = Vue.createApp({
@@ -132,18 +133,18 @@ app.mixin({
 // 'Hello, Vue
 ```
 
-Define merging strategies for custom options.
+自定义合并策略的选项。
 
-The merge strategy receives the value of that option defined on the parent and child instances as the first and second arguments, respectively. The context Vue instance is passed as the third argument.
+合并策略选项分别接收在父实例和子实例上定义的该选项的值作为第一个和第二个参数，Vue 实例上下文被作为第三个参数传入。
 
-- **See also:** [Custom Option Merging Strategies](../guide/mixins.html#custom-option-merge-strategies)
+- **也可以看看** [Custom Option Merging Strategies](../guide/mixins.html#custom-option-merge-strategies)
 
 ## performance
 
-- **Type:** `boolean`
+- **类型：** `boolean`
 
-- **Default:** `false`
+- **默认：** `false`
 
 - **Usage**:
 
-Set this to `true` to enable component init, compile, render and patch performance tracing in the browser devtool performance/timeline panel. Only works in development mode and in browsers that support the [performance.mark](https://developer.mozilla.org/en-US/docs/Web/API/Performance/mark) API.
+设置为 `true` 以在浏览器开发工具的性能/时间线面板中启用对组件初始化、编译、渲染和打补丁的性能追踪。只适用于开发模式和支持 [performance.mark](https://developer.mozilla.org/en-US/docs/Web/API/Performance/mark) API 的浏览器上。

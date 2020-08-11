@@ -32,7 +32,7 @@ export default {
 ```
 
 :::warning
-但是，因为 `props` 是响应性的，你不能**使用ES6解构**，因为它会消除道具的反应性。
+但是，因为 `props` 是响应性的，你不能**使用ES6解构**，因为它会消除prop的反应性。
 :::
 
 如果需要销毁prop，可以通过使用 `setup` 函数中的 [toRefs](reactivity-fundamentals.html#destructuring-reactive-state) 来安全地完成此操作。

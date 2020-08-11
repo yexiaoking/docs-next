@@ -1,107 +1,118 @@
-# Vue Docs Writing Guide
+# Vue 文档编写指南
 
-Writing documentation is an exercise in empathy. We're not describing an objective reality - the source code already does that. Our job is to help shape the relationship between users and the Vue ecosystem. This ever-evolving guide provides some rules and recommendations on how to do that consistently within the Vue ecosystem.
+> 译者：本章节大部分内容是针对母语是英文的读者，中文用户可略读，除非你想以英文文档编写者的身份参与Vue docs 的编写， 
 
-## Principles
+编写文档是一种换位思考的练习。 我们并不是在描述客观现实 —— 源代码已经做到了。 我们的工作是帮助塑造用户与Vue生态系统之间的关系。 这份不断发展的指南提供了一些规则和建议，说明如何在Vue生态系统中始终如一地做到这一点。
 
-- **A feature doesn't exist until it's well documented.**
-- **Respect users' cognitive capacity (i.e. brain power).** When a user starts reading, they begin with a certain amount of limited brain power and when they run out, they stop learning.
-  - Cognitive capacity is **depleted faster** by complex sentences, having to learn more than one concept at a time, and abstract examples that don't directly relate to a user's work.
-  - Cognitive capacity is **depleted more slowly** when we help them feel consistently smart, powerful, and curious. Breaking things down into digestible pieces and minding the flow of the document can help keep them in this state.
-- **Always try to see from the user's perspective.** When we understand something thoroughly, it becomes obvious to us. This is called _the curse of knowledge_. In order to write good documentation, try to remember what you first needed to know when learning this concept. What jargon did you need to learn? What did you misunderstand? What took a long time to really grasp? Good documentation meets users where they are. It can be helpful to practice explaining the concept to people in person before
-- **Describe the _problem_ first, then the solution.** Before showing how a feature works, it's important to explain why it exists. Otherwise, users won't have the context to know if this information is important to them (is it a problem they experience?) or what prior knowledge/experience to connect it to.
-- **While writing, don't be afraid to ask questions**, _especially_ if you're afraid they might be "dumb". Being vulnerable is hard, but it's the only way for us to more fully understand what we need to explain.
-- **Be involved in feature discussions.** The best APIs come from documentation-driven development, where we build features that are easy to explain, rather than trying to figure out how to explain them later. Asking questions (especially "dumb" questions) earlier often helps reveal confusions, inconsistencies, and problematic behavior before a breaking change would be required to fix them.
+## 原则
 
-## Organization
+- **除非有充分的文档证明，否则功能不存在。**
+- **尊重用户的认知能力（即脑力）。** 当用户开始阅读时，他们从一定量的有限脑力开始，而当他们用完时，他们停止学习。
+  - 复杂的句子、一次必须学习一个以上的概念，以及与用户的工作没有直接关系的抽象例子，认知能力**消耗得更快**。
+  - 当我们帮助他们持续感到聪明、强大和好奇时，他们的认知能力会**慢慢消耗**殆尽。把事情分解成可消化的部分并注意文档的流动可以帮助它们保持这种状态。
 
-- **Installation/Integration**: Provide a thorough overview of how to integrate the software into as many different kinds of projects as necessary.
-- **Introduction/Getting Started**:
-  - Provide a less than 10 minute overview of the problems the project solves and why it exists.
-  - Provide a less than 30 minute overview of the problems the project solves and how, including when and why to use the project and some simple code examples. At the end, link to both to Installation page and the beginning of the Essentials Guide.
-- **Guide**: Make users feel smart, powerful, and curious, then maintain this state so that users maintain the motivation and cognitive capacity to keep learning more. Guide pages are meant to be read sequentially, so should generally be ordered from the highest to lowest power/effort ratio.
-  - **Essentials**: It should take no longer than 5 hours to read the Essentials, though shorter is better. Its goal is to provide the 20% of knowledge that will help users handle 80% of use cases. Essentials can link to more advanced guides and the API, though, in most cases, you should avoid such links. When they are provided, you need also provide a context so users are aware if they should follow this link on their first reading. Otherwise, many users end up exhausting their cognitive capacity link-hopping, trying to fully learn every aspect of a feature before moving on, and as a result, never finish that first read-through of the Essentials. Remember that a smooth read is more important than being thorough. We want to give people the information they need to avoid a frustrating experience, but they can always come back and read further, or Google a less common problem when they encounter it.
-  - **Advanced**: While the Essentials helps people handle ~80% of use cases, subsequent guides help get users to 95% of use cases, plus more detailed information on non-essential features (e.g. transitions, animations), more complex convenience features (e.g. mixins, custom directives), and dev experience improvements (e.g. JSX, plugins). The final 5% of use cases that are more niche, complex, and/or prone to abuse will be left to the cookbook and API reference, which can be linked to from these advanced guides.
-- **Reference/API**: Provide a complete list of features, including type information, descriptions of the problem each solves, examples of every combination of options, and links to guides, cookbook recipes, and other internal resources providing more detail. Unlike other pages, this one is not meant to be read top-to-bottom, so plenty of detail can be provided. These references must also be more easily skimmable than the guides, so the format should be closer to dictionary entries than the story-telling format of the guides.
-- **Migrations**:
-  - **Versions**: When important changes are made, it's useful to include a full list of changes, including a detailed explanation of why the change was made and how to migrate their projects.
-  - **From other projects**: How does this software compare to similar software? This is important to help users understand what additional problems we might solve or create for them, and to what extent they can transfer knowledge they already have.
-- **Style Guide**: There are necessarily some key pieces in development that need a decision, but are not core to the API. The style guide provides educated, opinionated recommendations to help guide these decisions. They shouldn't be followed blindly, but can help teams save time by being aligned on smaller details.
-- **Cookbook**: Recipes in the cookbook are written with some assumption of familiarity with Vue and its ecosystem. Each is a highly structured document that walks through some common implementation details that a Vue dev might encounter.
+- **总是试着从用户的角度看问题。** 当我们彻底理解某件事情时，它就变得显而易见了。这就是所谓的知识诅咒。为了编写好的文档，记住在学习这个概念时首先需要知道什么。你需要学什么行话？你误解了什么？什么花了很长时间才真正掌握？好的文档可以满足用户的需求。这可能有助于练习向人们解释这个概念
+- **首先描述*问题*，然后描述解决方案。** 在展示功能如何工作之前，解释其存在的原因非常重要。否则，用户将无法知道这些信息对他们是否重要（这是他们遇到的问题吗？）或与之前的知识/经验相联系。
+- **在写作时，不要害怕问问题**，尤其是如果你害怕他们“蠢”的话。脆弱是很难的，但这是我们更充分地理解我们需要解释的唯一途径。
+- **参与特性讨论。** 最好的API来自于文档驱动的开发，我们在开发中构建易于解释的特性，而不是试图在以后解释它们。提前提出问题（尤其是“愚蠢的”问题）通常有助于揭示困惑、不一致和有问题的行为，然后才需要进行破坏性的更改来修复它们。
 
-## Writing & Grammar
+## 组织
 
-### Style
+- **安装/集成**：提供有关如何将软件集成到尽可能多的不同项目中的全面概述。
 
-- **Headings should describe problems**, not solutions. For example, a less effective heading might be "Using props", because it describes a solution. A better heading might be "Passing Data to Child Components with Props", because it provides the context of the problem props solve. Users won't really start paying attention to the explanation of a feature until they have some idea of why/when they'd use it.
-- **When you assume knowledge, declare it** at the beginning and link to resources for less common knowledge that you're expecting.
-- **Introduce only one new concept at a time whenever possible** (including both text and code examples). Even if many people are able to understand when you introduce more than one, there are also many who will become lost - and even those who don't become lost will have depleted more of their cognitive capacity.
-- **Avoid special content blocks for tips and caveats when possible.** It's generally preferable to blend these more naturally into the main content, e.g. by building on examples to demonstrate an edge case.
-- **Don't include more than two interwoven tips and caveats per page.** If you find that more than two tips are needed in a page, consider adding a caveats section to address these issues. The guide is meant to be read straight through, and tips and caveats can be overwhelming or distracting to someone trying to understand the base concepts.
-- **Avoid appeals to authority** (e.g. "you should do X, because that's a best practice" or "X is best because it gives you full separation of concerns"). Instead, demonstrate with examples the specific human problems caused and/or solved by a pattern.
-- **When deciding what to teach first, think of what knowledge will provide the best power/effort ratio.** That means teaching whatever will help users solve the greatest pains or greatest number of problems, with the relatively least effort to learn. This helps learners feel smart, powerful, and curious, so their cognitive capacity will drain more slowly.
-- **Unless the context assumes a string template or build system, only write code that works in any environment by the software (e.g. Vue, Vuex, etc).**
-- **Show, don't tell.** For example, "To use Vue on a page, you can add this to your HTML" (then show the script tag), instead of "To use Vue on a page, you can add a script element with a src attribute, the value of which should be a link to Vue's compiled source".
-- **Almost always avoid humor (for English docs)**, especially sarcasm and pop culture references, as it doesn't translate well across cultures.
-- **Never assume a more advanced context than you have to.**
-- **In most cases, prefer links between sections of the docs over repeating the same content in multiple sections.** Some repetition in content is unavoidable and even essential for learning. However, too much repetition also makes the docs more difficult to maintain, because a change in the API will require changes in many places and it's easy to miss something. This is a difficult balance to strike.
-- **Specific is better than generic.** For example, a `<BlogPost>` component example is better than `<ComponentA>`.
-- **Relatable is better than obscure.** For example, a `<BlogPost>` component example is better than `<CurrencyExchangeSettings>`.
-- **Be emotionally relevant.** Explanations and examples that relate to something people have experience with and care about will always be more effective.
-- **Always prefer simpler, plainer language over complex or jargony language.** For example:
-  - "you can use Vue with a script element" instead of "in order to initiate the usage of Vue, one possible option is to actually inject it via a script HTML element"
-  - "function that returns a function" instead of "higher order function"
-- **Avoid language that invalidate struggle**, such as "easy", "just", "obviously", etc. For reference, see [Words To Avoid in Educational Writing](https://css-tricks.com/words-avoid-educational-writing/).
+- **介绍/起步**:
+  - 提供一个不到10分钟的项目解决的问题及其存在原因的概述。
+  - 提供一个不到30分钟的项目解决的问题和如何解决的概述，包括何时和为什么使用项目以及一些简单的代码示例。最后，链接到安装页面和要点指南的开头。
 
-### Grammar
+- **指南**: 让用户感到聪明、强大、好奇，然后保持这种状态，让用户保持不断学习的动力和认知能力。指南页是按顺序阅读的，因此通常应该从最高到最低的功率/工作比排序。
+  - **要点**: 阅读要领的时间不应超过5个小时，但越短越好。它的目标是提供20%的知识来帮助用户处理80%的用例。Essentials可以链接到更高级的指南和API，不过，在大多数情况下，你应该避免此类链接。当它们被提供时，你还需要提供一个上下文，以便用户知道他们是否应该在第一次阅读时遵循这个链接。否则，许多用户最终会耗尽他们的认知能力，跳转链接，试图在继续之前全面了解一个功能的各个方面，结果是，永远无法完成第一次通读的要领。记住，通顺的阅读比彻底的阅读更重要。我们想给人们提供他们需要的信息，以避免令人沮丧的经历，但他们总是可以回来继续阅读，或者在谷歌遇到一个不太常见的问题。
 
-- **Avoid abbreviations** in writing and code examples (e.g. `attribute` is better than `attr`, `message` is better than `msg`), unless you are specifically referencing an abbreviation in an API (e.g. `$attrs`). Abbreviation symbols included on standard keyboards (e.g. `@`, `#`, `&`) are OK.
-- **When referencing a directly following example, use a colon (`:`) to end a sentence**, rather than a period (`.`).
-- **Use the Oxford comma** (e.g. "a, b, and c" instead of "a, b and c"). ![Why the Oxford comma is important](https://raw.githubusercontent.com/vuejs/vuejs.org/master/src/images/oxford-comma.jpg)
-- **When referencing the name of a project, use the name that project refers to itself as.** For example, "webpack" and "npm" should both use lowercase as that's how their documentation refers to them.
-- **Use Title Case for headings** - at least for now, since it's what we use through the rest of the docs. There's research suggesting that sentence case (only first word of the heading starts with a capital) is actually superior for legibility and also reduces the cognitive overhead for documentation writers, since they don't have to try to remember whether to capitalize words like "and", "with", and "about".
-- **Don't use emojis (except in discussions).** Emojis are cute and friendly, but they can be a distraction in documentation and some emoji even convey different meanings in different cultures.
+  - **高阶**: 虽然要点帮助人们处理大约80%的用例，但后续的指南帮助用户了解95%的用例，以及关于非基本特性（例如转换、动画）、更复杂的便利特性（例如mixin、自定义指令）和开发人员体验改进（例如JSX、插件）的更详细信息。最后5%的用例是更利基的、更复杂的和/或更容易被滥用的，将留给烹饪书和API参考，它们可以从这些高级指南链接到。
+- **引用/API**: 提供功能的完整列表，包括类型信息，每个要解决的问题的描述，选项的每种组合的示例以及指向指南，食谱的食谱以及提供更多详细信息的其他内部资源的链接。 与其他页面不同，此页面无意自上而下阅读，因此可以提供大量详细信息。 这些参考资料还必须比指南更容易浏览，因此格式应比指南的讲故事格式更接近字典条目。
+- **迁移**:
+  - **版本**: 当进行了重要的更改时，包含一个完整的更改列表是很有用的，包括对为什么进行更改以及如何迁移其项目的详细解释。
+  - **从其他项目**: 这个软件与同类软件相比如何？这对于帮助用户了解我们可能为他们解决或创造的其他问题，以及他们可以在多大程度上转移他们已经拥有的知识，这一点很重要。
+- **风格指南**: 开发中必然有一些关键部分需要决策，但它们不是API的核心。风格指南提供了受过教育的、有主见的建议，以帮助指导这些决策。他们不应该盲目遵循，但可以帮助团队节省时间，在较小的细节上保持一致。
+- **Cookbook**: Cookbook中的秘诀是基于对Vue及其生态系统的熟悉程度而编写的。每一个文档都是一个高度结构化的文档，它详细介绍了Vue开发人员可能遇到的一些常见实现细节。
 
-## Iteration & Communication
+## 写作 & 语法
 
-- **Excellence comes from iteration.** First drafts are always bad, but writing them is a vital part of the process. It's extremely difficult to avoid the slow progression of Bad -> OK -> Good -> Great -> Inspiring -> Transcendent.
-- **Only wait until something is "Good" before publishing.** The community will help you push it further down the chain.
-- **Try not to get defensive when receiving feedback.** Our writing can be very personal to us, but if we get upset with the people who help us make it better, they will either stop giving feedback or start limiting the kind of feedback they give.
-- **Proof-read your own work before showing it to others.** If you show someone work with a lot of spelling/grammar mistakes, you'll get feedback about spelling grammar/mistakes instead of more valuable notes about whether the writing is achieving your goals.
-- **When you ask people for feedback, tell reviewers what:**
-  - **you're trying to do**
-  - **your fears are**
-  - **balances you're trying to strike**
-- **When someone reports a problem, there is almost always a problem**, even if the solution they proposed isn't quite right. Keep asking follow-up questions to learn more.
-- People need to feel safe asking questions when contributing/reviewing content. Here's how you can do that:
-  - **Thank people for their contributions/reviews, even if you're feeling grumpy.** For example:
+### 风格
+
+- **标题应该描述问题**，不是解决方案。例如，一个不太有效的标题可能是“使用prop”，因为它描述了一个解决方案。一个更好的标题可能是“通过Props将数据传递给子组件”，因为它提供了Props解决问题的上下文。用户不会真正开始注意某个功能的解释，直到他们知道为什么/何时使用它。
+- **当你假设知识时，就要声明它** ，在开始时，链接到参考资料，以获得你期望的不太常见的知识。
+- **尽可能一次只引入一个新概念** (包括文本和代码示例)，即使当你介绍不止一个的时候很多人都能理解，也有很多人会迷失方向，即使那些没有迷失方向的人也会耗尽更多的认知能力。
+- **尽可能避免使用特殊的内容块来获取提示和注意事项**，一般来说，最好将这些内容更自然地融合到主要内容中，例如，通过构建示例来演示边缘案例。
+- **每页不要超过两个相互交织的提示和注意事项**，如果你发现一个页面需要两个以上的提示，请考虑添加一个警告部分来解决这些问题。本指南的目的是通读，提示和注意事项可能会让试图理解基本概念的人不知所措或分心。
+- **避免诉诸权威** （例如，“你应该做X，因为这是一个最佳实践”或“X是最好的，因为它能让你完全分离关注点”）。相反，用例子来演示由模式引起和/或解决的具体人类问题。
+- **当决定先教什么时，想想哪些知识能提供最好的动力/努力比。** 这意味着教任何能帮助用户解决最大痛苦或最大数量问题的东西，而学习的努力相对较少。这有助于学习者感到聪明、强大和好奇，因此他们的认知能力会慢慢流失。
+- **除非上下文采用字符串模板或构建系统，否则只能编写在软件的任何环境中工作的代码（例如Vue、Vuex等）**
+- **显示, 不要说** 例如，“要在页面上使用Vue，可以将其添加到HTML中”（然后显示脚本标记），而不是“要在页面上使用Vue，可以添加一个具有src属性的脚本元素，该属性的值应为指向Vue编译源的链接”。
+
+
+- **几乎总是避免幽默（对于英文文档）**, 尤其是讽刺和通俗文化的引用，因为它在不同文化之间的翻译并不好。
+- **永远不要假设比你必须的更高级的上下文。**
+- **在大多数情况下，比起在多个部分中重复相同的内容，更喜欢在文档的各个部分之间建立链接。** 在内容上有些重复是不可避免的，甚至是学习的必要条件。然而，过多的重复也会使文档更难维护，因为API的更改将需要在许多地方进行更改，而且很容易遗漏某些内容。这是一个很难达到的平衡。
+- **具体的比一般的好** 例如, 一个 `<BlogPost>`组件例子比`<ComponentA>` 更好.
+- **相对胜于晦涩。** 例如, 一个 `<BlogPost>` 组件例子比 `<CurrencyExchangeSettings>` 更好.
+- **保持情感相关。** 与人们有经验并关心的事物相关的解释和示例将永远更加有效。
+- **始终喜欢使用简单，简单的语言，而不是复杂或专业的语言。** 例如:
+  - “你可以将Vue与脚本元素一起使用”，而不是“为了启动Vue的使用，一种可能的选择是通过脚本HTML元素实际注入它”
+  - “返回函数的函数”而不是“高阶函数”
+- **避免使用毫无意义的语言。** 如“简单”、“公正”、“明显”等，请参阅 [教育写作中应避免的词语](https://css-tricks.com/words-avoid-educational-writing/).
+
+### 语法
+
+- **避免缩写** 在编写代码和示例代码中（例如，`attribute`优于 `attr`，`message` 优于 `msg` ），除非你在API中明确引用了缩写（例如`$attrs`）。 标准键盘上包含的缩写符号（例如，`@`，`#`，`&`）可以。
+
+
+- **当引用直接下面的示例时，请使用冒号（ `:` ）结束句子**,而不是句点(`.`)
+- **使用牛津逗号** (；例如："a, b, and c" 替换  "a, b and c"). ![为什么牛津逗号很重要](https://raw.githubusercontent.com/vuejs/vuejs.org/master/src/images/oxford-comma.jpg)
+- **引用项目名称时，请使用项目引用自身的名称。** 例如，“webpack”和“npm”都应使用小写字母，因为这是它们的文档引用它们的方式。
+- **使用标题大小写作为标题** - 至少到目前为止，因为这是我们在其余文档中使用的。 有研究表明，句子大小写（仅标题的第一个单词以大写字母开头）实际上在可读性上是优越的，并且还减少了文档作者的认知开销，因为他们不必记住是否要大写“and”，“with” 和 “about”。
+- **请勿使用表情符号（讨论中除外）。** Emoji 既可爱又友好，但是它们可能会使文档分散注意力，有些表情符号甚至会在不同文化中传达不同的含义。
+
+## 迭代 & 沟通
+
+- **卓越源于迭代** 初稿总是很糟糕，但是编写初稿是该过程的重要组成部分。 要避免进度缓慢，很难-不好-> OK->好->好->鼓舞人心->超越。
+- **在发布之前，请仅等到某事为“好”为止。** 社区将帮助你将其推向更深的链。
+- **收到反馈时，尽量不要防御** 我们的写作对我们来说可能是非常私人的，但是如果我们对帮助我们做得更好的人感到不满，他们要么停止提供反馈，要么开始限制他们提供的反馈种类。
+- **在向他人展示之前，请先阅读自己的作品。** 如果你显示某人的拼写/语法错误很多，你将获得有关拼写语法/错误的反馈，而不是获得有关写作是否达到目标的更有价值的注释。
+- **当你要求人们提供反馈时，请告诉审阅者以下内容：**
+  - **你正在尝试做**
+  - **你的恐惧是**
+  - **你想要达到的平衡**
+- **当有人报告问题时，几乎总是有问题**, 即使他们提出的解决方案不太正确。 不断询问后续问题以了解更多信息
+- 人们在提交/查看内容时需要放心地提问。 这是你可以执行的操作：
+  - **即使别人感到脾气暴躁，也要感谢他们的贡献/评价。** 比如:
     - "Great question!"
-    - "Thanks for taking the time to explain. 🙂"
-    - "This is actually intentional, but thanks for taking the time to contribute. 😊"
-  - **Listen to what people are saying and mirror if you're not sure you're understanding correctly.** This can help validate people's feelings and experiences, while also understanding if _you're_ understanding _them_ correctly.
-  - **Use a lot of positive and empathetic emojis.** It's always better to seem a little strange than mean or impatient.
-  - **Kindly communicate rules/boundaries.** If someone behaves in a way that's abusive/inappropriate, respond only with kindness and maturity, but also make it clear that this behavior is not acceptable and what will happen (according to the code of conduct) if they continue behaving poorly.
+    - "感谢你抽出宝贵的时间来解释。🙂"
+    - "这实际上是故意的，但感谢你抽出宝贵的时间来贡献自己的力量。 😊"
+  - **听别人说什么，如果不确定自己是否正确理解，请照搬。** 这可以帮助验证人们的感受和经历，同时还可以了解*你是*否正确理解了*他们*。
+  - **使用大量积极和善解人意的表情符号。** 显得有些奇怪总比刻薄或急躁好。
+  - **请传达规则/边界。** 如果某人的举止有辱人格/不当行为，请仅以仁慈和成熟来回应，但也要明确表示，这种行为是不可接受的，如果他们继续表现不佳，将会发生什么（根据行为准则）。
 
-### Tips, Callouts, Alerts, and Line Highlights
+### 提示、标注、 警告和行高亮
 
-We have some dedicated styles to denote something that's worth highlighting in a particular way. These are captured [on this page](https://v3.vuejs.org/guide/doc-style-guide.html#alerts). **They are to be used sparingly.**
+我们有一些专用的样式来表示需要以特定方式突出显示的内容。 这些被捕获为[在这个页面](https://v3.vuejs.org/guide/doc-style-guide.html#alerts) **请谨慎使用。**
 
-There is a certain temptation to abuse these styles, as one can simply add a change inside a callout. However, this breaks up the flow of reading for the user, and thus, should only be used in special circumstances. Wherever possible, we should attempt to create a narrative and flow within the page to respect the readers cognitive load.
+滥用这些样式是有一定诱惑力的，因为你可以简单地在标注中添加更改。但是，这会破坏用户的阅读流程，因此，只能在特殊情况下使用。在可能的情况下，我们应该尝试在页面内创建一个叙述和流程，以尊重读者的认知负荷。
 
-Under no circumstances should 2 alerts be used next to one another, it's a sign that we're not able to explain context well enough.
+在任何情况下都不应该相邻使用两个警告，这表明我们无法很好地解释上下文。
 
-### Contributing
+### 贡献
 
-We appreciate small, focused PRs. If you'd like to make an extremely large change, please communicate with team members prior to a pull request. Here's a [writeup that details why this is so critical](https://www.netlify.com/blog/2020/03/31/how-to-scope-down-prs/) for us to work well on this team. Please understand that though we always appreciate contributions, ultimately we have to prioritize what works best for the project as a whole.
+我们欣赏小型、集中的PR。如果你想进行非常大的更改，请在发起请求之前与团队成员沟通。这是一份 [详细说明为什么这一点如此重要的书面材料](https://www.netlify.com/blog/2020/03/31/how-to-scope-down-prs/) 让我们在这个团队里工作得很好。请理解，尽管我们总是很感激你的贡献，但最终我们必须优先考虑哪些对整个项目最有效。
 
-## Resources
 
-### Software
+## 资源
 
-- [Grammarly](https://www.grammarly.com/): Desktop app and browser extension for checking spelling and grammar (though grammar checking doesn't catch everything and occasionally shows a false positive).
-- [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker): An extension for VS Code to help you check spelling within markdown and code examples.
+### 软件
 
-### Books
+- [Grammarly](https://www.grammarly.com/): 用于检查拼写和语法的桌面应用程序和浏览器扩展（尽管语法检查不能捕获所有内容，偶尔会显示假阳性）。
+- [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker): 一个VS Code的扩展，帮助你在降价和代码示例中检查拼写。
+
+### 书籍
 
 - [On Writing Well](https://www.amazon.com/Writing-Well-30th-Anniversary-Nonfiction-ebook/dp/B0090RVGW0) (see [popular quotes](https://www.goodreads.com/work/quotes/1139032-on-writing-well-the-classic-guide-to-writing-nonfiction))
 - [Bird by Bird](https://www.amazon.com/Bird-Some-Instructions-Writing-Life/dp/0385480016) (see [popular quotes](https://www.goodreads.com/work/quotes/841198-bird-by-bird-some-instructions-on-writing-and-life))

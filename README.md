@@ -145,13 +145,13 @@ yarn serve # or npm run serve
 |[/migration/slots-unification.md](/src/migration/slots-unification.md)|[@veaba](https://github.com/veaba)|-|- 翻译完成|
 |[/migration/v-model.md](/src/migration/v-model.md)|[@veaba](https://github.com/veaba)|-|- 翻译完成|
 |-|-|-|-|
-|[contributing/writing-guide.md](/src/writing-guide.md)||-||
-|[contributing/doc-style-guide.md](/src/doc-style-guide.md)||-||
-|[contributing/translations.md](/src/translations.md)||-||
+|[contributing/writing-guide.md](/src/guide/contributing/writing-guide.md)|[@veaba](https://github.com/veaba)|-|- 翻译完成|
+|[contributing/doc-style-guide.md](/src/guide/contributing/doc-style-guide.md)|[@veaba](https://github.com/veaba)|-|- 翻译完成|
+|[contributing/translations.md](/src/guide/contributing/translations.md)|[@veaba](https://github.com/veaba)|-|- 翻译完成|
 |-|-|-|-|
-|[/api/application-config.md](/src/api/application-config.md)||-||
-|[/api/application-api.md](/src/api/application-api.md)||-||
-|[/api/global-api.md](/src/api/global-api.md)||-||
+|[/api/application-config.md](/src/api/application-config.md)|[from Vue 2](https://cn.vuejs.org/about.html)|-|完成翻译，应用自Vue2|
+|[/api/application-api.md](/src/api/application-api.md))|[@veaba](https://github.com/veaba)|-|- 翻译完成|
+|[/api/global-api.md](/src/api/global-api.md)|[@veaba](https://github.com/veaba)|-|- 翻译完成|
 |-|-|-|-|
 |[/api/options-data.md](/src/api/options-data.md)||-||
 |[/api/options-dom.md](/src/api/options-dom.md)||-||

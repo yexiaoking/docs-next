@@ -1,6 +1,6 @@
-# Application API
+# 应用程序 API
 
-In Vue 3, APIs that globally mutate Vue's behavior are now moved to application instances created by the new `createApp` method. In addition, their effects are now scoped to that specific application's instance:
+在Vue 3中，全局改变Vue行为的API现在改为了由新的 `createApp` 方法来创建的应用程序实例。 此外，它们的影响现在仅限于该特定应用程序的实例：
 
 ```js
 import { createApp } from 'vue'
@@ -8,46 +8,46 @@ import { createApp } from 'vue'
 const app = createApp({})
 ```
 
-Calling `createApp` returns an application instance. This instance provides an application context. The entire component tree mounted by the application instance share the same context, which provides the configurations that were previously "global" in Vue 2.x.
+调用`createApp`返回一个应用程序实例。 该实例提供了一个应用程序上下文。 应用程序实例挂载的整个组件树共享相同的上下文，该上下文提供了先前在Vue 2.x中“全局”的配置。
 
-In addition, since the `createApp` method returns the application instance itself, you can chain other methods after it which can be found in the following sections.
+另外，由于 `createApp` 方法返回应用程序实例本身，因此可以在其后链接其他方法，这些方法可以在以下部分中找到。
 
 ## component
 
-- **Arguments:**
+- **参数：**
 
   - `{string} name`
   - `{Function | Object} [definition]`
 
-- **Usage:**
+- **用法：**
 
-  Register or retrieve a global component. Registration also automatically sets the component's `name` with the given `name` parameter.
+  注册或检索全局组件。 注册还会使用给定的 `name` 参数自动设置组件的 `name`。
 
-- **Example:**
+- **示例：**
 
 ```js
 import { createApp } from 'vue'
 
 const app = createApp({})
 
-// register an options object
+//  注册一个选项对象
 app.component('my-component', {
   /* ... */
 })
 
-// retrieve a registered component (always return constructor)
+// 检索注册的组件（始终返回构造函数）
 const MyComponent = app.component('my-component', {})
 ```
 
-- **See also:** [Components](../guide/component-basics.html)
+- **也可以看看：** [Components](../guide/component-basics.html)
 
 ## config
 
-- **Usage:**
+- **用法：**
 
-An object containing application configurations.
+包含应用程序配置的对象。
 
-- **Example:**
+- **示例：**
 
 ```js
 import { createApp } from 'vue'
@@ -56,67 +56,67 @@ const app = createApp({})
 app.config = {...}
 ```
 
-- **See also:** [Application Config](./application-config.html)
+- **也可以看看:** [应用程序Config](./application-config.html)
 
 ## directive
 
-- **Arguments:**
+- **参数：**
 
   - `{string} name`
   - `{Function | Object} [definition]`
 
-- **Usage:**
+- **用法：**
 
-  Register or retrieve a global directive.
+  注册或检索全局指令。
 
-- **Example:**
+- **示例：**
 
 ```js
 import { createApp } from 'vue'
 const app = createApp({})
 
-// register
+// 注册
 app.directive('my-directive', {
-  // Directive has a set of lifecycle hooks:
-  // called before bound element's parent component is mounted
+  // 指令具有一组生命周期钩子
+  // 在绑定元素的父组件挂载之前调用
   beforeMount() {},
-  // called when bound element's parent component is mounted
+  // 绑定元素的父组件挂载时调用
   mounted() {},
-  // called before the containing component's VNode is updated
+  // 在包含组件的VNode更新之前调用
   beforeUpdate() {},
-  // called after the containing component's VNode and the VNodes of its children // have updated
+  // 在包含组件的VNode及其子组件的VNode之后调用 // 有更新
   updated() {},
-  // called before the bound element's parent component is unmounted
+  // 在绑定元素的父组件卸载之前调用
   beforeUnmount() {},
-  // called when the bound element's parent component is unmounted
+  // 卸载绑定元素的父组件时调用
   unmounted() {}
 })
 
-// register (function directive)
+// 注册 (功能指令)
 app.directive('my-directive', () => {
-  // this will be called as `mounted` and `updated`
-})
+  // 这将被称为 `mounted` 和 `updated`
 
-// getter, return the directive definition if registered
+// getter, 如果已注册，则返回指令定义
 const myDirective = app.directive('my-directive')
 ```
 
-Directive hooks are passed these arguments:
+
+指令钩子传递了这些参数：
 
 #### el
 
-The element the directive is bound to. This can be used to directly manipulate the DOM.
+指令绑定到的元素。 这可用于直接操作DOM。
 
 #### binding
 
-An object containing the following properties.
+包含以下property的对象。
 
-- `instance`: The instance of the component where directive is used.
-- `value`: The value passed to the directive. For example in `v-my-directive="1 + 1"`, the value would be `2`.
-- `oldValue`: The previous value, only available in `beforeUpdate` and `updated`. It is available whether or not the value has changed.
-- `arg`: The argument passed to the directive, if any. For example in `v-my-directive:foo`, the arg would be `"foo"`.
-- `modifiers`: An object containing modifiers, if any. For example in `v-my-directive.foo.bar`, the modifiers object would be `{ foo: true, bar: true }`.
-- `dir`: an object, passed as a parameter when directive is registered. For example, in the directive
+- `instance`: 使用指令的组件实例。
+- `value`: 传递给指令的值。 例如，在 `v-my-directive="1 + 1"` 中，该值为 `2`。
+- `oldValue`: 先前的值，仅在 `beforeUpdate` 和 `updated` 中可用。 值是否已更改都可用。
+- `arg`: 参数传递给指令（如果有）。 例如在 `v-my-directive:foo` 中，arg为 `"foo"`。
+- `modifiers`: 包含修饰符（如果有）的对象。 例如在 `v-my-directive.foo.bar`中，修饰符对象为`{foo: true，bar: true}`。
+- `dir`: 一个对象，在注册指令时作为参数传递。 例如，在指令中。
 
 ```js
 app.directive('focus', {
@@ -126,7 +126,7 @@ app.directive('focus', {
 })
 ```
 
-`dir` would be the following object:
+`dir` 将会是以下对象：
 
 ```js
 {
@@ -138,42 +138,42 @@ app.directive('focus', {
 
 #### vnode
 
-A blueprint of the real DOM element received as el argument above.
+上面作为el参数收到的真是DOM元素的蓝图
 
 #### prevNode
 
-The previous virtual node, only available in the `beforeUpdate` and `updated` hooks.
+上一个的虚拟Node，仅在 `beforeUpdate` 和 `updated` 钩子中可用。
 
 :::tip Note
-Apart from `el`, you should treat these arguments as read-only and never modify them. If you need to share information across hooks, it is recommended to do so through element's [dataset](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset).
+除了 `el` 之外，你应该将这些参数视为只读，并且永远不要修改它们。 如果你需要跨钩子共享信息，建议通过元素的 [数据集]（https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset）进行共享。
 :::
 
-- **See also:** [Custom Directives](../guide/custom-directive.html)
+- **也可以看看：** [自定义指令](../guide/custom-directive.html)
 
 ## mixin
 
-- **Arguments:**
+- **参数：**
 
   - `{Object} mixin`
 
-- **Usage:**
+- **用法：**
 
-  Apply a mixin in the whole application scope, which will affect **every** Vue instance created afterwards in the given app (for example, child components). This can be used by plugin authors to inject custom behavior into components. **Not recommended in application code**.
+  在整个应用程序范围内应用mixin，这将影响以后在给定应用程序中创建的 **每个**** Vue实例（例如，子组件）。 插件作者可以使用此方法将自定义行为注入组件。 **不建议在应用代码中**。
 
-- **See also:** [Global Mixin](../guide/mixins.html#global-mixin)
+- **也可以看看：** [Global Mixin](../guide/mixins.html#global-mixin)
 
 ## mount
 
-- **Arguments:**
+- **参数：**
 
   - `{Element | string} rootContainer`
   - `{boolean} isHydrate`
 
-- **Usage:**
+- **用法：**
 
-  Mounts a root component of the application instance on the provided DOM element.
+  将应用程序实例的根组件挂载在提供的DOM元素上。
 
-- **Example:**
+- **示例：**
 
 ```html
 <body>
@@ -185,28 +185,31 @@ Apart from `el`, you should treat these arguments as read-only and never modify 
 import { createApp } from 'vue'
 
 const app = createApp({})
-// do some necessary preparations
+// 做一些必要的准备
 app.mount('#my-app')
 ```
 
-- **See also:**
+- **也可以看看：**
   - [Lifecycle Diagram](../guide/instance.html#lifecycle-diagram)
 
 ## provide
 
-- **Type:**
+- **类型：**
 
   - `Object | () => Object`
 
-- **Details:**
+- **详情：**
 
-  This option is [used together with `inject`](../api/options-composition.html#provide-inject) to allow an ancestor component to serve as a dependency injector for all its descendants, regardless of how deep the component hierarchy is, as long as they are in the same parent chain.
+  此选项[与`inject`一起使用](../api/options-composition.html#provide-inject) 允许祖先组件为其所有后代充当依赖项注入器，而不管组件层次结构有多深，只要它们在同一父链中。
 
   The `provide` option should be an object or a function that returns an object. This object contains the properties that are available for injection into its descendants. You can use ES2015 Symbols as keys in this object, but only in environments that natively support `Symbol` and `Reflect.ownKeys`.
 
-  > Note: the `provide` and `inject` bindings are NOT reactive. This is intentional. However, if you pass down an observed object, properties on that object do remain reactive.
+  
+ `provide` 选项应该是对象或返回对象的函数。 该对象包含可用于注入其子代的属性。 您可以在对象中使用ES2015符号作为键，但只能在原生支持 `Symbol` 和 `Reflect.ownKeys` 的环境中使用。
 
-- **Example:**
+ > 注意： `provide` 和 `inject` 绑定是没有响应式。 这是故意的。 但是，如果向下传递观察到的对象，则该对象上的property确实保持响应式。
+
+- **示例：**
 
 ```js
 import { createApp } from 'vue'
@@ -227,20 +230,20 @@ app.component('user-card', {
 })
 ```
 
-- **See also:**
+- **也可以看看：**
   - [Provide / Inject](../guide/component-provide-inject.md)
 
 ## unmount
 
-- **Arguments:**
+- **参数：**
 
   - `{Element | string} rootContainer`
 
-- **Usage:**
+- **用法：**
 
-  Unmounts a root component of the application instance on the provided DOM element.
+  在提供的DOM元素上卸载应用程序实例的根组件。
 
-- **Example:**
+- **示例：**
 
 ```html
 <body>
@@ -252,23 +255,23 @@ app.component('user-card', {
 import { createApp } from 'vue'
 
 const app = createApp({})
-// do some necessary preparations
+// 做一些必要的准备
 app.mount('#my-app')
 
-// Application will be unmounted 5 seconds after mount
+// 挂载5秒后，应用程序将被卸载
 setTimeout(() => app.unmount('#my-app'), 5000)
 ```
 
 ## use
 
-- **Arguments:**
+- **参数：**
 
   - `{Object | Function} plugin`
 
-- **Usage:**
+- **用法：**
 
-  Install a Vue.js plugin. If the plugin is an Object, it must expose an `install` method. If it is a function itself, it will be treated as the install method. The install method will be called with Vue as the argument.
+  安装Vue.js插件。 如果插件是一个对象，它必须暴露一个 `install` 方法。 如果它本身是一个函数，它将被视为安装方法。 将以Vue作为参数调用install方法。
 
-  When this method is called on the same plugin multiple times, the plugin will be installed only once.
+  当在同一个插件上多次调用此方法时，该插件将仅安装一次。
 
-- **See also:** [Plugins](../guide/plugins.html)
+- **也可以看看：** [Plugins](../guide/plugins.html)
