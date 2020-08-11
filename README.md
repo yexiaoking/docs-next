@@ -108,7 +108,7 @@ yarn serve # or npm run serve
 |-|-|-|-|
 |[/guide/composition-api-introduction.md](/src/guide/composition-api-introduction.md)|[@veaba](https://github.com/veaba)|-|完成翻译|
 |[/guide/composition-api-setup.md](/src/guide/composition-api-setup.md)|[@veaba](https://github.com/veaba)|-|完成翻译||
-|[/guide/composition-api-lifecycle-hooks.md](/src/guide/composition-api-lifecycle-hooks.md)||-||
+|[/guide/composition-api-lifecycle-hooks.md](/src/guide/composition-api-lifecycle-hooks.md)|[@veaba](https://github.com/veaba)|-|完成翻译|
 |[/guide/composition-api-provide-inject.md](/src/guide/composition-api-provide-inject.md)||-||
 |[/guide/composition-api-template-ref.md](/src/guide/composition-api-template-ref.md)||-||
 |-|-|-|-|

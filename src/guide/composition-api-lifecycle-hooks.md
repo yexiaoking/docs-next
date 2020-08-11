@@ -1,12 +1,12 @@
-# Lifecycle Hooks
+# 生命周期钩子
 
-> This guide assumes that you have already read the [Composition API Introduction](composition-api-introduction.html) and [Reactivity Fundamentals](reactivity-fundamentals.html). Read that first if you are new to Composition API.
+> 本指南假定你已经阅读了[Composition API简介](composition-api-introduction.html) 和[响应式基础](reactivity-fundamentals.html)。如果你不熟悉组合API，请先阅读这篇文章。
 
-You can access a component's lifecycle hook by prefixing the lifecycle hook with "on".
+你可以通过在生命周期钩子前面加上“on”来访问组件的生命周期钩子。
 
-The following table contains how the lifecycle hooks are invoked inside of [setup()](composition-api-setup.html):
+下表包含如何在[setup()](composition-api-setup.html)内部调用生命周期钩子:
 
-| Options API       | Hook inside inside `setup` |
+|    选项 API       | Hook inside inside `setup` |
 | ----------------- | -------------------------- |
 | `beforeCreate`    | Not needed\*               |
 | `created`         | Not needed\*               |
@@ -21,10 +21,10 @@ The following table contains how the lifecycle hooks are invoked inside of [setu
 | `renderTriggered` | `onRenderTriggered`        |
 
 :::tip
-Because `setup` is run around the `beforeCreate` and `created` lifecycle hooks, you do not need to explicitly define them. In other words, any code that would be written inside those hooks should be written directly in the `setup` function.
+因为 `setup` 是围绕 `beforeCreate` 和 `created` 生命周期钩子运行的，所以不需要显式地定义它们。换句话说，在这些钩子中编写的任何代码都应该直接在 `setup` 函数中编写。
 :::
 
-These functions accept a callback that will be executed when the hook is called by the component:
+这些函数接受在组件调用钩子时将执行的回调：
 
 ```js
 // MyBook.vue
