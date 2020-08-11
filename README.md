@@ -123,9 +123,9 @@ yarn serve # or npm run serve
 |[/guide/ssr.md](/src/guide/ssr.md)|[from Vue 2](https://cn.vuejs.org/about.html)|-|完成翻译，应用自Vue2|
 |-|-|-|-|
 |[/guide/a11y-basics.md](/src/guide/a11y-basics.md)|[@veaba](https://github.com/veaba)|-|完成翻译|
-|[/guide/a11y-semantics.md](/src/guide/a11y-semantics.md)||-||
-|[/guide/a11y-standards.md](/src/guide/a11y-standards.md)||-||
-|[/guide/a11y-resources.md](/src/guide/a11y-resources.md)||-||
+|[/guide/a11y-semantics.md](/src/guide/a11y-semantics.md)|[@veaba](https://github.com/veaba)|-|完成翻译|
+|[/guide/a11y-standards.md](/src/guide/a11y-standards.md)|[@veaba](https://github.com/veaba)|-|完成翻译|
+|[/guide/a11y-resources.md](/src/guide/a11y-resources.md)|[@veaba](https://github.com/veaba)|-|完成翻译|
 |-|-|-|-|
 |[/migration/introduction.md](/src/migration/introduction.md)|[@veaba](https://github.com/veaba)|-|- 翻译完成|
 |[/migration/async-components.md](/src/migration/async-components.md)|[@veaba](https://github.com/veaba)|-|- 翻译完成|
