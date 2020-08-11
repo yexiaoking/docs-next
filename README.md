@@ -119,8 +119,8 @@ yarn serve # or npm run serve
 |[/guide/testing.md](/src/guide/testing.md)|[@veaba](https://github.com/veaba)|-|完成翻译|
 |-|-|-|-|
 |[/guide/routing.md](/src/guide/routing.md)|[from Vue 2](https://cn.vuejs.org/about.html)|-|完成翻译，应用自Vue2|
-|[/guide/state-management.md](/src/guide/state-management.md)||-||
-|[/guide/ssr.md](/src/guide/ssr.md)||-||
+|[/guide/state-management.md](/src/guide/state-management.md)|[from Vue 2](https://cn.vuejs.org/about.html)|-|完成翻译，应用自Vue2|
+|[/guide/ssr.md](/src/guide/ssr.md)|[from Vue 2](https://cn.vuejs.org/about.html)|-|完成翻译，应用自Vue2|
 |-|-|-|-|
 |[/guide/a11y-basics.md](/src/guide/a11y-basics.md)||-||
 |[/guide/a11y-semantics.md](/src/guide/a11y-semantics.md)||-||
