@@ -122,7 +122,7 @@ yarn serve # or npm run serve
 |[/guide/state-management.md](/src/guide/state-management.md)|[from Vue 2](https://cn.vuejs.org/about.html)|-|完成翻译，应用自Vue2|
 |[/guide/ssr.md](/src/guide/ssr.md)|[from Vue 2](https://cn.vuejs.org/about.html)|-|完成翻译，应用自Vue2|
 |-|-|-|-|
-|[/guide/a11y-basics.md](/src/guide/a11y-basics.md)||-||
+|[/guide/a11y-basics.md](/src/guide/a11y-basics.md)|[@veaba](https://github.com/veaba)|-|完成翻译|
 |[/guide/a11y-semantics.md](/src/guide/a11y-semantics.md)||-||
 |[/guide/a11y-standards.md](/src/guide/a11y-standards.md)||-||
 |[/guide/a11y-resources.md](/src/guide/a11y-resources.md)||-||
