@@ -125,7 +125,7 @@ yarn serve # or npm run serve
 |[/guide/a11y-basics.md](/src/guide/a11y-basics.md)||-||
 |[/guide/a11y-semantics.md](/src/guide/a11y-semantics.md)||-||
 |[/guide/a11y-standards.md](/src/guide/a11y-standards.md)||-||
-|[/guide/a11y-resource.md](/src/guide/a11y-resource.md)||-||
+|[/guide/a11y-resources.md](/src/guide/a11y-resources.md)||-||
 |-|-|-|-|
 |[/migration/introduction.md](/src/migration/introduction.md)|[@veaba](https://github.com/veaba)|-|- 翻译完成|
 |[/migration/async-components.md](/src/migration/async-components.md)|[@veaba](https://github.com/veaba)|-|- 翻译完成|

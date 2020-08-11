@@ -1,16 +1,17 @@
 # 基础
 
-Web accessibility (also known as a11y) refers to the practice of creating websites that can be used by anyone — be that a person with a disability, a slow connection, outdated or broken hardware or simply someone in an unfavorable environment. For example, adding subtitles to a video would help both your deaf and hard-of-hearing users and your users who are in a loud environment and can't hear their phone. Similarly, making sure your text isn't too low contrast will help both your low-vision users and your users who are trying to use their phone in bright sunlight.
+Web可访问性（也称为a11y）是指创建可供任何人使用的网站的做法，无论是残疾人、连接缓慢、过时或损坏的硬件，还是仅仅是处于不利环境中的人。例如，在视频中添加字幕可以帮助聋哑人和重听人的用户以及在嘈杂的环境中听不到手机的用户。同样，确保你的文字对比度不是太低，这对你的低视力用户和那些试图在阳光下使用手机的用户都有帮助。
 
-Ready start but aren’t sure where?
 
-Checkout the [Planning and managing web accessibility guide](https://www.w3.org/WAI/planning-and-managing/) provided by [World Wide Web Consortium (W3C)](https://www.w3.org/)
+准备好出发了，但不确定在哪里？
 
-## Skip link
+看看 由 [World Wide Web Consortium (W3C)](https://www.w3.org/) 提供的 [规划和管理web辅助功能指南](https://www.w3.org/WAI/planning-and-managing/)
 
-You should add a link at the top of each page that goes directly to the main content area so users can skip content that is repeated on multiple Web pages.
+## 跳过链接
 
-Typically this is done on the top of `App.vue` as it will be the first focusable element on all your pages:
+你应该在每个页面的顶部添加一个直接指向主内容区域的链接，这样用户就可以跳过在多个网页上重复的内容。
+
+通常在`App.vue`因为它将是所有页面上的第一个可聚焦元素：
 
 ``` html
 <ul class="skip-links">
@@ -20,7 +21,7 @@ Typically this is done on the top of `App.vue` as it will be the first focusable
 </ul>
 ```
 
-To hide the link unless it is focused, you can add the following style:
+若要隐藏链接，除非它是焦点，可以添加以下样式：
 
 ``` css
 .skipLink {
@@ -40,7 +41,7 @@ To hide the link unless it is focused, you can add the following style:
 }
 ```
 
-Once a user changes route, bring focus back to the skip link. This can be achieved by calling focus to the `ref` provided above:
+一旦用户改变路由，将焦点放回跳过链接。这可以通过调用上述 `ref` 来实现：
 
 ``` vue
 <script>
@@ -63,19 +64,19 @@ export default {
 
 [Read documentation on skip link to main content](https://www.w3.org/WAI/WCAG21/Techniques/general/G1.html)
 
-## Structure Your Content
+## 组织你的内容
 
-One of the most important pieces of accessibility is making sure that design can support accessible implementation. Design should consider not only color contrast, font selection, text sizing, and language, but also how the content is structured in the application.
+可访问性最重要的部分之一是确保设计可以支持可访问的实现。设计不仅要考虑颜色对比、字体选择、文本大小和语言，还要考虑应用程序中内容的结构。
 
-### Headings
+### 标题
 
-Users can navigate an application through headings. Having descriptive headings for every section of your application makes it easier for users to predict the content of each section. When it comes to headings, there are a couple of recommended accessibility practices:
+用户可以通过标题导航应用程序。为应用程序的每个部分设置描述性标题可以让用户更容易地预测每个部分的内容。说到标题，有两个推荐的可访问性实践：
 
-- Nest headings in their ranking order: `<h1>` - `<h6>`
-- Don’t skip headings within a section
-- Use actual heading tags instead of styling text to give the visual appearance of headings
+- 按排名顺序嵌套标题: `<h1>` - `<h6>`
+- 不要跳过section中的标题
+- 使用实际的标题标记，而不是样式文本，以提供标题的视觉外观
 
-[Read more about headings](https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-descriptive.html)
+[阅读更多关于标题](https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-descriptive.html)
 
 ```html
 <main role="main" aria-labelledby="main-title">
@@ -95,9 +96,9 @@ Users can navigate an application through headings. Having descriptive headings 
 </main>
 ```
 
-### Landmarks
+### 地标
 
-Landmarks provide programmatic access to sections within an application. Users who rely on assistive technology can navigate to each section of the application and skip over content. You can use [ARIA roles](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles) to help you achieve this.
+地标提供对应用程序中的部分的编程访问。依赖辅助技术的用户可以导航到应用程序的每个部分并跳过内容。你可以使用[ARIA roles](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles)帮助你实现这个目标。
 
 | HTML            | ARIA Role                                                         | Landmark Purpose                                                                       |
 | --------------- | ----------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
@@ -105,13 +106,13 @@ Landmarks provide programmatic access to sections within an application. Users w
 | nav             | role="navigation"                                                 | Collection of links suitable for use when navigating the document or related documents |
 | main            | role="main"                                                       | The main or central content of the document.                                           |
 | footer          | role="contentinfo"                                                | Information about the parent document: footnotes/copyrights/links to privacy statement |
-| aside           | role="complementary"                                              | Supports the main content, yet is separate and meaningful on its own content            |
+| aside           | role="complementary"                                              | Supports the main content, yet is separate and meaningful on its own content           |
 | _Not available_ | role="search"                                                     | This section contains the search functionality for the application                     |
 | form            | role="form"                                                       | Collection of form-associated elements                                                 |
-| section         | role="region"  | Content that is relevant and that users will likely want to navigate to. Label must be provided for this element                |
+| section         | role="region"  | Content that is relevant and that users will likely want to navigate to. Label must be provided for this element                          |
 
 :::tip Tip:
-It is recommended to use landmark HTML elements with redundant landmark role attributes in order to maximize compatibility with legacy [browsers that don’t support HTML5 semantic elements](https://caniuse.com/#feat=html5semantic).
+建议使用带有冗余地标 role属性的地标 HTML元素，以便最大限度地与传统[不支持HTML5语义元素的浏览器](https://caniuse.com/#feat=html5semantic)兼容。
 :::
 
-[Read more about landmarks](https://www.w3.org/TR/wai-aria-1.2/#landmark_roles)
+[阅读更多关于地标](https://www.w3.org/TR/wai-aria-1.2/#landmark_roles)

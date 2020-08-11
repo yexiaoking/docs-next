@@ -1,6 +1,6 @@
-# Resources
+# 资源
 
-## Documentation
+## 文档
 
 - [WCAG 2.0](https://www.w3.org/TR/WCAG20/)
 - [WCAG 2.1](https://www.w3.org/TR/WCAG21/)

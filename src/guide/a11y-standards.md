@@ -1,4 +1,4 @@
-# Standards
+# 标准
 
 The World Wide Web Consortium (W3C) Web Accessibility Initiative (WAI) develops web accessibility standards for the different components:
 
