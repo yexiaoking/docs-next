@@ -112,8 +112,8 @@ yarn serve # or npm run serve
 |[/guide/composition-api-provide-inject.md](/src/guide/composition-api-provide-inject.md)|[@veaba](https://github.com/veaba)|-|完成翻译|
 |[/guide/composition-api-template-refs.md](/src/guide/composition-api-template-refs.md)|[@veaba](https://github.com/veaba)|-|完成翻译|
 |-|-|-|-|
-|[/guide/optimizations.md](/src/guide/optimizations.md)||-||
-|[/guide/change-detection.md](/src/guide/change-detection.md)||-||
+|[/guide/optimizations.md](/src/guide/optimizations.md)|[@veaba](https://github.com/veaba)|-|完成翻译|
+|[/guide/change-detection.md](/src/guide/change-detection.md)|[@veaba](https://github.com/veaba)|-|完成翻译|
 |-|-|-|-|
 |[/guide/single-file-component.md](/src/guide/single-file-component.md)||-||
 |[/guide/testing.md](/src/guide/testing.md)||-||
