@@ -1,8 +1,9 @@
 # Setup
 
-> This section uses [single-file component](single-file-component.html) syntax for code examples
+> 本节使用[单文件组件](single-file-component.html)代码示例的语法
 
-> This guide assumes that you have already read the [Composition API Introduction](composition-api-introduction.html) and [Reactivity Fundamentals](reactivity-fundamentals.html). Read that first if you are new to Composition API.
+> 本指南假定你已经阅读了[Composition API简介](composition-api-introduction.html) 和[响应式基础](reactivity-fundamentals.html)。如果你不熟悉组合API，请先阅读这篇文章。
+
 
 ## 参数
 

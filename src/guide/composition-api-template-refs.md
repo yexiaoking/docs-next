@@ -1,10 +1,10 @@
-## Template Refs
+## 模板引用
 
-> This section uses [single-file component](single-file-component.html) syntax for code examples
+> 本节使用[单文件组件](single-file-component.html)代码示例的语法
 
-> This guide assumes that you have already read the [Composition API Introduction](composition-api-introduction.html) and [Reactivity Fundamentals](reactivity-fundamentals.html). Read that first if you are new to Composition API.
+> 本指南假定你已经阅读了[Composition API简介](composition-api-introduction.html) 和[响应式基础](reactivity-fundamentals.html)。如果你不熟悉组合API，请先阅读这篇文章。
 
-When using the Composition API, the concept of [reactive refs](reactivity-fundamentals.html#creating-standalone-reactive-values-as-refs) and [template refs](component-template-refs.html) are unified. In order to obtain a reference to an in-template element or component instance, we can declare a ref as usual and return it from [setup()](composition-api-setup.html):
+在使用组合API时，[响应式引用](reactivity-fundamentals.html#creating-standalone-reactive-values-as-refs) 和 [模板引用](component-template-refs.html) 的概念是统一的。为了获得对模板内元素或组件实例的引用，我们可以像往常一样声明ref并从 [setup()](composition-api-setup.html)返回：
 
 ```html
 <template>
@@ -19,8 +19,8 @@ When using the Composition API, the concept of [reactive refs](reactivity-fundam
       const root = ref(null)
 
       onMounted(() => {
-        // the DOM element will be assigned to the ref after initial render
-        console.log(root.value) // <div>This is a root element</div>
+        // DOM元素将在初始渲染后分配给ref
+        console.log(root.value) // <div>这是跟元素</div>
       })
 
       return {
@@ -31,9 +31,9 @@ When using the Composition API, the concept of [reactive refs](reactivity-fundam
 </script>
 ```
 
-Here we are exposing `root` on the render context and binding it to the div as its ref via `ref="root"`. In the Virtual DOM patching algorithm, if a VNode's `ref` key corresponds to a ref on the render context, the VNode's corresponding element or component instance will be assigned to the value of that ref. This is performed during the Virtual DOM mount / patch process, so template refs will only get assigned values after the initial render.
+这里我们在渲染上下文中暴露 `root` ，并通过 `ref="root"` ，将其绑定到div作为其ref。在虚拟DOM修补算法中，如果VNode的 `ref` 键对应于渲染上下文中的ref，则VNode的相应元素或组件实例将被分配给该ref的值。这是在虚拟DOM挂载/打补丁过程中执行的，因此模板引用只会在初始渲染之后获得赋值。
 
-Refs used as templates refs behave just like any other refs: they are reactive and can be passed into (or returned from) composition functions.
+作为模板使用的ref的行为与任何其他ref一样：它们是响应式的，可以传递到（或从）复合函数中返回。
 
 ### Usage with JSX
 
@@ -53,9 +53,9 @@ export default {
 }
 ```
 
-### Usage inside `v-for`
+### 内部使用 `v-for`
 
-Composition API template refs do not have special handling when used inside `v-for`. Instead, use function refs to perform custom handling:
+Composition API模板引用在 `-for` 内部使用时没有特殊处理。相反，请使用函数引用执行自定义处理：
 
 ```html
 <template>
@@ -72,7 +72,7 @@ Composition API template refs do not have special handling when used inside `v-f
       const list = reactive([1, 2, 3])
       const divs = ref([])
 
-      // make sure to reset the refs before each update
+      // 确保在每次更新之前重置ref
       onBeforeUpdate(() => {
         divs.value = []
       })
