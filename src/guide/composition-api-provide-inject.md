@@ -1,10 +1,10 @@
 # Provide / Inject
 
-> This guide assumes that you have already read the [Composition API Introduction](composition-api-introduction.html) and [Reactivity Fundamentals](reactivity-fundamentals.html). Read that first if you are new to Composition API.
+> 本指南假定你已经阅读了[Composition API简介](composition-api-introduction.html) 和[响应式基础](reactivity-fundamentals.html)。如果你不熟悉组合API，请先阅读这篇文章。
 
-We can use [provide / inject](component-provide-inject.html) with the Composition API as well. Both can only be called during [`setup()`](composition-api-setup.html) with a current active instance.
+我们可以使用[provide/inject](component-provide-inject.html)以及Composition API。两者都只能在当前活动实例的 [`setup()`](composition-api-setup.html) 期间调用。
 
-For example, if we want to provide a book name on the root component and inject it on the child component:
+例如，如果要在根组件上提供一个book名称，并将其注入子组件：
 
 ```js
 import { provide, inject } from 'vue'
@@ -19,7 +19,7 @@ const MyBook = {
   setup() {
     const book = inject(
       'book',
-      'Eloquent Javascript' /* optional default value */
+      'Eloquent Javascript' /* 可选的默认值 */
     )
     return {
       book
@@ -28,9 +28,9 @@ const MyBook = {
 }
 ```
 
-`inject` accepts an optional default value as the 2nd argument. If a default value is not provided and the property is not found on the provide context, `inject` returns `undefined`.
+`inject` 接受可选的默认值作为第二个参数。如果未provided默认值，并且在provide上下文中找不到该property，则 `inject` 返回 `undefined`。
 
-If we need to provide or inject multiple values, we can do this with a subsequent call of `provide` or `inject` respectively:
+如果我们需要提供或注入多个值，我们可以分别通过调用 `provide` 或 `inject` 来实现：
 
 ```js{5-6,12-16}
 import { provide, inject } from 'vue'
@@ -58,9 +58,9 @@ const MyBook = {
 }
 ```
 
-## Injection Reactivity
+##  注入响应式
 
-To retain reactivity between provided and injected values, we can use a [ref](reactivity-fundamentals.html#creating-standalone-reactive-values-as-refs) or [reactive](reactivity-fundamentals.html#declaring-reactive-state) when providing a value:
+为了保持提供值和注入值之间的响应式，我们可以在提供值时使用 [ref](reactivity-fundamentals.html#creating-standalone-reactive-values-as-refs)或 [响应式](reactivity-fundamentals.html#declaring-reactive-state)：
 
 ```js
 import { ref, reactive } from 'vue'
@@ -86,11 +86,10 @@ setup() {
 }
 ```
 
-Now, when either `book` or `year` are changed on the _provider_ component, we can observe them changing on the component where they are injected.
+现在，当 `book` 或 `year`在 *provider* 组件上被更改时，我们可以观察到它们在注入它们的组件上发生了变化。
 
 ::: warning
-We don't recommend mutating a reactive property where it's injected as it's breaking Vue one-direction data flow. Instead, try to either mutate values where they are _provided_ or provide a method to mutate them
-
+我们不建议在注入响应式property时对其进行转化，因为它会破坏Vue单向数据流。相反，尝试在提供值的地方对值进行转换，或者提供一个方法来对它们进行转换
 ```js
 import { ref, reactive } from 'vue'
 
