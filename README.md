@@ -113,12 +113,12 @@ yarn serve # or npm run serve
 |[/guide/composition-api-template-refs.md](/src/guide/composition-api-template-refs.md)|[@veaba](https://github.com/veaba)|-|完成翻译|
 |-|-|-|-|
 |[/guide/optimizations.md](/src/guide/optimizations.md)|[@veaba](https://github.com/veaba)|-|完成翻译|
-|[/guide/change-detection.md](/src/guide/change-detection.md)|[from Vue 3](https://cn.vuejs.org/about.html))|-|完成翻译，应用自Vue2|
+|[/guide/change-detection.md](/src/guide/change-detection.md)|[from Vue 2](https://cn.vuejs.org/about.html))|-|完成翻译，应用自Vue2|
 |-|-|-|-|
-|[/guide/single-file-component.md](/src/guide/single-file-component.md)| [from Vue 3](https://cn.vuejs.org/about.html)|-|完成翻译，应用自Vue2|
-|[/guide/testing.md](/src/guide/testing.md)||-||
+|[/guide/single-file-component.md](/src/guide/single-file-component.md)| [from Vue 2](https://cn.vuejs.org/about.html)|-|完成翻译，应用自Vue2|
+|[/guide/testing.md](/src/guide/testing.md)|[@veaba](https://github.com/veaba)|-|完成翻译|
 |-|-|-|-|
-|[/guide/routing.md](/src/guide/routing.md)||-||
+|[/guide/routing.md](/src/guide/routing.md)|[from Vue 2](https://cn.vuejs.org/about.html)|-|完成翻译，应用自Vue2|
 |[/guide/state-management.md](/src/guide/state-management.md)||-||
 |[/guide/ssr.md](/src/guide/ssr.md)||-||
 |-|-|-|-|
