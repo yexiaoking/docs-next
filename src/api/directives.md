@@ -2,7 +2,7 @@
 
 ## v-text
 
-- **期望：** `string`
+- **预期：** `string`
 
 - **详细：**
 
@@ -20,7 +20,7 @@
 
 ## v-html
 
-- **期望：** `string`
+- **预期：** `string`
 
 - **详细：**
 
@@ -42,7 +42,7 @@
 
 ## v-show
 
-- **期望：** `any`
+- **预期：** `any`
 
 - **用法：**
 
@@ -54,7 +54,7 @@
 
 ## v-if
 
-- **期望：** `any`
+- **预期：** `any`
 
 - **用法：**
 
@@ -89,7 +89,7 @@
 
 ## v-else-if
 
-- **期望：** `any`
+- **预期：** `any`
 
 - **限制：** previous sibling element must have `v-if` or `v-else-if`.
 
@@ -116,7 +116,7 @@
 
 ## v-for
 
-- **期望：** `Array | Object | number | string | Iterable`
+- **预期：** `Array | Object | number | string | Iterable`
 
 - **用法：**
 
@@ -155,7 +155,7 @@
 
 - **Shorthand:** `@`
 
-- **期望：** `Function | Inline Statement | Object`
+- **预期：** `Function | Inline Statement | Object`
 
 - **Argument:** `event`
 
@@ -239,7 +239,7 @@
 
 - **Shorthand:** `:`
 
-- **期望：** `any (with argument) | Object (without argument)`
+- **预期：** `any (with argument) | Object (without argument)`
 
 - **Argument:** `attrOrProp (optional)`
 
@@ -311,7 +311,7 @@
 
 ## v-model
 
-- **期望：** varies based on value of form inputs element or output of components
+- **预期：** varies based on value of form inputs element or output of components
 
 - **Limited to:**
 
@@ -338,7 +338,7 @@
 
 - **Shorthand:** `#`
 
-- **期望：** JavaScript expression that is valid in a function argument position (supports destructuring in [supported environments](../guide/component-slots.html#destructuring-slot-props)). Optional - only needed if expecting props to be passed to the slot.
+- **预期：** JavaScript expression that is valid in a function argument position (supports destructuring in [supported environments](../guide/component-slots.html#destructuring-slot-props)). Optional - only needed if expecting props to be passed to the slot.
 
 - **Argument:** slot name (optional, defaults to `default`)
 
@@ -458,7 +458,7 @@
 
 > Note: this section only affects cases where Vue templates are directly written in the page's HTML.
 
-- **期望：** string literal
+- **预期：** string literal
 
 - **Limited to:** native HTML elements
 

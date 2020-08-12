@@ -163,7 +163,7 @@ yarn serve # or npm run serve
 |[/api/instance-properties.md](/src/api/instance-properties.md)|[from Vue 2](https://cn.vuejs.org/about.html)、[@veaba](https://github.com/veaba)</p>|-|完成翻译|
 |[/api/instance-methods.md](/src/api/instance-methods.md)|[from Vue 2](https://cn.vuejs.org/about.html)、[@veaba](https://github.com/veaba)</p>|-|完成翻译|
 |[/api/directives.md](/src/api/directives.md)||-||
-|[/api/special-attributes.md](/src/api/special-attributes.md)||-||
+|[/api/special-attributes.md](/src/api/special-attributes.md)|[from Vue 2](https://cn.vuejs.org/about.html)|-|完成翻译，应用自Vue2|
 |[/api/built-in-components.md](/src/api/built-in-components.md)||-||
 |-|-|-|-|
 |[/api/basic-reactivity.md](/src/api/basic-reactivity.md)||-||
