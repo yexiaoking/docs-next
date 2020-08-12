@@ -6,9 +6,9 @@
 
 - **详细：**
 
-  The `mixins` option accepts an array of mixin objects. These mixin objects can contain instance options like normal instance objects, and they will be merged against the eventual options using the certain option merging logic. For example, if your mixin contains a `created` hook and the component itself also has one, both functions will be called.
+  `mixins` 选项接收一个混入对象的数组。这些混入对象可以像正常的实例对象一样包含实例选项，这些选项将会被合并到最终的选项中，使用特定的选项合并逻辑。例如，如果mixin包含一个 `created` 钩子，而创建组件本身也有一个，那么两个函数都会被调用。
 
-  Mixin hooks are called in the order they are provided, and called before the component's own hooks.
+  Mixin 钩子按照传入顺序依次调用，并在调用组件自身的钩子之前被调用。
 
 - **示例：**
 
@@ -38,16 +38,16 @@
 
 - **详细：**
 
-  Allows declaratively extending another component (could be either a plain options object or a constructor). This is primarily intended to make it easier to extend between single file components.
+  允许声明扩展另一个组件 (可以是一个简单的选项对象或构造函数)。这主要是为了便于扩展单文件组件。
 
-  This is similar to `mixins`.
+  这和 `mixins` 类似。
 
 - **示例：**
 
   ```js
   const CompA = { ... }
 
-  // extend CompA without having to call `Vue.extend` on either
+  // 在没有调用 `Vue.extend` 时候继承 CompA
   const CompB = {
     extends: CompA,
     ...
@@ -63,25 +63,25 @@
 
 - **详细：**
 
-  This pair of options are used together to allow an ancestor component to serve as a dependency injector for all its descendants, regardless of how deep the component hierarchy is, as long as they are in the same parent chain. If you are familiar with React, this is very similar to React's `context` feature.
+  这对选项需要一起使用，以允许一个祖先组件向其所有子孙后代注入一个依赖，不论组件层次有多深，并在起上下游关系成立的时间里始终生效。如果你熟悉 React，这与 React 的 `context`特性很相似。
 
-  The `provide` option should be an object or a function that returns an object. This object contains the properties that are available for injection into its descendants. You can use ES2015 Symbols as keys in this object, but only in environments that natively support `Symbol` and `Reflect.ownKeys`.
+  `provide` 选项应该是一个对象或返回一个对象的函数。该对象包含可注入其子孙的 property。在该对象中你可以使用 ES2015 Symbols 作为 key，但是只在原生支持 `Symbol` 和 `Reflect.ownKeys` 的环境下可工作。
 
-  The `inject` option should be either:
+  `inject` 选项应该是：
 
-  - an array of strings, or
-  - an object where the keys are the local binding name and the value is either:
-    - the key (string or Symbol) to search for in available injections, or
-    - an object where:
-      - the `from` property is the key (string or Symbol) to search for in available injections, and
-      - the `default` property is used as fallback value
+  - 一个字符串数组，或
+  - 一个对象，对象的 key 是本地的绑定名，value 是：
+    - 在可用的注入内容中搜索用的 key (字符串或 Symbol)，或
+    - 一个对象，该对象的：
+      - `from` property 是在可用的注入内容中搜索用的 key (字符串或 Symbol)
+      - `default` property 是降级情况下使用的 value
 
-  > Note: the `provide` and `inject` bindings are NOT reactive. This is intentional. However, if you pass down a reactive object, properties on that object do remain reactive.
+  > 提示: 提示： `provide` 和 `inject` 绑定并不是可响应的。这是刻意为之的。然而，如果你传入了一个可监听的对象，那么其对象的 property 还是可响应的。
 
 - **示例：**
 
   ```js
-  // parent component providing 'foo'
+  // 父级组件提供 'foo'
   const Provider = {
     provide: {
       foo: 'bar'
@@ -89,7 +89,7 @@
     // ...
   }
 
-  // child component injecting 'foo'
+  // 子组件注入 'foo'
   const Child = {
     inject: ['foo'],
     created() {
@@ -99,8 +99,8 @@
   }
   ```
 
-  With ES2015 Symbols, function `provide` and object `inject`:
-
+  利用 ES2015 Symbols、函数 `provide` 和对象 `inject`：
+  
   ```js
   const s = Symbol()
 
@@ -118,7 +118,7 @@
   }
   ```
 
-  Using an injected value as the default for a prop:
+  使用一个注入的值作为一个 property 的默认值：
 
   ```js
   const Child = {
@@ -133,7 +133,7 @@
   }
   ```
 
-  Using an injected value as data entry:
+  使用一个注入的值作为数据入口：
 
   ```js
   const Child = {
@@ -146,7 +146,7 @@
   }
   ```
 
-  Injections can be optional with default value:
+  注入可以通过设置默认值使其变成可选项：
 
   ```js
   const Child = {
@@ -156,7 +156,7 @@
   }
   ```
 
-  If it needs to be injected from a property with a different name, use `from` to denote the source property:
+  如果它需要从一个不同名字的 property 注入，则使用 `from` 来表示其源 property：
 
   ```js
   const Child = {
@@ -169,7 +169,7 @@
   }
   ```
 
-  Similar to prop defaults, you need to use a factory function for non-primitive values:
+  与 prop 的默认值类似，你需要对非原始值使用一个工厂方法：
 
   ```js
   const Child = {
@@ -188,15 +188,15 @@
 
 - **类型：** `Function`
 
-The `setup` function is a new component option. It serves as the entry point for using the Composition API inside components.
+`setup` 函数是一个新的组件选项。它作为在组件内部使用组合API的入口点。
 
-- **Invocation Timing**
+- **调用时间**
 
-  `setup` is called right after the initial props resolution when a component instance is created. Lifecycle-wise, it is called before the [beforeCreate](./options-lifecycle-hooks.html#beforecreate) hook.
+  在创建组件实例时，在初始prop解析之后立即调用 `setup` 。 在生命周期方面，它是在[beforeCreate](./options-lifecycle-hooks.html#beforecreate)钩子之前调用的。
 
-- **Usage with Templates**
+- **模板使用**
 
-  If `setup` returns an object, the properties on the object will be merged on to the render context for the component's template:
+  如果 `setup` 返回一个对象，则该对象的属性将合并到组件模板的渲染上下文中：
 
   ```html
   <template>
@@ -211,7 +211,7 @@ The `setup` function is a new component option. It serves as the entry point for
         const count = ref(0)
         const object = reactive({ foo: 'bar' })
 
-        // expose to template
+        // 暴露到template中
         return {
           count,
           object
@@ -221,11 +221,11 @@ The `setup` function is a new component option. It serves as the entry point for
   </script>
   ```
 
-  Note that [refs](refs-api.html#ref) returned from `setup` are automatically unwrapped when accessed in the template so there's no need for `.value` in templates.
+  请注意，从 `setup` 返回的 [refs](refs-api.html#ref) 在模板中访问时会自动展开，因此模板中不需要`.value`。
 
-- **Usage with Render Functions / JSX**
+- **渲染函数/JSX的方法**
 
-  `setup` can also return a render function, which can directly make use of reactive state declared in the same scope:
+  `setup` 还可以返回一个render函数，该函数可以直接使用在同一作用域中声明的反应状态：
 
   ```js
   import { h, ref, reactive } from 'vue'
@@ -240,9 +240,9 @@ The `setup` function is a new component option. It serves as the entry point for
   }
   ```
 
-- **Arguments**
+- **参数**
 
-  The function receives the resolved props as its first argument:
+  该函数将接收到的prop作为其第一个参数：
 
   ```js
   export default {
@@ -255,7 +255,7 @@ The `setup` function is a new component option. It serves as the entry point for
   }
   ```
 
-  Note this `props` object is reactive - i.e. it is updated when new props are passed in, and can be observed and reacted upon using `watchEffect` or `watch`:
+  请注意，此 `props`对象是响应式的 —— 即在传入新的props时会对其进行更新，并且可以通过使用 `watchEffect` 或 `watch` 进行观测和响应：
 
   ```js
   export default {
@@ -270,7 +270,7 @@ The `setup` function is a new component option. It serves as the entry point for
   }
   ```
 
-  However, do NOT destructure the `props` object, as it will lose reactivity:
+  但是，请不要破坏 `props` 对象，因为它会失去响应式：
 
   ```js
   export default {
@@ -279,15 +279,15 @@ The `setup` function is a new component option. It serves as the entry point for
     },
     setup({ name }) {
       watchEffect(() => {
-        console.log(`name is: ` + name) // Will not be reactive!
+        console.log(`name is: ` + name) // 没有响应式
       })
     }
   }
   ```
 
-  The `props` object is immutable for userland code during development (will emit warning if user code attempts to mutate it).
+  `props` 对象在开发过程中对于用户区代码是不可变的（如果用户代码尝试对其进行更改，则会发出警告）。
 
-  The second argument provides a context object which exposes a selective list of properties that were previously exposed on `this`:
+  第二个参数提供了一个上下文对象，该对象暴露了以前在 `this` 上暴露的property的选择列表：
 
   ```js
   const MyComponent = {
@@ -299,23 +299,23 @@ The `setup` function is a new component option. It serves as the entry point for
   }
   ```
 
-  `attrs` and `slots` are proxies to the corresponding values on the internal component instance. This ensures they always expose the latest values even after updates so that we can destructure them without worrying accessing a stale reference:
+  `attrs` 和 `slots` 是内部组件实例上相应值的代理。 这样可以确保它们即使在更新后也始终会显示最新值，以便我们可以对它们进行结构分解，而不必担心访问老的引用：
 
   ```js
   const MyComponent = {
     setup(props, { attrs }) {
-      // a function that may get called at a later stage
+      // 稍后可能会调用的函数
       function onClick() {
-        console.log(attrs.foo) // guaranteed to be the latest reference
+        console.log(attrs.foo) // 保证是最新引用
       }
     }
   }
   ```
+  
+  有很多理由将 `props`作为单独的第一个参数而不是将其包含在上下文中：
 
-  There are a number of reasons for placing `props` as a separate first argument instead of including it in the context:
+  - 组件使用 `props` 比其他property更常见，并且很多情况下组件仅使用 `props` 。
 
-  - It's much more common for a component to use `props` than the other properties, and very often a component uses only `props`.
-
-  - Having `props` as a separate argument makes it easier to type it individually without messing up the types of other properties on the context. It also makes it possible to keep a consistent signature across `setup`, `render` and plain functional components with TSX support.
+  - 将 `props` 作为单独的参数可以使单独键入更容易，而不会弄乱上下文中其他property的类型。 这也使得在具有TSX支持的 `setup`、 `渲染` 和普通功能组件之间保持一致的签名成为可能。
 
 -  **参考** [Composition API](composition-api.html)

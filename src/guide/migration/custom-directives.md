@@ -37,11 +37,11 @@ Vue.directive('highlight', {
 
 ## 3.x 语法
 
-然而，在Vue 3 中，我们为自定义指令创建了一个更具凝聚力的API。正如你所看到的，它们与我们的组件生命周期方法有很大的不同，即使我们正与类似的事件挂钩，我们现在把它们统一起来了：
+然而，在Vue 3 中，我们为自定义指令创建了一个更具凝聚力的API。正如你所看到的，它们与我们的组件生命周期方法有很大的不同，即使我们正与类似的事件钩子，我们现在把它们统一起来了：
 
 - bind → **beforeMount**
 - inserted → **mounted**
-- **beforeUpdate**:<sup style="color:green">新的！</sup>这是在元素本身更新之前调用的，很像组件生命周期挂钩
+- **beforeUpdate**:<sup style="color:green">新的！</sup>这是在元素本身更新之前调用的，很像组件生命周期钩子
 - update → <sup style="color:red">移除！</sup>有太多的相似之处要更新，所以这是多余的，请改用`updated`
 - componentUpdated → **updated**
 - **beforeUnmount** <sup style="color:green">新的！</sup> 与组件生命周期钩子类似，它将在卸载元素之前调用。
