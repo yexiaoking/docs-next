@@ -1,4 +1,4 @@
-# Misc
+# 其他
 
 ## name
 
@@ -43,4 +43,4 @@
   })
   ```
 
--  **也可以看看：** [Disabling Attribute Inheritance](../guide/component-props.html#disabling-attribute-inheritance)
+-  **参考** [Disabling Attribute Inheritance](../guide/component-props.html#disabling-attribute-inheritance)

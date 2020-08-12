@@ -1,4 +1,4 @@
-# Assets
+# 选项/Assets
 
 ## directives
 
@@ -6,9 +6,9 @@
 
 - **详细：**
 
-  A hash of directives to be made available to the Vue instance.
+  包含 Vue 实例可用指令的哈希表。
 
--  **也可以看看：** [Custom Directives](../guide/custom-directive.html)
+-  **参考** [自定义指令](../guide/custom-directive.html)
 
 ## components
 
@@ -16,6 +16,6 @@
 
 - **详细：**
 
-  A hash of components to be made available to the Vue instance.
+  包含 Vue 实例可用组件的哈希表。
 
--  **也可以看看：** [Components](../guide/component-basics.html)
+-  **参考** [Components](../guide/component-basics.html)

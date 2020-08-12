@@ -1,4 +1,4 @@
-# Special Attributes
+# 特殊指令
 
 ## key
 
@@ -52,7 +52,7 @@
 
   An important note about the ref registration timing: because the refs themselves are created as a result of the render function, you cannot access them on the initial render - they don't exist yet! `$refs` is also non-reactive, therefore you should not attempt to use it in templates for data-binding.
 
--  **也可以看看：** [Child Component Refs](../guide/component-template-refs.html)
+-  **参考** [Child Component Refs](../guide/component-template-refs.html)
 
 ## is
 
@@ -69,6 +69,6 @@ For example:
 For detailed usage, follow the links in the description above.
 ```
 
--  **也可以看看：**
+-  **参考**
   - [Dynamic Components](../guide/component-dynamic-async.html)
   - [DOM Template Parsing Caveats](../guide/component-basics.html#dom-template-parsing-caveats)

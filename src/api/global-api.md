@@ -11,7 +11,7 @@ const app = Vue.createApp({})
 你可以在 `createApp` 之后链接其他方法，这些方法可以在[Application API](./application-api.html)中找到。
 
 
-### Arguments
+### 参数
 
 该函数接收根组件选项对象作为第一个参数：
 
@@ -47,7 +47,7 @@ const app = Vue.createApp(
 </div>
 ```
 
-### Typing
+### 声明类型
 
 ```ts
 interface Data {
@@ -70,7 +70,7 @@ render() {
 }
 ```
 
-### Arguments
+### 参数
 
 接收三个参数: `tag`, `props` 和 `children`
 
@@ -112,7 +112,7 @@ render() {
 
 实现方面， `defineComponent` 只返回传递给它的对象。但是，就类型而言，返回值有一个用于手动渲染函数的构造函数、TSX和IDE工具支持的合成类型。
 
-### Arguments
+### 参数
 
 具有组件选项的对象
 
@@ -135,7 +135,7 @@ const MyComponent = defineComponent({
 
 创建只在必要时加载的异步组件。
 
-### Arguments
+### 参数
 
 对于基本用法，`defineAsyncComponent` 可以接受返回 `Promise` 的工厂函数。从服务器检索组件定义后，应调用Promise的 `resolve`回调。您也可以调用 `reject(reason)`，以表示加载失败。
 
@@ -218,7 +218,7 @@ render() {
 }
 ```
 
-### Arguments
+### 参数
 
 接受一个参数: `component`
 
@@ -248,7 +248,7 @@ render () {
 }
 ```
 
-### Arguments
+### 参数
 
 接受一个参数: `component`
 
@@ -282,7 +282,7 @@ render () {
 }
 ```
 
-### Arguments
+### 参数
 
 接受一个参数: `name`
 
@@ -313,7 +313,7 @@ return withDirectives(h('div'), [
 ])
 ```
 
-### Arguments
+### 参数
 
 接受两个: `vnode` 和 `directives`.
 
@@ -392,7 +392,7 @@ const { render, createApp } = createRenderer<Node, Element>({
 })
 ```
 
-### Arguments
+### 参数
 
 接受两个: `HostNode` 和 `HostElement`
 

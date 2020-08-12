@@ -36,7 +36,7 @@
   data: vm => ({ a: vm.myProp })
   ```
 
--  **也可以看看：** [深入响应式原理](../guide/reactivity.html)
+-  **参考** [深入响应式原理](../guide/reactivity.html)
 
 ## props
 
@@ -84,7 +84,7 @@
   })
   ```
 
--  **也可以看看：** [Props](../guide/component-props.html)
+-  **参考** [Props](../guide/component-props.html)
 
 ## computed
 
@@ -135,7 +135,7 @@
   console.log(vm.aDouble) // => 4
   ```
 
--  **也可以看看：** [Computed Properties](../guide/computed.html)
+-  **参考** [Computed Properties](../guide/computed.html)
 
 ## methods
 
@@ -169,7 +169,7 @@
   console.log(vm.a) // => 2
   ```
 
--  **也可以看看：** [Event Handling](../guide/events.html)
+-  **参考** [Event Handling](../guide/events.html)
 
 ## watch
 
@@ -248,7 +248,7 @@
 
   :::
 
--  **也可以看看：** [Watchers](../guide/computed.html#watchers)
+-  **参考** [Watchers](../guide/computed.html#watchers)
 
 ## emits
 
@@ -298,4 +298,4 @@
   :::
   
 
--  **也可以看看：** [Attribute 继承](../guide/component-props.html#non-prop-attributes)
+-  **参考** [Attribute 继承](../guide/component-props.html#non-prop-attributes)

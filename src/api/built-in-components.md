@@ -19,7 +19,7 @@
   <component :is="$options.components.child"></component>
   ```
 
--  **也可以看看：** [Dynamic Components](../guide/component-dynamic-async.html)
+-  **参考** [Dynamic Components](../guide/component-dynamic-async.html)
 
 ## transition
 
@@ -93,7 +93,7 @@
   app.mount('#transition-demo')
   ```
 
--  **也可以看看：** [Enter & Leave Transitions](/guide/transitions-enterleave.html#transitioning-single-elements-components)
+-  **参考** [Enter & Leave Transitions](/guide/transitions-enterleave.html#transitioning-single-elements-components)
 
 ## transition-group
 
@@ -123,7 +123,7 @@
   </transition-group>
   ```
 
--  **也可以看看：** [List Transitions](/guide/transitions-list.html)
+-  **参考** [List Transitions](/guide/transitions-list.html)
 
 ## keep-alive
 
@@ -200,7 +200,7 @@
   `<keep-alive>` does not work with functional components because they do not have instances to be cached.
   :::
 
--  **也可以看看：** [Dynamic Components - keep-alive](../guide/component-dynamic-async.html#dynamic-components-with-keep-alive)
+-  **参考** [Dynamic Components - keep-alive](../guide/component-dynamic-async.html#dynamic-components-with-keep-alive)
 
 ## slot
 
@@ -214,7 +214,7 @@
 
   For detailed usage, see the guide section linked below.
 
--  **也可以看看：** [Content Distribution with Slots](../guide/component-basics.html#content-distribution-with-slots)
+-  **参考** [Content Distribution with Slots](../guide/component-basics.html#content-distribution-with-slots)
 
 ## teleport
 
@@ -243,4 +243,4 @@
 
   Notice that this will move the actual DOM nodes instead of being destroyed and recreated, and it will keep any component instances alive as well. All stateful HTML elements (i.e. a playing video) will keep their state.
 
--  **也可以看看：** [Teleport component](../guide/teleport.html#teleport)
+-  **参考** [Teleport component](../guide/teleport.html#teleport)

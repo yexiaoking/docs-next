@@ -1,4 +1,4 @@
-# Instance Methods
+# 实例方法
 
 ## $watch
 
@@ -170,7 +170,7 @@
   )
   ```
 
--  **也可以看看：** [Watchers](../guide/computed.html#watchers)
+-  **参考** [Watchers](../guide/computed.html#watchers)
 
 ## $emit
 
@@ -245,7 +245,7 @@
   })
   ```
 
--  **也可以看看：**
+-  **参考**
   - [`emits` option](./options-data.html#emits)
   - [Emitting a Value With an Event](../guide/component-basics.html#emitting-a-value-with-an-event)
 
@@ -286,4 +286,4 @@
   })
   ```
 
--  **也可以看看：** [nextTick](global-api.html#nexttick)
+-  **参考** [nextTick](global-api.html#nexttick)

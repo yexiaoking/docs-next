@@ -1,4 +1,4 @@
-# 应用程序 API
+# 应用API
 
 在Vue 3中，全局改变Vue行为的API现在改为了由新的 `createApp` 方法来创建的应用程序实例。 此外，它们的影响现在仅限于该特定应用程序的实例：
 
@@ -39,7 +39,7 @@ app.component('my-component', {
 const MyComponent = app.component('my-component', {})
 ```
 
-- **也可以看看：** [Components](../guide/component-basics.html)
+- **参考** [Components](../guide/component-basics.html)
 
 ## config
 
@@ -148,7 +148,7 @@ app.directive('focus', {
 除了 `el` 之外，你应该将这些参数视为只读，并且永远不要修改它们。 如果你需要跨钩子共享信息，建议通过元素的 [数据集]（https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset）进行共享。
 :::
 
-- **也可以看看：** [自定义指令](../guide/custom-directive.html)
+- **参考** [自定义指令](../guide/custom-directive.html)
 
 ## mixin
 
@@ -160,7 +160,7 @@ app.directive('focus', {
 
   在整个应用程序范围内应用mixin，这将影响以后在给定应用程序中创建的 **每个**** Vue实例（例如，子组件）。 插件作者可以使用此方法将自定义行为注入组件。 **不建议在应用代码中**。
 
-- **也可以看看：** [Global Mixin](../guide/mixins.html#global-mixin)
+- **参考** [Global Mixin](../guide/mixins.html#global-mixin)
 
 ## mount
 
@@ -189,7 +189,7 @@ const app = createApp({})
 app.mount('#my-app')
 ```
 
-- **也可以看看：**
+- **参考**
   - [Lifecycle Diagram](../guide/instance.html#lifecycle-diagram)
 
 ## provide
@@ -230,7 +230,7 @@ app.component('user-card', {
 })
 ```
 
-- **也可以看看：**
+- **参考**
   - [Provide / Inject](../guide/component-provide-inject.md)
 
 ## unmount
@@ -274,4 +274,4 @@ setTimeout(() => app.unmount('#my-app'), 5000)
 
   当在同一个插件上多次调用此方法时，该插件将仅安装一次。
 
-- **也可以看看：** [Plugins](../guide/plugins.html)
+- **参考** [Plugins](../guide/plugins.html)

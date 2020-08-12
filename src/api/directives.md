@@ -1,4 +1,4 @@
-# Directives
+# 指令
 
 ## v-text
 
@@ -16,7 +16,7 @@
   <span>{{msg}}</span>
   ```
 
--  **也可以看看：** [Data Binding Syntax - Interpolations](../guide/template-syntax.html#text)
+-  **参考** [Data Binding Syntax - Interpolations](../guide/template-syntax.html#text)
 
 ## v-html
 
@@ -38,7 +38,7 @@
   <div v-html="html"></div>
   ```
 
--  **也可以看看：** [Data Binding Syntax - Interpolations](../guide/template-syntax.html#raw-html)
+-  **参考** [Data Binding Syntax - Interpolations](../guide/template-syntax.html#raw-html)
 
 ## v-show
 
@@ -50,7 +50,7 @@
 
   This directive triggers transitions when its condition changes.
 
--  **也可以看看：** [Conditional Rendering - v-show](../guide/conditional.html#v-show)
+-  **参考** [Conditional Rendering - v-show](../guide/conditional.html#v-show)
 
 ## v-if
 
@@ -64,7 +64,7 @@
 
   When used together with `v-if`, `v-for` has a higher priority than v-if. See the [list rendering guide](../guide/list.html#v-for-with-v-if) for details.
 
--  **也可以看看：** [Conditional Rendering - v-if](../guide/conditional.html#v-if)
+-  **参考** [Conditional Rendering - v-if](../guide/conditional.html#v-if)
 
 ## v-else
 
@@ -85,7 +85,7 @@
   </div>
   ```
 
--  **也可以看看：** [Conditional Rendering - v-else](../guide/conditional.html#v-else)
+-  **参考** [Conditional Rendering - v-else](../guide/conditional.html#v-else)
 
 ## v-else-if
 
@@ -112,7 +112,7 @@
   </div>
   ```
 
--  **也可以看看：** [Conditional Rendering - v-else-if](../guide/conditional.html#v-else-if)
+-  **参考** [Conditional Rendering - v-else-if](../guide/conditional.html#v-else-if)
 
 ## v-for
 
@@ -148,7 +148,7 @@
 
   The detailed usage for `v-for` is explained in the guide section linked below.
 
--  **也可以看看：**
+-  **参考**
   - [List Rendering](../guide/list.html)
 
 ## v-on
@@ -231,7 +231,7 @@
   <my-component @my-event="handleThis(123, $event)"></my-component>
   ```
 
--  **也可以看看：**
+-  **参考**
   - [Event Handling](../guide/events.html)
   - [Components - Custom Events](../guide/component-basics.html#listening-to-child-components-events)
 
@@ -305,7 +305,7 @@
 
   `.camel` is not needed if you are using string templates, or compiling with `vue-loader`/`vueify`.
 
--  **也可以看看：**
+-  **参考**
   - [Class and Style Bindings](../guide/class-and-style.html)
   - [Components - Props](../guide/component-basics.html#passing-data-to-child-components-with-props)
 
@@ -330,7 +330,7 @@
 
   Create a two-way binding on a form input element or a component. For detailed usage and other notes, see the Guide section linked below.
 
--  **也可以看看：**
+-  **参考**
   - [Form Input Bindings](../guide/forms.html)
   - [Components - Form Input Components using Custom Events](../guide/component-custom-events.html#v-model-arguments)
 
@@ -386,7 +386,7 @@
 
   For more details, see the links below.
 
--  **也可以看看：**
+-  **参考**
   - [Components - Slots](../guide/component-slots.html)
 
 ## v-pre
@@ -451,7 +451,7 @@
   </ul>
   ```
 
--  **也可以看看：**
+-  **参考**
   - [Data Binding Syntax - interpolations](../guide/template-syntax.html#text)
 
 ## v-is

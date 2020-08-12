@@ -6,20 +6,21 @@
 
 - **详细：**
 
-  A string template to be used as the markup for the Vue instance. The template will **replace** the mounted element. Any existing markup inside the mounted element will be ignored, unless content distribution slots are present in the template.
+  一个字符串模板作为 Vue 实例的标识使用。模板将会**替换**挂载的元素。挂载元素的内容都将被忽略，除非模板的内容有分发插槽。
 
-  If the string starts with `#` it will be used as a `querySelector` and use the selected element's innerHTML as the template string. This allows the use of the common `<script type="x-template">` trick to include templates.
+  如果值以 `#` 开始，则它将被用作`querySelector`，并使用匹配元素的 innerHTML 作为模板。常用的技巧是用 `<script type="x-template">` 包含模板。
 
-  :::tip Note
-  From a security perspective, you should only use Vue templates that you can trust. Never use user-generated content as your template.
+  :::tip 注意
+  出于安全考虑，你应该只使用你信任的 Vue 模板。避免使用其他人生成的内容作为你的模板。
   :::
 
-  :::tip Note
-  If render function is present in the Vue option, the template will be ignored.:::
+  :::tip 注意
+  如果 Vue 选项中包含渲染函数，该模板将被忽略。
+  :::
 
--  **也可以看看：**
-  - [Lifecycle Diagram](../guide/instance.html#lifecycle-diagram)
-  - [Content Distribution with Slots](../guide/component-basics.html#content-distribution-with-slots)
+-  **参考**
+  - [生命周期图示](../guide/instance.html#lifecycle-diagram)
+  - [通过插槽分发内容](../guide/component-basics.html#content-distribution-with-slots)
 
 ## render
 
@@ -27,7 +28,7 @@
 
 - **详细：**
 
-  An alternative to string templates allowing you to leverage the full programmatic power of JavaScript.
+  字符串模板的另一种选择，允许你充分利用JavaScript的编程功能。
 
 - **用法：**
 
@@ -43,8 +44,8 @@
   app.component('my-title', {
     render() {
       return Vue.h(
-        'h1', // tag name,
-        this.blogTitle // tag content
+        'h1',           // 标签名称
+        this.blogTitle  // 标签内容
       )
     },
     props: {
@@ -58,8 +59,8 @@
   app.mount('#app')
   ```
 
-  :::tip Note
-  The `render` function has priority over the render function compiled from `template` option or in-DOM HTML template of the mounting element
+  :::tip 注意
+  `render` 函数的优先级高于从挂载元素 `template` 选项或内置DOM 提取出的 HTML 模板编译渲染函数。
   :::
 
--  **也可以看看：** [Render Functions](../guide/render-function.html)
+-  **参考** [Render Functions](../guide/render-function.html)

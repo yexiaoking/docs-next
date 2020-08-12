@@ -153,9 +153,9 @@ yarn serve # or npm run serve
 |[/api/application-api.md](/src/api/application-api.md))|[@veaba](https://github.com/veaba)|-|- 翻译完成|
 |[/api/global-api.md](/src/api/global-api.md)|[@veaba](https://github.com/veaba)|-|- 翻译完成|
 |-|-|-|-|
-|[/api/options-data.md](/src/api/options-data.md)||-||
-|[/api/options-dom.md](/src/api/options-dom.md)||-||
-|[/api/options-lifecycle-hooks.md](/src/api/options-lifecycle-hooks.md)||-||
+|[/api/options-data.md](/src/api/options-data.md)|<p>[from Vue 2](https://cn.vuejs.org/about.html)</p1> <p>[@veaba](https://github.com/veaba)</p>|-|完成翻译|
+|[/api/options-dom.md](/src/api/options-dom.md)|<p>[from Vue 2](https://cn.vuejs.org/about.html)</p1> <p>[@veaba](https://github.com/veaba)</p>|-|完成翻译|
+|[/api/options-lifecycle-hooks.md](/src/api/options-lifecycle-hooks.md)|<p>[from Vue 2](https://cn.vuejs.org/about.html)</p1> <p>[@veaba](https://github.com/veaba)</p>|-|完成翻译|
 |[/api/options-assets.md](/src/api/options-assets.md)||-||
 |[/api/options-composition.md](/src/api/options-composition.md)||-||
 |[/api/options-misc.md](/src/api/options-misc.md)||-||

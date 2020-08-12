@@ -1,6 +1,6 @@
-# Lifecycle hooks
+# 生命周期钩子
 
-:::tip Note
+:::tip 注意
 All lifecycle hooks automatically have their `this` context bound to the instance, so that you can access data, computed properties, and methods. This means **you should not use an arrow function to define a lifecycle method** (e.g. `created: () => this.fetchTodos()`). The reason is arrow functions bind the parent context, so `this` will not be the Vue instance as you expect and `this.fetchTodos` will be undefined.
 :::
 
@@ -12,7 +12,7 @@ All lifecycle hooks automatically have their `this` context bound to the instanc
 
   Called synchronously immediately after the instance has been initialized, before data observation and event/watcher setup.
 
--  **也可以看看：** [Lifecycle Diagram](../guide/instance.html#lifecycle-diagram)
+-  **参考** [Lifecycle Diagram](../guide/instance.html#lifecycle-diagram)
 
 ## created
 
@@ -22,7 +22,7 @@ All lifecycle hooks automatically have their `this` context bound to the instanc
 
   Called synchronously after the instance is created. At this stage, the instance has finished processing the options which means the following have been set up: data observation, computed properties, methods, watch/event callbacks. However, the mounting phase has not been started, and the `$el` property will not be available yet.
 
--  **也可以看看：** [Lifecycle Diagram](../guide/instance.html#lifecycle-diagram)
+-  **参考** [Lifecycle Diagram](../guide/instance.html#lifecycle-diagram)
 
 ## beforeMount
 
@@ -34,7 +34,7 @@ All lifecycle hooks automatically have their `this` context bound to the instanc
 
   **This hook is not called during server-side rendering.**
 
--  **也可以看看：** [Lifecycle Diagram](../guide/instance.html#lifecycle-diagram)
+-  **参考** [Lifecycle Diagram](../guide/instance.html#lifecycle-diagram)
 
 ## mounted
 
@@ -57,7 +57,7 @@ All lifecycle hooks automatically have their `this` context bound to the instanc
 
   **This hook is not called during server-side rendering.**
 
--  **也可以看看：** [Lifecycle Diagram](../guide/instance.html#lifecycle-diagram)
+-  **参考** [Lifecycle Diagram](../guide/instance.html#lifecycle-diagram)
 
 ## beforeUpdate
 
@@ -69,7 +69,7 @@ All lifecycle hooks automatically have their `this` context bound to the instanc
 
   **This hook is not called during server-side rendering, because only the initial render is performed server-side.**
 
--  **也可以看看：** [Lifecycle Diagram](../guide/instance.html#lifecycle-diagram)
+-  **参考** [Lifecycle Diagram](../guide/instance.html#lifecycle-diagram)
 
 ## updated
 
@@ -94,7 +94,7 @@ All lifecycle hooks automatically have their `this` context bound to the instanc
 
   **This hook is not called during server-side rendering.**
 
--  **也可以看看：** [Lifecycle Diagram](../guide/instance.html#lifecycle-diagram)
+-  **参考** [Lifecycle Diagram](../guide/instance.html#lifecycle-diagram)
 
 ## activated
 
@@ -106,7 +106,7 @@ All lifecycle hooks automatically have their `this` context bound to the instanc
 
   **This hook is not called during server-side rendering.**
 
--  **也可以看看：**
+-  **参考**
   - [Dynamic Components - keep-alive](../guide/component-basics.html#keep-alive)
 
 ## deactivated
@@ -119,7 +119,7 @@ All lifecycle hooks automatically have their `this` context bound to the instanc
 
   **This hook is not called during server-side rendering.**
 
--  **也可以看看：**
+-  **参考**
   - [Dynamic Components - keep-alive](../guide/component-basics.html#keep-alive)
 
 ## beforeUnmount
@@ -132,7 +132,7 @@ All lifecycle hooks automatically have their `this` context bound to the instanc
 
   **This hook is not called during server-side rendering.**
 
--  **也可以看看：** [Lifecycle Diagram](../guide/instance.html#lifecycle-diagram)
+-  **参考** [Lifecycle Diagram](../guide/instance.html#lifecycle-diagram)
 
 ## unmounted
 
@@ -144,7 +144,7 @@ All lifecycle hooks automatically have their `this` context bound to the instanc
 
   **This hook is not called during server-side rendering.**
 
--  **也可以看看：** [Lifecycle Diagram](../guide/instance.html#lifecycle-diagram)
+-  **参考** [Lifecycle Diagram](../guide/instance.html#lifecycle-diagram)
 
 ## errorCaptured
 

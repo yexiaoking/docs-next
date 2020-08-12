@@ -1,4 +1,4 @@
-# Composition
+# 组合
 
 ## mixins
 
@@ -30,7 +30,7 @@
   // => 2
   ```
 
--  **也可以看看：** [Mixins](../guide/mixins.html)
+-  **参考** [Mixins](../guide/mixins.html)
 
 ## extends
 
@@ -182,7 +182,7 @@
   }
   ```
 
--  **也可以看看：** [Provide / Inject](../guide/component-provide-inject.html)
+-  **参考** [Provide / Inject](../guide/component-provide-inject.html)
 
 ## setup
 
@@ -318,4 +318,4 @@ The `setup` function is a new component option. It serves as the entry point for
 
   - Having `props` as a separate argument makes it easier to type it individually without messing up the types of other properties on the context. It also makes it possible to keep a consistent signature across `setup`, `render` and plain functional components with TSX support.
 
--  **也可以看看：** [Composition API](composition-api.html)
+-  **参考** [Composition API](composition-api.html)
