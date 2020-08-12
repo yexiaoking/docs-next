@@ -6,9 +6,9 @@
 
 - **详细：**
 
-  The data object that the Vue instance is observing. The Vue instance proxies access to the properties on its data object.
+  Vue 实例观察的数据对象。Vue 实例代理了对其 data 对象 property 的访问。
 
--  **参考** [Options / Data - data](./options-data.html#data-2)
+-  **参考** [选项 / 数据 - data](./options-data.html#data-2)
 
 ## $props
 
@@ -16,27 +16,27 @@
 
 - **详细：**
 
-  An object representing the current props a component has received. The Vue instance proxies access to the properties on its props object.
+  当前组件接收到的 props 对象。Vue 实例代理了对其 props 对象 property 的访问。
 
 ## $el
 
 - **类型：** `any`
 
-- **Read only**
+- **仅可读**
 
 - **详细：**
 
-  The root DOM element that the Vue instance is managing.
+  Vue 实例使用的根 DOM 元素。
 
 ## $options
 
 - **类型：** `Object`
 
-- **Read only**
+- **仅可读**
 
 - **详细：**
 
-  The instantiation options used for the current Vue instance. This is useful when you want to include custom properties in the options:
+  用于当前 Vue 实例的初始化选项。需要在选项中包含自定义 property 时会有用处：
 
   ```js
   const app = Vue.createApp({
@@ -51,33 +51,33 @@
 
 - **类型：** `Vue instance`
 
-- **Read only**
+- **仅可读**
 
 - **详细：**
 
-  The parent instance, if the current instance has one.
+  父实例，如果当前实例有的话。
 
 ## $root
 
 - **类型：** `Vue instance`
 
-- **Read only**
+- **仅可读**
 
 - **详细：**
 
-  The root Vue instance of the current component tree. If the current instance has no parents this value will be itself.
+  当前组件树的根 Vue 实例。如果当前实例没有父实例，此实例将会是其自己。
 
 ## $slots
 
 - **类型：** `{ [name: string]: (...args: any[]) => Array<VNode> | undefined }`
 
-- **Read only**
+- **仅可读**
 
 - **详细：**
 
-  Used to programmatically access content [distributed by slots](../guide/component-basics.html#content-distribution-with-slots). Each [named slot](../guide/component-slots.html#named-slots) has its own corresponding property (e.g. the contents of `v-slot:foo` will be found at `this.$slots.foo()`). The `default` property contains either nodes not included in a named slot or contents of `v-slot:default`.
+  用来访问被 [插槽分发](../guide/component-basics.html#content-distribution-with-slots) 的内容。每个 [具名插槽](../guide/component-slots.html#named-slots) 有其相应的 property (例如： `v-slot:foo` 中的内容将会在 `this.$slots.foo` 中被找到)。 `default` property 包括了所有没有被包含在具名插槽中的节点，或 `v-slot:default` 的内容。
 
-  Accessing `this.$slots` is most useful when writing a component with a [render function](../guide/render-function.html).
+  在使用 [渲染函数](../guide/render-function.html) 书写一个组件时，访问 `this.$slots` 最有帮助。
 
 - **示例：**
 
@@ -114,33 +114,33 @@
   ```
 
 -  **参考**
-  - [`<slot>` Component](built-in-components.html#slot)
-  - [Content Distribution with Slots](../guide/component-basics.html#content-distribution-with-slots)
-  - [Render Functions - Slots](..guide/render-function.html#slots)
+  - [`<slot>` 组件](built-in-components.html#slot)
+  - [通过插槽分发内容](../guide/component-basics.html#content-distribution-with-slots)
+  - [渲染函数 - 插槽](..guide/render-function.html#slots)
 
 ## $refs
 
 - **类型：** `Object`
 
-- **Read only**
+- **仅可读**
 
 - **详细：**
 
-An object of DOM elements and component instances, registered with [`ref` attributes](../guide/component-template-refs.html).
+一个对象，持有注册过 [`ref` attribute](../guide/component-template-refs.html) 的所有 DOM 元素和组件实例。
 
 -  **参考**
-  - [Template refs](../guide/component-template-refs.html)
-  - [Special Attributes - ref](./special-attributes.md#ref)
+  - [模板 refs](../guide/component-template-refs.html)
+  - [特殊 attributes - ref](./special-attributes.md#ref)
 
 ## $attrs
 
 - **类型：** `Object`
 
-- **Read only**
+- **仅可读**
 
 - **详细：**
 
-Contains parent-scope attribute bindings and events that are not recognized (and extracted) as component [props](./options-data.html#props) or [custom events](./options-data.html#emits). When a component doesn't have any declared props or custom events, this essentially contains all parent-scope bindings, and can be passed down to an inner component via `v-bind="$attrs"` - useful when creating higher-order components.
+包含了父作用域中不作为组件 [props](./options-data.html#props) 或 [自定义事件](./options-data.html#emits)。当一个组件没有声明任何 prop 时，这里会包含所有父作用域的绑定，并且可以通过 `v-bind="$attrs"` 传入内部组件——在创建高级别的组件时非常有用。
 
 -  **参考**
   - [Non-Prop Attributes](../guide/component-props.html#non-prop-attributes)

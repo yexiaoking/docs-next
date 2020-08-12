@@ -70,7 +70,7 @@
 
 - **Does not expect expression**
 
-- **约束：** previous sibling element must have `v-if` or `v-else-if`.
+- **限制：** previous sibling element must have `v-if` or `v-else-if`.
 
 - **用法：**
 
@@ -91,7 +91,7 @@
 
 - **期望：** `any`
 
-- **约束：** previous sibling element must have `v-if` or `v-else-if`.
+- **限制：** previous sibling element must have `v-if` or `v-else-if`.
 
 - **用法：**
 

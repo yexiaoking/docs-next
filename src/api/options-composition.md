@@ -316,6 +316,6 @@
 
   - 组件使用 `props` 比其他property更常见，并且很多情况下组件仅使用 `props` 。
 
-  - 将 `props` 作为单独的参数可以使单独键入更容易，而不会弄乱上下文中其他property的类型。 这也使得在具有TSX支持的 `setup`、 `渲染` 和普通功能组件之间保持一致的签名成为可能。
+  - 将 `props` 作为单独的参数可以使单独键入更容易，而不会弄乱上下文中其他property的类型。 这也使得在具有TSX支持的 `setup`、 `render` 和普通功能组件之间保持一致的签名成为可能。
 
 -  **参考** [Composition API](composition-api.html)
