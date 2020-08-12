@@ -1,10 +1,10 @@
 # Refs
 
-> This section uses [single-file component](../guide/single-file-component.html) syntax for code examples
+> 本节例子中代码使用的 [单文件组件](../guide/single-file-component.html) 语法
 
 ## `ref`
 
-Takes an inner value and returns a reactive and mutable ref object. The ref object has a single property `.value` that points to the inner value.
+接受一个内部值并返回一个响应式且可变的 ref 对象。 ref 对象具有指向内部值的单个 property `.value`。
 
 **示例：**
 
@@ -16,9 +16,9 @@ count.value++
 console.log(count.value) // 1
 ```
 
-If an object is assigned as a ref's value, the object is made deeply reactive by the [reactive](./basic-reactivity.html#reactive) method.
+如果将对象分配为 ref 值，则可以通过 [reactive](./basic-reactivity.html#reactive) 方法使该对象具有高度的响应式。
 
-**Typing:**
+**类型声明：**
 
 ```ts
 interface Ref<T> {
@@ -28,7 +28,7 @@ interface Ref<T> {
 function ref<T>(value: T): Ref<T>
 ```
 
-Sometimes we may need to specify complex types for a ref's inner value. We can do that succinctly by passing a generics argument when calling `ref` to override the default inference:
+有时我们可能需要为 ref 的内部值指定复杂类型。 我们可以通过在调用 `ref` 来覆盖默认推断时传递一个泛型参数来简洁地做到这一点：
 
 ```ts
 const foo = ref<string | number>('foo') // foo's type: Ref<string | number>
@@ -36,7 +36,7 @@ const foo = ref<string | number>('foo') // foo's type: Ref<string | number>
 foo.value = 123 // ok!
 ```
 
-If the type of the generic is unknown, it's recommended to cast `ref` to `Ref<T>`:
+如果泛型的类型未知，建议将 `ref` 转换为 `Ref<T>`：
 
 ```js
 function useState<State extends string>(initial: State) {
@@ -47,17 +47,17 @@ function useState<State extends string>(initial: State) {
 
 ## `unref`
 
-Returns the inner value if the argument is a [`ref`](#ref), otherwise return the argument itself. This is a sugar function for `val = isRef(val) ? val.value : val`.
+如果参数为 [`ref`](#ref) ，则返回内部值，否则返回参数本身。 这是 `val = isRef(val) ? val.value : val`。
 
 ```js
 function useFoo(x: number | Ref<number>) {
-  const unwrapped = unref(x) // unwrapped is guaranteed to be number now
+  const unwrapped = unref(x) // unwrapped 确保现在是数字类型
 }
 ```
 
 ## `toRef`
 
-Can be used to create a [`ref`](#ref) for a property on a source reactive object. The ref can then be passed around, retaining the reactive connection to its source property.
+可以用来为源响应式对象上的 property 性创建一个 [`ref`](#ref) 。 然后可以将 ref 传递出去，从而保持对其源 property 的响应式连接。
 
 ```js
 const state = reactive({
@@ -74,7 +74,7 @@ state.foo++
 console.log(fooRef.value) // 3
 ```
 
-`toRef` is useful when you want to pass the ref of a prop to a composition function:
+当您要将 prop 的 ref 传递给复合函数时，`toRef` 很有用：
 
 ```js
 export default {
@@ -86,7 +86,7 @@ export default {
 
 ## `toRefs`
 
-Converts a reactive object to a plain object where each property of the resulting object is a [`ref`](#ref) pointing to the corresponding property of the original object.
+将响应式对象转换为普通对象，其中结果对象的每个 property 都是指向原始对象相应 property 的[`ref`](#ref)。
 
 ```js
 const state = reactive({
@@ -104,7 +104,7 @@ Type of stateAsRefs:
 }
 */
 
-// The ref and the original property is "linked"
+// ref 和 原始property “链接”
 state.foo++
 console.log(stateAsRefs.foo) // 2
 
@@ -112,7 +112,7 @@ stateAsRefs.foo.value++
 console.log(state.foo) // 3
 ```
 
-`toRefs` is useful when returning a reactive object from a composition function so that the consuming component can destructure/spread the returned object without losing reactivity:
+当从合成函数返回响应式对象时，`toRefs`非常有用，这样消费组件就可以在不丢失响应式的情况下对返回的对象进行 分解/扩散：
 
 ```js
 function useFeatureX() {
@@ -121,15 +121,15 @@ function useFeatureX() {
     bar: 2
   })
 
-  // logic operating on state
+  // 逻辑运行状态
 
-  // convert to refs when returning
+  // 返回时转换为ref
   return toRefs(state)
 }
 
 export default {
   setup() {
-    // can destructure without losing reactivity
+    // 可以在不失去响应式的情况下破坏结构
     const { foo, bar } = useFeatureX()
 
     return {
@@ -146,9 +146,9 @@ Checks if a value is a ref object.
 
 ## `customRef`
 
-Creates a customized ref with explicit control over its dependency tracking and updates triggering. It expects a factory function, which receives `track` and `trigger` functions as arguments and should return an object with `get` and `set`.
+创建一个自定义的 ref，并对其依赖项跟踪和更新触发进行显式控制。它需要一个工厂函数，该函数接收 `track` 和 `trigger` 函数作为参数，并应返回一个带有 `get` 和 `set` 的对象。
 
-- Example using a custom ref to implement debounce with `v-model`:
+- 使用 `v-model` 使用自定义 ref 实现 `debounce` 的示例：
 
   ```html
   <input v-model="text" />
@@ -199,37 +199,37 @@ type CustomRefFactory<T> = (
 
 ## `shallowRef`
 
-Creates a ref that tracks its own `.value` mutation but doesn't make its value reactive.
+创建一个 ref，它跟踪自己的 `.value` 更改，但不会使其值成为响应式的。
 
 ```js
 const foo = shallowRef({})
-// mutating the ref's value is reactive
+// 改变ref的值是响应式的
 foo.value = {}
-// but the value will not be converted.
+// 但是这个值不会被转换。
 isReactive(foo.value) // false
 ```
 
-**See also**: [Creating Standalone Reactive Values as `refs`](../guide/reactivity-fundamentals.html#creating-standalone-reactive-values-as-refs)
+**参考**: [正在将独立的响应式值创建为`refs`](../guide/reactivity-fundamentals.html#creating-standalone-reactive-values-as-refs)
 
 ## `triggerRef`
 
-Execute any effects tied to a  [`shallowRef`](#shallowref) manually.
+手动执行与 `shallowRef`](#shallowref) 关联的任何效果。
 
 ```js
 const shallow = shallowRef({
   greet: 'Hello, world'
 })
 
-// Logs "Hello, world" once for the first run-through
+// 第一次运行时记录一次 "Hello, world"
 watchEffect(() => {
   console.log(shallow.value.greet)
 })
 
-// This won't trigger the effect because the ref is shallow
+// 这不会触发效果，因为ref很浅
 shallow.value.greet = 'Hello, universe'
 
-// Logs "Hello, universe"
+// 记录 "Hello, universe"
 triggerRef(shallow)
 ```
 
- **参考** [Computed and Watch - watchEffect](./computed-watch-api.html#watcheffect)
+**参考** [计算和侦听 - watchEffect](./computed-watch-api.html#watcheffect)

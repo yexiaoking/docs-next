@@ -57,7 +57,7 @@ yarn serve # or npm run serve
 |[[argue-1]](/src/guide/installation.md#argue-1)||-||
 |[[argue-2]](/src/guide/reactivity-computed-watchers.md#argue-2)|-|||
 |[[argue-3]](/src/guide/reactivity-computed-watchers.md#argue-3)|-|||
-||-|||
+|Identity hazards|-|||
 ||-|||
 
 ### 翻译规范
@@ -166,8 +166,8 @@ yarn serve # or npm run serve
 |[/api/special-attributes.md](/src/api/special-attributes.md)|[from Vue 2](https://cn.vuejs.org/about.html)|-|完成翻译，应用自Vue2|
 |[/api/built-in-components.md](/src/api/built-in-components.md)|[from Vue 2](https://cn.vuejs.org/about.html)、[@veaba](https://github.com/veaba)</p>|-|完成翻译|
 |-|-|-|-|
-|[/api/basic-reactivity.md](/src/api/basic-reactivity.md)||-||
-|[/api/refs-api.md](/src/api/refs-api.md)||-||
+|[/api/basic-reactivity.md](/src/api/basic-reactivity.md)|[@veaba](https://github.com/veaba)|-|- 翻译完成|
+|[/api/refs-api.md](/src/api/refs-api.md)|[@veaba](https://github.com/veaba)|-|- 翻译完成|
 |[/api/computed-watch-api.md](/src/api/computed-watch-api.md)||-||
 |-|-|-|-|
 |[/api/composition-api.md](/src/api/composition-api.md)||-||

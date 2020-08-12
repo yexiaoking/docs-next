@@ -1,18 +1,18 @@
 # Basic Reactivity APIs
 
-> This section uses [single-file component](../guide/single-file-component.html) syntax for code examples
+> 本节例子中代码使用的 [单文件组件](../guide/single-file-component.html) 语法
 
 ## `reactive`
 
-Returns a reactive copy of the object.
+返回对象的响应式副本
 
 ```js
 const obj = reactive({ count: 0 })
 ```
 
-The reactive conversion is "deep"—it affects all nested properties. In the [ES2015 Proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) based implementation, the returned proxy is **not** equal to the original object. It is recommended to work exclusively with the reactive proxy and avoid relying on the original object.
+响应式转换是“深”的 —— 它影响所有嵌套 property。在基于 [ES2015 Proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) 的实现中，返回的代理是**不**等于原始对象。建议只使用响应式代理，避免依赖原始对象。
 
-**Typing:**
+**类型声明：**
 
 ```ts
 function reactive<T extends object>(target: T): UnwrapNestedRefs<T>
@@ -20,7 +20,7 @@ function reactive<T extends object>(target: T): UnwrapNestedRefs<T>
 
 ## `readonly`
 
-Takes an object (reactive or plain) or a [ref](./refs-api.html#ref) and returns a readonly proxy to the original. A readonly proxy is deep: any nested property accessed will be readonly as well.
+获取一个对象（响应式或纯对象）或[ref](./refs-api.html#ref) 并返回原始代理的只读代理。只读代理是深层的：访问的任何嵌套 property 也是只读的。
 
 ```js
 const original = reactive({ count: 0 })
@@ -28,24 +28,24 @@ const original = reactive({ count: 0 })
 const copy = readonly(original)
 
 watchEffect(() => {
-  // works for reactivity tracking
+  // 适用于响应式追踪
   console.log(copy.count)
 })
 
-// mutating original will trigger watchers relying on the copy
+// 变更original 会触发侦听器依赖副本
 original.count++
 
-// mutating the copy will fail and result in a warning
-copy.count++ // warning!
+// 变更副本将失败并导致警告
+copy.count++ // 警告!
 ```
 
 ## `isProxy`
 
-Checks if an object is a proxy created by [`reactive`](#reactive) or [`readonly`](#readonly).
+检查对象是[`reactive`](#reactive) 还是 [`readonly`](#readonly)创建的代理
 
 ## `isReactive`
 
-Checks if an object is a reactive proxy created by [`reactive`](#reactive).
+检查对象是否是[`reactive`](#reactive)创建的响应式代理
 
 ```js
 import { reactive, isReactive } from 'vue'
@@ -59,7 +59,9 @@ export default {
 }
 ```
 
-It also returns `true` if the proxy is created by [`readonly`](#readonly), but is wrapping another proxy created by [`reactive`](#reactive).
+
+如果代理是 [`readonly`](#readonly) 创建的，但还包装了由[`reactive`](#reactive) 创建的另一个代理，它也会返回`true`。
+
 
 ```js{7-15}
 import { reactive, isReactive, readonly } from 'vue'
@@ -68,13 +70,13 @@ export default {
     const state = reactive({
       name: 'John'
     })
-    // readonly proxy created from plain object
+    // 从普通对象创建的只读代理
     const plain = readonly({
       name: 'Mary'
     })
     console.log(isReactive(plain)) // -> false
 
-    // readonly proxy created from reactive proxy
+    // 从响应式代理创建的只读代理
     const stateCopy = readonly(state)
     console.log(isReactive(stateCopy)) // -> true
   }
@@ -83,11 +85,11 @@ export default {
 
 ## `isReadonly`
 
-Checks if an object is a readonly proxy created by [`readonly`](#readonly).
+检查对象是否是由[`readonly`](#readonly)创建的只读代理。
 
 ## `toRaw`
 
-Returns the raw, original object of a [`reactive`](#reactive) or [`readonly`](#readonly) proxy. This is an escape hatch that can be used to temporarily read without incurring proxy access/tracking overhead or write without triggering changes. It is **not** recommended to hold a persistent reference to the original object. Use with caution.
+返回[`reactive`](#reactive) 或 [`readonly`](#readonly) 代理的原始对象。 这是一个转义口，可用于临时读取而不会引起代理访问/跟踪开销，也可用于写入而不会触发更改。 不建议保留对原始对象的持久引用。 请谨慎使用。
 
 ```js
 const foo = {}
@@ -98,25 +100,27 @@ console.log(toRaw(reactiveFoo) === foo) // true
 
 ## `markRaw`
 
-Marks an object so that it will never be converted to a proxy. Returns the object itself.
+标记一个对象，使其永远不会转换为代理。 返回对象本身。
 
 ```js
 const foo = markRaw({})
 console.log(isReactive(reactive(foo))) // false
 
-// also works when nested inside other reactive objects
+// 嵌套在其他响应式对象中时也可以使用
 const bar = reactive({ foo })
 console.log(isReactive(bar.foo)) // false
 ```
 
 ::: warning
-`markRaw` and the shallowXXX APIs below allow you to selectively opt-out of the default deep reactive/readonly conversion and embed raw, non-proxied objects in your state graph. They can be used for various reasons:
 
-- Some values simply should not be made reactive, for example a complex 3rd party class instance, or a Vue component object.
+下方的`markRaw`和shallowXXX API使你可以有选择地选择退出默认的深度响应式/只读转换，并将原始的，非代理的对象嵌入状态图中。 它们可以在各种情况下使用：
 
-- Skipping proxy conversion can provide performance improvements when rendering large lists with immutable data sources.
+- 有些值不应被设置为被动的，例如复杂的第三方类实例或Vue组件对象。
 
-They are considered advanced because the raw opt-out is only at the root level, so if you set a nested, non-marked raw object into a reactive object and then access it again, you get the proxied version back. This can lead to **identity hazards** - i.e. performing an operation that relies on object identity but using both the raw and the proxied version of the same object:
+当渲染具有不可变数据源的大列表时，跳过代理转换可以提高性能。
+
+
+它们被认为是高级的，因为原始选择退出仅在根级别，因此，如果将嵌套的、未标记的原始对象设置为响应式对象，然后再次访问它，则可以得到代理版本。 这可能会导致**本源危害** —— 即执行依赖于对象本身但同时使用同一对象的原始版本和代理版本的操作：
 
 ```js
 const foo = markRaw({
@@ -124,19 +128,20 @@ const foo = markRaw({
 })
 
 const bar = reactive({
-  // although `foo` is marked as raw, foo.nested is not.
+  // 虽然 `foo` 被标记为原始，foo.nested 不是。
   nested: foo.nested
 })
 
 console.log(foo.nested === bar.nested) // false
 ```
 
-Identity hazards are in general rare. However, to properly utilize these APIs while safely avoiding identity hazards requires a solid understanding of how the reactivity system works.
+本源危害通常很少见。然而，为了在安全地避免本源危害的同时正确地使用这些api，需要对响应式系统的工作原理有一个坚实的理解。
+
 :::
 
 ## `shallowReactive`
 
-Creates a reactive proxy that tracks reactivity of its own properties but does not perform deep reactive conversion of nested objects (exposes raw values).
+创建一个响应式代理，该代理跟踪其自身property的响应式，但不执行嵌套对象的深度响应式转换（暴露原始值）。
 
 ```js
 const state = shallowReactive({
@@ -146,16 +151,17 @@ const state = shallowReactive({
   }
 })
 
-// mutating state's own properties is reactive
+// 改变状态本身的性质是响应式的
 state.foo++
-// ...but does not convert nested objects
+// ...但是不转换嵌套对象
 isReactive(state.nested) // false
-state.nested.bar++ // non-reactive
+state.nested.bar++ // 非响应式
 ```
 
 ## `shallowReadonly`
 
-Creates a proxy that makes its own properties readonly, but does not perform deep readonly conversion of nested objects (exposes raw values).
+创建一个代理，使其自身的property为只读，但不执行嵌套对象的深度只读转换（暴露原始值）。
+
 
 ```js
 const state = shallowReadonly({
@@ -165,9 +171,9 @@ const state = shallowReadonly({
   }
 })
 
-// mutating state's own properties will fail
+// 改变状态本身的property将失败
 state.foo++
-// ...but works on nested objects
+// ...但适用于嵌套对象
 isReadonly(state.nested) // false
-state.nested.bar++ // works
+state.nested.bar++ // 适用
 ```
