@@ -2,20 +2,20 @@
 
 ## directives
 
-- **Type:** `Object`
+- **类型：** `Object`
 
-- **Details:**
+- **详细：**
 
   A hash of directives to be made available to the Vue instance.
 
-- **See also:** [Custom Directives](../guide/custom-directive.html)
+-  **也可以看看：** [Custom Directives](../guide/custom-directive.html)
 
 ## components
 
-- **Type:** `Object`
+- **类型：** `Object`
 
-- **Details:**
+- **详细：**
 
   A hash of components to be made available to the Vue instance.
 
-- **See also:** [Components](../guide/component-basics.html)
+-  **也可以看看：** [Components](../guide/component-basics.html)

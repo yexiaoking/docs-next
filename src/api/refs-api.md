@@ -6,7 +6,7 @@
 
 Takes an inner value and returns a reactive and mutable ref object. The ref object has a single property `.value` that points to the inner value.
 
-**Example:**
+**示例：**
 
 ```js
 const count = ref(0)
@@ -232,4 +232,4 @@ shallow.value.greet = 'Hello, universe'
 triggerRef(shallow)
 ```
 
-**See also:** [Computed and Watch - watchEffect](./computed-watch-api.html#watcheffect)
+ **也可以看看：** [Computed and Watch - watchEffect](./computed-watch-api.html#watcheffect)

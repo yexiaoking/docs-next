@@ -2,15 +2,15 @@
 
 ## mixins
 
-- **Type:** `Array<Object>`
+- **类型：** `Array<Object>`
 
-- **Details:**
+- **详细：**
 
   The `mixins` option accepts an array of mixin objects. These mixin objects can contain instance options like normal instance objects, and they will be merged against the eventual options using the certain option merging logic. For example, if your mixin contains a `created` hook and the component itself also has one, both functions will be called.
 
   Mixin hooks are called in the order they are provided, and called before the component's own hooks.
 
-- **Example:**
+- **示例：**
 
   ```js
   const mixin = {
@@ -30,19 +30,19 @@
   // => 2
   ```
 
-- **See also:** [Mixins](../guide/mixins.html)
+-  **也可以看看：** [Mixins](../guide/mixins.html)
 
 ## extends
 
-- **Type:** `Object | Function`
+- **类型：** `Object | Function`
 
-- **Details:**
+- **详细：**
 
   Allows declaratively extending another component (could be either a plain options object or a constructor). This is primarily intended to make it easier to extend between single file components.
 
   This is similar to `mixins`.
 
-- **Example:**
+- **示例：**
 
   ```js
   const CompA = { ... }
@@ -56,12 +56,12 @@
 
 ## provide / inject
 
-- **Type:**
+- **类型：**
 
   - **provide:** `Object | () => Object`
   - **inject:** `Array<string> | { [key: string]: string | Symbol | Object }`
 
-- **Details:**
+- **详细：**
 
   This pair of options are used together to allow an ancestor component to serve as a dependency injector for all its descendants, regardless of how deep the component hierarchy is, as long as they are in the same parent chain. If you are familiar with React, this is very similar to React's `context` feature.
 
@@ -78,7 +78,7 @@
 
   > Note: the `provide` and `inject` bindings are NOT reactive. This is intentional. However, if you pass down a reactive object, properties on that object do remain reactive.
 
-- **Example:**
+- **示例：**
 
   ```js
   // parent component providing 'foo'
@@ -182,11 +182,11 @@
   }
   ```
 
-- **See also:** [Provide / Inject](../guide/component-provide-inject.html)
+-  **也可以看看：** [Provide / Inject](../guide/component-provide-inject.html)
 
 ## setup
 
-- **Type:** `Function`
+- **类型：** `Function`
 
 The `setup` function is a new component option. It serves as the entry point for using the Composition API inside components.
 
@@ -318,4 +318,4 @@ The `setup` function is a new component option. It serves as the entry point for
 
   - Having `props` as a separate argument makes it easier to type it individually without messing up the types of other properties on the context. It also makes it possible to keep a consistent signature across `setup`, `render` and plain functional components with TSX support.
 
-- **See also:** [Composition API](composition-api.html)
+-  **也可以看看：** [Composition API](composition-api.html)

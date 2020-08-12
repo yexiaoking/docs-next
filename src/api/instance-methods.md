@@ -12,11 +12,11 @@
 
 - **Returns:** `{Function} unwatch`
 
-- **Usage:**
+- **用法：**
 
   Watch a reactive property or a computed function on the Vue instance for changes. The callback gets called with the new value and the old value for the given property. We can only pass top-level `data`, `prop`, or `computed` property name as a string. For more complex expressions or nested properties, use a function instead.
 
-- **Example:**
+- **示例：**
 
   ```js
   const app = Vue.createApp({
@@ -170,7 +170,7 @@
   )
   ```
 
-- **See also:** [Watchers](../guide/computed.html#watchers)
+-  **也可以看看：** [Watchers](../guide/computed.html#watchers)
 
 ## $emit
 
@@ -245,13 +245,13 @@
   })
   ```
 
-- **See also:**
+-  **也可以看看：**
   - [`emits` option](./options-data.html#emits)
   - [Emitting a Value With an Event](../guide/component-basics.html#emitting-a-value-with-an-event)
 
 ## $forceUpdate
 
-- **Usage:**
+- **用法：**
 
   Force the Vue instance to re-render. Note it does not affect all child components, only the instance itself and child components with inserted slot content.
 
@@ -261,11 +261,11 @@
 
   - `{Function} [callback]`
 
-- **Usage:**
+- **用法：**
 
   Defer the callback to be executed after the next DOM update cycle. Use it immediately after you've changed some data to wait for the DOM update. This is the same as the global `nextTick`, except that the callback's `this` context is automatically bound to the instance calling this method.
 
-- **Example:**
+- **示例：**
 
   ```js
   Vue.createApp({
@@ -286,4 +286,4 @@
   })
   ```
 
-- **See also:** [nextTick](global-api.html#nexttick)
+-  **也可以看看：** [nextTick](global-api.html#nexttick)

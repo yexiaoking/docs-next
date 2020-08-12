@@ -2,11 +2,11 @@
 
 ## name
 
-- **Type:** `string`
+- **类型：** `string`
 
-- **Restriction:** only respected when used as a component option.
+- **约束：** only respected when used as a component option.
 
-- **Details:**
+- **详细：**
 
   Allow the component to recursively invoke itself in its template. Note that when a component is registered globally with `Vue.createApp({}).component({})`, the global ID is automatically set as its name.
 
@@ -14,17 +14,17 @@
 
 ## inheritAttrs
 
-- **Type:** `boolean`
+- **类型：** `boolean`
 
-- **Default:** `true`
+- **默认：** `true`
 
-- **Details:**
+- **详细：**
 
   By default, parent scope attribute bindings that are not recognized as props will "fallthrough". This means that when we have a single-root component, these bindings will be applied to the root element of the child component as normal HTML attributes. When authoring a component that wraps a target element or another component, this may not always be the desired behavior. By setting `inheritAttrs` to `false`, this default behavior can be disabled. The attributes are available via the `$attrs` instance property and can be explicitly bound to a non-root element using `v-bind`.
 
   Note: this option does **not** affect `class` and `style` bindings.
 
-- **Usage:**
+- **用法：**
 
   ```js
   app.component('base-input', {
@@ -43,4 +43,4 @@
   })
   ```
 
-- **See also:** [Disabling Attribute Inheritance](../guide/component-props.html#disabling-attribute-inheritance)
+-  **也可以看看：** [Disabling Attribute Inheritance](../guide/component-props.html#disabling-attribute-inheritance)

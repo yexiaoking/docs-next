@@ -198,7 +198,7 @@ app.mount('#my-app')
 
   - `Object | () => Object`
 
-- **详情：**
+- **详细：**
 
   此选项[与`inject`一起使用](../api/options-composition.html#provide-inject) 允许祖先组件为其所有后代充当依赖项注入器，而不管组件层次结构有多深，只要它们在同一父链中。
 

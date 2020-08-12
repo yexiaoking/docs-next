@@ -2,25 +2,25 @@
 
 ## data
 
-- **Type:** `Function`
+- **类型：** `Function`
 
-- **Details:**
+- **详细：**
 
-  The function that returns a data object for the Vue instance. In `data`, we don't recommend to observe objects with their own stateful behavior like browser API objects and prototype properties. A good idea would be to have here just a plain object that represents component data.
+  返回Vue实例的data对象的函数。在 `data`中，我们不建议观察具有自身状态行为的对象，如浏览器API对象和原型property。一个好主意是这里只有一个表示组件data的普通对象。
 
-  Once observed, you can no longer add reactive properties to the root data object. It is therefore recommended to declare all root-level reactive properties upfront, before creating the instance.
+  一旦观察过，你就无法在根数据对象上添加响应式 property。因此推荐在创建实例之前，就声明所有的根级响应式 property。
 
-  After the instance is created, the original data object can be accessed as `vm.$data`. The Vue instance also proxies all the properties found on the data object, so `vm.a` will be equivalent to `vm.$data.a`.
+  实例创建之后，可以通过 `vm.$data` 访问原始数据对象。Vue 实例也代理了 data 对象上所有的 property，因此访问 `vm.a` 等价于访问 `vm.$data.a`。
 
-  Properties that start with `_` or `$` will **not** be proxied on the Vue instance because they may conflict with Vue's internal properties and API methods. You will have to access them as `vm.$data._property`.
+  以 `_` 或 `$` 开头的 property 不会被 Vue 实例代理，因为它们可能和 Vue 内置的 property、API 方法冲突。你可以使用例如 `vm.$data._property` 的方式访问这些 property。
 
-- **Example:**
+- **示例：**
 
   ```js
-  // direct instance creation
+  // 直接创建一个实例
   const data = { a: 1 }
 
-  // The object is added to a Vue instance
+  // 这个对象将添加到Vue实例中
   const vm = Vue.createApp({
     data() {
       return data
@@ -30,48 +30,48 @@
   console.log(vm.a) // => 1
   ```
 
-  Note that if you use an arrow function with the `data` property, `this` won't be the component's instance, but you can still access the instance as the function's first argument:
+  注意，如果你为 data property 使用了箭头函数，则 `this` 不会指向这个组件的实例，不过你仍然可以将其实例作为函数的第一个参数来访问。
 
   ```js
   data: vm => ({ a: vm.myProp })
   ```
 
-- **See also:** [Reactivity in Depth](../guide/reactivity.html)
+-  **也可以看看：** [深入响应式原理](../guide/reactivity.html)
 
 ## props
 
-- **Type:** `Array<string> | Object`
+- **类型：** `Array<string> | Object`
 
-- **Details:**
+- **详细：**
 
-  A list/hash of attributes that are exposed to accept data from the parent component. It has an Array-based simple syntax and an alternative Object-based syntax that allows advanced configurations such as type checking, custom validation and default values.
+  props 可以是数组或对象，用于接收来自父组件的数据。props 可以是简单的数组，或者使用对象作为替代，对象允许配置高级选项，如类型检测、自定义验证和设置默认值。
 
-  With Object-based syntax, you can use following options:
+  你可以基于对象的语法使用以下选项：
 
-  - `type`: can be one of the following native constructors: `String`, `Number`, `Boolean`, `Array`, `Object`, `Date`, `Function`, `Symbol`, any custom constructor function or an array of those. Will check if a prop has a given type, and will throw a warning if it doesn't. [More information](../guide/component-props.html#prop-types) on prop types.
+  - `type`: 可以是下列原生构造函数中的一种：`String`、`Number`、`Boolean`、`Array`、`Object`、`Date`、`Function`、`Symbol`、任何自定义构造函数、或上述内容组成的数组。会检查一个 prop 是否是给定的类型，否则抛出警告。Prop 类型的[更多信息在此](../guide/component-props.html#prop-types)。
   - `default`: `any`
-    Specifies a default value for the prop. If the prop is not passed, this value will be used instead. Object or array defaults must be returned from a factory function.
+    为该 prop 指定一个默认值。如果该 prop 没有被传入，则换做用这个值。对象或数组的默认值必须从一个工厂函数返回
   - `required`: `Boolean`
-    Defines if the prop is required. In a non-production environment, a console warning will be thrown if this value is truthy and the prop is not passed.
+    义该 prop 是否是必填项。在非生产环境中，如果这个值为 truthy 且该 prop 没有被传入的，则一个控制台警告将会被抛出。
   - `validator`: `Function`
-    Custom validator function that takes the prop value as the sole argument. In a non-production environment, a console warning will be thrown if this function returns a falsy value (i.e. the validation fails). You can read more about prop validation [here](../guide/component-props.html#prop-validation).
+    自定义验证函数会将该 prop 的值作为唯一的参数代入。在非生产环境下，如果该函数返回一个 falsy 的值 (也就是验证失败)，一个控制台警告将会被抛出。你可以在[这里](../guide/component-props.html#prop-validation) 查阅更多 prop 验证的相关信息。
 
-- **Example:**
+- **示例：**
 
   ```js
   const app = Vue.createApp({})
 
-  // simple syntax
+  // 简单语法
   app.component('props-demo-simple', {
     props: ['size', 'myMessage']
   })
 
-  // object syntax with validation
+  // 对象语法，提供验证
   app.component('props-demo-advanced', {
     props: {
-      // type check
+      // 类型检查
       height: Number,
-      // type check plus other validations
+      // 类型检查 + 其他验证
       age: {
         type: Number,
         default: 0,
@@ -84,17 +84,17 @@
   })
   ```
 
-- **See also:** [Props](../guide/component-props.html)
+-  **也可以看看：** [Props](../guide/component-props.html)
 
 ## computed
 
-- **Type:** `{ [key: string]: Function | { get: Function, set: Function } }`
+- **类型：** `{ [key: string]: Function | { get: Function, set: Function } }`
 
-- **Details:**
+- **详细：**
 
-  Computed properties to be mixed into the Vue instance. All getters and setters have their `this` context automatically bound to the Vue instance.
+  计算属性将被混入到 Vue 实例中。所有 getter 和 setter 的 `this` 上下文自动地绑定为 Vue 实例。
 
-  Note that if you use an arrow function with a computed property, `this` won't be the component's instance, but you can still access the instance as the function's first argument:
+  注意，如果你为一个计算属性使用了箭头函数，则 `this` 不会指向这个组件的实例，不过你仍然可以将其实例作为函数的第一个参数来访问。
 
   ```js
   computed: {
@@ -102,9 +102,9 @@
   }
   ```
 
-  Computed properties are cached, and only re-computed on reactive dependency changes. Note that if a certain dependency is out of the instance's scope (i.e. not reactive), the computed property will **not** be updated.
+  计算属性的结果会被缓存，除非依赖的响应式 property 变化才会重新计算。注意，如果某个依赖 (比如非响应式 property) 在该实例范畴之外，则计算属性是不会被更新的。
 
-- **Example:**
+- **示例：**
 
   ```js
   const app = Vue.createApp({
@@ -112,11 +112,11 @@
       return { a: 1 }
     },
     computed: {
-      // get only
+      // 仅读取
       aDouble() {
         return this.a * 2
       },
-      // both get and set
+      // 读取和设置
       aPlus: {
         get() {
           return this.a + 1
@@ -135,21 +135,21 @@
   console.log(vm.aDouble) // => 4
   ```
 
-- **See also:** [Computed Properties](../guide/computed.html)
+-  **也可以看看：** [Computed Properties](../guide/computed.html)
 
 ## methods
 
-- **Type:** `{ [key: string]: Function }`
+- **类型：** `{ [key: string]: Function }`
 
-- **Details:**
+- **详细：**
 
-  Methods to be mixed into the Vue instance. You can access these methods directly on the VM instance, or use them in directive expressions. All methods will have their `this` context automatically bound to the Vue instance.
+  methods 将被混入到 Vue 实例中。可以直接通过 VM 实例访问这些方法，或者在指令表达式中使用。方法中的 `this` 自动绑定为 Vue 实例。
 
-  :::tip Note
-  Note that **you should not use an arrow function to define a method** (e.g. `plus: () => this.a++`). The reason is arrow functions bind the parent context, so `this` will not be the Vue instance as you expect and `this.a` will be undefined.
+  :::tip 注意
+  注意，**不应该使用箭头函数来定义 method 函数** (例如 plus: () => this.a++)。理由是箭头函数绑定了父级作用域的上下文，所以 `this` 将不会按照期望指向 Vue 实例，`this.a` 将是 undefined。
   :::
 
-- **Example:**
+- **示例：**
 
   ```js
   const app = Vue.createApp({
@@ -169,17 +169,17 @@
   console.log(vm.a) // => 2
   ```
 
-- **See also:** [Event Handling](../guide/events.html)
+-  **也可以看看：** [Event Handling](../guide/events.html)
 
 ## watch
 
-- **Type:** `{ [key: string]: string | Function | Object | Array}`
+- **类型：** `{ [key: string]: string | Function | Object | Array}`
 
-- **Details:**
+- **详细：**
 
-  An object where keys are expressions to watch and values are the corresponding callbacks. The value can also be a string of a method name, or an Object that contains additional options. The Vue instance will call `$watch()` for each entry in the object at instantiation.
+一个对象，键是需要观察的表达式，值是对应回调函数。值也可以是方法名，或者包含选项的对象。Vue 实例将会在实例化时调用 `$watch()`，遍历 watch 对象的每一个 property。
 
-- **Example:**
+- **示例：**
 
   ```js
   const app = Vue.createApp({
@@ -198,23 +198,23 @@
       a(val, oldVal) {
         console.log(`new: ${val}, old: ${oldVal}`)
       },
-      // string method name
+      // 字符串方法名
       b: 'someMethod',
-      // the callback will be called whenever any of the watched object properties change regardless of their nested depth
+      // 该回调会在任何被侦听的对象的 property 改变时被调用，不论其被嵌套多深
       c: {
         handler(val, oldVal) {
           console.log('c changed')
         },
         deep: true
       },
-      // the callback will be called immediately after the start of the observation
+      // 该回调将会在侦听开始之后被立即调用
       e: {
         handler(val, oldVal) {
           console.log('e changed')
         },
         immediate: true
       },
-      // you can pass array of callbacks, they will be called one-by-one
+      // 你可以传入回调数组，它们会被逐一调用
       f: [
         'handle1',
         function handle2(val, oldVal) {
@@ -243,28 +243,30 @@
   vm.a = 3 // => new: 3, old: 1
   ```
 
-  ::: tip Note
-  Note that _you should not use an arrow function to define a watcher_ (e.g. `searchQuery: newValue => this.updateAutocomplete(newValue)`). The reason is arrow functions bind the parent context, so `this` will not be the Vue instance as you expect and `this.updateAutocomplete` will be undefined.
+  ::: tip 注意
+  注意，*不应该使用箭头函数来定义 watcher 函数* (例如 `searchQuery: newValue => this.updateAutocomplete(newValue)`)。理由是箭头函数绑定了父级作用域的上下文，所以 `this` 将不会按照期望指向 Vue 实例，`this.updateAutocomplete` 将是 undefined。
+
   :::
 
-- **See also:** [Watchers](../guide/computed.html#watchers)
+-  **也可以看看：** [Watchers](../guide/computed.html#watchers)
 
 ## emits
 
-- **Type:** `Array<string> | Object`
+- **类型：** `Array<string> | Object`
 
-- **Details:**
+- **详细：**
 
-  A list/hash of custom events that can be emitted from the component. It has an Array-based simple syntax and an alternative Object-based syntax that allows to configure an event validation.
+  emits可以是数组或对象，从组件触发自定义事件，emits可以是简单的数组，或者对象作为替代，允许配置和事件验证。
 
-  In Object-based syntax, the value of each property can either be `null` or a validator function. The validation function will receive the additional arguments passed to the `$emit` call. For example, if `this.$emit('foo', 1)` is called, the corresponding validator for `foo` will receive the argument `1`. The validator function should return a boolean to indicate whether the event arguments are valid.
 
-- **Usage:**
+  在对象语法中，每个property的值可以为 `null` 或 验证函数。验证函数将接收传递给 `$emit` 调用的其他参数。如果 `this.$emit('foo',1)` 被调用，`foo`的相应验证函数将接收参数 `1`。验证函数应返回布尔值，以表示事件参数是否有效。
+
+- **用法：**
 
   ```js
   const app = Vue.createApp({})
 
-  // Array syntax
+  // 数组语法
   app.component('todo-item', {
     emits: ['check'],
     created() {
@@ -272,13 +274,13 @@
     }
   })
 
-  // Object syntax
+  // 对象语法
   app.component('reply-form', {
     emits: {
-      // no validation
+      // 没有验证函数
       click: null,
 
-      // with validation
+      // 带有验证函数
       submit: payload => {
         if (payload.email && payload.password) {
           return true
@@ -291,9 +293,9 @@
   })
   ```
   
-  ::: tip Note
-  Events listed in the `emits` option **will not** be inherited by the root element of the component and also will be excluded from the `$attrs` property.
+  ::: tip 注意
+  `emits` 选项中列出的事件**不会** 从组件的根元素继承，也将从 `$attrs` property中移除。
   :::
   
 
-- **See also:** [Attribute Inheritance](../guide/component-props.html#non-prop-attributes)
+-  **也可以看看：** [Attribute 继承](../guide/component-props.html#non-prop-attributes)

@@ -2,39 +2,39 @@
 
 ## $data
 
-- **Type:** `Object`
+- **类型：** `Object`
 
-- **Details:**
+- **详细：**
 
   The data object that the Vue instance is observing. The Vue instance proxies access to the properties on its data object.
 
-- **See also:** [Options / Data - data](./options-data.html#data-2)
+-  **也可以看看：** [Options / Data - data](./options-data.html#data-2)
 
 ## $props
 
-- **Type:** `Object`
+- **类型：** `Object`
 
-- **Details:**
+- **详细：**
 
   An object representing the current props a component has received. The Vue instance proxies access to the properties on its props object.
 
 ## $el
 
-- **Type:** `any`
+- **类型：** `any`
 
 - **Read only**
 
-- **Details:**
+- **详细：**
 
   The root DOM element that the Vue instance is managing.
 
 ## $options
 
-- **Type:** `Object`
+- **类型：** `Object`
 
 - **Read only**
 
-- **Details:**
+- **详细：**
 
   The instantiation options used for the current Vue instance. This is useful when you want to include custom properties in the options:
 
@@ -49,37 +49,37 @@
 
 ## $parent
 
-- **Type:** `Vue instance`
+- **类型：** `Vue instance`
 
 - **Read only**
 
-- **Details:**
+- **详细：**
 
   The parent instance, if the current instance has one.
 
 ## $root
 
-- **Type:** `Vue instance`
+- **类型：** `Vue instance`
 
 - **Read only**
 
-- **Details:**
+- **详细：**
 
   The root Vue instance of the current component tree. If the current instance has no parents this value will be itself.
 
 ## $slots
 
-- **Type:** `{ [name: string]: (...args: any[]) => Array<VNode> | undefined }`
+- **类型：** `{ [name: string]: (...args: any[]) => Array<VNode> | undefined }`
 
 - **Read only**
 
-- **Details:**
+- **详细：**
 
   Used to programmatically access content [distributed by slots](../guide/component-basics.html#content-distribution-with-slots). Each [named slot](../guide/component-slots.html#named-slots) has its own corresponding property (e.g. the contents of `v-slot:foo` will be found at `this.$slots.foo()`). The `default` property contains either nodes not included in a named slot or contents of `v-slot:default`.
 
   Accessing `this.$slots` is most useful when writing a component with a [render function](../guide/render-function.html).
 
-- **Example:**
+- **示例：**
 
   ```html
   <blog-post>
@@ -113,34 +113,34 @@
   })
   ```
 
-- **See also:**
+-  **也可以看看：**
   - [`<slot>` Component](built-in-components.html#slot)
   - [Content Distribution with Slots](../guide/component-basics.html#content-distribution-with-slots)
   - [Render Functions - Slots](..guide/render-function.html#slots)
 
 ## $refs
 
-- **Type:** `Object`
+- **类型：** `Object`
 
 - **Read only**
 
-- **Details:**
+- **详细：**
 
 An object of DOM elements and component instances, registered with [`ref` attributes](../guide/component-template-refs.html).
 
-- **See also:**
+-  **也可以看看：**
   - [Template refs](../guide/component-template-refs.html)
   - [Special Attributes - ref](./special-attributes.md#ref)
 
 ## $attrs
 
-- **Type:** `Object`
+- **类型：** `Object`
 
 - **Read only**
 
-- **Details:**
+- **详细：**
 
 Contains parent-scope attribute bindings and events that are not recognized (and extracted) as component [props](./options-data.html#props) or [custom events](./options-data.html#emits). When a component doesn't have any declared props or custom events, this essentially contains all parent-scope bindings, and can be passed down to an inner component via `v-bind="$attrs"` - useful when creating higher-order components.
 
-- **See also:**
+-  **也可以看看：**
   - [Non-Prop Attributes](../guide/component-props.html#non-prop-attributes)
