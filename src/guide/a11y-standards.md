@@ -17,7 +17,7 @@
 ### WCAG 2.1 四大指导原则 (缩写 POUR):
 
 - [可感知性](https://www.w3.org/TR/WCAG21/#perceivable)
-  - 用户必须能够感知所呈现的信息
+  - 用户必须能够感知所渲染的信息
 - [可操作性](https://www.w3.org/TR/WCAG21/#operable)
   - 表单界面，控件和导航是可操作的
 - [可理解性](https://www.w3.org/TR/WCAG21/#understandable)

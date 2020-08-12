@@ -213,7 +213,7 @@ const obj = reactive({
 
 ## 侦听器
 
-每个组件实例都有一个相应的侦听器实例，该实例将在组件渲染期间 “触摸” 的所有property记录为依赖项。 稍后，当触发依赖项的setter时，它会通知侦听器，从而使得组件重新呈现。
+每个组件实例都有一个相应的侦听器实例，该实例将在组件渲染期间 “触摸” 的所有property记录为依赖项。 稍后，当触发依赖项的setter时，它会通知侦听器，从而使得组件重新渲染。
 
 <div class="reactivecontent">
   <iframe height="500" style="width: 100%;" scrolling="no" title="Second Reactivity with Proxies in Vue 3 Explainer" src="https://codepen.io/sdras/embed/GRJZddR?height=500&theme-id=light&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
