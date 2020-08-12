@@ -137,7 +137,7 @@ const MyComponent = defineComponent({
 
 ### 参数
 
-对于基本用法，`defineAsyncComponent` 可以接受返回 `Promise` 的工厂函数。从服务器检索组件定义后，应调用Promise的 `resolve`回调。您也可以调用 `reject(reason)`，以表示加载失败。
+对于基本用法，`defineAsyncComponent` 可以接受返回 `Promise` 的工厂函数。从服务器检索组件定义后，应调用Promise的 `resolve`回调。你也可以调用 `reject(reason)`，以表示加载失败。
 
 ```js
 import { defineAsyncComponent } from 'vue'

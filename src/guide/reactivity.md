@@ -48,7 +48,7 @@ val1 = 3
   </iframe>
 </div>
 
-这需要稍微地了解下[proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) 的某些知识！ 因此，让我们深入一点。 关于proxy的文献很多，但是你真正需要知道的是**proxy是一个包含另一个对象或函数并允许您对其进行拦截的对象。**
+这需要稍微地了解下[proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) 的某些知识！ 因此，让我们深入一点。 关于proxy的文献很多，但是你真正需要知道的是**proxy是一个包含另一个对象或函数并允许你对其进行拦截的对象。**
 
 我们像这样使用它: `new Proxy(target, handler)`
 
@@ -228,4 +228,4 @@ const obj = reactive({
 
 [//]: # 'TODO: Insert diagram'
 
-> 如果您使用的是Vue2.x及以下版本，你可能会对这些版本中存在的一些更改检测警告感兴趣, [在这里进行更详细的探讨](change-detection.md).
+> 如果你使用的是Vue2.x及以下版本，你可能会对这些版本中存在的一些更改检测警告感兴趣, [在这里进行更详细的探讨](change-detection.md).

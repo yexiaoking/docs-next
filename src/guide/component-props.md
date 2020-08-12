@@ -285,7 +285,7 @@ app.component('date-picker', {
 1. 当 attribute 需要应用于根节点之外的其他元素时
 2. 当一个组件有多个根节点时
 
-通过将 `inheritAttrs` 选项设置为 `false`，您可以访问组件的 `$attrs` property，该属性包括组件 `props` 和 `emits` 属性中未包含的所有属性（例如，`class`、`style`、`v-on`侦听器等）。
+通过将 `inheritAttrs` 选项设置为 `false`，你可以访问组件的 `$attrs` property，该属性包括组件 `props` 和 `emits` 属性中未包含的所有属性（例如，`class`、`style`、`v-on`侦听器等）。
 
 #### 单根节点
 

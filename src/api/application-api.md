@@ -205,7 +205,7 @@ app.mount('#my-app')
   The `provide` option should be an object or a function that returns an object. This object contains the properties that are available for injection into its descendants. You can use ES2015 Symbols as keys in this object, but only in environments that natively support `Symbol` and `Reflect.ownKeys`.
 
   
- `provide` 选项应该是对象或返回对象的函数。 该对象包含可用于注入其子代的属性。 您可以在对象中使用ES2015符号作为键，但只能在原生支持 `Symbol` 和 `Reflect.ownKeys` 的环境中使用。
+ `provide` 选项应该是对象或返回对象的函数。 该对象包含可用于注入其子代的属性。 你可以在对象中使用ES2015符号作为键，但只能在原生支持 `Symbol` 和 `Reflect.ownKeys` 的环境中使用。
 
  > 注意： `provide` 和 `inject` 绑定是没有响应式。 这是故意的。 但是，如果向下传递观察到的对象，则该对象上的property确实保持响应式。
 

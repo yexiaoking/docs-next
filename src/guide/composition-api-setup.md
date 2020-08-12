@@ -16,7 +16,7 @@
 
 ### Props
 
-`setup` 函数中的第一个参数是 `props` 参数。正如您在标准组件中所期望的那样，`setup` 函数中的 `props` 是响应式的，当传入新的prop时，它将被更新。
+`setup` 函数中的第一个参数是 `props` 参数。正如你在标准组件中所期望的那样，`setup` 函数中的 `props` 是响应式的，当传入新的prop时，它将被更新。
 
 ```js
 // MyBook.vue
@@ -70,7 +70,7 @@ export default {
 }
 ```
 
-因为它是一个普通的JavaScript对象，也就是说，它不是被动的，这意味着您可以安全地对 `context` 使用ES6解构。
+因为它是一个普通的JavaScript对象，也就是说，它不是被动的，这意味着你可以安全地对 `context` 使用ES6解构。
 
 ```js
 // MyBook.vue

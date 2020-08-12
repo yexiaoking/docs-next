@@ -1,7 +1,7 @@
 # 生命周期钩子
 
 :::tip 注意
-All lifecycle hooks automatically have their `this` context bound to the instance, so that you can access data, computed properties, and methods. This means **you should not use an arrow function to define a lifecycle method** (e.g. `created: () => this.fetchTodos()`). The reason is arrow functions bind the parent context, so `this` will not be the Vue instance as you expect and `this.fetchTodos` will be undefined.
+所有的生命周期钩子自动绑定 `this` 上下文到实例中，因此你可以访问数据，对 property 和方法进行运算。这意味着 **你不能使用箭头函数来定义一个生命周期方法** (例如 `created: () => this.fetchTodos()`) 。这是因为箭头函数绑定了父上下文，因此 `this` 与你期待的 Vue 实例不同， `this.fetchTodos` 的行为未定义。
 :::
 
 ## beforeCreate
@@ -10,9 +10,9 @@ All lifecycle hooks automatically have their `this` context bound to the instanc
 
 - **详细：**
 
-  Called synchronously immediately after the instance has been initialized, before data observation and event/watcher setup.
+  在实例初始化之后，数据观测 (data observer) 和 event/watcher 事件配置之前被调用。
 
--  **参考** [Lifecycle Diagram](../guide/instance.html#lifecycle-diagram)
+-  **参考** [生命周期图示](../guide/instance.html#lifecycle-diagram)
 
 ## created
 
@@ -20,9 +20,9 @@ All lifecycle hooks automatically have their `this` context bound to the instanc
 
 - **详细：**
 
-  Called synchronously after the instance is created. At this stage, the instance has finished processing the options which means the following have been set up: data observation, computed properties, methods, watch/event callbacks. However, the mounting phase has not been started, and the `$el` property will not be available yet.
+  在实例创建完成后被立即调用。在这一步，实例已完成以下的配置：数据观测 (data observer)，property 和方法的运算，watch/event 事件回调。然而，挂载阶段还没开始，`$el` property 目前尚不可用。
 
--  **参考** [Lifecycle Diagram](../guide/instance.html#lifecycle-diagram)
+-  **参考** [生命周期图示](../guide/instance.html#lifecycle-diagram)
 
 ## beforeMount
 
@@ -30,11 +30,11 @@ All lifecycle hooks automatically have their `this` context bound to the instanc
 
 - **详细：**
 
-  Called right before the mounting begins: the `render` function is about to be called for the first time.
+  在挂载开始之前被调用：相关的 `render` 函数首次被调用。
 
-  **This hook is not called during server-side rendering.**
+  **该钩子在服务器端渲染期间不被调用。**
 
--  **参考** [Lifecycle Diagram](../guide/instance.html#lifecycle-diagram)
+-  **参考** [生命周期图示](../guide/instance.html#lifecycle-diagram)
 
 ## mounted
 
@@ -42,22 +42,21 @@ All lifecycle hooks automatically have their `this` context bound to the instanc
 
 - **详细：**
 
-  Called after the instance has been mounted, where element, passed to `Vue.createApp({}).mount()` is replaced by the newly created `vm.$el`. If the root instance is mounted to an in-document element, `vm.$el` will also be in-document when `mounted` is called.
+  实例被挂载后调用，这时 `Vue.createApp({}).mount()` 被新创建的 `vm.$el` 替换了。如果根实例挂载到了一个文档内的元素上，当 mounted 被调用时 `vm.$el` 也在文档内。
 
-  Note that `mounted` does **not** guarantee that all child components have also been mounted. If you want to wait until the entire view has been rendered, you can use [vm.\$nextTick](../api/instance-methods.html#nexttick) inside of `mounted`:
+  注意 `mounted` 不会保证所有的子组件也都一起被挂载。如果你希望等到整个视图都渲染完毕，可以在 `mounted` 内部使用 [vm.\$nextTick](../api/instance-methods.html#nexttick)：
 
   ```js
   mounted() {
     this.$nextTick(function () {
-      // Code that will run only after the
-      // entire view has been rendered
+      // 仅在渲染整个视图之后运行的代码
     })
   }
   ```
 
-  **This hook is not called during server-side rendering.**
+  **该钩子在服务器端渲染期间不被调用。**
 
--  **参考** [Lifecycle Diagram](../guide/instance.html#lifecycle-diagram)
+-  **参考** [生命周期图示](../guide/instance.html#lifecycle-diagram)
 
 ## beforeUpdate
 
@@ -65,11 +64,11 @@ All lifecycle hooks automatically have their `this` context bound to the instanc
 
 - **详细：**
 
-  Called when data changes, before the DOM is patched. This is a good place to access the existing DOM before an update, e.g. to remove manually added event listeners.
+  数据更新时调用，发生在虚拟 DOM 打补丁之前。这里适合在更新之前访问现有的 DOM，比如手动移除已添加的事件监听器。
 
-  **This hook is not called during server-side rendering, because only the initial render is performed server-side.**
+  **该钩子在服务器端渲染期间不被调用，因为只有初次渲染会在服务端进行。**
 
--  **参考** [Lifecycle Diagram](../guide/instance.html#lifecycle-diagram)
+-  **参考** [生命周期图示](../guide/instance.html#lifecycle-diagram)
 
 ## updated
 
@@ -77,24 +76,23 @@ All lifecycle hooks automatically have their `this` context bound to the instanc
 
 - **详细：**
 
-  Called after a data change causes the virtual DOM to be re-rendered and patched.
+  由于数据更改导致的虚拟 DOM 重新渲染和打补丁，在这之后会调用该钩子。
 
-  The component's DOM will have been updated when this hook is called, so you can perform DOM-dependent operations here. However, in most cases you should avoid changing state inside the hook. To react to state changes, it's usually better to use a [computed property](./options-data.html#computed) or [watcher](./options-data.html#watch) instead.
+  当这个钩子被调用时，组件 DOM 已经更新，所以你现在可以执行依赖于 DOM 的操作。然而在大多数情况下，你应该避免在此期间更改状态。如果要相应状态改变，通常最好使用[计算属性](./options-data.html#computed) 或 [watcher](./options-data.html#watch) 取而代之。
 
-  Note that `updated` does **not** guarantee that all child components have also been re-rendered. If you want to wait until the entire view has been re-rendered, you can use [vm.\$nextTick](../api/instance-methods.html#nexttick) inside of `updated`:
+  注意， `updated` **不会**保证所有的子组件也都一起被重绘。如果你希望等到整个视图都重绘完毕，可以在 `updated` 里使用 [vm.\$nextTick](../api/instance-methods.html#nexttick)：
 
   ```js
   updated() {
     this.$nextTick(function () {
-      // Code that will run only after the
-      // entire view has been re-rendered
+      // 仅在渲染整个视图之后运行的代码
     })
   }
   ```
 
-  **This hook is not called during server-side rendering.**
+  **该钩子在服务器端渲染期间不被调用。**
 
--  **参考** [Lifecycle Diagram](../guide/instance.html#lifecycle-diagram)
+-  **参考** [生命周期图示](../guide/instance.html#lifecycle-diagram)
 
 ## activated
 
@@ -102,12 +100,12 @@ All lifecycle hooks automatically have their `this` context bound to the instanc
 
 - **详细：**
 
-  Called when a kept-alive component is activated.
+  被 keep-alive 缓存的组件激活时调用。
 
-  **This hook is not called during server-side rendering.**
+  **该钩子在服务器端渲染期间不被调用。**
 
 -  **参考**
-  - [Dynamic Components - keep-alive](../guide/component-basics.html#keep-alive)
+  - [动态组件 - keep-alive](../guide/component-basics.html#keep-alive)
 
 ## deactivated
 
@@ -115,12 +113,12 @@ All lifecycle hooks automatically have their `this` context bound to the instanc
 
 - **详细：**
 
-  Called when a kept-alive component is deactivated.
+  被 keep-alive 缓存的组件停用时调用。
 
-  **This hook is not called during server-side rendering.**
+  **该钩子在服务器端渲染期间不被调用。**
 
 -  **参考**
-  - [Dynamic Components - keep-alive](../guide/component-basics.html#keep-alive)
+  - [动态组件 - keep-alive](../guide/component-basics.html#keep-alive)
 
 ## beforeUnmount
 
@@ -128,11 +126,11 @@ All lifecycle hooks automatically have their `this` context bound to the instanc
 
 - **详细：**
 
-  Called right before a Vue instance is unmounted. At this stage the instance is still fully functional.
+  在卸载Vue实例之前调用。在这个阶段，实例仍然是完全正常的。
 
-  **This hook is not called during server-side rendering.**
+  **该钩子在服务器端渲染期间不被调用。**
 
--  **参考** [Lifecycle Diagram](../guide/instance.html#lifecycle-diagram)
+-  **参考** [生命周期图示](../guide/instance.html#lifecycle-diagram)
 
 ## unmounted
 
@@ -140,11 +138,11 @@ All lifecycle hooks automatically have their `this` context bound to the instanc
 
 - **详细：**
 
-  Called after a Vue instance has been unmounted. When this hook is called, all directives of the Vue instance have been unbound, all event listeners have been removed, and all child Vue instances have also been unmounted.
+  卸载Vue实例后调用。调用此钩子时，Vue实例的所有指令都被解除绑定，所有事件侦听器都被移除，所有子Vue实例被卸载。
 
-  **This hook is not called during server-side rendering.**
+  **该钩子在服务器端渲染期间不被调用。**
 
--  **参考** [Lifecycle Diagram](../guide/instance.html#lifecycle-diagram)
+-  **参考** [生命周期图示](../guide/instance.html#lifecycle-diagram)
 
 ## errorCaptured
 
@@ -152,21 +150,21 @@ All lifecycle hooks automatically have their `this` context bound to the instanc
 
 - **详细：**
 
-  Called when an error from any descendent component is captured. The hook receives three arguments: the error, the component instance that triggered the error, and a string containing information on where the error was captured. The hook can return `false` to stop the error from propagating further.
+  当捕获一个来自子孙组件的错误时被调用。此钩子会收到三个参数：错误对象、发生错误的组件实例以及一个包含错误来源信息的字符串。此钩子可以返回 `false` 以阻止该错误继续向上传播。
 
   :::tip
-  You can modify component state in this hook. However, it is important to have conditionals in your template or render function that short circuits other content when an error has been captured; otherwise the component will be thrown into an infinite render loop.
+  你可以在此钩子中修改组件的状态。因此在捕获错误时，在模板或渲染函数中有一个条件判断来绕过其它内容就很重要；不然该组件可能会进入一个无限的渲染循环。
   :::
 
-  **Error Propagation Rules**
+  **错误传播规则**
 
-  - By default, all errors are still sent to the global `config.errorHandler` if it is defined, so that these errors can still be reported to an analytics service in a single place.
+  - 默认情况下，如果全局的 `config.errorHandler` 被定义，所有的错误仍会发送它，因此这些错误仍然会向单一的分析服务的地方进行汇报。
+  
+  - 如果一个组件的继承或父级从属链路中存在多个 `errorCaptured` 钩子，则它们将会被相同的错误逐个唤起。
 
-  - If multiple `errorCaptured` hooks exist on a component's inheritance chain or parent chain, all of them will be invoked on the same error.
+  - 如果此 `errorCaptured` 钩子自身抛出了一个错误，则这个新错误和原本被捕获的错误都会发送给全局的 `config.errorHandler`。
 
-  - If the `errorCaptured` hook itself throws an error, both this error and the original captured error are sent to the global `config.errorHandler`.
-
-  - An `errorCaptured` hook can return `false` to prevent the error from propagating further. This is essentially saying "this error has been handled and should be ignored." It will prevent any additional `errorCaptured` hooks or the global `config.errorHandler` from being invoked for this error.
+  - 一个 `errorCaptured` 钩子能够返回 `false` 以阻止错误继续向上传播。本质上是说“这个错误已经被搞定了且应该被忽略”。它会阻止其它任何会被这个错误唤起的 `errorCaptured` 钩子和全局的 `config.errorHandler`。
 
 ## renderTracked
 
@@ -174,7 +172,7 @@ All lifecycle hooks automatically have their `this` context bound to the instanc
 
 - **详细：**
 
-  Called when virtual DOM re-render is tracked. The hook receives a `debugger event` as an argument. This event tells you what operation tracked the component and the target object and key of that operation.
+  跟踪虚拟DOM重新渲染时调用。钩子接收 `debugger event` 作为参数。此事件告诉你哪个操作跟踪了组件以及该操作的目标对象和键。
 
 - **用法：**
 
@@ -194,7 +192,7 @@ All lifecycle hooks automatically have their `this` context bound to the instanc
     },
     renderTracked({ key, target, type }) {
       console.log({ key, target, type })
-      /* This will be logged when component is rendered for the first time:
+      /* 当组件第一次渲染时，这将被记录下来:
       {
         key: "cart",
         target: {
@@ -220,7 +218,7 @@ All lifecycle hooks automatically have their `this` context bound to the instanc
 
 - **详细：**
 
-  Called when virtual DOM re-render is triggered.Similarly to [`renderTracked`](#rendertracked), receives a `debugger event` as an argument. This event tells you what operation triggered the re-rendering and the target object and key of that operation.
+  当虚拟DOM重新渲染为triggered.Similarly为[`renderTracked`](#rendertracked)，接收 `debugger event` 作为参数。此事件告诉你是什么操作触发了重新渲染，以及该操作的目标对象和键。
 
 - **用法：**
 
@@ -244,7 +242,7 @@ All lifecycle hooks automatically have their `this` context bound to the instanc
     methods: {
       addToCart() {
         this.cart += 1
-        /* This will cause renderTriggered call
+        /* 这将导致renderTriggered调用
           {
             key: "cart",
             target: {
