@@ -1,4 +1,4 @@
-# 计算和帧听
+# 计算和观察
 
 > 本节使用 [单文件组件](single-file-component.html) 语法作为代码示例
 

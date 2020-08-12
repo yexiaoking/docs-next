@@ -2,7 +2,7 @@
 
 ## $watch
 
-- **Arguments:**
+- **参数：**
 
   - `{string | Function} source`
   - `{Function | Object} callback`
@@ -10,11 +10,11 @@
     - `{boolean} deep`
     - `{boolean} immediate`
 
-- **Returns:** `{Function} unwatch`
+- **返回：** `{Function} unwatch`
 
 - **用法：**
 
-  Watch a reactive property or a computed function on the Vue instance for changes. The callback gets called with the new value and the old value for the given property. We can only pass top-level `data`, `prop`, or `computed` property name as a string. For more complex expressions or nested properties, use a function instead.
+  帧听 Vue 实例上的响应式 property 或函数计算结果的变化。回调函数得到的参数为新值和旧值。我们只能将顶层的 `data`、 `prop` 或 `computed` property名作为字符串传递。对于更复杂的表达式，用一个函数取代。
 
 - **示例：**
 
@@ -31,34 +31,34 @@
       }
     },
     created() {
-      // top-level property name
+      // 顶层property 名
       this.$watch('a', (newVal, oldVal) => {
-        // do something
+        // 做点什么
       })
 
-      // function for watching a single nested property
+      // 用于监视单个嵌套property 的函数
       this.$watch(
         () => this.c.d,
         (newVal, oldVal) => {
-          // do something
+          // 做点什么
         }
       )
 
-      // function for watching a complex expression
+      // 用于监视复杂表达式的函数
       this.$watch(
-        // every time the expression `this.a + this.b` yields a different result,
-        // the handler will be called. It's as if we were watching a computed
-        // property without defining the computed property itself
+        // 表达式 `this.a + this.b` 每次得出一个不同的结果时
+        // 处理函数都会被调用。
+        // 这就像监听一个未被定义的计算属性
         () => this.a + this.b,
         (newVal, oldVal) => {
-          // do something
+          // 做点什么
         }
       )
     }
   })
   ```
 
-  When watched value is an Object or Array, any changes to its properties or elements won't trigger the watcher because they reference the same Object/Array:
+  当帧听的值是一个对象或者数组时，对其属性或元素的任何更改都不会触发侦听器，因为它们引用相同的对象/数组：
 
   ```js
   const app = Vue.createApp({
@@ -80,8 +80,8 @@
       })
     },
     methods: {
-      // These methods won't trigger a watcher because we changed only a property of Object/Array,
-      // not the Object/Array itself
+      // 这些方法不会触发侦听器，因为我们只更改了Object/Array的一个property，
+      // 不是对象/数组本身
       changeArticleText() {
         this.article.text = 'Vue 3 is awesome'
       },
@@ -89,7 +89,7 @@
         this.comments.push('New comment')
       },
 
-      // These methods will trigger a watcher because we replaced Object/Array completely
+      // 这些方法将触发侦听器，因为我们完全替换了对象/数组
       changeWholeArticle() {
         this.article = { text: 'Vue 3 is awesome' }
       },
@@ -100,7 +100,7 @@
   })
   ```
 
-  `$watch` returns an unwatch function that stops firing the callback:
+  `$watch` 返回一个取消帧听函数，用来停止触发回调：
 
   ```js
   const app = Vue.createApp({
@@ -118,9 +118,9 @@
   unwatch()
   ```
 
-- **Option: deep**
+- **选项: deep**
 
-  To also detect nested value changes inside Objects, you need to pass in `deep: true` in the options argument. Note that you don't need to do so to listen for Array mutations.
+  为了发现对象内部值的变化，可以在选项参数中指定 `deep: true`。注意监听数组的变更不需要这么做。
 
   ```js
   vm.$watch('someObject', callback, {
@@ -130,21 +130,21 @@
   // callback is fired
   ```
 
-- **Option: immediate**
+- **选项：immediate**
 
-  Passing in `immediate: true` in the option will trigger the callback immediately with the current value of the expression:
+  在选项参数中指定 `immediate: true` 将立即以表达式的当前值触发回调：
 
   ```js
   vm.$watch('a', callback, {
     immediate: true
   })
-  // `callback` is fired immediately with current value of `a`
+  // 立即以 `a` 的当前值触发 `callback`
   ```
 
-  Note that with `immediate` option you won't be able to unwatch the given property on the first callback call.
+  注意，在带有 `immediate` 选项时，你不能在第一次回调时取消帧听给定的 property。
 
   ```js
-  // This will cause an error
+  // 这会导致报错
   const unwatch = vm.$watch(
     'value',
     function() {
@@ -155,7 +155,7 @@
   )
   ```
 
-  If you still want to call an unwatch function inside the callback, you should check its availability first:
+  如果你仍然希望在回调内部调用一个取消侦听的函数，你应该先检查其函数的可用性：
 
   ```js
   const unwatch = vm.$watch(
@@ -174,16 +174,16 @@
 
 ## $emit
 
-- **Arguments:**
+- **参数：**
 
   - `{string} eventName`
   - `[...args]`
 
-  Trigger an event on the current instance. Any additional arguments will be passed into the listener's callback function.
+  触发当前实例上的事件。附加参数都会传给监听器回调。
 
-- **Examples:**
+- **示例：**
 
-  Using `$emit` with only an event name:
+  只配合一个事件名使用 $emit：
 
   ```html
   <div id="emit-example-simple">
@@ -211,7 +211,7 @@
   app.mount('#emit-example-simple')
   ```
 
-  Using `$emit` with additional arguments:
+  配合额外的参数使用 `$emit` ：
 
   ```html
   <div id="emit-example-argument">
@@ -246,24 +246,24 @@
   ```
 
 -  **参考**
-  - [`emits` option](./options-data.html#emits)
-  - [Emitting a Value With an Event](../guide/component-basics.html#emitting-a-value-with-an-event)
+  - [`emits` 选项](./options-data.html#emits)
+  - [事件抛出一个值](../guide/component-basics.html#emitting-a-value-with-an-event)
 
 ## $forceUpdate
 
 - **用法：**
 
-  Force the Vue instance to re-render. Note it does not affect all child components, only the instance itself and child components with inserted slot content.
+  迫使 Vue 实例重新渲染。注意它仅仅影响实例本身和插入插槽内容的子组件，而不是所有子组件。
 
 ## $nextTick
 
-- **Arguments:**
+- **参数：**
 
   - `{Function} [callback]`
 
 - **用法：**
 
-  Defer the callback to be executed after the next DOM update cycle. Use it immediately after you've changed some data to wait for the DOM update. This is the same as the global `nextTick`, except that the callback's `this` context is automatically bound to the instance calling this method.
+  将回调延迟到下次 DOM 更新循环之后执行。在修改数据之后立即使用它，然后等待 DOM 更新。它跟全局方法 `nextTick` 一样，不同的是回调的 `this` 自动绑定到调用它的实例上。
 
 - **示例：**
 

@@ -153,15 +153,15 @@ yarn serve # or npm run serve
 |[/api/application-api.md](/src/api/application-api.md))|[@veaba](https://github.com/veaba)|-|- 翻译完成|
 |[/api/global-api.md](/src/api/global-api.md)|[@veaba](https://github.com/veaba)|-|- 翻译完成|
 |-|-|-|-|
-|[/api/options-data.md](/src/api/options-data.md)|<p>[from Vue 2](https://cn.vuejs.org/about.html)</p1> <p>[@veaba](https://github.com/veaba)</p>|-|完成翻译|
-|[/api/options-dom.md](/src/api/options-dom.md)|<p>[from Vue 2](https://cn.vuejs.org/about.html)</p1> <p>[@veaba](https://github.com/veaba)</p>|-|完成翻译|
-|[/api/options-lifecycle-hooks.md](/src/api/options-lifecycle-hooks.md)|<p>[from Vue 2](https://cn.vuejs.org/about.html)</p1> <p>[@veaba](https://github.com/veaba)</p>|-|完成翻译|
-|[/api/options-assets.md](/src/api/options-assets.md)|<p>[from Vue 2](https://cn.vuejs.org/about.html)</p1> <p>[@veaba](https://github.com/veaba)</p>|-|完成翻译|
-|[/api/options-composition.md](/src/api/options-composition.md)|<p>[from Vue 2](https://cn.vuejs.org/about.html)</p1> <p>[@veaba](https://github.com/veaba)</p>|-|完成翻译|
-|[/api/options-misc.md](/src/api/options-misc.md)|<p>[from Vue 2](https://cn.vuejs.org/about.html)</p1> <p>[@veaba](https://github.com/veaba)</p>|-|完成翻译|
+|[/api/options-data.md](/src/api/options-data.md)|[from Vue 2](https://cn.vuejs.org/about.html)、[@veaba](https://github.com/veaba)</p>|-|完成翻译|
+|[/api/options-dom.md](/src/api/options-dom.md)|[from Vue 2](https://cn.vuejs.org/about.html)、[@veaba](https://github.com/veaba)</p>|-|完成翻译|
+|[/api/options-lifecycle-hooks.md](/src/api/options-lifecycle-hooks.md)|[from Vue 2](https://cn.vuejs.org/about.html)、[@veaba](https://github.com/veaba)</p>|-|完成翻译|
+|[/api/options-assets.md](/src/api/options-assets.md)|[from Vue 2](https://cn.vuejs.org/about.html)、[@veaba](https://github.com/veaba)</p>|-|完成翻译|
+|[/api/options-composition.md](/src/api/options-composition.md)|[from Vue 2](https://cn.vuejs.org/about.html)、[@veaba](https://github.com/veaba)</p>|-|完成翻译|
+|[/api/options-misc.md](/src/api/options-misc.md)|[from Vue 2](https://cn.vuejs.org/about.html)、[@veaba](https://github.com/veaba)</p>|-|完成翻译|
 |-|-|-|-|
-|[/api/instance-properties.md](/src/api/instance-properties.md)||-||
-|[/api/instance-methods.md](/src/api/instance-methods.md)||-||
+|[/api/instance-properties.md](/src/api/instance-properties.md)|[from Vue 2](https://cn.vuejs.org/about.html)、[@veaba](https://github.com/veaba)</p>|-|完成翻译|
+|[/api/instance-methods.md](/src/api/instance-methods.md)|[from Vue 2](https://cn.vuejs.org/about.html)、[@veaba](https://github.com/veaba)</p>|-|完成翻译|
 |[/api/directives.md](/src/api/directives.md)||-||
 |[/api/special-attributes.md](/src/api/special-attributes.md)||-||
 |[/api/built-in-components.md](/src/api/built-in-components.md)||-||
