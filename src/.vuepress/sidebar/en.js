@@ -105,32 +105,32 @@ module.exports={
       title: 'Migration from Vue 2',
       collapsable: true,
       children: [
-        'en/migration/introduction',
-        'en/migration/async-components',
-        'en/migration/attribute-coercion',
-        'en/migration/custom-directives',
-        'en/migration/custom-elements-interop',
-        'en/migration/data-option',
-        'en/migration/events-api',
-        'en/migration/filters',
-        'en/migration/fragments',
-        'en/migration/functional-components',
-        'en/migration/global-api',
-        'en/migration/global-api-treeshaking',
-        'en/migration/inline-template-attribute',
-        'en/migration/keycode-modifiers',
-        'en/migration/render-function-api',
-        'en/migration/slots-unification',
-        'en/migration/v-model'
+        '/en/guide/migration/introduction',
+        '/en/guide/migration/async-components',
+        '/en/guide/migration/attribute-coercion',
+        '/en/guide/migration/custom-directives',
+        '/en/guide/migration/custom-elements-interop',
+        '/en/guide/migration/data-option',
+        '/en/guide/migration/events-api',
+        '/en/guide/migration/filters',
+        '/en/guide/migration/fragments',
+        '/en/guide/migration/functional-components',
+        '/en/guide/migration/global-api',
+        '/en/guide/migration/global-api-treeshaking',
+        '/en/guide/migration/inline-template-attribute',
+        '/en/guide/migration/keycode-modifiers',
+        '/en/guide/migration/render-function-api',
+        '/en/guide/migration/slots-unification',
+        '/en/guide/migration/v-model'
       ]
     },
     {
       title: 'Contribute to the Docs',
       collapsable: true,
       children: [
-        'en/contributing/writing-guide',
-        'en/contributing/doc-style-guide',
-        'en/contributing/translations'
+        '/en/guide/contributing/writing-guide',
+        '/en/guide/contributing/doc-style-guide',
+        '/en/guide/contributing/translations'
       ]
     }
   ],
