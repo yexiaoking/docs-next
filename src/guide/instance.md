@@ -116,7 +116,7 @@ vm.$data.a // => 1
 ```
 以后你可以在 [API 参考](../api/instance-properties.html) 中查阅到完整的实例 property 和方法的列表。
 
-## 实例声明周期钩子
+## 实例生命周期钩子
 
 每个 Vue 实例在被创建时都要经过一系列的初始化过程——例如，需要设置数据监听、编译模板、将实例挂载到 DOM 并在数据变化时更新 DOM 等。同时在这个过程中也会运行一些叫做**生命周期钩子**的函数，这给了用户在不同阶段添加自己的代码的机会。
 
@@ -143,7 +143,7 @@ Vue.createApp({
 :::
 
 
-## 声明周期图示
+## 生命周期图示
 
 下图展示了实例的生命周期。你不需要立马弄明白所有的东西，不过随着你的不断学习和使用，它的参考价值会越来越高。
 <img src="/images/lifecycle.png" width="840" height="auto" style="margin: 0px auto; display: block; max-width: 100%;" loading="lazy" alt="Vue实例的生命周期">

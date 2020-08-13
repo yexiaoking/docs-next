@@ -1,17 +1,17 @@
-# Composition API
+# 组合 API
 
-> This section uses [single-file component](../guide/single-file-component.html) syntax for code examples
+> 本节例子中代码使用的 [单文件组件](../guide/single-file-component.html) 语法
 
 ## `setup`
 
-A component option that is executed **before** the component is created, once the `props` are resolved, and serves as the entry point for composition API's
+一个组件选项，在创建组件**之前**执行，一旦 `props` 被解析，并作为组合API的入口点
 
-- **Arguments:**
+- **入参：**
 
   - `{Data} props`
   - `{SetupContext} context`
 
-- **Typing**:
+- **类型声明**:
 
 ```ts
 interface Data {
@@ -28,12 +28,12 @@ function setup(props: Data, context: SetupContext): Data
 ```
 
 ::: tip
-To get type inference for the arguments passed to `setup()`, the use of [defineComponent](global-api.html#definecomponent) is needed.
+若要获取传递给 `setup()` 的参数的类型推断，请使用[defineComponent](global-api.html#definecomponent) 是需要的。
 :::
 
-- **Example**
+- **示例：**
 
-  With the template:
+  使用模板:
 
   ```vue-html
   <!-- MyBook.vue -->
@@ -59,7 +59,7 @@ To get type inference for the arguments passed to `setup()`, the use of [defineC
   </script>
   ```
 
-  With render function:
+  使用渲染函数：
 
   ```js
   // MyBook.vue
@@ -70,17 +70,17 @@ To get type inference for the arguments passed to `setup()`, the use of [defineC
     setup() {
       const readersNumber = ref(0)
       const book = reactive({ title: 'Vue 3 Guide' })
-      // Please note that we need to explicitly expose ref value here
+      // 请注意，我们需要在这里显式地暴露ref值
       return () => h('div', [readersNumber.value, book.title])
     }
   }
   ```
 
-- **See also**: [Composition API `setup`](,,/guide/composition-api-setup.html)
+- **参考**: [Composition API `setup`](,,/guide/composition-api-setup.html)
 
-## Lifecycle Hooks
+## 生命周期钩子
 
-Lifecycle hooks can be registered with directly-imported `onX` functions:
+可以使用直接导入的 `onX` 函数注册生命周期钩子：
 
 ```js
 import { onMounted, onUpdated, onUnmounted } from 'vue'
@@ -100,11 +100,11 @@ const MyComponent = {
 }
 ```
 
-These lifecycle hook registration functions can only be used synchronously during [`setup()`](#setup), since they rely on internal global state to locate the current active instance (the component instance whose `setup()` is being called right now). Calling them without a current active instance will result in an error.
+这些生命周期钩子注册函数只能在 [`setup()`](#setup) 期间同步使用，因为它们依赖于内部全局状态来定位当前活动实例（此时正在调用其 `setup()` 的组件实例）。在没有当前活动实例的情况下调用它们将导致错误。
 
-The component instance context is also set during the synchronous execution of lifecycle hooks, so watchers and computed properties created inside synchronously inside lifecycle hooks are also automatically tore down when the component unmounts.
+组件实例上下文也是在生命周期钩子的同步执行期间设置的，因此在生命周期钩子内同步创建的侦听器和计算属性也会在组件卸载时自动删除。
 
-- **Mapping between Options API Lifecycle Options and Composition API**
+**选项API生命周期选项和组合API之间的映射**
 
   - ~~`beforeCreate`~~ -> use `setup()`
   - ~~`created`~~ -> use `setup()`
@@ -118,13 +118,13 @@ The component instance context is also set during the synchronous execution of l
   - `renderTracked` -> `onRenderTracked`
   - `renderTriggered` -> `onRenderTriggered`
 
-- **See also**: [Composition API lifecycle hooks](../guide/composition-api-lifecycle-hooks.html)
+- **参考**: [组合API 生命周期钩子](../guide/composition-api-lifecycle-hooks.html)
 
 ## Provide / Inject
 
-`provide` and `inject` enables dependency injection. Both can only be called during [`setup()`](#setup) with a current active instance.
+`provide` 和 `inject` 启用依赖注入。只有在使用当前活动实例的 [`setup()`](#setup) 期间才能调用这两者。
 
-- **Typing**:
+- **类型声明**:
 
 ```ts
 interface InjectionKey<T> extends Symbol {}
@@ -137,24 +137,24 @@ function inject<T>(key: InjectionKey<T> | string): T | undefined
 function inject<T>(key: InjectionKey<T> | string, defaultValue: T): T
 ```
 
-Vue provides an `InjectionKey` interface which is a generic type that extends `Symbol`. It can be used to sync the type of the injected value between the provider and the consumer:
+Vue提供了一个 `InjectionKey` 接口，该接口是扩展 `Symbol` 的泛型类型。它可用于在提供者和消费者之间同步注入值的类型：
 
 ```ts
 import { InjectionKey, provide, inject } from 'vue'
 
 const key: InjectionKey<string> = Symbol()
 
-provide(key, 'foo') // providing non-string value will result in error
+provide(key, 'foo') // 提供非字符串值将导致错误
 
-const foo = inject(key) // type of foo: string | undefined
+const foo = inject(key) // foo 的类型: string | undefined
 ```
 
-If using string keys or non-typed symbols, the type of the injected value will need to be explicitly declared:
+如果使用字符串 key 或非类型化 symbols ，则需要显式声明注入值的类型：
 
 ```ts
 const foo = inject<string>('foo') // string | undefined
 ```
 
-- **See also**:
+- **参考**:
   - [Provide / Inject](../guide/component-provide-inject.html)
-  - [Composition API Provide / Inject](../guide/composition-api-provide-inject.html)
+  - [组合 API Provide / Inject](../guide/composition-api-provide-inject.html)

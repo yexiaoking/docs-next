@@ -1,4 +1,4 @@
-# Basic Reactivity APIs
+# 响应式基础 API
 
 > 本节例子中代码使用的 [单文件组件](../guide/single-file-component.html) 语法
 

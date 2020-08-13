@@ -1,10 +1,10 @@
-# Computed and watch
+# Computed 与 watch
 
-> This section uses [single-file component](../guide/single-file-component.html) syntax for code examples
+> 本节例子中代码使用的 [单文件组件](../guide/single-file-component.html) 语法
 
 ## `computed`
 
-Takes a getter function and returns an immutable reactive [ref](./refs-api.html#ref) object for the returned value from the getter.
+使用getter函数，并为从getter返回的值返回一个不变的响应式[ref](./refs-api.html#ref)对象。
 
 ```js
 const count = ref(1)
@@ -15,7 +15,7 @@ console.log(plusOne.value) // 2
 plusOne.value++ // error
 ```
 
-Alternatively, it can take an object with `get` and `set` functions to create a writable ref object.
+或者，它可以使用具有 `get` 和 `set` 函数的对象来创建可写的ref对象。
 
 ```js
 const count = ref(1)
@@ -30,7 +30,7 @@ plusOne.value = 1
 console.log(count.value) // 0
 ```
 
-**Typing:**
+**类型声明：**
 
 ```ts
 // read-only
@@ -42,7 +42,7 @@ function computed<T>(options: { get: () => T; set: (value: T) => void }): Ref<T>
 
 ## `watchEffect`
 
-Runs a function immediately while reactively tracking its dependencies and re-runs it whenever the dependencies are changed.
+在响应式地跟踪其依赖项时立即运行一个函数，并在更改依赖项时重新运行它。
 
 ```js
 const count = ref(0)
@@ -56,7 +56,7 @@ setTimeout(() => {
 }, 100)
 ```
 
-**Typing:**
+**类型声明：**
 
 ```ts
 function watchEffect(
@@ -86,20 +86,21 @@ type StopHandle = () => void
 
 ## `watch`
 
-The `watch` API is the exact equivalent of the Options API [this.$watch](./instance-methods.html#watch) (and the corresponding [watch](./options-data.html#watch) option). `watch` requires watching a specific data source and applies side effects in a separate callback function. It also is lazy by default - i.e. the callback is only called when the watched source has changed.
+ `watch` API与选项 API [this.$watch](./instance-methods.html#watch)（以及相应的 [watch](./options-data.html#watch) 选项）完全等效。 `watch` 需要帧听特定的 data 源，并在单独的回调函数中副作用。默认情况下，它也是惰性的 —— 即，回调是 仅在帧听源发生更改时调用。
 
-- Compared to [watchEffect](#watcheffect), `watch` allows us to:
+- 与 [watchEffect](#watcheffect) 比较, `watch` 允许我们:
 
-  - Perform the side effect lazily;
-  - Be more specific about what state should trigger the watcher to re-run;
-  - Access both the previous and current value of the watched state.
+  - 惰性地执行副作用；
+  - 更具体地说明应触发侦听器重新运行的状态；
+  - 访问帧听状态的先前值和当前值。
 
-### Watching a Single Source
+### 帧听一个单一源
 
-A watcher data source can either be a getter function that returns a value, or directly a [ref](./refs-api.html#ref):
+侦听器data源可以是返回值的getter函数，也可以是 [ref](./refs-api.html#ref)：
+
 
 ```js
-// watching a getter
+// 帧听一个getter
 const state = reactive({ count: 0 })
 watch(
   () => state.count,
@@ -108,16 +109,16 @@ watch(
   }
 )
 
-// directly watching a ref
+// 直接帧听一个ref
 const count = ref(0)
 watch(count, (count, prevCount) => {
   /* ... */
 })
 ```
 
-### Watching Multiple Sources
+### 帧听多个源
 
-A watcher can also watch multiple sources at the same time using an array:
+侦听器还可以使用数组同时帧听多个源：
 
 ```js
 watch([fooRef, barRef], ([foo, bar], [prevFoo, prevBar]) => {
@@ -125,14 +126,14 @@ watch([fooRef, barRef], ([foo, bar], [prevFoo, prevBar]) => {
 })
 ```
 
-### Shared Behavior with `watchEffect`
+### 与 `watchEffect` 共享行为
 
-`watch` shares behavior with [`watchEffect`](#watcheffect) in terms of [manual stoppage](#stopping-the-watcher), [side effect invalidation](#side-effect-invalidation) (with `onInvalidate` passed to the callback as the 3rd argument instead), [flush timing](#effect-flush-timing) and [debugging](#watcher-debugging).
+`watch` 与 [`watchEffect`](#watcheffect) 在 [手动停止](stopping-the-watcher) ，[副作用无效](side-effect-invalidation)（将 `onInvalidate` 作为第三个参数传递给回调），[flush timing](#effect-flush-timing) 和 [debugging](#watcher-debugging)。
 
-**Typing:**
+**类型声明：**
 
 ```ts
-// wacthing single source
+// 帧听单一源
 function watch<T>(
   source: WatcherSource<T>,
   callback: (
@@ -143,7 +144,7 @@ function watch<T>(
   options?: WatchOptions
 ): StopHandle
 
-// watching multiple sources
+// 帧听多个源
 function watch<T extends WatcherSource<unknown>[]>(
   sources: T
   callback: (
@@ -160,11 +161,11 @@ type MapSources<T> = {
   [K in keyof T]: T[K] extends WatcherSource<infer V> ? V : never
 }
 
-// see `watchEffect` typing for shared options
+// 参见 `watchEffect` 类型声明共享选项
 interface WatchOptions extends WatchEffectOptions {
   immediate?: boolean // default: false
   deep?: boolean
 }
 ```
 
-**See also**: [`watch` guide](../guide/reactivity-computed-watchers.html#watch)
+**参考**: [`watch` 指南](../guide/reactivity-computed-watchers.html#watch)
