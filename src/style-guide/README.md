@@ -81,7 +81,7 @@ export default {
 
 在你提交的代码中，prop 的定义应该尽量详细，至少需要指定其类型。
 
-::: 详解
+::: details 详解
 细致的[prop 定义](https://vuejs.org/v2/guide/components.html#Prop-Validation) 有两个好处:
 
 - 它们写明了组件的 API，所以很容易看懂组件的用法；
@@ -132,7 +132,7 @@ props: {
 
 在组件上总是必须用 `key` 配合 `v-for`，以便维护内部组件及其子树的状态。甚至在元素上维护可预测的行为，比如动画中的[对象固化 (object constancy)](https://bost.ocks.org/mike/constancy/)，也是一种好的做法。
 
-::: 详解
+::: details 详解
 假设你有一个待办事项列表：
 
 ``` js
@@ -196,7 +196,7 @@ data() {
 
 - 为了避免渲染本应该被隐藏的列表 (比如 `v-for="user in users" v-if="shouldShowUsers"`)。这种情形下，请将 `v-if` 移动至容器元素上 (比如 `ul`、`ol`
 
-::: 详解
+::: details 详解
 
 当 Vue 处理指令时，`v-for` 比 `v-if` 具有更高的优先级，所以这个模板：
 
@@ -345,7 +345,7 @@ computed: {
 
 这让覆写内部样式更容易：使用了常人可理解的 class 名称且没有太高的选择器优先级，而且不太会导致冲突。
 
-::: 详解
+::: details 详解
 如果你和其他开发者一起开发一个大型工程，或有时引入三方 HTML/CSS (比如来自 Auth0)，设置一致的作用域会确保你的样式只会运用在它们想要作用的组件上。
 
 不止要使用 `scoped` attribute，使用唯一的 class 名可以帮你确保那些三方库的 CSS 不会运用在你自己的 HTML 上。比如许多工程都使用了 `button`、`btn` 或 `icon` class 名，所以即便你不使用类似 BEM 的策略，添加一个 app 专属或组件专属的前缀 (比如 `ButtonClose-icon`) 也可以提供很多保护。
@@ -600,7 +600,7 @@ components/
 
 **应用特定样式和约定的基础组件 (也就是展示类的、无逻辑的或无状态的组件) 应该全部以一个特定的前缀开头，比如 `Base`、`App` 或 `V`。**
 
-::: 详解
+::: details 详解
 
 这些组件为你的应用奠定了一致的基础样式和行为。它们可能**只**包括：
 
@@ -772,7 +772,7 @@ components/
 
 **组件名应该以高级别的 (通常是一般化描述的) 单词开头，以描述性的修饰词结尾。**
 
-::: 详解
+::: details 详解
 你可能会疑惑：
 
 > “为什么我们给组件命名时不多遵从自然语言呢？”
@@ -941,7 +941,7 @@ PascalCase 相比 kebab-case 有一些优势：
 
 **JS/[JSX](../guide/render-function.html#JSX) 中的组件名应该始终是 PascalCase 的，尽管在较为简单的应用中只使用 `app.component` 进行全局组件注册时，可以使用 kebab-case 字符串。**
 
-::: 详解
+::: details 详解
 
 在 JavaScript 中，PascalCase 是类和构造函数 (本质上任何可以产生多份不同实例的东西) 的命名约定。Vue 组件也有多份实例，所以同样使用 PascalCase 是有意义的。额外的好处是，在 JSX (和模板) 里使用 PascalCase 使得代码的读者更容易分辨 Vue 组件和 HTML 元素。
 
@@ -1146,7 +1146,7 @@ computed: {
 
 **应该把复杂计算属性分割为尽可能多的更简单的 property。**
 
-::: 详解
+::: details 详解
 更简单、命名得当的计算属性是这样的：
 
 - __易于测试__
@@ -1537,7 +1537,7 @@ computed: {
 
 在 `scoped` 样式中，类选择器比元素选择器更好，因为大量使用元素选择器是很慢的。
 
-::: 详解
+::: details 详解
 
 为了给样式设置作用域，Vue 会为元素添加一个独一无二的 attribute，例如 `data-v-f3f3eg9`。然后修改选择器，使得在匹配选择器的元素中，只有带这个 attribute 才会真正生效 (比如 `button[data-v-f3f3eg9]`)。
 
@@ -1577,7 +1577,7 @@ button {
 ```
 </div>
 
-### 隐性的父子组件通信 <sup data-p="d">谨慎使用/sup>
+### 隐性的父子组件通信 <sup data-p="d">谨慎使用</sup>
 
 **应该优先通过 prop 和事件进行父子组件之间的通信，而不是 `this.$parent` 或变更 prop。**
 
@@ -1670,7 +1670,7 @@ app.component('TodoItem', {
 ```
 </div>
 
-### 非 Flux 的全局状态管理 <sup data-p="d">谨慎使用/sup>
+### 非 Flux 的全局状态管理 <sup data-p="d">谨慎使用</sup>
 
 **应该优先通过 [Vuex](https://github.com/vuejs/vuex) 管理全局状态，而不是通过 `this.$root` 或一个全局事件总线。**
 
