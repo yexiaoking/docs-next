@@ -4,7 +4,7 @@ module.exports = [
       ariaLabel: '文档菜单',
       items: [
         { text: '教程', link: '/guide/introduction' },
-        { text: '风格指南', link: '/style-guide/' }
+        { text: '风格指南', link: '/style-guide/' },
       ]
     },
     { text: 'API Reference', link: '/api/application-config' },
@@ -39,5 +39,8 @@ module.exports = [
           ]
         }
       ]
+    },
+    {
+      text: '关于', link: '/about'
     }
   ]

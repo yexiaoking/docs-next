@@ -1,4 +1,4 @@
-# Provide / Inject
+# 提供/注入
 
 > 本指南假定你已经阅读了[Composition API简介](composition-api-introduction.html) 和[响应式基础](reactivity-fundamentals.html)。如果你不熟悉组合API，请先阅读这篇文章。
 

@@ -1,4 +1,4 @@
-# render函数 API
+# 渲染函数 API
 
 ## 概览
 

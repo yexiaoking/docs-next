@@ -16,15 +16,15 @@ actionButtons:
     icon: fa fa-github
     target: _blank
 features:
-  - title: Approachable
-    details: Already know HTML, CSS and JavaScript? Read the guide and start building things in no time!
-  - title: Versatile
-    details: An incrementally adoptable ecosystem that scales between a library and a full-featured framework.
-  - title: Performant
+  - title: 易用
+    details: 已经会了 HTML、CSS、JavaScript？即刻阅读指南开始构建应用！
+  - title: 灵活
+    details: 不断繁荣的生态系统，可以在一个库和一套完整框架之间自如伸缩。
+  - title: 高效
     details: |
-      20KB min+gzip Runtime<br>
-      Blazing Fast Virtual DOM<br>
-      Minimal Optimization Efforts
+      20kB min+gzip 运行大小<br>
+      超快虚拟 DOM<br>
+      最省心的优化
 footer: |
   Released under the <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener">MIT License</a><br>
   Copyright © 2014-2020 Evan You
