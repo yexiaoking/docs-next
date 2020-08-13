@@ -188,7 +188,7 @@ Easing 是在动画中传达深度的重要方式。动画新手最常犯的一�
 </p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-Easing也可以传达动画素材的质量。 以这支笔为例，你认为哪个球硬而哪个软？
+Easing也可以传达动画素材的质量。 以下面的Pen为例，你认为哪个球硬而哪个软？
 
 <p class="codepen" data-height="500" data-theme-id="39028" data-default-tab="result" data-user="sdras" data-slug-hash="zxJWBJ" data-preview="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Bouncing Ball Demo">
   <span>See the Pen <a href="https://codepen.io/sdras/pen/zxJWBJ">

@@ -7,52 +7,52 @@ module.exports={
       title: 'Essentials',
       collapsable: false,
       children: [
-        '/guide/installation',
-        '/guide/introduction',
-        '/guide/instance',
-        '/guide/template-syntax',
-        '/guide/computed',
-        '/guide/class-and-style',
-        '/guide/conditional',
-        '/guide/list',
-        '/guide/events',
-        '/guide/forms',
-        '/guide/component-basics'
+        '/en/guide/installation',
+        '/en/guide/introduction',
+        '/en/guide/instance',
+        '/en/guide/template-syntax',
+        '/en/guide/computed',
+        '/en/guide/class-and-style',
+        '/en/guide/conditional',
+        '/en/guide/list',
+        '/en/guide/events',
+        '/en/guide/forms',
+        '/en/guide/component-basics'
       ]
     },
     {
       title: 'Components In-Depth',
       collapsable: false,
       children: [
-        '/guide/component-registration',
-        '/guide/component-props',
-        '/guide/component-custom-events',
-        '/guide/component-slots',
-        '/guide/component-provide-inject',
-        '/guide/component-dynamic-async',
-        '/guide/component-template-refs',
-        '/guide/component-edge-cases'
+        '/en/guide/component-registration',
+        '/en/guide/component-props',
+        '/en/guide/component-custom-events',
+        '/en/guide/component-slots',
+        '/en/guide/component-provide-inject',
+        '/en/guide/component-dynamic-async',
+        '/en/guide/component-template-refs',
+        '/en/guide/component-edge-cases'
       ]
     },
     {
       title: 'Transitions & Animation',
       collapsable: false,
       children: [
-        '/guide/transitions-overview',
-        '/guide/transitions-enterleave',
-        '/guide/transitions-list',
-        '/guide/transitions-state'
+        '/en/guide/transitions-overview',
+        '/en/guide/transitions-enterleave',
+        '/en/guide/transitions-list',
+        '/en/guide/transitions-state'
       ]
     },
     {
       title: 'Reusability & Composition',
       collapsable: false,
       children: [
-        '/guide/mixins',
-        '/guide/custom-directive',
-        '/guide/teleport',
-        '/guide/render-function',
-        '/guide/plugins'
+        '/en/guide/mixins',
+        '/en/guide/custom-directive',
+        '/en/guide/teleport',
+        '/en/guide/render-function',
+        '/en/guide/plugins'
       ]
     },
     {
@@ -62,108 +62,108 @@ module.exports={
         {
           title: 'Reactivity',
           children: [
-            '/guide/reactivity',
-            '/guide/reactivity-fundamentals',
-            '/guide/reactivity-computed-watchers'
+            '/en/guide/reactivity',
+            '/en/guide/reactivity-fundamentals',
+            '/en/guide/reactivity-computed-watchers'
           ]
         },
         {
           title: 'Composition API',
           children: [
-            '/guide/composition-api-introduction',
-            '/guide/composition-api-setup',
-            '/guide/composition-api-lifecycle-hooks',
-            '/guide/composition-api-provide-inject',
-            '/guide/composition-api-template-refs'
+            '/en/guide/composition-api-introduction',
+            '/en/guide/composition-api-setup',
+            '/en/guide/composition-api-lifecycle-hooks',
+            '/en/guide/composition-api-provide-inject',
+            '/en/guide/composition-api-template-refs'
           ]
         },
-        '/guide/optimizations',
-        '/guide/change-detection'
+        '/en/guide/optimizations',
+        '/en/guide/change-detection'
       ]
     },
     {
       title: 'Tooling',
       collapsable: false,
-      children: ['/guide/single-file-component', '/guide/testing']
+      children: ['/en/guide/single-file-component', '/en/guide/testing']
     },
     {
       title: 'Scaling Up',
       collapsable: false,
-      children: ['/guide/routing', '/guide/state-management', '/guide/ssr']
+      children: ['/en/guide/routing', '/en/guide/state-management', '/en/guide/ssr']
     },
     {
       title: 'Accessibility',
       collapsable: false,
       children: [
-        '/guide/a11y-basics',
-        '/guide/a11y-semantics',
-        '/guide/a11y-standards',
-        '/guide/a11y-resources'
+        '/en/guide/a11y-basics',
+        '/en/guide/a11y-semantics',
+        '/en/guide/a11y-standards',
+        '/en/guide/a11y-resources'
       ]
     },
     {
       title: 'Migration from Vue 2',
       collapsable: true,
       children: [
-        'migration/introduction',
-        'migration/async-components',
-        'migration/attribute-coercion',
-        'migration/custom-directives',
-        'migration/custom-elements-interop',
-        'migration/data-option',
-        'migration/events-api',
-        'migration/filters',
-        'migration/fragments',
-        'migration/functional-components',
-        'migration/global-api',
-        'migration/global-api-treeshaking',
-        'migration/inline-template-attribute',
-        'migration/keycode-modifiers',
-        'migration/render-function-api',
-        'migration/slots-unification',
-        'migration/v-model'
+        'en/migration/introduction',
+        'en/migration/async-components',
+        'en/migration/attribute-coercion',
+        'en/migration/custom-directives',
+        'en/migration/custom-elements-interop',
+        'en/migration/data-option',
+        'en/migration/events-api',
+        'en/migration/filters',
+        'en/migration/fragments',
+        'en/migration/functional-components',
+        'en/migration/global-api',
+        'en/migration/global-api-treeshaking',
+        'en/migration/inline-template-attribute',
+        'en/migration/keycode-modifiers',
+        'en/migration/render-function-api',
+        'en/migration/slots-unification',
+        'en/migration/v-model'
       ]
     },
     {
       title: 'Contribute to the Docs',
       collapsable: true,
       children: [
-        'contributing/writing-guide',
-        'contributing/doc-style-guide',
-        'contributing/translations'
+        'en/contributing/writing-guide',
+        'en/contributing/doc-style-guide',
+        'en/contributing/translations'
       ]
     }
   ],
   api: [
-    '/api/application-config',
-    '/api/application-api',
-    '/api/global-api',
+    '/en/api/application-config',
+    '/en/api/application-api',
+    '/en/api/global-api',
     {
       title: 'Options',
       collapsable: false,
       children: [
-        '/api/options-data',
-        '/api/options-dom',
-        '/api/options-lifecycle-hooks',
-        '/api/options-assets',
-        '/api/options-composition',
-        '/api/options-misc'
+        '/en/api/options-data',
+        '/en/api/options-dom',
+        '/en/api/options-lifecycle-hooks',
+        '/en/api/options-assets',
+        '/en/api/options-composition',
+        '/en/api/options-misc'
       ]
     },
-    '/api/instance-properties',
-    '/api/instance-methods',
-    '/api/directives',
-    '/api/special-attributes',
-    '/api/built-in-components.md',
+    '/en/api/instance-properties',
+    '/en/api/instance-methods',
+    '/en/api/directives',
+    '/en/api/special-attributes',
+    '/en/api/built-in-components.md',
     {
       title: 'Reactivity API',
       collapsable: false,
       children: [
-        '/api/basic-reactivity',
-        '/api/refs-api',
-        '/api/computed-watch-api'
+        '/en/api/basic-reactivity',
+        '/en/api/refs-api',
+        '/en/api/computed-watch-api'
       ]
     },
-    '/api/composition-api'
+    '/en/api/composition-api'
   ]
 }

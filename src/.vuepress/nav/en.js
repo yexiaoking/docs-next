@@ -3,11 +3,11 @@ module.exports = [
       text: 'Docs',
       ariaLabel: 'Documentation Menu',
       items: [
-        { text: 'Guide', link: '/guide/introduction' },
-        { text: 'Style Guide', link: '/style-guide/' }
+        { text: 'Guide', link: '/en/guide/introduction' },
+        { text: 'Style Guide', link: '/en/style-guide/' }
       ]
     },
-    { text: 'API Reference', link: '/api/application-config' },
+    { text: 'API Reference', link: '/en/api/application-config' },
     {
       text: 'Ecosystem',
       items: [
@@ -15,10 +15,10 @@ module.exports = [
           text: 'Community',
           ariaLabel: 'Community Menu',
           items: [
-            { text: 'Team', link: '/community/team/' },
-            { text: 'Partners', link: '/community/partners/' },
-            { text: 'Join', link: '/community/join/' },
-            { text: 'Themes', link: '/community/themes/' }
+            { text: 'Team', link: '/en/community/team/' },
+            { text: 'Partners', link: '/en/community/partners/' },
+            { text: 'Join', link: '/en/community/join/' },
+            { text: 'Themes', link: '/en/community/themes/' }
           ]
         },
         {
