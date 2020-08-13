@@ -16,7 +16,7 @@ Vue 3 中文文档差不多有 3/4 —— 2/3 的比例内容来自Vue 2中文�
 
 ### 基础指南
 
-| 序号 | 对应文档文件名 | 中文标题 | 翻译贡献者 | 校对主要贡献者 |
+| <p style="width:40px">序号</p> | 对应文档文件名 | 中文标题 | 翻译贡献者 | 校对主要贡献者 |
 |------|--------------|----------|-----------|---------------|
 | 1 | [guide/installation.md](/src/guide/installation.md)                                        | 安装                  | [Vue 2](#vue-2-中文文档贡献)、[@veaba](https://github.com/veaba)|-|
 | 2 | [guide/introduction.md](/src/guide/introduction.md)                                        | 介绍                  | [Vue 2](#vue-2-中文文档贡献)、[@veaba](https://github.com/veaba)|-|
@@ -32,134 +32,134 @@ Vue 3 中文文档差不多有 3/4 —— 2/3 的比例内容来自Vue 2中文�
 
 ### 深入组件
 
-| 序号 | 对应文档文件名 | 中文标题 | 翻译贡献者 | 校对主要贡献者 |
+| <p style="width:40px">序号</p> | 对应文档文件名 | 中文标题 | 翻译贡献者 | 校对主要贡献者 |
 |------|--------------|----------|-----------|---------------|
-|12|[guide/component-registration.md](/src/guide/component-registration.md)                      | 组件注册|[Vue 2](#vue-2-中文文档贡献)、[@veaba](https://github.com/veaba)|
-|13|[guide/component-props.md](/src/guide/component-props.md)                                    | Props|[Vue 2](#vue-2-中文文档贡献)、[@veaba](https://github.com/veaba)|
-|14|[guide/component-custom-events.md](/src/guide/component-custom-events.md)                    | 自定义事件|[Vue 2](#vue-2-中文文档贡献)、[@veaba](https://github.com/veaba)|
-|15|[guide/component-slots.md](/src/guide/component-slots.md)                                    | 插槽|[Vue 2](#vue-2-中文文档贡献)、[@veaba](https://github.com/veaba)|
-|16|[guide/component-provide-inject.md](/src/guide/component-provide-inject.md)                  | 提供/注入|[Vue 2](#vue-2-中文文档贡献)、[@veaba](https://github.com/veaba)|
-|17|[guide/component-dynamic-async.md](/src/guide/component-dynamic-async.md)                    | 动态组件&异步组件|[Vue 2](#vue-2-中文文档贡献)、[@veaba](https://github.com/veaba)|
-|18|[guide/component-template-refs.md](/src/guide/component-template-refs.md)                    | 模板引用|[Vue 2](#vue-2-中文文档贡献)、[@veaba](https://github.com/veaba)|
-|19|[guide/component-edge-cases.md](/src/guide/component-edge-cases.md)                          | 处理边界情况|[Vue 2](#vue-2-中文文档贡献)、[@veaba](https://github.com/veaba)|
+| 12 |[guide/component-registration.md](/src/guide/component-registration.md)                      | 组件注册|[Vue 2](#vue-2-中文文档贡献)、[@veaba](https://github.com/veaba)|
+| 13 |[guide/component-props.md](/src/guide/component-props.md)                                    | Props|[Vue 2](#vue-2-中文文档贡献)、[@veaba](https://github.com/veaba)|
+| 14 |[guide/component-custom-events.md](/src/guide/component-custom-events.md)                    | 自定义事件|[Vue 2](#vue-2-中文文档贡献)、[@veaba](https://github.com/veaba)|
+| 15 |[guide/component-slots.md](/src/guide/component-slots.md)                                    | 插槽|[Vue 2](#vue-2-中文文档贡献)、[@veaba](https://github.com/veaba)|
+| 16 |[guide/component-provide-inject.md](/src/guide/component-provide-inject.md)                  | 提供/注入|[Vue 2](#vue-2-中文文档贡献)、[@veaba](https://github.com/veaba)|
+| 17 |[guide/component-dynamic-async.md](/src/guide/component-dynamic-async.md)                    | 动态组件&异步组件|[Vue 2](#vue-2-中文文档贡献)、[@veaba](https://github.com/veaba)|
+| 18 |[guide/component-template-refs.md](/src/guide/component-template-refs.md)                    | 模板引用|[Vue 2](#vue-2-中文文档贡献)、[@veaba](https://github.com/veaba)|
+| 19 |[guide/component-edge-cases.md](/src/guide/component-edge-cases.md)                          | 处理边界情况|[Vue 2](#vue-2-中文文档贡献)、[@veaba](https://github.com/veaba)|
 
 
 ### 过渡&动画
 
-|  序号  | 对应文档文件名 | 中文标题 | 翻译贡献者 | 校对主要贡献者 |
+| <p style="width:40px">序号</p>  | 对应文档文件名 | 中文标题 | 翻译贡献者 | 校对主要贡献者 |
 |--------|--------------|----------|-----------|---------------|
-|20|[guide/transitions-overview.md](/src/guide/transitions-overview.md)                          | 过渡&动画概述|[@veaba](https://github.com/veaba)|-|
-|21|[guide/transitions-enterleave.md](/src/guide/transitions-enterleave.md)                      | 进入过渡&离开过渡|[Vue 2](#vue-2-中文文档贡献)、[@veaba](https://github.com/veaba)|-|
-|22|[guide/transitions-list.md](/src/guide/transitions-list.md)                                  | 列表过渡|[Vue 2](#vue-2-中文文档贡献)、[@veaba](https://github.com/veaba)|-|
-|23|[guide/transitions-state.md](/src/guide/transitions-state.md)                                | 状态过渡|[Vue 2](#vue-2-中文文档贡献)、[@veaba](https://github.com/veaba)|-|
+| 20 |[guide/transitions-overview.md](/src/guide/transitions-overview.md)                          | 过渡&动画概述|[@veaba](https://github.com/veaba)|-|
+| 21 |[guide/transitions-enterleave.md](/src/guide/transitions-enterleave.md)                      | 进入过渡&离开过渡|[Vue 2](#vue-2-中文文档贡献)、[@veaba](https://github.com/veaba)|-|
+| 22 |[guide/transitions-list.md](/src/guide/transitions-list.md)                                  | 列表过渡|[Vue 2](#vue-2-中文文档贡献)、[@veaba](https://github.com/veaba)|-|
+| 23 |[guide/transitions-state.md](/src/guide/transitions-state.md)                                | 状态过渡|[Vue 2](#vue-2-中文文档贡献)、[@veaba](https://github.com/veaba)|-|
 
 ### 可复用性&组合
 
-|  序号  | 对应文档文件名 | 中文标题 | 翻译贡献者 | 校对主要贡献者 |
+| <p style="width:40px">序号</p>  | 对应文档文件名 | 中文标题 | 翻译贡献者 | 校对主要贡献者 |
 |--------|--------------|----------|-----------|---------------|
-|24|[guide/mixins.md](/src/guide/mixins.md)                                                      | 混入|[@veaba](https://github.com/veaba)|-|
-|25|[guide/custom-directive.md](/src/guide/custom-directive.md)                                  | 自定义指令|[@veaba](https://github.com/veaba)|-|
-|26|[guide/teleport.md](/src/guide/teleport.md)                                                  | 传入[@veaba](https://github.com/veaba)|-|
-|27|[guide/render-function.md](/src/guide/render-function.md)                                    | 渲染函数|[@veaba](https://github.com/veaba)|-|
-|28|[guide/plugins.md](/src/guide/plugins.md)                                                    | 插件|[@veaba](https://github.com/veaba)|-|
+| 24 |[guide/mixins.md](/src/guide/mixins.md)                                                      | 混入|[@veaba](https://github.com/veaba)|-|
+| 25 |[guide/custom-directive.md](/src/guide/custom-directive.md)                                  | 自定义指令|[@veaba](https://github.com/veaba)|-|
+| 26 |[guide/teleport.md](/src/guide/teleport.md)                                                  | 传入|[@veaba](https://github.com/veaba)|-|
+| 27 |[guide/render-function.md](/src/guide/render-function.md)                                    | 渲染函数|[@veaba](https://github.com/veaba)|-|
+| 28 |[guide/plugins.md](/src/guide/plugins.md)                                                    | 插件|[@veaba](https://github.com/veaba)|-|
 
 ### 高级指南
 
-|  序号  | 对应文档文件名 | 中文标题 | 翻译贡献者 | 校对主要贡献者 |
+| <p style="width:40px">序号</p>  | 对应文档文件名 | 中文标题 | 翻译贡献者 | 校对主要贡献者 |
 |--------|--------------|----------|-----------|---------------|
-|29|[guide/reactivity.md](/src/guide/reactivity.md)                                              | 响应式|[@veaba](https://github.com/veaba)|-|
-|30|[guide/reactivity-fundamentals.md](/src/guide/reactivity-fundamentals.md)                    | 响应式原理|[@veaba](https://github.com/veaba)|-|
-|31|[guide/reactivity-computed-watchers.md](/src/guide/reactivity-computed-watchers.md)          | 响应式计算和帧听|[@veaba](https://github.com/veaba)|-|
-|32|[guide/composition-api-introduction.md](/src/guide/composition-api-introduction.md)          | 介绍 |[@veaba](https://github.com/veaba)|-|
-|33|[guide/composition-api-setup.md](/src/guide/composition-api-setup.md)|Setup                  | 组件API setup|[@veaba](https://github.com/veaba)|-||
-|34|[guide/composition-api-lifecycle-hooks.md](/src/guide/composition-api-lifecycle-hooks.md)    | 生命周期钩子|[@veaba](https://github.com/veaba)|-|
-|35|[guide/composition-api-provide-inject.md](/src/guide/composition-api-provide-inject.md)      | 提供/注入|[@veaba](https://github.com/veaba)|-|
-|36|[guide/composition-api-template-refs.md](/src/guide/composition-api-template-refs.md)        | 模板引用|[@veaba](https://github.com/veaba)|-|
-|37|[guide/optimizations.md](/src/guide/optimizations.md)                                        | 渲染机制和优化|[@veaba](https://github.com/veaba)|-|
-|38|[guide/change-detection.md](/src/guide/change-detection.md)                                  | Vue2中的更改检测警告|[Vue2](https://cn.vuejs.org/about.html))|-|
+| 29 |[guide/reactivity.md](/src/guide/reactivity.md)                                              | 响应式|[@veaba](https://github.com/veaba)|-|
+| 30 |[guide/reactivity-fundamentals.md](/src/guide/reactivity-fundamentals.md)                    | 响应式原理|[@veaba](https://github.com/veaba)|-|
+| 31 |[guide/reactivity-computed-watchers.md](/src/guide/reactivity-computed-watchers.md)          | 响应式计算和帧听|[@veaba](https://github.com/veaba)|-|
+| 32 |[guide/composition-api-introduction.md](/src/guide/composition-api-introduction.md)          | 介绍 |[@veaba](https://github.com/veaba)|-|
+| 33 |[guide/composition-api-setup.md](/src/guide/composition-api-setup.md)                        | setup|[@veaba](https://github.com/veaba)|-|
+| 34 |[guide/composition-api-lifecycle-hooks.md](/src/guide/composition-api-lifecycle-hooks.md)    | 生命周期钩子|[@veaba](https://github.com/veaba)|-|
+| 35 |[guide/composition-api-provide-inject.md](/src/guide/composition-api-provide-inject.md)      | 提供/注入|[@veaba](https://github.com/veaba)|-|
+| 36 |[guide/composition-api-template-refs.md](/src/guide/composition-api-template-refs.md)        | 模板引用|[@veaba](https://github.com/veaba)|-|
+| 37 |[guide/optimizations.md](/src/guide/optimizations.md)                                        | 渲染机制和优化|[@veaba](https://github.com/veaba)|-|
+| 38 |[guide/change-detection.md](/src/guide/change-detection.md)                                  | Vue2中的更改检测警告|[Vue2](https://cn.vuejs.org/about.html))|-|
 
 ### 工具
 
-|  序号  | 对应文档文件名 | 中文标题 | 翻译贡献者 | 校对主要贡献者 |
+| <p style="width:40px">序号</p>  | 对应文档文件名 | 中文标题 | 翻译贡献者 | 校对主要贡献者 |
 |--------|--------------|----------|-----------|---------------|
-|39|[guide/single-file-component.md](/src/guide/single-file-component.md)                        | 单文件组件| [Vue2](https://cn.vuejs.org/about.html)|-|
-|40|[guide/testing.md](/src/guide/testing.md)                                                    | 测试|[@veaba](https://github.com/veaba)|-|
+| 39 |[guide/single-file-component.md](/src/guide/single-file-component.md)                        | 单文件组件| [Vue2](https://cn.vuejs.org/about.html)|-|
+| 40 |[guide/testing.md](/src/guide/testing.md)                                                    | 测试|[@veaba](https://github.com/veaba)|-|
 
 ### 规模化
-|  序号  | 对应文档文件名 | 中文标题 | 翻译贡献者 | 校对主要贡献者 |
+| <p style="width:40px">序号</p>  | 对应文档文件名 | 中文标题 | 翻译贡献者 | 校对主要贡献者 |
 |--------|--------------|----------|-----------|---------------|
-|40|[guide/routing.md](/src/guide/routing.md)                                                    | 路由|[Vue2](https://cn.vuejs.org/about.html)|-|
-|41|[guide/state-management.md](/src/guide/state-management.md)                                  | 状态管理|[Vue2](https://cn.vuejs.org/about.html)|-|
-|42|[guide/ssr.md](/src/guide/ssr.md)                                                            | 服务端渲染|[Vue2](https://cn.vuejs.org/about.html)|-|
+| 40 |[guide/routing.md](/src/guide/routing.md)                                                    | 路由|[Vue2](https://cn.vuejs.org/about.html)|-|
+| 41 |[guide/state-management.md](/src/guide/state-management.md)                                  | 状态管理|[Vue2](https://cn.vuejs.org/about.html)|-|
+| 42 |[guide/ssr.md](/src/guide/ssr.md)                                                            | 服务端渲染|[Vue2](https://cn.vuejs.org/about.html)|-|
 
 ### 无障碍
 
-|  序号  | 对应文档文件名 | 中文标题 | 翻译贡献者 | 校对主要贡献者 |
+| <p style="width:40px">序号</p>  | 对应文档文件名 | 中文标题 | 翻译贡献者 | 校对主要贡献者 |
 |--------|--------------|----------|-----------|---------------|
-|43|[guide/a11y-basics.md](/src/guide/a11y-basics.md)                                            | 基础 |[@veaba](https://github.com/veaba)|-|
-|44|[guide/a11y-semantics.md](/src/guide/a11y-semantics.md)                                      | 语义学 |[@veaba](https://github.com/veaba)|-|
-|45|[guide/a11y-standards.md](/src/guide/a11y-standards.md)                                      | 标准 |[@veaba](https://github.com/veaba)|-|
-|46|[guide/a11y-resources.md](/src/guide/a11y-resources.md)                                      | 资源 |[@veaba](https://github.com/veaba)|-|
+| 43 |[guide/a11y-basics.md](/src/guide/a11y-basics.md)                                            | 基础 |[@veaba](https://github.com/veaba)|-|
+| 44 |[guide/a11y-semantics.md](/src/guide/a11y-semantics.md)                                      | 语义学 |[@veaba](https://github.com/veaba)|-|
+| 45 |[guide/a11y-standards.md](/src/guide/a11y-standards.md)                                      | 标准 |[@veaba](https://github.com/veaba)|-|
+| 46 |[guide/a11y-resources.md](/src/guide/a11y-resources.md)                                      | 资源 |[@veaba](https://github.com/veaba)|-|
 
 ### 从Vue2迁移
 
-|  序号  | 对应文档文件名 | 中文标题 | 翻译贡献者 | 校对主要贡献者 |
+| <p style="width:40px">序号</p>  | 对应文档文件名 | 中文标题 | 翻译贡献者 | 校对主要贡献者 |
 |--------|--------------|----------|-----------|---------------|
-|47|[migration/introduction.md](/src/guide/migration/introduction.md)                            | 介绍              |[@veaba](https://github.com/veaba)|-|
-|48|[migration/async-components.md](/src/guide/migration/async-components.md)                    | 异步组件           |[@veaba](https://github.com/veaba)|-|
-|49|[migration/attribute-coercion.md](/src/guide/migration/attribute-coercion.md)                | attribute强制行为  |[@veaba](https://github.com/veaba)|-|
-|50|[migration/custom-directives.md](/src/guide/migration/custom-directives.md)                  | 自定义指令         |[@veaba](https://github.com/veaba)|-|
-|51|[migration/custom-elements-interop.md](/src/guide/migration/custom-elements-interop.md)      | 自定义元素交互变更  |[@veaba](https://github.com/veaba)|-|
-|52|[migration/data-option.md](/src/guide/migration/data-option.md)                              | Data选项           |[@veaba](https://github.com/veaba)|-|
-|53|[migration/events-api.md](/src/guide/migration/events-api.md)                                | 事件API            |[@veaba](https://github.com/veaba)|-|
-|54|[migration/filters.md](/src/guide/migration/filters.md)                                      | 过滤器             |[@veaba](https://github.com/veaba)|-|
-|55|[migration/fragments.md](/src/guide/migration/fragments.md)                                  | 片段               |[@veaba](https://github.com/veaba)|-|
-|56|[migration/functional-components.md](/src/guide/migration/functional-components.md)          | 功能组件           |[@veaba](https://github.com/veaba)|-|
-|57|[migration/global-api.md](/src/guide/migration/global-api.md)                                | 全局API            |[@veaba](https://github.com/veaba)|-|
-|58|[migration/global-api-treashaking.md](/src/guide/migration/global-api-treashaking.md)        | 全局API Treshaking |[@veaba](https://github.com/veaba)|-|
-|59|[migration/inline-template-modifiers.md](/src/guide/migration/inline-template-modifiers.md)  | 内链模板Atribute    |[@veaba](https://github.com/veaba)|-|
-|60|[migration/keycode-mofifiers.md](/src/guide/migration/keycode-mofifiers.md)                  | 按键修饰符          |[@veaba](https://github.com/veaba)|-|
-|61|[migration/render-function-api.md](/src/guide/migration/render-function-api.md)              | 渲染函数API         |[@veaba](https://github.com/veaba)|-|
-|62|[migration/slots-unification.md](/src/guide/migration/slots-unification.md)                  | slot统一           |[@veaba](https://github.com/veaba)|-|
-|63|[migration/v-model.md](/src/guide/migration/v-model.md)                                      | v-model            |[@veaba](https://github.com/veaba)|-|
+| 47 |[migration/introduction.md](/src/guide/migration/introduction.md)                            | 介绍              |[@veaba](https://github.com/veaba)|-|
+| 48 |[migration/async-components.md](/src/guide/migration/async-components.md)                    | 异步组件           |[@veaba](https://github.com/veaba)|-|
+| 49 |[migration/attribute-coercion.md](/src/guide/migration/attribute-coercion.md)                | attribute强制行为  |[@veaba](https://github.com/veaba)|-|
+| 50 |[migration/custom-directives.md](/src/guide/migration/custom-directives.md)                  | 自定义指令         |[@veaba](https://github.com/veaba)|-|
+| 51 |[migration/custom-elements-interop.md](/src/guide/migration/custom-elements-interop.md)      | 自定义元素交互变更  |[@veaba](https://github.com/veaba)|-|
+| 52 |[migration/data-option.md](/src/guide/migration/data-option.md)                              | Data选项           |[@veaba](https://github.com/veaba)|-|
+| 53 |[migration/events-api.md](/src/guide/migration/events-api.md)                                | 事件API            |[@veaba](https://github.com/veaba)|-|
+| 54 |[migration/filters.md](/src/guide/migration/filters.md)                                      | 过滤器             |[@veaba](https://github.com/veaba)|-|
+| 55 |[migration/fragments.md](/src/guide/migration/fragments.md)                                  | 片段               |[@veaba](https://github.com/veaba)|-|
+| 56 |[migration/functional-components.md](/src/guide/migration/functional-components.md)          | 功能组件           |[@veaba](https://github.com/veaba)|-|
+| 57 |[migration/global-api.md](/src/guide/migration/global-api.md)                                | 全局API            |[@veaba](https://github.com/veaba)|-|
+| 58 |[migration/global-api-treashaking.md](/src/guide/migration/global-api-treashaking.md)        | 全局API Treshaking |[@veaba](https://github.com/veaba)|-|
+| 59 |[migration/inline-template-modifiers.md](/src/guide/migration/inline-template-modifiers.md)  | 内链模板Atribute    |[@veaba](https://github.com/veaba)|-|
+| 60 |[migration/keycode-mofifiers.md](/src/guide/migration/keycode-mofifiers.md)                  | 按键修饰符          |[@veaba](https://github.com/veaba)|-|
+| 61 |[migration/render-function-api.md](/src/guide/migration/render-function-api.md)              | 渲染函数API         |[@veaba](https://github.com/veaba)|-|
+| 62 |[migration/slots-unification.md](/src/guide/migration/slots-unification.md)                  | slot统一           |[@veaba](https://github.com/veaba)|-|
+| 63 |[migration/v-model.md](/src/guide/migration/v-model.md)                                      | v-model            |[@veaba](https://github.com/veaba)|-|
 
 
 ### 贡献文档
 
-|  序号  | 对应文档文件名 | 中文标题 | 翻译贡献者 | 校对主要贡献者 |
+| <p style="width:40px">序号</p>  | 对应文档文件名 | 中文标题 | 翻译贡献者 | 校对主要贡献者 |
 |--------|--------------|----------|-----------|---------------|
-|64|[contributing/writing-guide.md](/src/guide/contributing/writing-guide.md)                     | Vue文档编写指南   | [@veaba](https://github.com/veaba)|-|
-|65|[contributing/doc-style-guide.md](/src/guide/contributing/doc-style-guide.md)                 | 文档风格指南      | [@veaba](https://github.com/veaba)|-|
-|66|[contributing/translations.md](/src/guide/contributing/translations.md)                       | 翻译             | [@veaba](https://github.com/veaba)|-|
+| 64 |[contributing/writing-guide.md](/src/guide/contributing/writing-guide.md)                     | Vue文档编写指南   | [@veaba](https://github.com/veaba)|-|
+| 65 |[contributing/doc-style-guide.md](/src/guide/contributing/doc-style-guide.md)                 | 文档风格指南      | [@veaba](https://github.com/veaba)|-|
+| 66 |[contributing/translations.md](/src/guide/contributing/translations.md)                       | 翻译             | [@veaba](https://github.com/veaba)|-|
 
 ### API 
 
-|  序号  | 对应文档文件名 | 中文标题 | 翻译贡献者 | 校对主要贡献者 |
+| <p style="width:40px">序号</p>  | 对应文档文件名 | 中文标题 | 翻译贡献者 | 校对主要贡献者 |
 |--------|--------------|----------|-----------|---------------|
-|67|[api/application-config.md](/src/api/application-config.md)                                  | 应用配置 | [Vue2](https://cn.vuejs.org/about.html)|-|
-|68|[api/application-api.md](/src/api/application-api.md))                                       | 应用API | [@veaba](https://github.com/veaba)|-|
-|69|[api/global-api.md](/src/api/global-api.md)                                                  | 全局API | [@veaba](https://github.com/veaba)|-|
-|70|[api/options-data.md](/src/api/options-data.md)                                              | 选项Data | [Vue2](https://cn.vuejs.org/about.html)、[@veaba](https://github.com/veaba)|-|
-|71|[api/options-dom.md](/src/api/options-dom.md)                                                | 选项DOM| [Vue2](https://cn.vuejs.org/about.html)、[@veaba](https://github.com/veaba)|-|
-|72|[api/options-lifecycle-hooks.md](/src/api/options-lifecycle-hooks.md)                        | 选项生命周期钩子| [Vue2](https://cn.vuejs.org/about.html)、[@veaba](https://github.com/veaba)|-|
-|73|[api/options-assets.md](/src/api/options-assets.md)                                          | 选项资产 | [Vue2](https://cn.vuejs.org/about.html)、[@veaba](https://github.com/veaba)|-|
-|74|[api/options-composition.md](/src/api/options-composition.md)                                | 选项组合| [Vue2](https://cn.vuejs.org/about.html)、[@veaba](https://github.com/veaba)|-|
-|75|[api/options-misc.md](/src/api/options-misc.md)                                              | 选项其他 | [Vue2](https://cn.vuejs.org/about.html)、[@veaba](https://github.com/veaba)|-|
-|76|[api/instance-properties.md](/src/api/instance-properties.md)                                | 实例property | [Vue2](https://cn.vuejs.org/about.html)、[@veaba](https://github.com/veaba)|-|
-|77|[api/instance-methods.md](/src/api/instance-methods.md)                                      | 实例方法| [Vue2](https://cn.vuejs.org/about.html)、[@veaba](https://github.com/veaba)|-|
-|78|[api/directives.md](/src/api/directives.md)                                                  | 指令| [Vue2](https://cn.vuejs.org/about.html)|-|
-|79|[api/special-attributes.md](/src/api/special-attributes.md)                                  | 特殊指令| [Vue2](https://cn.vuejs.org/about.html)|-|
-|80|[api/built-in-components.md](/src/api/built-in-components.md)                                | 内置组件| [Vue2](https://cn.vuejs.org/about.html)、[@veaba](https://github.com/veaba)|-|
-|81|[api/basic-reactivity.md](/src/api/basic-reactivity.md)                                      | 基本响应式| [@veaba](https://github.com/veaba)|-|
-|82|[api/computed-watch-api.md](/src/api/computed-watch-api.md)                                  | 计算属性和帧听 API| [@veaba](https://github.com/veaba)|-|
-|84|[api/refs-api.md](/src/api/refs-api.md)                                                      | Refs API| [@veaba](https://github.com/veaba)|-|
-|85|[api/composition-api.md](/src/api/composition-api.md)                                        | 组合API | [@veaba](https://github.com/veaba)|-|
+| 67 |[api/application-config.md](/src/api/application-config.md)                                  | 应用配置 | [Vue2](https://cn.vuejs.org/about.html)|-|
+| 68 |[api/application-api.md](/src/api/application-api.md))                                       | 应用API | [@veaba](https://github.com/veaba)|-|
+| 69 |[api/global-api.md](/src/api/global-api.md)                                                  | 全局API | [@veaba](https://github.com/veaba)|-|
+| 70 |[api/options-data.md](/src/api/options-data.md)                                              | 选项Data | [Vue2](https://cn.vuejs.org/about.html)、[@veaba](https://github.com/veaba)|-|
+| 71 |[api/options-dom.md](/src/api/options-dom.md)                                                | 选项DOM| [Vue2](https://cn.vuejs.org/about.html)、[@veaba](https://github.com/veaba)|-|
+| 72 |[api/options-lifecycle-hooks.md](/src/api/options-lifecycle-hooks.md)                        | 选项生命周期钩子| [Vue2](https://cn.vuejs.org/about.html)、[@veaba](https://github.com/veaba)|-|
+| 73 |[api/options-assets.md](/src/api/options-assets.md)                                          | 选项资产 | [Vue2](https://cn.vuejs.org/about.html)、[@veaba](https://github.com/veaba)|-|
+| 74 |[api/options-composition.md](/src/api/options-composition.md)                                | 选项组合| [Vue2](https://cn.vuejs.org/about.html)、[@veaba](https://github.com/veaba)|-|
+| 75 |[api/options-misc.md](/src/api/options-misc.md)                                              | 选项其他 | [Vue2](https://cn.vuejs.org/about.html)、[@veaba](https://github.com/veaba)|-|
+| 76 |[api/instance-properties.md](/src/api/instance-properties.md)                                | 实例property | [Vue2](https://cn.vuejs.org/about.html)、[@veaba](https://github.com/veaba)|-|
+| 77 |[api/instance-methods.md](/src/api/instance-methods.md)                                      | 实例方法| [Vue2](https://cn.vuejs.org/about.html)、[@veaba](https://github.com/veaba)|-|
+| 78 |[api/directives.md](/src/api/directives.md)                                                  | 指令| [Vue2](https://cn.vuejs.org/about.html)|-|
+| 79 |[api/special-attributes.md](/src/api/special-attributes.md)                                  | 特殊指令| [Vue2](https://cn.vuejs.org/about.html)|-|
+| 80 |[api/built-in-components.md](/src/api/built-in-components.md)                                | 内置组件| [Vue2](https://cn.vuejs.org/about.html)、[@veaba](https://github.com/veaba)|-|
+| 81 |[api/basic-reactivity.md](/src/api/basic-reactivity.md)                                      | 基本响应式| [@veaba](https://github.com/veaba)|-|
+| 82 |[api/computed-watch-api.md](/src/api/computed-watch-api.md)                                  | 计算属性和帧听 API| [@veaba](https://github.com/veaba)|-|
+| 83 |[api/refs-api.md](/src/api/refs-api.md)                                                      | Refs API| [@veaba](https://github.com/veaba)|-|
+| 84 |[api/composition-api.md](/src/api/composition-api.md)                                        | 组合API | [@veaba](https://github.com/veaba)|-|
 
 ### 风格指南
 
-|  序号  | 对应文档文件名 | 中文标题 | 翻译贡献者 | 校对主要贡献者 |
+| <p style="width:40px">序号</p>  | 对应文档文件名 | 中文标题 | 翻译贡献者 | 校对主要贡献者 |
 |--------|--------------|----------|-----------|---------------|
-|86|[/style-guide/README.md](/src/style-guide/README.md)                                          | 风格指南 | [Vue2](https://cn.vuejs.org/about.html)|-|
+| 85 |[/style-guide/README.md](/src/style-guide/README.md)                                          | 风格指南 | [Vue2](https://cn.vuejs.org/about.html)|-|
 
 <p style="border-top:1px dotted #42B983">
 
