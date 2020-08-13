@@ -64,25 +64,16 @@ yarn serve # or npm run serve
 
 - [术语翻译约定.md](https://github.com/vuejs/cn.vuejs.org/wiki)
 
-
-
-## 进度&贡献
-
-
 ## 引用与参考
 
-- 原[vue2 中文文档.md](https://cn.vuejs.org)
-- 原[vue 2 英文文档.md](https://vuejs.org)
-- 原[vue 3 英文文档.md](https://v3.vuejs.org)
-
-
-## Writing
-
-See the [Vue Docs Writing Guide.md](https://v3.vuejs.org/guide/writing-guide.html) for our rules and recommendations on writing and maintaining documentation.
-
-> The docs are in beta: The team is currently in the midst of changes and we are not ready for additional contributions yet. All content is subject to change. If you see a problem that you would like to bring to our attention, please [create an issue.md](https://github.com/vuejs/docs-next/issues/new) and we will get to it when we can. You may want to wait until the content is finalized, though.
+- [vue2 中文文档.md](https://cn.vuejs.org)
+- [vue 2 英文文档.md](https://vuejs.org)
+- [vue 3 英文文档.md](https://v3.vuejs.org)
 
 
 ## 部署
 
-The site is automatically deployed when commits land in `master`, via [Netlify.md](https://www.netlify.com/).
+
+本仓库使用的是Github Actions 部署。
+
+主仓库，发起PR 会自动部署
