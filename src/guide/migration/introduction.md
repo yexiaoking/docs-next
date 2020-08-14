@@ -33,7 +33,7 @@ Vue 3中需要关注的一些新功能包括：
 - [自定义元素白名单现在在模板编译期间执行](/guide/migration/custom-elements-interop.html)
 - [特殊的 `is` prop 用法仅限于保留 `<component>` tag ](/guide/migration/custom-elements-interop.html)
 - [`$scopedSlots` 属性已删除，需要替换为 `$slots`](/guide/migration/slots-unification.html)
-- [属性强制策略已更改](/guide/migration/attribute-coercion.html)
+- [attribute 强制策略已更改](/guide/migration/attribute-coercion.html)
 - [自定义指令API已更改为与组件生命周期一致](/guide/migration/custom-directives.html)
 - 一些转换class被重命名了:
   - `v-enter` -> `v-enter-from`
@@ -45,7 +45,7 @@ Vue 3中需要关注的一些新功能包括：
 - [`keyCode` 支持像 `v-on` 修饰](/guide/migration/keycode-modifiers.html)
 - [$on, $off and \$once 实例方法](/guide/migration/events-api.html)
 - [Filters](/guide/migration/filters.html)
-- [内链模板属性](/guide/migration/inline-template-attribute.html)
+- [内链模板attribute](/guide/migration/inline-template-attribute.html)
 
 ## FAQ
 

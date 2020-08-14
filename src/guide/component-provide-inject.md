@@ -1,6 +1,6 @@
 # 提供 / 注入
 
-> 该页面假设你已经阅读过了 [组件基础](component-basics.md。如果你还对组件不太了解，推荐你先阅读它。
+> 该页面假设你已经阅读过了 [组件基础](component-basics.md) 。如果你还对组件不太了解，推荐你先阅读它。
 
 通常，当我们需要将数据从父组件传递到子组件时，我们使用 [props](component-props.md)。想象一下这样的结构：你有一些深嵌套的组件，而你只需要来自深嵌套子组件中父组件的某些内容。在这种情况下，你仍然需要将prop传递到整个组件链中，这可能会很烦人。
 
@@ -92,12 +92,12 @@ app.component('todo-list', {
 
 实际上，你可以将依赖注入看作是“long range props”，除了：
 
-- 父组件不需要知道哪些子组件使用它提供的属性
+- 父组件不需要知道哪些子组件使用它提供的property
 - 子组件不需要知道 inject property 来自哪里
 
 ## 与响应式一起工作
 
-在上面的例子中，如果我们更改了 `todos` 的列表，这个更改将不会反映在注入的 `todoLength`  property 中。这是因为默认情况下，`provide/inject` 绑定*不*是被动绑定。我们可以通过将 `ref` property 或 `reactive` 对象传递给 `provide` 来更改此行为。在我们的例子中，如果我们想对祖先组件中的更改做出反应，我们需要为我们提供的 `todoLength` 分配一个组合API `computed` property：
+在上面的例子中，如果我们更改了 `todos` 的列表，这个更改将不会反映在注入的 `todoLength`  property 中。这是因为默认情况下，`provide/inject` 绑定 *不* 是被动绑定。我们可以通过将 `ref` property 或 `reactive` 对象传递给 `provide` 来更改此行为。在我们的例子中，如果我们想对祖先组件中的更改做出反应，我们需要为我们提供的 `todoLength` 分配一个组合API `computed` property：
 
 ```js
 app.component('todo-list', {
@@ -110,4 +110,4 @@ app.component('todo-list', {
 })
 ```
 
-在这种情况下，对`todos.长度`将正确反映在组件中，其中“todoLength”被注入。在[Composition API部分](composition-api-provide-inject.html#injection-reactivity)中阅读关于 `reactiv` provide/inject的更多信息。
+在这种情况下，对 `todos.length` 将正确反映在组件中，其中“todoLength”被注入。在 [Composition API部分](composition-api-provide-inject.html#injection-reactivity) 中阅读关于 `reactiv` provide/inject 的更多信息。
