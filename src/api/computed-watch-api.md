@@ -4,7 +4,7 @@
 
 ## `computed`
 
-使用getter函数，并为从getter返回的值返回一个不变的响应式[ref](./refs-api.html#ref)对象。
+使用getter函数，并为从getter返回的值返回一个不变的响应式 [ref](./refs-api.html#ref)对象。
 
 ```js
 const count = ref(1)

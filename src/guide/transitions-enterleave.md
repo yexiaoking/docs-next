@@ -2,12 +2,12 @@
 
 在插入、更新或从DOM中移除项时，Vue提供了多种应用转换效果的方法。这包括以下工具：
 
-- 自动为CSS转换和动画应用class
-- 集成第三方CSS动画库，例如[animate.css](https://animate.style/)
-- 在过渡钩子期间使用JavaScript直接操作DOM
-- 集成第三方JavaScript动画库
+- 自动为CSS转换和动画应用class；
+- 集成第三方CSS动画库，例如 [animate.css](https://animate.style/) ；
+- 在过渡钩子期间使用JavaScript直接操作DOM；
+- 集成第三方JavaScript动画库。
 
-在这里，我们只会讲到进入、离开和列表的过渡，你也可以看下一节的[管理过渡状态](transitions-state.html)。
+在这里，我们只会讲到进入、离开和列表的过渡，你也可以看下一节的 [管理过渡状态](transitions-state.html) 。
 
 
 ## 单元素/组件的过渡
@@ -68,7 +68,7 @@ Vue.createApp(Demo).mount('#demo')
 
 1. 自动嗅探目标元素是否应用了 CSS 过渡或动画，如果是，在恰当的时机添加/删除 CSS 类名。
 
-2. 如果过渡组件提供了 [JavaScript 钩子函数](#javascript-hooks)，这些钩子函数将在恰当的时机被调用。
+2. 如果过渡组件提供了 [JavaScript 钩子函数](#javascript-hooks) ，这些钩子函数将在恰当的时机被调用。
 
 3. 如果没有找到 JavaScript 钩子并且也没有检测到 CSS 过渡/动画，DOM 操作 (插入/删除) 在下一帧中立即执行。(注意：此指浏览器逐帧动画机制，和 Vue 的 `nextTick` 概念不同)
 
@@ -353,7 +353,7 @@ methods: {
 
 当只用 JavaScript 过渡的时候，在 **`enter` 和 `leave` 钩中必须使用 `done` 进行回调**。否则，它们将被同步调用，过渡会立即完成。推荐对于仅使用 JavaScript 过渡的元素添加 `:css="false"`，Vue 会跳过 CSS 的检测。这也可以避免过渡过程中 CSS 的影响。
 
-现在让我们来看一个例子。下面是一个使用[GreenSock](https://greensock.com/) 的JavaScript 过渡:
+现在让我们来看一个例子。下面是一个使用 [GreenSock](https://greensock.com/) 的JavaScript 过渡:
 
 ```html
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/gsap.min.js"></script>
@@ -441,7 +441,7 @@ Vue.createApp(Demo).mount('#demo')
 
 ## 多个元素的过渡
 
-我们之后讨[论多个组件的过渡](#transitioning-between-components)，对于原生标签可以使用 `v-if`/`v-else`。最常见的多标签过渡是一个列表和描述这个列表为空消息的元素：
+我们之后讨 [论多个组件的过渡](#transitioning-between-components)，对于原生标签可以使用 `v-if`/`v-else`。最常见的多标签过渡是一个列表和描述这个列表为空消息的元素：
 
 ```html
 <transition>

@@ -391,11 +391,11 @@ app.component('alert-box', {
 - 已注册组件的名字，或
 - 一个组件的选项对象
 
-你可以在[这里](https://codepen.io/team/Vue/pen/oNXaoKy))查阅并体验完整的代码，或在[这个版本](https://codepen.io/team/Vue/pen/oNXapXM)了解绑定组件选项对象，而不是已注册组件名的示例。
+你可以在 [这里](https://codepen.io/team/Vue/pen/oNXaoKy))查阅并体验完整的代码，或在 [这个版本](https://codepen.io/team/Vue/pen/oNXapXM)了解绑定组件选项对象，而不是已注册组件名的示例。
 
 请留意，这个 attribute 可以用于常规 HTML 元素，但这些元素将被视为组件，这意味着所有的 attribute **都会作为 DOM attribute 被绑定**。对于像 `value` 这样的 property，若想让其如预期般工作，你需要使用 [.prop 修饰器](../api/directives.html#v-bind)。
 
-到目前为止，关于动态组件你需要了解的大概就这些了，如果你阅读完本页内容并掌握了它的内容，我们会推荐你再回来把[动态 & 异步组件](./components-dynamic-async.html)读完。
+到目前为止，关于动态组件你需要了解的大概就这些了，如果你阅读完本页内容并掌握了它的内容，我们会推荐你再回来把 [动态 & 异步组件](./components-dynamic-async.html)读完。
 
 
 ## 解析 DOM 模板时的注意事项
@@ -458,4 +458,4 @@ app.component('blog-post', {
 
 到这里，你需要了解的解析 DOM 模板时的注意事项——实际上也是 Vue 的全部*必要*内容，大概就是这些了。恭喜你！接下来还有很多东西要去学习，不过首先，我们推荐你先休息一下，试用一下 Vue，自己随意做些好玩的东西。
 
-如果你感觉已经掌握了这些知识，我们推荐你再回来把完整的[组件 & 异步组件](component-dynamic-async.html)指南，包括侧边栏中组件深入章节的所有页面读完。
+如果你感觉已经掌握了这些知识，我们推荐你再回来把完整的 [组件 & 异步组件](component-dynamic-async.html)指南，包括侧边栏中组件深入章节的所有页面读完。

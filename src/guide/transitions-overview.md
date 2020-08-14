@@ -135,7 +135,7 @@ Vue.createApp(Demo).mount('#demo')
 ### Transform 和 Opacity
 
 
-我们可以检查资源，比如[CSS Triggers](https://csstriggers.com/)以查看如果我们设置了动画，哪些属性将触发重绘。在这里，如果你在 `transform` 下查看，你将看到：
+我们可以检查资源，比如 [CSS Triggers](https://csstriggers.com/) 以查看如果我们设置了动画，哪些属性将触发重绘。在这里，如果你在 `transform` 下查看，你将看到：
 
 > 更改transform不会触发任何几何体更改或绘制，这非常好。这意味着该操作可以由合成器线程在GPU的帮助下执行。
 
@@ -197,7 +197,7 @@ Easing也可以传达动画素材的质量。 以下面的Pen为例，你认为�
 </p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-你可以得到很多独特的效果，并使你的动画非常时尚，通过调整你的放松。CSS允许你通过调整立方bezier属性来修改它，Lea Verou的[这个 playground](https://cubic-bezier.com/#.17,.67,.83,.67) 对探索这一点非常有帮助。
+你可以得到很多独特的效果，并使你的动画非常时尚，通过调整你的放松。CSS允许你通过调整立方bezier属性来修改它，Lea Verou的 [这个 playground](https://cubic-bezier.com/#.17,.67,.83,.67) 对探索这一点非常有帮助。
 
 虽然使用cubic-bezier ease提供的两个控制柄可以为简单的动画获得很好的效果，但是JavaScript允许多个控制柄，因此允许更多的变化。
 
@@ -251,7 +251,7 @@ Easing也可以传达动画素材的质量。 以下面的Pen为例，你认为�
 gsap.from(element, { duration: 1, ease: 'bounce.out', y: -500 })
 ```
 
-我们将在以下部分的一些示例中使用GreenSock。他们有一个很棒的[ease visualizer](https://greensock.com/ease-visualizer) ，将帮助你建立精心制作的画架。
+我们将在以下部分的一些示例中使用GreenSock。他们有一个很棒的 [ease visualizer](https://greensock.com/ease-visualizer) ，将帮助你建立精心制作的画架。
 
 ## 进一步阅读
 

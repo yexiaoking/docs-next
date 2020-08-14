@@ -8,7 +8,7 @@
 const app = Vue.createApp({})
 ```
 
-你可以在 `createApp` 之后链接其他方法，这些方法可以在[Application API](./application-api.html)中找到。
+你可以在 `createApp` 之后链接其他方法，这些方法可以在 [Application API](./application-api.html)中找到。
 
 
 ### 参数

@@ -192,7 +192,7 @@
 
 - **调用时间**
 
-  在创建组件实例时，在初始prop解析之后立即调用 `setup` 。 在生命周期方面，它是在[beforeCreate](./options-lifecycle-hooks.html#beforecreate)钩子之前调用的。
+  在创建组件实例时，在初始prop解析之后立即调用 `setup` 。 在生命周期方面，它是在 [beforeCreate](./options-lifecycle-hooks.html#beforecreate)钩子之前调用的。
 
 - **模板使用**
 

@@ -1,6 +1,6 @@
 # Props
 
-> 该页面假设你已经阅读过了[组件基础](component-basics.md。如果你还对组件不太了解，推荐你先阅读它。
+> 该页面假设你已经阅读过了 [组件基础](component-basics.md) 。如果你还对组件不太了解，推荐你先阅读它。
 
 ## Prop 类型
 
@@ -24,7 +24,7 @@ props: {
 }
 ```
 
-这不仅为你的组件提供了文档，还会在它们遇到错误的类型时从浏览器的 JavaScript 控制台提示用户。你会在这个页面接下来的部分看到[类型检查和其它 prop 验证](#prop-validation)。
+这不仅为你的组件提供了文档，还会在它们遇到错误的类型时从浏览器的 JavaScript 控制台提示用户。你会在这个页面接下来的部分看到 [类型检查和其它 prop 验证](#prop-validation)。
 
 ## 传递静态或动态 Prop
 
@@ -126,7 +126,7 @@ post: {
 
 所有的 prop 都使得其父子 prop 之间形成了一个**单向下行绑定**：父级 prop 的更新会向下流动到子组件中，但是反过来则不行。这样会防止从子组件意外变更父级组件的状态，从而导致你的应用的数据流向难以理解。
 
-额外的，每次父级组件发生变更时，子组件中所有的 prop 都将会刷新为最新的值。这意味着你**不**应该在一个子组件内部改变 prop。如果你这样做了，Vue 会在浏览器的控制台中发出警告。
+另外，每次父级组件发生变更时，子组件中所有的 prop 都将会刷新为最新的值。这意味着你**不**应该在一个子组件内部改变 prop。如果你这样做了，Vue 会在浏览器的控制台中发出警告。
 
 这里有两种常见的试图变更一个 prop 的情形：
 
@@ -223,7 +223,6 @@ app.component('my-component', {
 - Object
 - Date
 - Function
-0
 - Symbol
 
 此外，`type` 还可以是一个自定义的构造函数，并且通过 `instanceof` 来进行检查确认。例如，给定下列现成的构造函数：
@@ -244,7 +243,7 @@ app.component('blog-post', {
   }
 })
 ```
-来验证 `author` prop 的值是否是通过 `new Person` 创建的。
+用于验证 `author` prop 的值是否是通过 `new Person` 创建的。
 
 ## 非 Prop 的 Attribute
 
@@ -331,7 +330,7 @@ app.component('custom-layout', {
 
 ## Prop 的大小写 (camelCase vs kebab-case)
 
-HTML 中的 attribute 名是大小写不敏感的，所以浏览器会把所有大写字符解释为小写字符。这意味着当你使用 DOM 中的模板时，camelCase (驼峰命名法) 的 prop 名需要使用其等价的 kebab-case (短横线分隔命名) 命名：\
+HTML 中的 attribute 名是大小写不敏感的，所以浏览器会把所有大写字符解释为小写字符。这意味着当你使用 DOM 中的模板时，camelCase (驼峰命名法) 的 prop 名需要使用其等价的 kebab-case (短横线分隔命名) 命名：
 
 ```js
 const app = Vue.createApp({})

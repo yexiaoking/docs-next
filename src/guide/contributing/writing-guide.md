@@ -67,7 +67,7 @@
 
 
 - **当引用直接下面的示例时，请使用冒号（ `:` ）结束句子**,而不是句点(`.`)
-- **使用牛津逗号** (；例如："a, b, and c" 替换  "a, b and c"). ![为什么牛津逗号很重要](https://raw.githubusercontent.com/vuejs/vuejs.org/master/src/images/oxford-comma.jpg)
+- **使用牛津逗号** (；例如："a, b, and c" 替换  "a, b and c"). ! [为什么牛津逗号很重要](https://raw.githubusercontent.com/vuejs/vuejs.org/master/src/images/oxford-comma.jpg)
 - **引用项目名称时，请使用项目引用自身的名称。** 例如，“webpack”和“npm”都应使用小写字母，因为这是它们的文档引用它们的方式。
 - **使用标题大小写作为标题** - 至少到目前为止，因为这是我们在其余文档中使用的。 有研究表明，句子大小写（仅标题的第一个单词以大写字母开头）实际上在可读性上是优越的，并且还减少了文档作者的认知开销，因为他们不必记住是否要大写“and”，“with” 和 “about”。
 - **请勿使用表情符号（讨论中除外）。** Emoji 既可爱又友好，但是它们可能会使文档分散注意力，有些表情符号甚至会在不同文化中传达不同的含义。

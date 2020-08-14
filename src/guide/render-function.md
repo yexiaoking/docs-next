@@ -426,7 +426,7 @@ new Vue({
 })
 ```
 
-有关JSX如何映射到JavaScript的更多信息，请参阅[使用文档](https://github.com/vuejs/jsx#installation)
+有关JSX如何映射到JavaScript的更多信息，请参阅 [使用文档](https://github.com/vuejs/jsx#installation) 。
 
 ## 模板编译
 

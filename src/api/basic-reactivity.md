@@ -20,7 +20,7 @@ function reactive<T extends object>(target: T): UnwrapNestedRefs<T>
 
 ## `readonly`
 
-获取一个对象（响应式或纯对象）或[ref](./refs-api.html#ref) 并返回原始代理的只读代理。只读代理是深层的：访问的任何嵌套 property 也是只读的。
+获取一个对象（响应式或纯对象）或 [ref](./refs-api.html#ref) 并返回原始代理的只读代理。只读代理是深层的：访问的任何嵌套 property 也是只读的。
 
 ```js
 const original = reactive({ count: 0 })
@@ -41,11 +41,11 @@ copy.count++ // 警告!
 
 ## `isProxy`
 
-检查对象是[`reactive`](#reactive) 还是 [`readonly`](#readonly)创建的代理
+检查对象是 [`reactive`](#reactive) 还是 [`readonly`](#readonly)创建的代理
 
 ## `isReactive`
 
-检查对象是否是[`reactive`](#reactive)创建的响应式代理
+检查对象是否是 [`reactive`](#reactive)创建的响应式代理
 
 ```js
 import { reactive, isReactive } from 'vue'
@@ -60,7 +60,7 @@ export default {
 ```
 
 
-如果代理是 [`readonly`](#readonly) 创建的，但还包装了由[`reactive`](#reactive) 创建的另一个代理，它也会返回`true`。
+如果代理是 [`readonly`](#readonly) 创建的，但还包装了由 [`reactive`](#reactive) 创建的另一个代理，它也会返回`true`。
 
 
 ```js{7-15}
@@ -89,7 +89,7 @@ export default {
 
 ## `toRaw`
 
-返回[`reactive`](#reactive) 或 [`readonly`](#readonly) 代理的原始对象。 这是一个转义口，可用于临时读取而不会引起代理访问/跟踪开销，也可用于写入而不会触发更改。 不建议保留对原始对象的持久引用。 请谨慎使用。
+返回 [`reactive`](#reactive) 或 [`readonly`](#readonly) 代理的原始对象。 这是一个转义口，可用于临时读取而不会引起代理访问/跟踪开销，也可用于写入而不会触发更改。 不建议保留对原始对象的持久引用。 请谨慎使用。
 
 ```js
 const foo = {}

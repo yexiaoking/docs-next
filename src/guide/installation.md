@@ -30,7 +30,7 @@
 对于生产环境，我们推荐链接到一个明确的版本号和构建文件，以避免新版本造成的不可预期的破坏：
 
 ## NPM
-在用 Vue 构建大型应用时推荐使用 NPM 安装<sup>[[1]](#footnote-1)</sup>。NPM 能很好地和诸如 [Webpack](https://webpack.js.org/)或 [Browserify](http://browserify.org/) 模块打包器配合使用。同时 Vue 也提供配套工具来开发[单文件组件](../guide/single-file-component.html)。
+在用 Vue 构建大型应用时推荐使用 NPM 安装 <sup>[[1]](#footnote-1)</sup> 。NPM 能很好地和诸如 [Webpack](https://webpack.js.org/) 或 [Browserify](http://browserify.org/) 模块打包器配合使用。同时 Vue 也提供配套工具来开发 [单文件组件](../guide/single-file-component.html)。
 
 ```bash
 # 最新稳定版
@@ -39,14 +39,14 @@ $ npm install vue@next
 
 ## 命令行工具 (CLI)
 
-Vue 提供了一个[官方的 CLI](https://github.com/vuejs/vue-cli)，为单页面应用 (SPA) 快速搭建繁杂的脚手架。它为现代前端工作流提供了 batteries-included 的构建设置。只需要几分钟的时间就可以运行起来并带有热重载、保存时 lint 校验，以及生产环境可用的构建版本。更多详情可查阅 [Vue CLI 的文档](https://cli.vuejs.org)。
+Vue 提供了一个 [官方的 CLI](https://github.com/vuejs/vue-cli) ，为单页面应用 (SPA) 快速搭建繁杂的脚手架。它为现代前端工作流提供了 batteries-included 的构建设置。只需要几分钟的时间就可以运行起来并带有热重载、保存时 lint 校验，以及生产环境可用的构建版本。更多详情可查阅 [Vue CLI 的文档](https://cli.vuejs.org) 。
 
 
 ::: tip
 CLI 工具假定用户对 Node.js 和相关构建工具有一定程度的了解。如果你是新手，我们强烈建议先在不用构建工具的情况下通读<a href="./">指南</a>，在熟悉 Vue 本身之后再使用 CLI。
 :::
 
-对于beta版，Vue CLI现在通过[vue-cli-plugin-vue-next](https://github.com/vuejs/vue-cli-plugin-vue-next)提供了实验支持。要将现有的Vue CLI项目Vue 2 升级到Vue 3，你需要运行：
+对于beta版，Vue CLI现在通过 [vue-cli-plugin-vue-next](https://github.com/vuejs/vue-cli-plugin-vue-next) 提供了实验支持。要将现有的Vue CLI项目Vue 2 升级到Vue 3，你需要运行：
 
 
 ```bash
@@ -79,7 +79,7 @@ $ yarn dev
 
 ## 对不同构建版本的解释
 
-在 [NPM 包的 dist/ 目录](https://cdn.jsdelivr.net/npm/vue@3.0.0-rc.1/dist/)你将会找到很多不同的 Vue.js 构建版本。这里列出了它们之间的差别：
+在 [NPM 包的 dist/ 目录](https://cdn.jsdelivr.net/npm/vue@3.0.0-rc.1/dist/) 你将会找到很多不同的 Vue.js 构建版本。这里列出了它们之间的差别：
 
 ### 使用CDN或没有构建工具
 
@@ -93,7 +93,7 @@ $ yarn dev
 - 包含硬编码的prod/dev分支，并且prod构建是预先缩小的。使用`*.prod.js`用于生产的文件。
 
 :::tip 提示
-全局打包不是[UMD](https://github.com/umdjs/umd) 构建的，它们被打包成 [IIFEs](https://developer.mozilla.org/en-US/docs/Glossary/IIFE)，并且仅用于通过 `<script src="...">` 直接使用。
+全局打包不是 [UMD](https://github.com/umdjs/umd) 构建的，它们被打包成 [IIFEs](https://developer.mozilla.org/en-US/docs/Glossary/IIFE)，并且仅用于通过 `<script src="...">` 直接使用。
 :::
 
 #### vue(.runtime).esm-browser(.prod).js:

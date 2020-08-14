@@ -135,7 +135,7 @@
 
 避免使用占位符，因为它们可能会混淆许多用户。
 
-占位符的一个问题是默认情况下它们不符合[颜色对比标准](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html)；修复颜色对比度会使占位符看起来像输入字段中预填充的数据。查看以下示例，可以看到满足颜色对比度条件的姓氏占位符看起来像预填充的数据：
+占位符的一个问题是默认情况下它们不符合 [颜色对比标准](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html)；修复颜色对比度会使占位符看起来像输入字段中预填充的数据。查看以下示例，可以看到满足颜色对比度条件的姓氏占位符看起来像预填充的数据：
 
 
 <p class="codepen" data-height="265" data-theme-id="light" data-default-tab="js,result" data-user="mlama007" data-slug-hash="PoZJzeQ" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Form Placeholder">
@@ -160,7 +160,7 @@
   </fieldset>
 ```
 
-或者，你可以用[`aria-describedby`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-describedby_attribute)将指令附加到输入。
+或者，你可以用 [`aria-describedby`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-describedby_attribute)将指令附加到输入。
 
 ```html
   <fieldset>

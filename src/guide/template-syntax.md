@@ -192,7 +192,7 @@ Mustache 语法不能作用在 HTML attribute 上，遇到这种情况应该使�
 <a v-bind:['foo' + bar]="value"> ... </a>
 ```
 
-变通的办法是使用没有空格或引号的表达式，或用[计算属性](computed.html)替代这种复杂表达式。
+变通的办法是使用没有空格或引号的表达式，或用 [计算属性](computed.html) 替代这种复杂表达式。
 
 在 DOM 中使用模板时 (直接在一个 HTML 文件里撰写模板)，还需要避免使用大写字符来命名键名，因为浏览器会把 attribute 名全部强制转为小写：
 
@@ -206,4 +206,4 @@ Mustache 语法不能作用在 HTML attribute 上，遇到这种情况应该使�
 
 #### JavaScript 表达式
 
-模板表达式都被放在沙盒中，只能访问[全局变量的一个白名单](https://github.com/vuejs/vue-next/blob/master/packages/shared/src/globalsWhitelist.ts#L3)，如 `Math` 和 `Date` 。你不应该在模板表达式中试图访问用户定义的全局变量。
+模板表达式都被放在沙盒中，只能访问 [全局变量的一个白名单](https://github.com/vuejs/vue-next/blob/master/packages/shared/src/globalsWhitelist.ts#L3) ，如 `Math` 和 `Date` 。你不应该在模板表达式中试图访问用户定义的全局变量。

@@ -8,7 +8,7 @@ types:
 
 ## 概览
 
-Support for the [inline-template feature](https://vuejs.org/v2/guide/components-edge-cases.html#Inline-Templates) has been removed.
+对 [内链特性](https://vuejs.org/v2/guide/components-edge-cases.html#Inline-Templates) 的支持已被移除。
 
 ## 2.x 语法
 
@@ -80,4 +80,4 @@ const MyComp = {
 </template>
 ```
 
-> * 提示: 在 3.x, slot 可以渲染为具有原生[fragments](/guide/migration/fragments)支持的根目录！
+> * 提示: 在 3.x, slot 可以渲染为具有原生 [fragments](/guide/migration/fragments) 支持的根目录！

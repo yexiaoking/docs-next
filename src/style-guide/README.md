@@ -130,7 +130,7 @@ props: {
 
 **总是用 `key` 配合 `v-for`.**
 
-在组件上总是必须用 `key` 配合 `v-for`，以便维护内部组件及其子树的状态。甚至在元素上维护可预测的行为，比如动画中的[对象固化 (object constancy)](https://bost.ocks.org/mike/constancy/)，也是一种好的做法。
+在组件上总是必须用 `key` 配合 `v-for`，以便维护内部组件及其子树的状态。甚至在元素上维护可预测的行为，比如动画中的 [对象固化 (object constancy)](https://bost.ocks.org/mike/constancy/) ，也是一种好的做法。
 
 ::: details 详解
 假设你有一个待办事项列表：
@@ -1541,7 +1541,7 @@ computed: {
 
 为了给样式设置作用域，Vue 会为元素添加一个独一无二的 attribute，例如 `data-v-f3f3eg9`。然后修改选择器，使得在匹配选择器的元素中，只有带这个 attribute 才会真正生效 (比如 `button[data-v-f3f3eg9]`)。
 
-问题在于大量的[元素和 attribute 组合的选择器](http://stevesouders.com/efws/css-selectors/csscreate.php?n=1000&sel=a%5Bhref%5D&body=background%3A+%23CFD&ne=1000) (比如 `button[data-v-f3f3eg9]`) 会比[类和 attribute 组合的选择器](http://stevesouders.com/efws/css-selectors/csscreate.php?n=1000&sel=.class%5Bhref%5D&body=background%3A+%23CFD&ne=1000)慢，所以应该尽可能选用类选择器。
+问题在于大量的 [元素和 attribute 组合的选择器](http://stevesouders.com/efws/css-selectors/csscreate.php?n=1000&sel=a%5Bhref%5D&body=background%3A+%23CFD&ne=1000) (比如 `button[data-v-f3f3eg9]`) 会比 [类和 attribute 组合的选择器](http://stevesouders.com/efws/css-selectors/csscreate.php?n=1000&sel=.class%5Bhref%5D&body=background%3A+%23CFD&ne=1000) 慢，所以应该尽可能选用类选择器。
 
 :::
 
@@ -1674,9 +1674,9 @@ app.component('TodoItem', {
 
 **应该优先通过 [Vuex](https://github.com/vuejs/vuex) 管理全局状态，而不是通过 `this.$root` 或一个全局事件总线。**
 
-通过 `this.$root` 和/或[全局事件总线管理](https://vuejs.org/v2/guide/migration.html#dispatch-and-broadcast-replaced)状态在很多简单的情况下都是很方便的，但是并不适用于绝大多数的应用。
+通过 `this.$root` 和/或 [全局事件总线管理](https://vuejs.org/v2/guide/migration.html#dispatch-and-broadcast-replaced) 状态在很多简单的情况下都是很方便的，但是并不适用于绝大多数的应用。
 
-Vuex 是 Vue 的[官方类 flux 实现](https://vuejs.org/v2/guide/state-management.html#Official-Flux-Like-Implementation)，其提供的不仅是一个管理状态的中心区域，还是组织、追踪和调试状态变更的好工具。它很好地集成在了 Vue 生态系统之中 (包括完整的 [Vue DevTools](https://vuejs.org/v2/guide/installation.html#Vue-Devtools) 支持)。
+Vuex 是 Vue 的 [官方类 flux 实现](https://vuejs.org/v2/guide/state-management.html#Official-Flux-Like-Implementation) ，其提供的不仅是一个管理状态的中心区域，还是组织、追踪和调试状态变更的好工具。它很好地集成在了 Vue 生态系统之中 (包括完整的 [Vue DevTools](https://vuejs.org/v2/guide/installation.html#Vue-Devtools) 支持)。
 
 <div class="style-example style-example-bad">
 <h4>反例</h4>

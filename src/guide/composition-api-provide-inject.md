@@ -1,8 +1,8 @@
 # 提供/注入
 
-> 本指南假定你已经阅读了[Composition API简介](composition-api-introduction.html) 和[响应式基础](reactivity-fundamentals.html)。如果你不熟悉组合API，请先阅读这篇文章。
+> 本指南假定你已经阅读了 [Composition API简介](composition-api-introduction.html) 和 [响应式基础](reactivity-fundamentals.html) 。如果你不熟悉组合API，请先阅读这篇文章。
 
-我们可以使用[provide/inject](component-provide-inject.html)以及Composition API。两者都只能在当前活动实例的 [`setup()`](composition-api-setup.html) 期间调用。
+我们可以使用 [provide/inject](component-provide-inject.html) 以及Composition API。两者都只能在当前活动实例的 [`setup()`](composition-api-setup.html) 期间调用。
 
 例如，如果要在根组件上提供一个book名称，并将其注入子组件：
 
@@ -60,7 +60,7 @@ const MyBook = {
 
 ##  注入响应式
 
-为了保持提供值和注入值之间的响应式，我们可以在提供值时使用 [ref](reactivity-fundamentals.html#creating-standalone-reactive-values-as-refs)或 [响应式](reactivity-fundamentals.html#declaring-reactive-state)：
+为了保持提供值和注入值之间的响应式，我们可以在提供值时使用 [ref](reactivity-fundamentals.html#creating-standalone-reactive-values-as-refs) 或 [响应式](reactivity-fundamentals.html#declaring-reactive-state) ：
 
 ```js
 import { ref, reactive } from 'vue'

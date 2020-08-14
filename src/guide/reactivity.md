@@ -166,7 +166,7 @@ console.log(proxy.meal)
 - **跟踪更改它的函数**：我们在proxy中的getter中执行此操作，称为 `effect`
 - **触发函数以便它可以更新最终值**：我们在proxy中使用了一个setter，名为 `Trigger`
 
-proxy对象对用户是不可见的，但是在后台，它们使Vue在访问或修改属性时能够执行依赖项跟踪和更改通知。 从Vue 3开始，我们的响应式现在可以在[separate package](https://github.com/vuejs/vue-next/tree/master/packages/reactivity) 中使用。 需要注意的是，记录转换后的数据对象时，浏览器控制台的格式会有所不同，因此你可能需要安装 [vue-devtools](https://github.com/vuejs/vue-devtools)，以提供一种更易于检查的界面。
+proxy对象对用户是不可见的，但是在后台，它们使Vue在访问或修改属性时能够执行依赖项跟踪和更改通知。 从Vue 3开始，我们的响应式现在可以在 [separate package](https://github.com/vuejs/vue-next/tree/master/packages/reactivity) 中使用。 需要注意的是，记录转换后的数据对象时，浏览器控制台的格式会有所不同，因此你可能需要安装 [vue-devtools](https://github.com/vuejs/vue-devtools) ，以提供一种更易于检查的界面。
 
 
 ### proxy 对象

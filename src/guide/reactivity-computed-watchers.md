@@ -182,7 +182,7 @@ watchEffect(
 
 ## `watch`
 
-`watch` API完全等同于组件[侦听](computed.html#侦听器) property。`watch`需要监视特定的数据源，并在单独的回调函数中应用副作用。默认情况下，它也是惰性的，即只有当被监视的源发生变化时才调用回调。
+`watch` API完全等同于组件 [侦听](computed.html#侦听器) property。`watch`需要监视特定的数据源，并在单独的回调函数中应用副作用。默认情况下，它也是惰性的，即只有当被监视的源发生变化时才调用回调。
 
 - 与 [watchEffect](#watcheffect) 比较, `watch` 允许我们：
 
@@ -223,4 +223,4 @@ watch([fooRef, barRef], ([foo, bar], [prevFoo, prevBar]) => {
 
 ### 使用 `watchEffect` 共享行为
 
-`watch` 与 [`watchEffect`](#watcheffect) 共享 [manual stoppage](#stopping-the-watcher), [side effect invalidation](#side-effect-invalidation) （改造 将 `onInvalidate` 作为第三个参数传递给回调）、[flush timing](#effect-flush-timing 和 [debugging](#watcher-debugging) 行为。
+`watch` 与 [`watchEffect`](#watcheffect) 共享 [manual stoppage](#stopping-the-watcher) , [side effect invalidation](#side-effect-invalidation) （改造 将 `onInvalidate` 作为第三个参数传递给回调）、[flush timing](#effect-flush-timing 和 [debugging](#watcher-debugging) 行为。
