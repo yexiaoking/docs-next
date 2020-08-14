@@ -83,6 +83,16 @@ yarn serve # or npm run serve
   该页面假设你已经阅读过了 [组件基础](component-basics.md) 。如果你还对组件不太了解，推荐你先阅读它。
   ```
   </div>
+
+### TODO 项
+
+1. 官网原版文档依然存在一些TODO项目还需后续补充！
+  - guide/installation.md
+  - guide/reactivity
+  - guide/transistion-enterleave.md
+
+2. 逐个校对文档
+
 ## 引用与参考
 
 - [vue2 中文文档.md](https://cn.vuejs.org)

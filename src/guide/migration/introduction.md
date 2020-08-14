@@ -66,12 +66,12 @@ Vue 3中需要关注的一些新功能包括：
 
 这取决于几个因素:
 
-- 你的app的尺寸(小到中等尺寸的应用可能需要不到一天的时间)
+- 你的app的尺寸(小到中等尺寸的应用可能需要不到一天的时间)。
 
-- 有多少次你分心了，开始玩一个很酷的新功能。😉 &nbsp; 这里摊牌了，这也发生在我们建设3.0的时候！(TODO 译者注：这里的翻译有点怪怪)
+- 有多少次你分心了，想玩一个很酷的新功能。😉 不用猜了，这也发生在我们重构3.0的时候！
 
-- 你正在使用哪些过时的功能。大多数都可以使用find-and-replace进行升级，但其他一些可能需要几分钟的时间。如果你当前没有按照 [our styleguide](/style-guide/), VUE3.0也会更加努力地迫使你这么做。从长远来看，这是一件好事，但也可能意味着一个重要的（尽管可能过期）重构。
+- 你正在使用哪些过时的功能。大多数都可以使用查找和替换进行升级，但其他一些可能需要几分钟的时间。如果你当前没有按照 [我们的风格指南](/style-guide/), Vue 3.0也会更加努力地迫使你这么做。从长远来看，这是一件好事，但也可能意味着一个重要的（可能会过期）重构。
 
 ### 如果我升级到Vue 3, 我还需要升级 Vuex 和 Vue-router 吗？
 
-是的, 当前这两者， [Vuex](https://github.com/vuejs/vuex/tree/4.0#vuex-4) 和 [Vue Router](https://github.com/vuejs/vue-router-next) 是 beta 版本
+是的, [Vuex](https://github.com/vuejs/vuex/tree/4.0#vuex-4) 和 [Vue Router](https://github.com/vuejs/vue-router-next) 现在还是 beta 版本。

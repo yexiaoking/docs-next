@@ -14,7 +14,7 @@ Vue 实现了一套内容分发的 API，这套 API 的设计灵感源自 [Web C
 </todo-button>
 ```
 
-然后在 `<todo button>` 的模板中，你可能有：
+然后在 `<todo-button>` 的模板中，你可能有：
 
 ```html
 <!-- todo-button 组件模板 -->
@@ -84,7 +84,7 @@ Vue 实现了一套内容分发的 API，这套 API 的设计灵感源自 [Web C
 
 <img src="/images/slot.png" width="447" height="auto" style="display: block; margin: 0 auto; max-width: 100%" loading="lazy" alt="Slot explanation diagram">
 
-插槽**不能**访问 `<todo button>` 的作用域。例如，尝试访问 `action` 将不起作用：
+插槽**不能**访问 `<todo-button>` 的作用域。例如，尝试访问 `action` 将不起作用：
 
 ```html
 <todo-button action="delete">
@@ -156,7 +156,7 @@ Vue 实现了一套内容分发的 API，这套 API 的设计灵感源自 [Web C
     <!-- 我们希望把页头放这里 -->
   </header>
   <main>
-   <!-- 我们希望把主要内容放这里 -->
+    <!-- 我们希望把主要内容放这里 -->
   </main>
   <footer>
     <!-- 我们希望把页脚放这里 -->
@@ -221,6 +221,9 @@ Vue 实现了一套内容分发的 API，这套 API 的设计灵感源自 [Web C
 ```
 
 Note that **`v-slot` can only be added to a `<template>`** (with [one exception](#abbreviated-syntax-for-lone-default-slots))
+
+注意，**`v-slot` 只能添加在 `<template>` 上** ( [只有一种例外情况](#独占默认插槽的缩写语法) )
+
 
 ## 作用域插槽
 
