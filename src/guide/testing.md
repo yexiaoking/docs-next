@@ -117,13 +117,8 @@ Vue Test Utils是官方的低级组件测试库，它是为用户提供对Vue特
 
 端到端（E2E）测试和开发的主要问题之一是运行整个套件需要很长时间。通常，这只在持续集成和部署（CI/CD）管道中完成。现代的E2E测试框架通过添加类似并行化的特性来帮助解决这个问题，这使得CI/CD管道的运行速度通常比以前快。此外，在本地开发时，有选择地为正在处理的页面运行单个测试的能力，同时还提供测试的热重新加载，这有助于提高开发人员的工作流程和工作效率。
 
-#### First class debugging experience
-
-While developers have traditionally relied on scanning logs in a terminal window to help determine what went wrong in a test, modern end-to-end (E2E) test frameworks allow developers to leverage tools that they are already familiar with, e.g. browser developer tools. 
-
 #### 一流的调试经验
-
-当端到端（E2E）测试在连续集成/部署管道中运行时，它们通常在无头浏览器中运行（即，没有为用户打开可见的浏览器）。因此，当出现错误时，现代E2E测试框架提供的一个关键功能是能够在不同的测试阶段查看应用程序的快照和/或视频，以便深入了解错误发生的原因。从历史上看，保持这些整合是乏味的。
+虽然开发人员传统上依赖于在终端窗口中扫描日志来帮助确定测试中出了什么问题，但现代端到端（E2E）测试框架允许开发人员利用他们已经熟悉的工具，例如浏览器开发工具。
 
 ### 推荐
 

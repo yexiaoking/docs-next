@@ -54,6 +54,4 @@ Vue.config.keyCodes = {
 
 ## 迁移策略
 
-For those using `keyCode` in their codebase, we recommend converting them to their kebab-cased named equivalents.
-
 对于那些在代码库中使用 `keyCode` 的用户，我们建议将它们转换为它们的kebab-cased（短横线）命名对齐。

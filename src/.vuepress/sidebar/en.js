@@ -26,6 +26,7 @@ module.exports={
       children: [
         '/en/guide/component-registration',
         '/en/guide/component-props',
+        '/en/guide/component-attrs',
         '/en/guide/component-custom-events',
         '/en/guide/component-slots',
         '/en/guide/component-provide-inject',
@@ -85,17 +86,17 @@ module.exports={
       title: 'Tooling',
       collapsable: false,
       children: [
-        '/en/guide/single-file-component', 
+        '/en/guide/single-file-component',
         '/en/guide/testing',
-        '/guide/typescript-support'
+        '/en/guide/typescript-support'
       ]
     },
     {
       title: 'Scaling Up',
       collapsable: false,
       children: [
-        '/en/guide/routing', 
-        '/en/guide/state-management', 
+        '/en/guide/routing',
+        '/en/guide/state-management',
         '/en/guide/ssr']
     },
     {

@@ -26,6 +26,7 @@ module.exports = {
       children: [
         '/guide/component-registration',
         '/guide/component-props',
+        '/guide/component-attrs',
         '/guide/component-custom-events',
         '/guide/component-slots',
         '/guide/component-provide-inject',
@@ -85,7 +86,7 @@ module.exports = {
       title: '工具',
       collapsable: false,
       children: [
-        '/guide/single-file-component', 
+        '/guide/single-file-component',
         '/guide/testing',
         '/guide/typescript-support'
       ]
@@ -94,8 +95,8 @@ module.exports = {
       title: '规模化',
       collapsable: false,
       children: [
-        '/guide/routing', 
-        '/guide/state-management', 
+        '/guide/routing',
+        '/guide/state-management',
         '/guide/ssr'
       ]
     },

@@ -41,16 +41,16 @@ export default {
 </script>
 ```
 
-## Using Provide
+## 使用Provide
 
-When using `provide` in `setup()`, we start by explicitly importing the method from `vue`. This allows us to define each property with its own invocation of `provide`.
+在 `setup()` 中使用  `provide` 时，我们首先从 `vue` 显式导入方法。这使我们可以用它自己的 `provide` 调用来定义每个property。
 
-The `provide` function allows you to define the property through two parameters:
+ `provide` 函数允许你通过两个参数定义 property：
 
-1. The property's name (`<String>` type)
-2. The property's value
+1. property 的name(`<String>` 类型)
+2. property 的value
 
-Using our `MyMap` component, our provided values can be refactored as the following:
+使用 `MyMap` 组件，我们提供的值可以重构如下：
 
 ```vue{7,14-20}
 <!-- src/components/MyMap.vue -->
@@ -79,14 +79,14 @@ export default {
 
 ## 使用注入
 
-When using `inject` in `setup()`, we also need to explicitly import it from `vue`. Once we do so, this allows us to invoke it to define how we want to expose it to our component.
+在 `setup()`中使用 `inject` 时，还需要从 `vue` 显式导入它。一旦我们这样做了，我们就可以调用它来定义如何将它暴露给我们的组件。
 
-The `inject` function takes two parameters:
+`inject` 函数有两个参数：
 
-1. The name of the property to inject
-2. A default value (**Optional**)
+1. 要注入的property 的名词
+2. 一个默认的值 (**可选**)
 
-Using our `MyMarker` component, we can refactor it with the following code:
+使用 `MyMarker` 组件，可以使用以下代码对其进行重构：
 
 ```vue{3,6-14}
 <!-- src/components/MyMarker.vue -->
@@ -107,13 +107,13 @@ export default {
 </script>
 ```
 
-## Reactivity
+## 响应式
 
-### Adding Reactivity
+### 添加响应式
 
-To add reactivity between provided and injected values, we can use a [ref](reactivity-fundamentals.html#creating-standalone-reactive-values-as-refs) or [reactive](reactivity-fundamentals.html#declaring-reactive-state) when providing a value.
+为了增加提供值和注入值之间的响应式，我们可以使用[ref](reactivity-fundamentals.html#creating-standalone-reactive-values-as-refs)或 [reactive](reactivity-fundamentals.html#declaring-reactive-state) 提供值时。
 
-Using our `MyMap` component, our code can be updated as follows:
+使用 `MyMap` 组件，我们的代码可以更新如下：
 
 ```vue{7,15-22}
 <!-- src/components/MyMap.vue -->
@@ -143,13 +143,15 @@ export default {
 </script>
 ```
 
-Now, if anything changes in either property, the `MyMarker` component will automatically be updated as well!
 
-### Mutating Reactive Properties
+现在，如果这两个property中有任何更改，`MyMarker` 组件也将自动更新！如下：
 
-When using reactive provide / inject values, **it is recommended to keep any mutations to reactive properties inside of the _provider_ whenever possible**.
+### 多个响应式property
 
-For example, in the event we needed to change the user's location, we would ideally do this inside of our `MyMap` component.
+
+当使用响应式提供/注入值时，**建议在可能的情况下，将任何对响应式property的更改保存在 *提供者* 内**。
+
+例如，在需要更改使用者位置的情况下，我们最好在  `MyMap` 组件中执行此操作。
 
 ```vue{28-32}
 <!-- src/components/MyMap.vue -->
@@ -188,7 +190,7 @@ export default {
 </script>
 ```
 
-However, there are times where we need to update the data inside of the component where the data is injected. In this scenario, we recommend providing a method that is responsible for mutating the reactive property.
+但是，有时我们需要更新注入数据的组件内部的数据。在这种情况下，我们建议提供一种方法来负责改变响应式property。
 
 ``` vue{21-23,27}
 <!-- src/components/MyMap.vue -->
@@ -244,7 +246,7 @@ export default {
 </script>
 ```
 
-Finally, we recommend using `readonly` on provided property if you want to ensure that the data passed through `provide` cannot be mutated by the injected component.
+最后，如果要确保通过 `provide` 传递的数据不会被注入的组件更改，我们建议对提供者property使用 `readonly。
 
 ```vue{7,25-26}
 <!-- src/components/MyMap.vue -->
