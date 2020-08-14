@@ -8,6 +8,11 @@
 
 ## 概览
 
+<br>
+<iframe src="https://player.vimeo.com/video/440868720" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+
+开始学习Vue 3 [Vue Mastery](https://www.vuemastery.com/courses-path/vue3).
+
 ### 新特性
 
 Vue 3中需要关注的一些新功能包括：
@@ -39,6 +44,7 @@ Vue 3中需要关注的一些新功能包括：
   - `v-enter` -> `v-enter-from`
   - `v-leave` -> `v-leave-from`
 - [组件watch 选项](/api/options-data.html#watch) 和 [实例方法 `$watch`](/api/instance-methods.html#watch) 不再支持点分隔字符串路径，请改用计算函数作为参数
+- 在Vue 2.x中，应用根容器的 `outerHTML` 将替换为根组件模板（如果根组件没有模板/渲染选项，则最终编译为模板）。VUE3.x现在使用应用程序容器的 `innerHTML` 。
 
 ### 移除
 
@@ -53,8 +59,7 @@ Vue 3中需要关注的一些新功能包括：
 
 > 迁移助手仍在开发中
 
-1. 从运行 [迁移助手](https://github.com/vuejs/vue-migration-helper) 在当前项目. 我们仔细缩小了一个高级Vue dev并将其压缩到一个简单的命令行界面中。每当他们发现一个过时的功能，他们会让你知道，提供建议，并提供更多信息的链接。
-
+1. 从运行 迁移助手 (还在开发中) 在当前项目. 我们仔细缩小了一个高级Vue dev并将其压缩到一个简单的命令行界面中。每当他们发现一个过时的功能，他们会让你知道，提供建议，并提供更多信息的链接。
 
 2. 之后，在侧边栏中浏览此页面的目录。如果你看到一个可能会影响你的主题，但是迁移帮助程序没有捕捉到，请查看它。
 

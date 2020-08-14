@@ -158,7 +158,7 @@ app.directive('focus', {
 
 - **用法：**
 
-  在整个应用程序范围内应用mixin，这将影响以后在给定应用程序中创建的 **每个**** Vue实例（例如，子组件）。 插件作者可以使用此方法将自定义行为注入组件。 **不建议在应用代码中**。
+  在整个应用程序范围内应用mixin，一旦注册，它们就可以在当前的app中任何组件模板内使用它。 插件作者可以使用此方法将自定义行为注入组件。 **不建议在应用程序代码中**。
 
 - **参考** [Global Mixin](../guide/mixins.html#global-mixin)
 
@@ -191,47 +191,6 @@ app.mount('#my-app')
 
 - **参考**
   - [Lifecycle Diagram](../guide/instance.html#lifecycle-diagram)
-
-## provide
-
-- **类型：**
-
-  - `Object | () => Object`
-
-- **详细：**
-
-  此选项[与`inject`一起使用](../api/options-composition.html#provide-inject) 允许祖先组件为其所有后代充当依赖项注入器，而不管组件层次结构有多深，只要它们在同一父链中。
-
-  The `provide` option should be an object or a function that returns an object. This object contains the properties that are available for injection into its descendants. You can use ES2015 Symbols as keys in this object, but only in environments that natively support `Symbol` and `Reflect.ownKeys`.
-
-  
- `provide` 选项应该是对象或返回对象的函数。 该对象包含可用于注入其子代的属性。 你可以在对象中使用ES2015符号作为键，但只能在原生支持 `Symbol` 和 `Reflect.ownKeys` 的环境中使用。
-
- > 注意： `provide` 和 `inject` 绑定是没有响应式。 这是故意的。 但是，如果向下传递观察到的对象，则该对象上的property确实保持响应式。
-
-- **示例：**
-
-```js
-import { createApp } from 'vue'
-
-const app = createApp({
-  provide: {
-    user: 'John Doe'
-  }
-})
-
-app.component('user-card', {
-  inject: ['user'],
-  template: `
-    <div>
-      {{ user }}
-    </div>
-  `
-})
-```
-
-- **参考**
-  - [Provide / Inject](../guide/component-provide-inject.md)
 
 ## unmount
 

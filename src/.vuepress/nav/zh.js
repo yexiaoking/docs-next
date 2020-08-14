@@ -41,6 +41,21 @@ module.exports = [
       ]
     },
     {
+      text: '支持 Vue',
+      link: '/support-vuejs/',
+      items: [
+        {
+          text: '一次性捐款',
+          link: '/support-vuejs/#one-time-donations'
+        },
+        {
+          text: '经常捐款',
+          link: '/support-vuejs/#recurring-pledges'
+        },
+        { text: 'T-Shirt 商店', link: 'https://vue.threadless.com/' }
+      ]
+    },
+    {
       text: '关于', link: '/about'
-    }
+    },
   ]

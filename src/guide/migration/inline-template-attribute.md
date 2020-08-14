@@ -1,10 +1,9 @@
 ---
-types:
+badges:
   - breaking
-  - removal
 ---
 
-# 内链模板 Attribute
+# 内链模板 Attribute <MigrationBadges :badges="$frontmatter.badges" />
 
 ## 概览
 
@@ -68,7 +67,7 @@ const MyComp = {
 </my-comp>
 ```
 
-子级现在应该渲染默认slot*，而不是不提供模板：
+子级现在应该渲染默认slot\*，而不是不提供模板：
 
 ```html
 <!--
@@ -80,4 +79,4 @@ const MyComp = {
 </template>
 ```
 
-> * 提示: 在 3.x, slot 可以渲染为具有原生 [fragments](/guide/migration/fragments) 支持的根目录！
+> - 提示: 在 3.x, slot 可以渲染为具有原生 [fragments](/guide/migration/fragments) 支持的根目录！

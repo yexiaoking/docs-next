@@ -222,7 +222,7 @@ app.directive('demo', (el, binding) => {
 将大概编译成：
 
 ```js
-const vFoo = resolveDirective('demo')
+const vDemo = resolveDirective('demo')
 
 return withDirectives(h('div'), [[vDemo, test]])
 ```
@@ -246,4 +246,4 @@ return withDirectives(h('div'), [[vDemo, test]])
 <div @vnodeMounted="myHook" />
 ```
 
-这与[attribute fallthrough behavior](component-props.html#non-prop-attributes)。因此，组件上自定义指令的规则将与其他无关attribute相同：由子组件决定在哪里以及是否应用它。当子组件在内部元素上使用 `v-bind="$attrs"` 时，它也将应用对其使用的任何自定义指令。
+这与[attribute fallthrough behavior](component-attrs.html)。因此，组件上自定义指令的规则将与其他无关attribute相同：由子组件决定在哪里以及是否应用它。当子组件在内部元素上使用 `v-bind="$attrs"` 时，它也将应用对其使用的任何自定义指令。

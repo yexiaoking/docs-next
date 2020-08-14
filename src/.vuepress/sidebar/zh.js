@@ -84,12 +84,20 @@ module.exports = {
     {
       title: '工具',
       collapsable: false,
-      children: ['/guide/single-file-component', '/guide/testing']
+      children: [
+        '/guide/single-file-component', 
+        '/guide/testing',
+        '/guide/typescript-support'
+      ]
     },
     {
       title: '规模化',
       collapsable: false,
-      children: ['/guide/routing', '/guide/state-management', '/guide/ssr']
+      children: [
+        '/guide/routing', 
+        '/guide/state-management', 
+        '/guide/ssr'
+      ]
     },
     {
       title: '无障碍',

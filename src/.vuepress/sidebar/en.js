@@ -84,12 +84,19 @@ module.exports={
     {
       title: 'Tooling',
       collapsable: false,
-      children: ['/en/guide/single-file-component', '/en/guide/testing']
+      children: [
+        '/en/guide/single-file-component', 
+        '/en/guide/testing',
+        '/guide/typescript-support'
+      ]
     },
     {
       title: 'Scaling Up',
       collapsable: false,
-      children: ['/en/guide/routing', '/en/guide/state-management', '/en/guide/ssr']
+      children: [
+        '/en/guide/routing', 
+        '/en/guide/state-management', 
+        '/en/guide/ssr']
     },
     {
       title: 'Accessibility',

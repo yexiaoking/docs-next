@@ -58,10 +58,10 @@ setup(props) {
 
 export default {
   setup(props, context) {
-    // Attribute (响应式 Property)
+    // Attribute (响应式 object)
     console.log(context.attrs)
 
-    // Slots (响应式 Property)
+    // Slots (响应式 object)
     console.log(context.slots)
 
     // Emit 事件 (方法)
@@ -70,31 +70,18 @@ export default {
 }
 ```
 
-因为它是一个普通的JavaScript对象，也就是说，它不是被动的，这意味着你可以安全地对 `context` 使用ES6解构。
+`context` 是一个普通的JavaScript对象，也就是说，它不是响应式的，这意味着你可以安全地对 `context` 使用ES6解构。
 
 ```js
 // MyBook.vue
 export default {
-	setup(props, { attrs, slots, emit }) {
-		...
-	}
+  setup(props, { attrs, slots, emit }) {
+    ...
+  }
 }
 ```
 
-因此，与 `props` 类似，如果需要分解这些property中的任何一个，可以使用 `toRefs` 方法创建类似的效果。
-
-```jsx
-// MyBook.vue
-
-import { toRefs } from 'vue'
-
-export default {
-	setup(props, { attrs }) {
-		const { id } = toRefs(attrs)
-		console.log(id.value)
-	}
-)
-```
+`attrs` 和 `slots` 是有状态的对象，在组件本身更新时总是更新它们。这意味着你应该避免对它们进行解构，并始终将属性引用为 `attrs.x` 或 `slots.x` 。请注意，与 `props` 不同， `attrs` 和` slots` 是**非**响应式。如果你打算根据 `attrs`或 `slots` 更改应用副作用，那么应该在 `onUpdated` 生命周期钩子中执行此操作。
 
 ## 访问组件property
 
@@ -163,4 +150,4 @@ export default {
 
 ## 使用 `this`
 
-**在 `setup()` 内部，`this` 不会引用Vue实例**，因为在解析其他组件选项之前调用了 `setup()` ，因此 `this` 内部 `setup()` 的行为与其他选项中的 `this` 完全不同。在使用 `setup()` 和其他选项API时，这可能会导致混淆。
+**在 `setup()` 内部，`this` 不会引用活动的实例**，因为在解析其他组件选项之前调用了 `setup()` ，因此 `this` 内部 `setup()` 的行为与其他选项中的 `this` 完全不同。在使用 `setup()` 和其他选项API时，这可能会导致混淆。

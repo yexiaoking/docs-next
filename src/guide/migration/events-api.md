@@ -1,14 +1,13 @@
 ---
-types:
-  - removed
+badges:
   - breaking
 ---
 
-# 事件 API <span v-for="type in $frontmatter.types" class="badge" :key="`type-${type}`">{{ type }}</span>
+# 事件 API <MigrationBadges :badges="$frontmatter.badges" />
 
 ## 概览
 
-`$on`, `$off` 和 `$once` 实例方法已被移除，Vue实例不再实现事件触发接口。
+`$on`, `$off` 和 `$once` 实例方法已被移除，应用实例不再实现事件触发接口。
 
 ## 2.x 语法
 
@@ -55,8 +54,7 @@ export default {
 
 ## 3.x 更新
 
-我们整个从Vue实例中移除了 `$on`, `$off` 和 `$once` 方法， `$emit` 仍然是现有API的一部分，因为它用于触发由父组件以声明方式附加的事件处理程序
-
+我们整个从实例中移除了 `$on`, `$off` 和 `$once` 方法， `$emit` 仍然是现有API的一部分，因为它用于触发由父组件以声明方式附加的事件处理程序
 
 ## 迁移策略
 

@@ -38,8 +38,7 @@ app.config.errorHandler = (err, vm, info) => {
 }
 ```
 
-指定组件的渲染和观察期间未捕获错误的处理函数。这个处理函数被调用时，可获取错误信息和 Vue 实例。
-
+指定组件的渲染和观察期间未捕获错误的处理函数。这个处理函数被调用时，可获取错误信息和应用实例。
 
 > 错误追踪服务 [Sentry](https://sentry.io/for/vue/) 和 [Bugsnag](https://docs.bugsnag.com/platforms/browsers/vue/)使用此选项提供官方集成。
 
@@ -135,7 +134,7 @@ app.mixin({
 
 自定义合并策略的选项。
 
-合并策略选项分别接收在父实例和子实例上定义的该选项的值作为第一个和第二个参数，Vue 实例上下文被作为第三个参数传入。
+合并策略选项分别接收在父实例和子实例上定义的该选项的值作为第一个和第二个参数，引用实例上下文被作为第三个参数传入。
 
 - **也可以看看** [Custom Option Merging Strategies](../guide/mixins.html#custom-option-merge-strategies)
 

@@ -128,7 +128,7 @@ data() {
 例如，如果你声明了这个组件：
 
 ```js
-const app = Vue.createApp()
+const app = Vue.createApp({})
 
 app.component('my-component', {
   template: `<p class="foo bar">Hi!</p>`
@@ -171,7 +171,7 @@ HTML 将被渲染为：
 ```
 
 ```js
-const app = Vue.createApp()
+const app = Vue.createApp({})
 
 app.component('my-component', {
   template: `
@@ -181,7 +181,7 @@ app.component('my-component', {
 })
 ```
 
-你可以在 [Component Props](component-props.html#non-prop-attributes) 部分了解更多关于组件属性继承的信息。
+你可以在 [非prop Attribute](component-attrs.html) 部分了解更多关于组件属性继承的信息。
 
 ## 绑定内联样式
 

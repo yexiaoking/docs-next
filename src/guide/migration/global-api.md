@@ -1,4 +1,9 @@
-# 全局 API
+---
+badges:
+  - breaking
+---
+
+# 全局 API <MigrationBadges :badges="$frontmatter.badges" />
 
 Vue 2.x 有许多全局API和配置，这些API和配置可以全局改变Vue的行为。例如，要创建全局组件，可以使用 `Vue.component` 这样的API：
 
@@ -24,19 +29,18 @@ Vue.directive('focus', {
 
 - 全局配置使得在测试期间很容易意外地污染其他测试用例。用户需要仔细存储原始全局配置，并在每次测试后恢复（例如重置`Vue.config.errorHandler`). 有些API像`Vue.使用`以及`Vue.mixin`甚至连恢复效果的方法都没有，这使得涉及插件的测试特别棘手。实际上，vue test utils必须实现一个特殊的API `createLocalVue` 来处理此问题：
 
-  ```js
-  import { createLocalVue, mount } from '@vue/test-utils'
+```js
+import { createLocalVue, mount } from '@vue/test-utils'
 
-  // 创建扩展的 `Vue` 构造函数
-  const localVue = createLocalVue()
+// 建扩展的 `Vue` 构造函数
+const localVue = createLocalVue()
 
-  // 在 “local” Vue构造函数上 “全局” 安装插件
-  localVue.use(MyPlugin)
+// 在 “local” Vue构造函数上 “全局” 安装插件
+localVue.use(MyPlugin)
 
-  // 通过 `localVue` 来挂载选项
-  mount(Component, { localVue })
-  ```
-
+// 通过 `localVue` 来挂载选项
+mount(Component, { localVue })
+```
 - 全局配置使得在同一页面上的多个 “app” 之间共享同一个Vue副本非常困难，但全局配置不同。
   ```js
   // 这会影响两个根实例
@@ -57,20 +61,20 @@ Vue.directive('focus', {
 ```js
 import { createApp } from 'vue'
 
-const app = createApp()
+const app = createApp({})
 ```
 
 应用程序实例暴露当前全局API的子集，经验法则是，任何全局改变Vue行为的API现在都会移动到应用实例上，以下是当前全局API及其相应实例API的表：
 
-| 2.x 全局 API             | 3.x 实例 API (`app`)                                                                        |
-| -------------------------- | ----------------------------------------------------------------------------------------------- |
-| Vue.config                 | app.config                                                                                      |
-| Vue.config.productionTip   | _removed_ ([见下方](#config-productiontip-removed))                                           |
+| 2.x 全局 API             | 3.x 实例 API (`app`)                                                                          |
+| -------------------------- | ------------------------------------------------------------------------------------------- |
+| Vue.config                 | app.config                                                                                  |
+| Vue.config.productionTip   | _removed_ ([见下方](#config-productiontip-removed))                                          |
 | Vue.config.ignoredElements | app.config.isCustomElement ([见下方](#config-ignoredelements-is-now-config-iscustomelement)) |
-| Vue.component              | app.component                                                                                   |
-| Vue.directive              | app.directive                                                                                   |
-| Vue.mixin                  | app.mixin                                                                                       |
-| Vue.use                    | app.use ([见下方w](#a-note-for-plugin-authors))                                               |
+| Vue.component              | app.component                                                                                |
+| Vue.directive              | app.directive                                                                                |
+| Vue.mixin                  | app.mixin                                                                                    |
+| Vue.use                    | app.use ([见下方w](#a-note-for-plugin-authors))                                              |
 
 所有其他不全局改变行为的全局 API 现在被命名为exports, 文档见 [全局] API Treeshaking](./global-api-treeshaking.html).
 
@@ -89,7 +93,7 @@ const app = createApp()
 Vue.config.ignoredElements = ['my-el', /^ion-/]
 
 // after
-const app = Vue.createApp()
+const app = Vue.createApp({})
 app.config.isCustomElement = tag => tag.startsWith('ion-')
 ```
 
@@ -122,7 +126,7 @@ app.use(VueRouter)
 
 ## 挂载 App 实例
 
-使用 `createApp(VueInstance)` 初始化后，应用实例 `app` 可用于挂载具有 `app.mount(domTarget)`：
+使用 `createApp(/* options */)` 初始化后，应用实例 `app` 可用于挂载具有 `app.mount(domTarget)`：
 
 ```js
 import { createApp } from 'vue'
@@ -148,7 +152,7 @@ app.directive('focus', {
   mounted: el => el.focus()
 })
 
-//现在所有Vue 实例都挂载了，与其组件树一起，将具有相同的 “button-counter” 组件 和 “focus” 指令不污染全局环境
+// 现在所有应用实例都挂载了，与其组件树一起，将具有相同的 “button-counter” 组件 和 “focus” 指令不污染全局环境
 app.mount('#app')
 ```
 
@@ -159,17 +163,17 @@ app.mount('#app')
 ```js
 // 在入口
 app.provide({
-  [ThemeSymbol]: theme
+  guide: 'Vue 3 Guide'
 })
 
 // 在子组件
 export default {
   inject: {
-    theme: {
-      from: ThemeSymbol
+    book: {
+      from: guide
     }
   },
-  template: `<div :style="{ color: theme.textColor }" />`
+  template: `<div>{{ book }}</div>`
 }
 ```
 
@@ -182,8 +186,8 @@ import { createApp } from 'vue'
 import Foo from './Foo.vue'
 import Bar from './Bar.vue'
 
-const createMyApp = (VueInstance) => {
-  const app = createApp(VueInstance)
+const createMyApp = options => {
+  const app = createApp(options)
   app.directive('focus' /* ... */)
 
   return app

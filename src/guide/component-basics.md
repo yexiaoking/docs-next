@@ -26,7 +26,7 @@ app.component('button-counter', {
 在这里演示的是一个简单的示例，但是在典型的Vue应用程序中，我们使用单个文件组件而不是字符串模板。你可以[在本节](single-file-component.html)找到有关它们的更多信息。
 :::
 
-组件是可复用的 Vue 实例，且带有一个名字：在这个例子中是 `<button-counter>`。我们可以在一个通过 new Vue 创建的 Vue 根实例中，把这个组件作为自定义元素来使用：
+组件是可复用的 组件实例，且带有一个名字：在这个例子中是 `<button-counter>`。我们可以在一个通过 new Vue 创建的 Vue 根实例中，把这个组件作为自定义元素来使用：
 
 ```html
 <div id="components-demo">
@@ -45,7 +45,7 @@ app.mount('#components-demo')
 </p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-因为组件是可复用的 Vue 实例，所以它们与 new Vue 接收相同的选项，例如 `data` 、`computed` 、`watch` 、`methods` 以及生命周期钩子等。仅有的例外是像 `el` 这样根实例特有的选项。
+因为组件是可复用的 组件实例，所以它们与 new Vue 接收相同的选项，例如 `data` 、`computed` 、`watch` 、`methods` 以及生命周期钩子等。仅有的例外是像 `el` 这样根实例特有的选项。
 
 ## 组件的复用
 
@@ -86,7 +86,7 @@ app.component('my-component-name', {
 })
 ```
 
-全局注册的组件可以在随后创建的 `app` 实例模板中使用，也包括其组件树中的所有子组件的模板中。
+全局注册的组件可以在随后创建的 `app` 实例模板中使用，也包括根实例组件树中的所有子组件的模板中。
 
 到目前为止，关于组件注册你需要了解的就这些了，如果你阅读完本页内容并掌握了它的内容，我们会推荐你再回来把[组件注册](component-registration.md)读完。
 
@@ -141,7 +141,7 @@ const App = {
   }
 }
 
-const app = Vue.createApp()
+const app = Vue.createApp({})
 
 app.component('blog-post', {
   props: ['title'],
@@ -222,7 +222,7 @@ app.component('blog-post', {
 </button>
 ```
 
-当点击这个按钮时，我们需要告诉父级组件放大所有博文的文本。幸好 Vue 实例提供了一个自定义事件的系统来解决这个问题。父级组件可以像处理 native DOM 事件一样通过 `v-on` 或 `@` 监听子组件实例的任意事件：
+当点击这个按钮时，我们需要告诉父级组件放大所有博文的文本。幸好 组件实例提供了一个自定义事件的系统来解决这个问题。父级组件可以像处理 native DOM 事件一样通过 `v-on` 或 `@` 监听子组件实例的任意事件：
 
 ```html
 <blog-post ... @enlarge-text="postFontSize += 0.1"></blog-post>
@@ -245,6 +245,18 @@ Thanks to the `v-on:enlarge-text="postFontSize += 0.1"` listener, the parent wil
   on <a href="https://codepen.io">CodePen</a>.</span>
 </p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+
+We can list emitted events in the component's `emits` option.
+
+```js
+app.component('blog-post', {
+  props: ['title'],
+  emits: ['enlarge-text']
+})
+```
+
+这将允许你检查组件抛出的所有事件，还可以选择 [validate them](component-custom-events.html#validate-emitted-events)
 
 ### 使用事件抛出一个值
 
@@ -330,7 +342,31 @@ app.component('custom-input', {
 <custom-input v-model="searchText"></custom-input>
 ```
 
-到目前为止，关于组件自定义事件你需要了解的大概就这些了，如果你阅读完本页内容并掌握了它的内容，我们会推荐你再回来把 [自定义事件](component-custom-events.md) 读完。
+在自定义组件中创建 `v-model` 功能的另一种方法是使用 `computed` property 的功能来定义getter和setter。
+
+在下面的示例中，我们使用计算属性重构 `custominput` 组件。
+
+请记住，`get` 方法应返回 `modelValue` property，或用于绑定的任何property，`set` 方法应为该property 触发相应的 `$emit` 。
+
+```js
+app.component('custom-input', {
+  props: ['modelValue'],
+  template: `
+    <input v-model="value">
+  `,
+  computed: {
+    value: {
+      get() {
+        return this.modelValue
+      },
+      set(value) { this.$emit('update:modelValue', value)
+      }
+    }
+  }
+})
+```
+
+现在你只需要了解自定义组件事件，但一旦你读完本页并对其内容还觉得不错，我们建议你稍后再阅读有关 [自定义事件](component-custom-events.md)
 
 ## 通过插槽分发内容
 
@@ -396,7 +432,6 @@ app.component('alert-box', {
 请留意，这个 attribute 可以用于常规 HTML 元素，但这些元素将被视为组件，这意味着所有的 attribute **都会作为 DOM attribute 被绑定**。对于像 `value` 这样的 property，若想让其如预期般工作，你需要使用 [.prop 修饰器](../api/directives.html#v-bind)。
 
 到目前为止，关于动态组件你需要了解的大概就这些了，如果你阅读完本页内容并掌握了它的内容，我们会推荐你再回来把 [动态 & 异步组件](./components-dynamic-async.html)读完。
-
 
 ## 解析 DOM 模板时的注意事项
 

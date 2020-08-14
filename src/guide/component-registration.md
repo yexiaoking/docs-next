@@ -7,7 +7,7 @@
 在注册一个组件的时候，我们始终需要给它一个名字。比如在全局注册的时候我们已经看到了：
 
 ```js
-const app = createApp({...})
+const app = Vue.createApp({...})
 
 app.component('my-component-name', {
   /* ... */
@@ -51,7 +51,7 @@ app.component('MyComponentName', {
 
 ## 全局注册
 
-到目前为止，我们只用过 `Vue.component` 来创建组件：
+到目前为止，我们只用过 `app.component` 来创建组件：
 
 ```js
 Vue.createApp({...}).component('my-component-name', {
@@ -59,7 +59,7 @@ Vue.createApp({...}).component('my-component-name', {
 })
 ```
 
-这些组件是**全局注册**的。也就是说它们在注册之后可以用在任何新创建的 Vue 根实例的模板中。比如：
+这些组件是**全局注册**的。也就是说它们在注册之后可以用在任何新创建的组件实例的模板中。比如：
 
 ```js
 const app = Vue.createApp({})

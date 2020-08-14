@@ -6,11 +6,16 @@
 
 标签通常放置在表单字段的顶部或左侧：
 
-``` html
-<form action="/dataCollectionLocation" method="post" autocomplete='on'>
-  <div v-for="item in formItems" :key="item.id" class='form-item'>
+```html
+<form action="/dataCollectionLocation" method="post" autocomplete="on">
+  <div v-for="item in formItems" :key="item.id" class="form-item">
     <label :for="item.id">{{ item.label }}: </label>
-    <input :type="item.type" :id="item.id" :name="item.id" v-model="item.value">
+    <input
+      :type="item.type"
+      :id="item.id"
+      :name="item.id"
+      v-model="item.value"
+    />
   </div>
   <button type="submit">Submit</button>
 </form>
@@ -30,8 +35,8 @@
 提供标签以描述所有表单控件的用途；链接 `for` 和 `id` ：
 
 ```html
-  <label for="name">Name</label>
-  <input type="text" name="name" id="name" v-model="name"/>
+<label for="name">Name</label>
+<input type="text" name="name" id="name" v-model="name" />
 ```
 
 <p class="codepen" data-height="265" data-theme-id="light" data-default-tab="js,result" data-user="mlama007" data-slug-hash="wvMrGqz" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Form Label">
@@ -53,7 +58,7 @@
 ```html
 <label>
   Name:
-  <input type="text" name="name" id="name" v-model="name"/>
+  <input type="text" name="name" id="name" v-model="name" />
 </label>
 ```
 
@@ -66,7 +71,13 @@
 
 ```html
 <label for="name">Name</label>
-<input type="text" name="name" id="name" v-model="name" :aria-label="nameLabel"/>
+<input
+  type="text"
+  name="name"
+  id="name"
+  v-model="name"
+  :aria-label="nameLabel"
+/>
 ```
 
 <p class="codepen" data-height="265" data-theme-id="light" data-default-tab="js,result" data-user="mlama007" data-slug-hash="jOWGqgz" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Form ARIA label">
@@ -85,11 +96,22 @@
 使用 [`aria-labelledby`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-labelledby_attribute) 类似于 `aria-label` ，除非标签文本在屏幕上可见。它通过 `id` 与其他元素配对，你可以链接多个 `id` ：
 
 ```html
-<form class="demo" action="/dataCollectionLocation" method="post" autocomplete="on">
+<form
+  class="demo"
+  action="/dataCollectionLocation"
+  method="post"
+  autocomplete="on"
+>
   <h1 id="billing">Billing</h1>
   <div class="form-item">
     <label for="name">Name:</label>
-    <input type="text" name="name" id="name" v-model="name" aria-labelledby="billing name"/>
+    <input
+      type="text"
+      name="name"
+      id="name"
+      v-model="name"
+      aria-labelledby="billing name"
+    />
   </div>
   <button type="submit">Submit</button>
 </form>
@@ -109,11 +131,23 @@
 [aria-describedby](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-describedby_attribute)的用法与 `aria-labelledby`相同，预期提供了用户可能需要的附加信息的描述。这可用于描述任何输入的标准：
 
 ```html
-<form class="demo" action="/dataCollectionLocation" method="post" autocomplete="on">
+<form
+  class="demo"
+  action="/dataCollectionLocation"
+  method="post"
+  autocomplete="on"
+>
   <h1 id="billing">Billing</h1>
   <div class="form-item">
     <label for="name">Full Name:</label>
-    <input type="text" name="name" id="name" v-model="name" aria-labelledby="billing name" aria-describedby="nameDescription"/>
+    <input
+      type="text"
+      name="name"
+      id="name"
+      v-model="name"
+      aria-labelledby="billing name"
+      aria-describedby="nameDescription"
+    />
     <p id="nameDescription">Please provide first and last name.</p>
   </div>
   <button type="submit">Submit</button>
@@ -152,23 +186,28 @@
 为输入字段添加说明时，请确保将其正确链接到输入。你可以提供附加指令并在 [`aria-labelledby`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-labelledby_attribute) 内绑定多个id。这使得设计更加灵活。
 
 ```html
-  <fieldset>
-    <legend>Using aria-labelledby</legend>
-    <label id="date-label" for="date">Current Date:</label>
-    <input type="date" name="date" id="date" aria-labelledby="date-label date-instructions" />
-    <p id="date-instructions">MM/DD/YYYY</p>
-  </fieldset>
+<fieldset>
+  <legend>Using aria-labelledby</legend>
+  <label id="date-label" for="date">Current Date:</label>
+  <input
+    type="date"
+    name="date"
+    id="date"
+    aria-labelledby="date-label date-instructions"
+  />
+  <p id="date-instructions">MM/DD/YYYY</p>
+</fieldset>
 ```
 
 或者，你可以用 [`aria-describedby`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-describedby_attribute)将指令附加到输入。
 
 ```html
-  <fieldset>
-    <legend>Using aria-describedby</legend>
-    <label id="dob" for="dob">Date of Birth:</label>
-    <input type="date" name="dob" id="dob" aria-describedby="dob-instructions" />
-    <p id="dob-instructions">MM/DD/YYYY</p>
-  </fieldset>
+<fieldset>
+  <legend>Using aria-describedby</legend>
+  <label id="dob" for="dob">Date of Birth:</label>
+  <input type="date" name="dob" id="dob" aria-describedby="dob-instructions" />
+  <p id="dob-instructions">MM/DD/YYYY</p>
+</fieldset>
 ```
 
 <p class="codepen" data-height="265" data-theme-id="light" data-default-tab="js,result" data-user="mlama007" data-slug-hash="GRoMqYy" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Form Instructions">
@@ -184,12 +223,11 @@
 
 让我们看看这个搜索字段：
 
-``` html
+```html
 <form role="search">
   <label for="search" class="hidden-visually">Search: </label>
   <input type="text" name="search" id="search" v-model="search" />
-    </div>
-    <button type="submit">Search</button>
+  <button type="submit">Search</button>
 </form>
 ```
 
@@ -233,15 +271,14 @@
 也可以使用输入创建按钮：
 
 ```html
-<form action="/dataCollectionLocation" method="post" autocomplete='on'>
+<form action="/dataCollectionLocation" method="post" autocomplete="on">
   <!-- Buttons -->
   <button type="button">Cancel</button>
   <button type="submit">Submit</button>
-  
 
   <!-- Input buttons -->
-  <input type="button" value="Cancel">
-  <input type="submit" value="Submit">
+  <input type="button" value="Cancel" />
+  <input type="submit" value="Submit" />
 </form>
 ```
 
@@ -257,13 +294,18 @@
 你可以使用此技术创建功能图像。
 
 - Input 字段
-  - 这些图像将充当表单上的提交类型按钮
+  - 这些图像将作为表单上的提交类型按钮
   
   ```html
   <form role="search">
     <label for="search" class="hidden-visually">Search: </label>
-    <input type="text" name="search" id="search" v-model="search">
-    <input type="image" class="btnImg" src="https://img.icons8.com/search" alt="Search">
+    <input type="text" name="search" id="search" v-model="search" />
+    <input
+      type="image"
+      class="btnImg"
+      src="https://img.icons8.com/search"
+      alt="Search"
+    />
   </form>
   ```
 
@@ -272,13 +314,13 @@
 ```html
 <form role="search">
   <label for="searchIcon" class="hidden-visually">Search: </label>
-  <input type="text" name="searchIcon" id="searchIcon" v-model="searchIcon">
+  <input type="text" name="searchIcon" id="searchIcon" v-model="searchIcon" />
   <button type="submit">
     <i class="fas fa-search" aria-hidden="true"></i>
     <span class="hidden-visually">Search</span>
   </button>
 </form>
-````
+```
 
 <p class="codepen" data-height="265" data-theme-id="light" data-default-tab="js,result" data-user="mlama007" data-slug-hash="NWxXeqY" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Functional Images">
   <span>See the Pen <a href="https://codepen.io/mlama007/pen/NWxXeqY">

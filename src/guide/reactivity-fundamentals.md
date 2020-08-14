@@ -128,7 +128,7 @@ const book = reactive({
 let { author, title } = book
 ```
 
-遗憾的是，随着这种结构的破坏，这两个property的响应式都将丢失。对于这种情况，我们需要将我们的响应式对象转换为一组 `refs`。这些 ref 将保留与源对象的响应式关联：
+遗憾的是，随着这种结构的破坏，这两个property的响应式都将丢失。对于这种情况，我们需要将我们的响应式对象转换为一组refs。这些 ref 将保留与源对象的响应式关联：
 
 ```js
 import { reactive, toRefs } from 'vue'
@@ -155,6 +155,8 @@ console.log(book.title) // 'Vue 3 Detailed Guide'
 
 
 ```js
+import { reactive, readonly } from 'vue'
+
 const original = reactive({ count: 0 })
 
 const copy = readonly(original)

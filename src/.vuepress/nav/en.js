@@ -39,5 +39,20 @@ module.exports = [
           ]
         }
       ]
+    },
+    {
+      text: 'Support Vue',
+      link: '/support-vuejs/',
+      items: [
+        {
+          text: 'One-time Donations',
+          link: '/support-vuejs/#one-time-donations'
+        },
+        {
+          text: 'Recurring Pledges',
+          link: '/support-vuejs/#recurring-pledges'
+        },
+        { text: 'T-Shirt Shop', link: 'https://vue.threadless.com/' }
+      ]
     }
   ]

@@ -10,40 +10,56 @@
 
 ## 简单状态管理起步使用
 
-经常被忽略的是，Vue 应用中原始 `data` 对象的实际来源——当访问数据对象时，一个 Vue 实例只是简单的代理访问。所以，如果你有一处需要被多个实例间共享的状态，可以简单地通过维护一份数据来实现共享：
+经常被忽略的是，Vue 应用中响应式`data` 对象的实际来源——当访问数据对象时，一个组件实例只是简单的代理访问。所以，如果你有一处需要被多个实例间共享的状态，你可以使用一个 [reactive](/guide/reactivity-fundamentals.html#declaring-reactive-state) 方法让对象作为响应式对象。
 
-
-``` js
-const sourceOfTruth = {
-    message: 'Hello'
-}
+```js
+const sourceOfTruth = Vue.reactive({
+  message: 'Hello'
+})
 
 const appA = Vue.createApp({
-  data () {
+  data() {
     return sourceOfTruth
   }
 }).mount('#app-a')
 
 const appB = Vue.createApp({
-  data () {
+  data() {
     return sourceOfTruth
   }
 }).mount('#app-b')
 ```
 
-现在当 `sourceOfTruth` 发生变更， `vmA` 和 `vmB` 都将自动地更新它们的视图。子组件们的每个实例也会通过 `this.$root.$data` 去访问。现在我们有了唯一的数据来源，但是，调试将会变为噩梦。任何时间，我们应用中的任何部分，在任何数据改变后，都不会留下变更过的记录。
+```html
+<div id="app-a">App A: {{ message }}</div>
+
+<div id="app-b">App B: {{ message }}</div>
+```
+
+现在当 `sourceOfTruth` 发生变更， `appA` 和 `appB` 都将自动地更新它们的视图。我们现在只有一个真实来源，但调试将是一场噩梦。我们应用的任何部分都可以随时更改任何数据，而不会留下变更过的记录。
+
+```js
+const appB = Vue.createApp({
+  data() {
+    return sourceOfTruth
+  },
+  mounted() {
+    sourceOfTruth.message = 'Goodbye' // both apps will render 'Goodbye' message now
+  }
+}).mount('#app-b')
+```
 
 为了解决这个问题，我们采用一个简单的 **store 模式**：
 
-``` js
+```js
 const store = {
   debug: true,
 
-  state: {
+  state: Vue.reactive({
     message: 'Hello!'
-  },
+  }),
 
-  setMessageAction (newValue) {
+  setMessageAction(newValue) {
     if (this.debug) {
       console.log('setMessageAction triggered with', newValue)
     }
@@ -51,11 +67,11 @@ const store = {
     this.state.message = newValue
   },
 
-  clearMessageAction () {
+  clearMessageAction() {
     if (this.debug) {
       console.log('clearMessageAction triggered')
     }
-    
+
     this.state.message = ''
   }
 }
@@ -65,18 +81,27 @@ const store = {
 
 此外，每个实例/组件仍然可以拥有和管理自己的私有状态：
 
-``` js
+```html
+<div id="app-a">{{sharedState.message}}</div>
+
+<div id="app-b">{{sharedState.message}}</div>
+```
+
+```js
 const appA = Vue.createApp({
-  data () {
+  data() {
     return {
       privateState: {},
       sharedState: store.state
     }
+  },
+  mounted() {
+    store.setMessageAction('Goodbye!')
   }
 }).mount('#app-a')
 
 const appB = Vue.createApp({
-  data () {
+  data() {
     return {
       privateState: {},
       sharedState: store.state

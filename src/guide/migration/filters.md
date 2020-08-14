@@ -1,10 +1,9 @@
 ---
-types:
+badges:
   - removed
-  - breaking
 ---
 
-# 过滤器 <span v-for="type in $frontmatter.types" class="badge" :key="`type-${type}`">{{ type }}</span>
+# 过滤器 <MigrationBadges :badges="$frontmatter.badges" />
 
 ## 概览
 

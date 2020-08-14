@@ -1,4 +1,9 @@
-# 按键修饰符
+---
+badges:
+  - breaking
+---
+
+# 按键修饰符 <MigrationBadges :badges="$frontmatter.badges" />
 
 ## 概览
 

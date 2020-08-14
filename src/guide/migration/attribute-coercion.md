@@ -1,4 +1,9 @@
-# attribute强制行为
+---
+badges:
+  - breaking
+---
+
+# attribute强制行为 <MigrationBadges :badges="$frontmatter.badges" />
 
 ::: info 信息
 这是一个低级的内部API更改，不会影响大多数开发人员。
@@ -27,7 +32,7 @@ For more information, read on!
 
 下表描述了Vue如何使用普通非布尔attribute强制“枚举attribute”：
 
-| 绑定表达式           | `foo` <sup>正常</sup> | `draggable` <sup>枚举</sup> |
+| 绑定表达式           | `foo` <sup>正常</sup>   | `draggable` <sup>枚举</sup>       |
 | ------------------- | ----------------------- | --------------------------------- |
 | `:attr="null"`      | /                       | `draggable="false"`               |
 | `:attr="undefined"` | /                       | /                                 |
@@ -48,9 +53,7 @@ For more information, read on!
 - 这解决了普通非布尔attribute和 “枚举attribute” 之间的不一致性
 - 它还可以使用 `'true'` 和 `'false'` 以外的值，甚至可以使用 `contenteditable`等attribute的关键字`
 
-
 对于非布尔attribute，如果attribute为 `false` ，Vue将停止删除它们，相反强制它们为 `'false'` 。
-
 
 - 这解决了 `true` 和 `false` 之间的不一致性，并使输出 `aria-*` attributes更容易
 

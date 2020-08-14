@@ -6,7 +6,7 @@
 
 - **详细：**
 
-  包含 Vue 实例可用指令的哈希表。
+  包含组件实例可用指令的哈希表。
 
 -  **参考** [自定义指令](../guide/custom-directive.html)
 
@@ -16,6 +16,6 @@
 
 - **详细：**
 
-  包含 Vue 实例可用组件的哈希表。
+  包含组件实例可用组件的哈希表。
 
 -  **参考** [Components](../guide/component-basics.html)

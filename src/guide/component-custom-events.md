@@ -144,6 +144,15 @@ app.component('user-name', {
 
 在2.x中，我们对组件 `v-model` 上的 `.trim` 等修饰符提供了硬编码支持。但是，如果组件可以支持自定义修饰符，则会更有用。在3.x中，添加到组件 `v-model` 的修饰符将通过modelModifiers prop提供给组件：
 
+
+当我们学习表单输入绑定时，我们看到 `v-model` 有 [内置修饰符](/guide/forms.html#modifiers) —— `.trim` 、`.number` 和 `.lazy`。但是，在某些情况下，你可能还需要添加自己的自定义修饰符。
+
+让我们创建一个示例自定义修饰符 `capitalize` ，它将 `v-model` 绑定提供的字符串的第一个字母大写。
+
+添加到组件 `v-model` 的修饰符将通过 `modelModifiers` prop提供给组件。在下面的示例中，我们创建了一个组件，其中包含默认为空对象的 `modelModifiers` prop。
+
+请注意，当组件的 `created` 生命周期钩子触发时， `modelModifiers` prop 包含 `capitalize` ，其值为 `true` —— 因为它被设置在 `v-model` 绑定 `v-model.capitalize="bar"`。
+
 ```html
 <my-component v-model.capitalize="bar"></my-component>
 ```
@@ -167,7 +176,7 @@ app.component('my-component', {
 })
 ```
 
-我们可以检查 `modelModifiers` 对象键并编写一个处理程序来更改发出的值。在下面的代码中，我们将字符串大写：
+现在我们已经设置了prop，我们可以检查 `modelModifiers` 对象键并编写一个处理器来更改发出的值。在下面的代码中，每当 `<input/>` 元素触发 `input` 事件时，我们都将字符串大写。
 
 ```html
 <div id="app">
@@ -204,14 +213,13 @@ app.component('my-component', {
   template: `<input
     type="text"
     :value="modelValue"
-    :input="emitValue">`
+    @input="emitValue">`
 })
 
 app.mount('#app')
 ```
 
-对于带参数的 `v-model` ，生成的 prop 名称将为 `arg + "Modifiers"`：
-
+对于带参数的 `v-model`绑定 ，生成的 prop 名称将为 `arg + "Modifiers"`：
 
 ```html
 <my-component v-model:foo.capitalize="bar"></my-component>

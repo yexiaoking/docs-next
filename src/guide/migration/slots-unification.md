@@ -1,4 +1,9 @@
-# Slot 统一
+---
+badges:
+  - breaking
+---
+
+# Slot 统一 <MigrationBadges :badges="$frontmatter.badges" />
 
 ## 概览
 
@@ -32,15 +37,13 @@ this.$scopedSlots.header
 
 ## 3.x 语法
 
-在3.x中，渲染函数将有一个 `slots` 选项，可以在其中定义它们。
+在3.x中，插槽被定义为当前节点的子对象：
 
 ```js
-// 3.x 语法
-h(LayoutComponent, {
-  slots: {
-    header: () => h('div', this.header),
-    content: () => h('div', this.content)
-  }
+// 3.x Syntax
+h(LayoutComponent, {}, {
+  header: () => h('div', this.header),
+  content: () => h('div', this.content)
 })
 ```
 

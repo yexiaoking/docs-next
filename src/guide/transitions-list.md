@@ -366,8 +366,6 @@ Vue.component('my-special-transition', {
 所有过渡 attribute 都可以动态绑定，但我们不仅仅只有 attribute 可以利用，还可以通过事件钩子获取上下文中的所有数据，因为事件钩子都是方法。这意味着，根据组件的状态不同，你的 JavaScript 过渡会有不同的表现
 
 
-TODO: 使用Vue 3 重构
-
 ```html
 <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
 
@@ -397,8 +395,7 @@ TODO: 使用Vue 3 重构
 ```
 
 ```js
-new Vue({
-  el: '#dynamic-fade-demo',
+const app = Vue.createApp({
   data() {
     return {
       show: true,
@@ -445,6 +442,8 @@ new Vue({
     }
   }
 })
+
+app.mount('#dynamic-fade-demo')
 ```
 
 TODO: 示例

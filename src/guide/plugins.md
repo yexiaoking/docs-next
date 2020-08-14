@@ -10,7 +10,7 @@
 
 3. 通过全局混入来添加一些组件选项。(如： [vue-router](https://github.com/vuejs/vue-router))
 
-4. 添加 Vue 实例方法，通过把它们添加到 `config.globalProperties` 上实现。
+4. 添加全局实例方法，通过把它们添加到 `config.globalProperties` 上实现。
 
 5. 一个库，提供自己的 API，同时提供上面提到的一个或多个功能。如 [vue-router](https://github.com/vuejs/vue-router)
 
@@ -26,7 +26,7 @@
 // plugins/i18n.js
 export default {
   install: (app, options) => {
-  // Plugin code goes here
+    // Plugin code goes here
   }
 }
 ```
@@ -39,15 +39,14 @@ export default {
 // plugins/i18n.js
 export default {
   install: (app, options) => {
-    app.config.globalProperties.$translate = (key) => {
-      return key.split('.')
-        .reduce((o, i) => { if (o) return o[i] }, i18n)
+    app.config.globalProperties.$translate = key => {
+      return key.split('.').reduce((o, i) => {
+        if (o) return o[i]
+      }, i18n)
     }
   }
 }
 ```
-
-We will assume that our users will pass in an object containing the translated keys in the `options` parameter when they use the plugin. Our `$translate` function will take a string such as `greetings.hello`, look inside the user provided configuration and return the translated value - in this case, `Bonjour!`
 
 我们假设用户使用插件时，将在 `options` 参数中传递一个包含翻译后的键的对象。 我们的 `$translate` 函数将使用诸如 `greetings.hello` 之类的字符串，查看用户提供的配置内部并返回转换后的值-在这种情况下为 `Bonjour!` 。
 
@@ -68,9 +67,10 @@ Plugins also allow us to use `inject` to provide a function or attribute to the 
 // plugins/i18n.js
 export default {
   install: (app, options) => {
-    app.config.globalProperties.$translate = (key) => {
-      return key.split('.')
-        .reduce((o, i) => { if (o) return o[i] }, i18n)
+    app.config.globalProperties.$translate = key => {
+      return key.split('.').reduce((o, i) => {
+        if (o) return o[i]
+      }, i18n)
     }
 
     app.provide('i18n', options)
@@ -128,10 +128,10 @@ export default {
 
 ```js
 import { createApp } from 'vue'
-import App from './App.vue'
+import Root from './App.vue'
 import i18nPlugin from './plugins/i18n'
 
-const app = createApp(App)
+const app = createApp(Root)
 const i18nStrings = {
   greetings: {
     hi: 'Hallo!'

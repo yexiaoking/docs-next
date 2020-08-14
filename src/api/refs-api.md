@@ -106,7 +106,7 @@ Type of stateAsRefs:
 
 // ref 和 原始property “链接”
 state.foo++
-console.log(stateAsRefs.foo) // 2
+console.log(stateAsRefs.foo.value) // 2
 
 stateAsRefs.foo.value++
 console.log(state.foo) // 3

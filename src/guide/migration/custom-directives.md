@@ -1,4 +1,9 @@
-# 自定义指令
+---
+badges:
+  - breaking
+---
+
+# 自定义指令 <MigrationBadges :badges="$frontmatter.badges" />
 
 ## 概览
 

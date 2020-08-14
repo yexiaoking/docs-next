@@ -67,7 +67,7 @@ Vue.createApp(Demo).mount('#animated-number-demo')
 
 ## 把过渡放到组件里
 
-管理太多的状态过渡会很快的增加 Vue 实例或者组件的复杂性，幸好很多的动画可以提取到专用的子组件。我们来将之前的示例改写一下：
+管理太多的状态过渡会很快的增加组件实例复杂性，幸好很多的动画可以提取到专用的子组件。我们来将之前的示例改写一下：
 
 ```html
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/gsap.min.js"></script>

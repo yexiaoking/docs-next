@@ -1,11 +1,11 @@
 ---
-types:
+badges:
   - breaking
 ---
 
-# 自定义元素交互变更 <span v-for="type in $frontmatter.types" class="badge" :key="`type-${type}`">{{ type }}</span>
+# 自定义元素交互变更 <MigrationBadges :badges="$frontmatter.badges" />
 
-# 概览
+## 概览
 
 - **BREAKING:** 自定义元素白名单现在在模板编译期间执行，应该通过编译器选项而不是运行时配置来配置。
 - **BREAKING:** 特定 `is` prop 用法仅限于保留的 `<component>` 标记

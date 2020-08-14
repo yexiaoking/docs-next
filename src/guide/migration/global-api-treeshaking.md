@@ -1,4 +1,9 @@
-# 全局 API Treeshaking
+---
+badges:
+  - breaking
+---
+
+# 全局 API Treeshaking <MigrationBadges :badges="$frontmatter.badges" />
 
 ## 2.x  语法
 
@@ -28,9 +33,7 @@ test('an async feature', async () => {
   // 运行你的断言
 })
 ```
-`Vue.nextTick()` 是一个全局的API 直接暴露在单个Vue对象上 —— 事实上，实例方法 `$nextTick()` 只是一个方便的包装 `Vue.nextTick()`为方便起见，回调的 `this` 上下文自动绑定到当前Vue实例。
-
-但是，如果你从未处理过手动DOM操作，也没有在我们的应用程序中使用或测试异步组件呢？或者，不管出于什么原因，你更喜欢用旧的 `window.setTimeout()` 替代？在这种情况下，`nextTick()`的代码将变成死代码，即编写但从未使用过的代码。死代码也不是什么好事，尤其是在我们的客户端环境中，每 kb 都很重要。
+`Vue.nextTick()` 是一个全局的API 直接暴露在单个Vue对象上 —— 事实上，实例方法 `$nextTick()` 只是一个方便的包装 `Vue.nextTick()`为方便起见，回调的 `this` 上下文自动绑定到当前当前实例。
 
 模块捆绑程序，如[webpack](https://webpack.js.org/) 支持 [tree-shaking](网址：https://webpack.js/webpack/js//)，这是 “死代码消除” 的一个花哨术语。不幸的是，由于代码是如何在以前的Vue版本中编写的，全局API`Vue.nextTick()`不可摇动，将包含在最终捆绑中不管它们实际在哪里使用。
 
@@ -95,11 +98,7 @@ Vue 2.x中的这些全局API受此更改的影响：
 import { h, Transition, withDirectives, vShow } from 'vue'
 
 export function render() {
-  return h(Transition, [
-    withDirectives(h('div', 'hello'), [
-      [vShow, this.ok]
-    ])
-  ])
+  return h(Transition, [withDirectives(h('div', 'hello'), [[vShow, this.ok]])])
 }
 ```
 

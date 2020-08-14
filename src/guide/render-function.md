@@ -77,7 +77,7 @@ app.component('anchored-heading', {
 })
 ```
 
-`render()` 函数的实现要精简得多，但是需要非常熟悉 Vue 的实例 property。在这个例子中，你需要知道，向组件中传递不带 `v-slot` 指令的子节点时，比如 anchored-heading 中的 `Hello world!` ，这些子节点被存储在组件实例中的 `$slots.default` 中。如果你还不了解，**在深入渲染函数之前推荐阅读[实例 property API](../api/instance-properties.html)**。
+`render()` 函数的实现要精简得多，但是需要非常熟悉组件的实例 property。在这个例子中，你需要知道，向组件中传递不带 `v-slot` 指令的子节点时，比如 anchored-heading 中的 `Hello world!` ，这些子节点被存储在组件实例中的 `$slots.default` 中。如果你还不了解，**在深入渲染函数之前推荐阅读[实例 property API](../api/instance-properties.html)**。
 
 ## DOM 树
 
@@ -276,9 +276,9 @@ render() {
 ```js
 props: ['modelValue'],
 render() {
-  return Vue.h('input', {
+  return Vue.h(SomeComponent, {
     modelValue: this.modelValue,
-    'onUpdate:modelValue': value => this.$emit('onUpdate:modelValue', value)
+    'onUpdate:modelValue': value => this.$emit('update:modelValue', value)
   })
 }
 ```

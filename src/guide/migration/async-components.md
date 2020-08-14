@@ -1,4 +1,9 @@
-# 异步组件
+---
+badges:
+  - new
+---
+
+# 异步组件<MigrationBadges :badges="$frontmatter.badges" />
 
 ## 概览
 

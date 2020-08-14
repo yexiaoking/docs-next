@@ -50,7 +50,7 @@ app.component('todo-list-statistics', {
 })
 ```
 
-但是，如果我们尝试在此处提供一些Vue实例属性，则这将不起作用：
+但是，如果我们尝试在此处提供一些组件实例property，则这将不起作用：
 
 ```js
 app.component('todo-list', {
@@ -68,7 +68,7 @@ app.component('todo-list', {
 })
 ```
 
-要访问Vue实例 property，我们需要将 `provide` 转换为返回对象的函数
+要访问组件实例 property，我们需要将 `provide` 转换为返回对象的函数
 
 ```js
 app.component('todo-list', {

@@ -1,14 +1,18 @@
-# 功能组件
+---
+badges:
+  - breaking
+---
+
+# 功能组件 <MigrationBadges :badges="$frontmatter.badges" />
 
 ## 概览
 
 就变化而言，属于高等级内容：
 
-
 - 在3.x中，功能性组件2.x的性能提升可以忽略不计，因此我们建议只使用有状态的组件
 - 功能组件只能使用接收`props` 和 `context`的普通函数创建 (即： `slots`, `attrs`, `emit`)。
-- **已弃用:** `functional` attribute 在单文件组件 (SFC) `<template>` 已被弃用
-- **已弃用:** `{ functional: true }` 选项在通过函数创建组件已被弃用
+- **重大变更:** `functional` attribute 在单文件组件 (SFC) `<template>` 已被移除
+- **重大变更:** `{ functional: true }` 选项在通过函数创建组件已被移除
 
 更多信息，请继续阅读！
 

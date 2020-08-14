@@ -39,7 +39,7 @@ val1 = 3
 
 ## Vue如何追踪变化？
 
-当你把一个普通的 JavaScript 对象传入 Vue 实例作为 data 选项，Vue将遍历其所有属性并将其转换为 [proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) ，使用带有getter和setter的处理程序。 这是仅ES6的功能，但是我们提供了Vue 3版本，该版本使用较旧的 `Object.defineProperty` 支持IE浏览器。 两者具有相同的Surface API，但是proxy版本更精简，并提供了改进的性能。
+当你把一个普通的 JavaScript 对象传入应用或组件实例作为 data 选项，Vue将遍历其所有属性并将其转换为 [proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) ，使用带有getter和setter的处理程序。 这是仅ES6的功能，但是我们提供了Vue 3版本，该版本使用较旧的 `Object.defineProperty` 支持IE浏览器。 两者具有相同的Surface API，但是proxy版本更精简，并提供了改进的性能。
 
 <div class="reactivecontent">
   <iframe height="500" style="width: 100%;" scrolling="no" title="Proxies and Vue's Reactivity Explained Visually" src="https://codepen.io/sdras/embed/zYYzjBg?height=500&theme-id=light&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
@@ -94,9 +94,7 @@ console.log(proxy.meal)
 
 此外，proxy还提供了另一个特性。我们不必像这样返回值：`target[prop]`，而是可以进一步使用一个名为 `Reflect`的特性，它允许我们正确地执行 `this` 绑定，看起来像这样：
 
-[//]: # 'TODO: line highlighting?'
-
-```js
+```js{7}
 const dinner = {
   meal: 'tacos'
 }
@@ -116,7 +114,7 @@ console.log(proxy.meal)
 
 我们之前提到过，为了有一个API在某些东西发生变化时更新最终值，我们必须在某些东西发生变化时设置新的值。我们在处理程序中，在一个名为 `track` 的函数中执行此操作，其中传入 `target` 和 `key`。
 
-```js
+```js{7}
 const dinner = {
   meal: 'tacos'
 }
@@ -162,7 +160,7 @@ console.log(proxy.meal)
 
 还记得几段前的列表吗？现在我们有了一些关于Vue如何处理这些更改的答案：
 
-- <strike>当某个值发生变化时进行检测</strike>：我们不再需要这样做，因为proxy允许我们拦截它
+- `<strike>` 当某个值发生变化时进行检测 `</strike>`：我们不再需要这样做，因为proxy允许我们拦截它
 - **跟踪更改它的函数**：我们在proxy中的getter中执行此操作，称为 `effect`
 - **触发函数以便它可以更新最终值**：我们在proxy中使用了一个setter，名为 `Trigger`
 
@@ -222,7 +220,7 @@ const obj = reactive({
   </iframe>
 </div>
 
-将对象作为数据传递给Vue实例时，Vue会将其转换为proxy。此proxy使Vue能够在访问或修改属性时执行依赖项跟踪和更改通知。每个property都被视为一个依赖项。
+将对象作为数据传递给组件实例时，Vue会将其转换为proxy。此proxy使Vue能够在访问或修改属性时执行依赖项跟踪和更改通知。每个property都被视为一个依赖项。
 
 在第一次渲染之后，组件将跟踪依赖项列表 —— 即在渲染过程中访问的property。相反，组件成为这些property中每个property的订阅者。当proxy拦截set操作时，该property将通知其所有订阅的组件重新渲染
 

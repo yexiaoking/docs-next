@@ -1,9 +1,10 @@
 ---
-types:
+title: Data 选项
+badges:
   - breaking
 ---
 
-# Data 选项 <span v-for="type in $frontmatter.types" class="badge" :key="`type-${type}`">{{ type }}</span>
+# {{ $frontmatter.title }} <MigrationBadges :badges="$frontmatter.badges" />
 
 ## 概览
 

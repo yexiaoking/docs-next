@@ -34,8 +34,8 @@ export default {
   },
   methods: {
     getUserRepositories () {
-      // 使用`这个用户`获取用户仓库
-    }, // 2
+      // 使用 `this.user` 获取用户仓库
+    }, // 1
     updateFilters () { ... }, // 3
   },
   mounted () {

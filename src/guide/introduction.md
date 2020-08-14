@@ -29,31 +29,41 @@ Vue (读音 /vjuː/，类似于 **view**) 是一套用于构建用户界面的**
 Vue.js 的核心是一个允许采用简洁的模板语法来声明式地将数据渲染进 DOM 的系统：
 
 ```html
-<div id="hello-vue">
-  {{ message }}
+<div id="counter">
+  Counter: {{ counter }}
 </div>
 ```
 
 ```js
-const HelloVueApp = {
+const Counter = {
   data() {
     return {
-      message: 'Hello Vue!'
+      counter: 0
     }
   }
 }
 
-Vue.createApp(HelloVueApp).mount('#hello-vue')
+Vue.createApp(Counter).mount('#counter')
 ```
 
-我们已经成功创建了第一个 Vue 应用！看起来这跟渲染一个字符串模板非常类似，但是 Vue 在背后做了大量工作。现在数据和 DOM 已经被建立了关联，所有东西都是**响应式的**。我们要怎么确认呢？打开你的浏览器的 JavaScript 控制台 (就在这个页面打开)，并修改 `message` 的值，你将看到上例相应地更新。
+我们已经成功创建了第一个 Vue 应用！看起来这跟渲染一个字符串模板非常类似，但是 Vue 在背后做了大量工作。现在数据和 DOM 已经被建立了关联，所有东西都是**响应式的**。我们要怎么确认呢？请看下面的示例，其中 `counter` property 每秒递增，你将看到渲染的DOM是如何变化的：
 
-<p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="js,result" data-user="Vue" data-slug-hash="KKpRVpx" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Hello Vue">
-  <span>See the Pen <a href="https://codepen.io/team/Vue/pen/KKpRVpx">
-  Hello Vue</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+```js{8-10}
+const CounterApp = {
+  data() {
+    return {
+      counter: 0
+    }
+  },
+  mounted() {
+    setInterval(() => {
+      this.counter++
+    }, 1000)
+  }
+}
+```
+
+<FirstExample />
 
 除了文本插值，我们还可以像这样绑定元素attribute：
 
@@ -66,7 +76,7 @@ Vue.createApp(HelloVueApp).mount('#hello-vue')
 ```
 
 ```js
-const AttributeBindingApp = {
+const AttributeBinding = {
   data() {
     return {
       message: 'You loaded this page on ' + new Date().toLocaleString()
@@ -74,7 +84,7 @@ const AttributeBindingApp = {
   }
 }
 
-Vue.createApp(AttributeBindingApp).mount('#bind-attribute')
+Vue.createApp(AttributeBinding).mount('#bind-attribute')
 ```
 
 <p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="KKpRVvJ" data-preview="true" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Attribute dynamic binding">
@@ -84,11 +94,11 @@ Vue.createApp(AttributeBindingApp).mount('#bind-attribute')
 </p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-这里我们遇到了一点新东西。你看到的 `v-bind` attribute 被称为`指令`。指令带有前缀 `v-`，以表示它们是 Vue 提供的特殊 attribute。可能你已经猜到了，它们会在渲染的 DOM 上应用特殊的响应式行为。在这里，该指令的意思是：“将这个元素节点的 `title` attribute 和 Vue 实例的 `message` property 保持一致”。
+这里我们遇到了一点新东西。你看到的 `v-bind` attribute 被称为`指令`。指令带有前缀 `v-`，以表示它们是 Vue 提供的特殊 attribute。可能你已经猜到了，它们会在渲染的 DOM 上应用特殊的响应式行为。在这里，该指令的意思是：“将这个元素节点的 `title` attribute 和 当前活动实例的 `message` property 保持一致”。
 
 ## 处理用户输入
 
-为了让用户和你的应用进行交互，我们可以用 `v-on` 指令添加一个事件监听器，通过它调用在 Vue 实例中定义的方法：
+为了让用户和你的应用进行交互，我们可以用 `v-on` 指令添加一个事件监听器，通过它调用在实例中定义的方法：
 
 ```html
 <div id="event-handling">
@@ -98,7 +108,7 @@ Vue.createApp(AttributeBindingApp).mount('#bind-attribute')
 ```
 
 ```js
-const EventHandlingApp = {
+const EventHandling = {
   data() {
     return {
       message: 'Hello Vue.js!'
@@ -114,7 +124,7 @@ const EventHandlingApp = {
   }
 }
 
-Vue.createApp(EventHandlingApp).mount('#event-handling')
+Vue.createApp(EventHandling).mount('#event-handling')
 ```
 
 <p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="dyoeGjW" data-preview="true" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Event handling">
@@ -136,7 +146,7 @@ Vue 还提供了 `v-model` 指令，它能轻松实现表单输入和应用状�
 ```
 
 ```js
-const TwoWayBindingApp = {
+const TwoWayBinding = {
   data() {
     return {
       message: 'Hello Vue!'
@@ -144,7 +154,7 @@ const TwoWayBindingApp = {
   }
 }
 
-Vue.createApp(TwoWayBindingApp).mount('#two-way-binding')
+Vue.createApp(TwoWayBinding).mount('#two-way-binding')
 ```
 
 <p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="poJVgZm" data-preview="true" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Two-way binding">
@@ -165,7 +175,7 @@ Vue.createApp(TwoWayBindingApp).mount('#two-way-binding')
 ```
 
 ```js
-const ConditionalRenderingApp = {
+const ConditionalRendering = {
   data() {
     return {
       seen: true
@@ -173,7 +183,7 @@ const ConditionalRenderingApp = {
   }
 }
 
-Vue.createApp(ConditionalRenderingApp).mount('#conditional-rendering')
+Vue.createApp(ConditionalRendering).mount('#conditional-rendering')
 ```
 
 这个例子演示了我们不仅可以把数据绑定到 DOM 文本或 attribute，还可以绑定到 DOM **结构**。此外，Vue 也提供一个强大的过渡效果系统，可以在 Vue 插入/更新/移除元素时自动应用[过渡效果](TODO)。
@@ -200,7 +210,7 @@ Vue.createApp(ConditionalRenderingApp).mount('#conditional-rendering')
 ```
 
 ```js
-const ListRenderingApp = {
+const ListRendering = {
   data() {
     return {
       todos: [
@@ -212,7 +222,7 @@ const ListRenderingApp = {
   }
 }
 
-Vue.createApp(ListRenderingApp).mount('#list-rendering')
+Vue.createApp(ListRendering).mount('#list-rendering')
 ```
 
 <p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="mdJLVXq" data-preview="true" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="List rendering">
@@ -228,7 +238,7 @@ Vue.createApp(ListRenderingApp).mount('#list-rendering')
 
 ![Component Tree](/images/components.png)
 
-在Vue中，组件本质上是一个具有预定义选项的Vue实例。在Vue中注册组件很简单：我们创建一个组件对象，就像对 `App` 对象所做的那样，并在父级的 `components` 选项中定义它：
+在Vue中，组件本质上是一个具有预定义选项的实例。在Vue中注册组件很简单：我们创建一个组件对象，就像对 `App` 对象所做的那样，并在父级的 `components` 选项中定义它：
 
 ```js
 // 创建Vue 应用
@@ -265,7 +275,7 @@ app.component('todo-item', {
 现在，我们可以使用 `v-bind` 指令将待办项传到循环输出的每个组件中：
 
 ```html
-<div id="components-app">
+<div id="todo-list-app">
   <ol>
      <!--
       现在我们为每个 todo-item 提供 todo 对象
@@ -283,7 +293,7 @@ app.component('todo-item', {
 ```
 
 ```js
-const ComponentsApp = {
+const TodoList = {
   data() {
     return {
       groceryList: [
@@ -295,14 +305,14 @@ const ComponentsApp = {
   }
 }
 
-const app = Vue.createApp(ComponentsApp)
+const app = Vue.createApp(TodoList)
 
 app.component('todo-item', {
   props: ['todo'],
   template: `<li>{{ todo.text }}</li>`
 })
 
-app.mount('#components-app')
+app.mount('#todo-list-app')
 ```
 
 <p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="result" data-user="Vue" data-slug-hash="VwLxeEz" data-preview="true" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Intro-Components-1">

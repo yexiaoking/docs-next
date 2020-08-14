@@ -56,7 +56,7 @@ Vue.createApp({
   },
   methods: {
     greet(event) {
-      // `this` 内部 `methods` 指向Vue实例
+      // `this` 内部 `methods` 指向当前活动实例
       alert('Hello ' + this.name + '!')
       // `event` 是原生 DOM event
       if (event) {

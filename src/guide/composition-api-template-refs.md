@@ -59,7 +59,7 @@ Composition API模板引用在 `-for` 内部使用时没有特殊处理。相反
 
 ```html
 <template>
-  <div v-for="(item, i) in list" :ref="el => { divs[i] = el }">
+  <div v-for="(item, i) in list" :ref="el => { if (el) divs[i] = el }">
     {{ item }}
   </div>
 </template>

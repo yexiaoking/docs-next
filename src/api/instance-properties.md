@@ -6,7 +6,7 @@
 
 - **详细：**
 
-  Vue 实例观察的数据对象。Vue 实例代理了对其 data 对象 property 的访问。
+  组件实例观察的数据对象。组件实例代理了对其 data 对象 property 的访问。
 
 -  **参考** [选项 / 数据 - data](./options-data.html#data-2)
 
@@ -16,7 +16,7 @@
 
 - **详细：**
 
-  当前组件接收到的 props 对象。Vue 实例代理了对其 props 对象 property 的访问。
+  当前组件接收到的 props 对象。组件实例代理了对其 props 对象 property 的访问。
 
 ## $el
 
@@ -26,7 +26,7 @@
 
 - **详细：**
 
-  Vue 实例使用的根 DOM 元素。
+  组件实例使用的根 DOM 元素。
 
 ## $options
 
@@ -36,7 +36,7 @@
 
 - **详细：**
 
-  用于当前 Vue 实例的初始化选项。需要在选项中包含自定义 property 时会有用处：
+  用于当前 组件实例的初始化选项。需要在选项中包含自定义 property 时会有用处：
 
   ```js
   const app = Vue.createApp({
@@ -65,7 +65,7 @@
 
 - **详细：**
 
-  当前组件树的根 Vue 实例。如果当前实例没有父实例，此实例将会是其自己。
+  当前组件树的根 组件实例。如果当前实例没有父实例，此实例将会是其自己。
 
 ## $slots
 
@@ -116,7 +116,7 @@
 -  **参考**
   - [`<slot>` 组件](built-in-components.html#slot)
   - [通过插槽分发内容](../guide/component-basics.html#content-distribution-with-slots)
-  - [渲染函数 - 插槽](..guide/render-function.html#slots)
+  - [渲染函数 - 插槽](../guide/render-function.html#slots)
 
 ## $refs
 
@@ -143,4 +143,4 @@
 包含了父作用域中不作为组件 [props](./options-data.html#props) 或 [自定义事件](./options-data.html#emits)。当一个组件没有声明任何 prop 时，这里会包含所有父作用域的绑定，并且可以通过 `v-bind="$attrs"` 传入内部组件——在创建高级别的组件时非常有用。
 
 -  **参考**
-  - [非Prop Attributes](../guide/component-props.html#non-prop-attributes)
+  - [非Prop Attributes](../guide/component-attrs.html)

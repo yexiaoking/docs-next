@@ -76,7 +76,7 @@ function setup(props: Data, context: SetupContext): Data
   }
   ```
 
-- **参考**: [Composition API `setup`](,,/guide/composition-api-setup.html)
+- **参考**: [Composition API `setup`](../guide/composition-api-setup.html)
 
 ## 生命周期钩子
 

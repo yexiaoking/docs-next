@@ -2,7 +2,7 @@
 
 ## 发布版本说明
 
-最新rc版本: 3.0.0-rc.5
+最新beta版本: 3.0.0-rc.5
 
 每个版本的详细发行说明可在[GitHub](https://github.com/vuejs/vue-next/releases)上找到。
 
@@ -46,11 +46,18 @@ Vue 提供了一个 [官方的 CLI](https://github.com/vuejs/vue-cli) ，为单�
 CLI 工具假定用户对 Node.js 和相关构建工具有一定程度的了解。如果你是新手，我们强烈建议先在不用构建工具的情况下通读<a href="./">指南</a>，在熟悉 Vue 本身之后再使用 CLI。
 :::
 
-对于beta版，Vue CLI现在通过 [vue-cli-plugin-vue-next](https://github.com/vuejs/vue-cli-plugin-vue-next) 提供了实验支持。要将现有的Vue CLI项目Vue 2 升级到Vue 3，你需要运行：
-
+对于Vue 3，你应该使用 `npm` 上可用的 Vue CLI v4.5 作为 `@vue/cli@next`。要升级，你应该需要全局重新安装最新版本的 `@vue/cli`：
 
 ```bash
-vue add vue-next
+yarn global add @vue/cli@next
+# OR
+npm install -g @vue/cli@next
+```
+
+Then in the Vue projects, run
+
+```bash
+vue upgrade --next
 ```
 
 ## Vite

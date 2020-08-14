@@ -1,4 +1,9 @@
-# 片段
+---
+badges:
+  - new
+---
+
+# 片段 <MigrationBadges :badges="$frontmatter.badges" />
 
 ## 概览
 
@@ -33,4 +38,4 @@
 </template>
 ```
 
-有关attribute继承如何工作的详细信息，见 [非 Prop Attributes](/guide/component-props.html#disabling-attribute-inheritance).
+有关attribute继承如何工作的详细信息，见 [非 Prop Attributes](/guide/component-attrs.html).

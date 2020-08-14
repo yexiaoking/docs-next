@@ -4,9 +4,8 @@
 
 你可以用 v-model 指令在表单 `<input>`、`<textarea>` 及 `<select>` 元素上创建双向数据绑定。它会根据控件类型自动选取正确的方法来更新元素。尽管有些神奇，但 `v-model` 本质上不过是语法糖。它负责监听用户的输入事件以更新数据，并对一些极端场景进行一些特殊处理。
 
-
 ::: tip 提示
-`v-model` 会忽略所有表单元素的 `value` 、`checked`、`selected` attribute 的初始值而总是将 Vue 实例的数据作为数据来源。你应该通过 JavaScript 在组件的 `data` 选项中声明初始值。
+`v-model` 会忽略所有表单元素的 `value` 、`checked`、`selected` attribute 的初始值而总是将当前活动实例的数据作为数据来源。你应该通过 JavaScript 在组件的 `data` 选项中声明初始值。
 :::
 
 `v-model` 在内部为不同的输入元素使用不同的 property 并抛出不同的事件：
@@ -248,7 +247,7 @@ Vue.createApp({
 </select>
 ```
 
-但是有时我们可能想把值绑定到 Vue 实例的一个动态 property 上，这时可以用 `v-bind` 实现，此外，使用 `v-bind` 可以将输入值绑定到非字符串。
+但是有时我们可能想把值绑定到当前活动实例的一个动态 property 上，这时可以用 `v-bind` 实现，此外，使用 `v-bind` 可以将输入值绑定到非字符串。
 
 ### 复选框（Checkbox）
 

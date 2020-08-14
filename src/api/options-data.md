@@ -6,13 +6,13 @@
 
 - **详细：**
 
-  返回Vue实例的data对象的函数。在 `data`中，我们不建议观察具有自身状态行为的对象，如浏览器API对象和原型property。一个好主意是这里只有一个表示组件data的普通对象。
+  返回 组件实例的data对象的函数。在 `data`中，我们不建议观察具有自身状态行为的对象，如浏览器API对象和原型property。一个好主意是这里只有一个表示组件data的普通对象。
 
   一旦观察过，你就无法在根数据对象上添加响应式 property。因此推荐在创建实例之前，就声明所有的根级响应式 property。
 
-  实例创建之后，可以通过 `vm.$data` 访问原始数据对象。Vue 实例也代理了 data 对象上所有的 property，因此访问 `vm.a` 等价于访问 `vm.$data.a`。
+  实例创建之后，可以通过 `vm.$data` 访问原始数据对象。组件实例也代理了 data 对象上所有的 property，因此访问 `vm.a` 等价于访问 `vm.$data.a`。
 
-  以 `_` 或 `$` 开头的 property 不会被 Vue 实例代理，因为它们可能和 Vue 内置的 property、API 方法冲突。你可以使用例如 `vm.$data._property` 的方式访问这些 property。
+  以 `_` 或 `$` 开头的 property 不会被组件实例代理，因为它们可能和 Vue 内置的 property、API 方法冲突。你可以使用例如 `vm.$data._property` 的方式访问这些 property。
 
 - **示例：**
 
@@ -20,7 +20,7 @@
   // 直接创建一个实例
   const data = { a: 1 }
 
-  // 这个对象将添加到Vue实例中
+  // 这个对象将添加到组件实例中
   const vm = Vue.createApp({
     data() {
       return data
@@ -92,7 +92,7 @@
 
 - **详细：**
 
-  计算属性将被混入到 Vue 实例中。所有 getter 和 setter 的 `this` 上下文自动地绑定为 Vue 实例。
+  计算属性将被混入到组件实例中。所有 getter 和 setter 的 `this` 上下文自动地绑定为组件实例。
 
   注意，如果你为一个计算属性使用了箭头函数，则 `this` 不会指向这个组件的实例，不过你仍然可以将其实例作为函数的第一个参数来访问。
 
@@ -143,10 +143,10 @@
 
 - **详细：**
 
-  methods 将被混入到 Vue 实例中。可以直接通过 VM 实例访问这些方法，或者在指令表达式中使用。方法中的 `this` 自动绑定为 Vue 实例。
+  methods 将被混入到组件实例中。可以直接通过 VM 实例访问这些方法，或者在指令表达式中使用。方法中的 `this` 自动绑定为组件实例。
 
   :::tip 注意
-  注意，**不应该使用箭头函数来定义 method 函数** (例如 plus: () => this.a++)。理由是箭头函数绑定了父级作用域的上下文，所以 `this` 将不会按照期望指向 Vue 实例，`this.a` 将是 undefined。
+  注意，**不应该使用箭头函数来定义 method 函数** (例如 plus: () => this.a++)。理由是箭头函数绑定了父级作用域的上下文，所以 `this` 将不会按照期望指向组件实例，`this.a` 将是 undefined。
   :::
 
 - **示例：**
@@ -244,7 +244,7 @@
   ```
 
   ::: tip 注意
-  注意，*不应该使用箭头函数来定义 watcher 函数* (例如 `searchQuery: newValue => this.updateAutocomplete(newValue)`)。理由是箭头函数绑定了父级作用域的上下文，所以 `this` 将不会按照期望指向 Vue 实例，`this.updateAutocomplete` 将是 undefined。
+  注意，*不应该使用箭头函数来定义 watcher 函数* (例如 `searchQuery: newValue => this.updateAutocomplete(newValue)`)。理由是箭头函数绑定了父级作用域的上下文，所以 `this` 将不会按照期望指向组件实例，`this.updateAutocomplete` 将是 undefined。
 
   :::
 
@@ -296,6 +296,5 @@
   ::: tip 注意
   `emits` 选项中列出的事件**不会** 从组件的根元素继承，也将从 `$attrs` property中移除。
   :::
-  
 
--  **参考** [Attribute 继承](../guide/component-props.html#non-prop-attributes)
+-  **参考** [Attribute 继承](../guide/component-attrs.html#attribute继承)
