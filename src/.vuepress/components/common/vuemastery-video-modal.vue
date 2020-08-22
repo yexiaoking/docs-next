@@ -3,7 +3,7 @@
     <div ref="modal" class="modal" :class="{ open: isOpen }">
       <div class="video-space" style="padding: 56.25% 0 0 0; position: relative;">
         <iframe
-          src="https://player.vimeo.com/video/247494684?dnt=1"
+          src="https://player.youku.com/embed/XMzMwMTYyODMyNA==?autoplay=true&client_id=37ae6144009e277d"
           style="height: 100%; left: 0; position: absolute; top: 0; width: 100%; margin: 0"
           frameborder="0"
           webkitallowfullscreen
