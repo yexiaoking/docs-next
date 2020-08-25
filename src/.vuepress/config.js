@@ -1,8 +1,8 @@
-const sidebarEN = require('./sidebar/en')
-const sidebarZH = require('./sidebar/zh')
+const sidebar = require('./sidebar')
+const nav = require('./nav')
 module.exports = {
   title: 'Vue.js',
-  description: 'Vue.js - The Progressive JavaScript Framework',
+  description: 'Vue.js - 渐进式 JavaScript 框架',
   head: [
     [
       'link',
@@ -24,67 +24,27 @@ module.exports = {
     [
       'script',
       {
-        src: 'https://player.vimeo.com/api/player.js'
-      }
-    ],
-    [
-      'script',
-      {
-        src: 'https://extend.vimeocdn.com/ga/72160148.js',
-        defer: 'defer'
+        src: 'https://player.youku.com/iframeapi'
       }
     ]
   ],
-  locales: {
-    '/': {
-      lang: 'zh-CN',
-      title: 'Vue.js',
-      description: 'Vue.js 3 渐进式 JavaScript 框架'
-    },
-    '/en/': {
-      lang: 'en-US',
-      title: 'Vue.js Vue 3 docs beta',
-      description: 'Vue.js 3 - The Progressive JavaScript Framework'
-    }
-  },
   themeConfig: {
     logo: '/logo.png',
-    locales: {
-      '/': {
-        repo: 'vuejs/docs-next',
-        editLinks: false,
-        editLinkText: 'Edit this on GitHub!',
-        lastUpdated: 'Last updated',
-        docsDir: 'src',
-        sidebarDepth: 2,
-        sidebar: {
-          collapsable: false,
-          '/guide/': sidebarZH.guide,
-          '/community/': sidebarZH.guide,
-          '/api/': sidebarZH.api
-        },
-        smoothScroll: false,
-        nav: require('./nav/zh')
-      },
-      '/en/': {
-        repo: 'vuejs/docs-next',
-        editLinks: false,
-        editLinkText: 'Edit this on GitHub!',
-        lastUpdated: 'Last updated',
-        docsDir: 'src',
-        sidebarDepth: 2,
-        sidebar: {
-          collapsable: false,
-          '/en/guide/': sidebarEN.guide,
-          '/en/community/': sidebarEN.guide,
-          '/en/api/': sidebarEN.api
-        },
-        smoothScroll: false,
-        nav: require('./nav/en')
-      }
-    }
-
-
+    repo: 'vuejs/docs-next-zh-cn',
+    editLinks: false,
+    editLinkText: 'Edit this on GitHub!',
+    lastUpdated: 'Last updated',
+    docsDir: 'src',
+    sidebarDepth: 2,
+    sidebar: {
+      collapsable: false,
+      '/guide/': sidebar.guide,
+      '/community/': sidebar.community,
+      '/api/': sidebar.api,
+      '/examples/': sidebar.examples
+    },
+    smoothScroll: false,
+    nav
   },
   plugins: [
     [

@@ -64,7 +64,7 @@ yarn serve # or npm run serve
 |Identity hazards|-|||
 | side effect|-|||
 
-### 翻译规范
+### 翻译规范(暂时废弃)
 
 - [术语翻译约定.md](https://github.com/vuejs/cn.vuejs.org/wiki)
 - 【建议】：如果是link 的链接，应该前后加个空格出来
