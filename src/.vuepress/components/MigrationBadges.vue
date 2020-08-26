@@ -7,7 +7,7 @@ export default {
       type: Array,
       default: () => [],
       validator(value) {
-        return value.every((badge) => validBadges.includes(badge))
+        return value.every(badge => validBadges.includes(badge))
       }
     }
   }

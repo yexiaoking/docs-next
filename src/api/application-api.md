@@ -19,6 +19,11 @@ const app = createApp({})
   - `{string} name`
   - `{Function | Object} [definition]`
 
+- **返回：**
+
+  - 如果传递了 `definition` 参数，则返回应用实例。
+  - 如果未传递 `definition` 参数，则返回组件定义的。
+
 - **用法：**
 
   注册或检索全局组件。注册还会使用给定的 `name` 参数自动设置组件的 `name`。
@@ -35,8 +40,8 @@ app.component('my-component', {
   /* ... */
 })
 
-// 检索注册的组件（始终返回构造函数）
-const MyComponent = app.component('my-component', {})
+// 检索注册的组件
+const MyComponent = app.component('my-component')
 ```
 
 - **参考** [Components](../guide/component-basics.html)
@@ -64,6 +69,11 @@ app.config = {...}
 
   - `{string} name`
   - `{Function | Object} [definition]`
+
+- **返回：**
+
+  - 如果传递了 `definition` 参数，则返回应用实例
+  - 如果未传递 `definition` 参数，则返回指令定义
 
 - **用法：**
 
@@ -156,6 +166,10 @@ app.directive('focus', {
 
   - `{Object} mixin`
 
+- **返回：**
+
+  - 应用实例
+
 - **用法：**
 
   在整个应用程序范围内应用 mixin，一旦注册，它们就可以在当前的 app 中任何组件模板内使用它。插件作者可以使用此方法将自定义行为注入组件。**不建议在应用程序代码中**。
@@ -168,6 +182,10 @@ app.directive('focus', {
 
   - `{Element | string} rootContainer`
   - `{boolean} isHydrate`
+
+- **返回：**
+
+  - 根组件实例
 
 - **用法：**
 
@@ -191,6 +209,53 @@ app.mount('#my-app')
 
 - **参考**
   - [Lifecycle Diagram](../guide/instance.html#lifecycle-diagram)
+
+## provide
+
+- **Arguments:**
+
+  - `{string | Symbol} key`
+  - `value`
+
+- **Returns:**
+
+  - The application instance
+
+- **Usage:**
+
+  Sets a value that can be injected into all components within the application. Components should use `inject` to receive the provided values.
+   
+  From a `provide`/`inject` perspective, the application can be thought of as the root-level ancestor, with the root component as its only child.
+
+  This method should not be confused with the [provide component option](options-composition.html#provide-inject) or the [provide function](composition-api.html#provide-inject) in the composition API. While those are also part of the same `provide`/`inject` mechanism, they are used to configure values provided by a component rather than an application. 
+
+  Providing values via the application is especially useful when writing plugins, as plugins typically wouldn't be able to provide values using components. It is an alternative to using [globalProperties](application-config.html#globalproperties).
+
+  :::tip Note
+  The `provide` and `inject` bindings are NOT reactive. This is intentional. However, if you pass down an observed object, properties on that object do remain reactive.
+  :::
+
+- **Example:**
+
+  Injecting a property into the root component, with a value provided by the application:
+
+```js
+import { createApp } from 'vue'
+
+const app = createApp({
+  inject: ['user'],
+  template: `
+    <div>
+      {{ user }}
+    </div>
+  `
+})
+
+app.provide('user', 'administrator')
+```
+
+- **See also:**
+  - [Provide / Inject](../guide/component-provide-inject.md)
 
 ## unmount
 
@@ -226,6 +291,10 @@ setTimeout(() => app.unmount('#my-app'), 5000)
 - **参数：**
 
   - `{Object | Function} plugin`
+
+- **返回：**
+
+  - 应用实例
 
 - **用法：**
 

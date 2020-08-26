@@ -123,7 +123,7 @@ $ yarn dev
 
 ### 对于服务端渲染
 
-- `vue.cjs(.prod).js`：
+#### `vue.cjs(.prod).js`：
   - 或用于 Node.js 通过 `require()` 进行服务器端渲染。
   - 如果你将应用程序与带有 `target: 'node'` 的 webpack 打包在一起，并正确地将 `vue` 外部化，则将加载此构建。
   - dev/prod 文件是预构建的，但是根据 `process.env.NODE_env` 会自动需要相应的文件。

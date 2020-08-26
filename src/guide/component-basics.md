@@ -141,7 +141,7 @@ const App = {
   }
 }
 
-const app = Vue.createApp({})
+const app = Vue.createApp(App)
 
 app.component('blog-post', {
   props: ['title'],
@@ -341,7 +341,7 @@ app.component('custom-input', {
 
 在自定义组件中创建 `v-model` 功能的另一种方法是使用 `computed` property 的功能来定义getter和setter。
 
-在下面的示例中，我们使用计算属性重构 `custominput` 组件。
+在下面的示例中，我们使用计算属性重构 `custom-input` 组件。
 
 请记住，`get` 方法应返回 `modelValue` property，或用于绑定的任何property，`set` 方法应为该property 触发相应的 `$emit` 。
 
@@ -356,7 +356,8 @@ app.component('custom-input', {
       get() {
         return this.modelValue
       },
-      set(value) { this.$emit('update:modelValue', value)
+      set(value) {
+        this.$emit('update:modelValue', value)
       }
     }
   }

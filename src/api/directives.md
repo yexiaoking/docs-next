@@ -6,7 +6,7 @@
 
 - **详细：**
 
-  更新元素的 [textContent](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent)。如果要更新部分的 `textContent`，需要使用 `{{ Mustache }}` 插值。
+  更新元素的 [textContent](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent)。如果要更新部分的 `textContent`，需要使用 [Mustache 插值](/guide/template-syntax.html#text)。
 
 - **示例：**
 

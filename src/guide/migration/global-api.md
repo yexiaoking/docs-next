@@ -161,16 +161,14 @@ app.mount('#app')
 与在 2.x 根实例中使用 `provide` 选项类似，Vue 3 应用程序实例还可以提供可由应用程序内的任何组件注入的依赖项：
 
 ```js
-// 在入口
-app.provide({
-  guide: 'Vue 3 Guide'
-})
+// 在入口处
+app.provide('guide', 'Vue 3 Guide')
 
 // 在子组件
 export default {
   inject: {
     book: {
-      from: guide
+      from: 'guide'
     }
   },
   template: `<div>{{ book }}</div>`
