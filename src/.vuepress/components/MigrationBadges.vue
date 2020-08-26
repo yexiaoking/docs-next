@@ -7,7 +7,7 @@ export default {
       type: Array,
       default: () => [],
       validator(value) {
-        return validBadges.includes(value)
+        return value.every((badge) => validBadges.includes(badge))
       }
     }
   }
@@ -20,9 +20,7 @@ export default {
       v-for="badgeType in badges"
       :class="`migration-badge is-${badgeType}`"
       :key="`badge-type-${badgeType}`"
-    >
-      {{ badgeType }}
-    </span>
+    >{{ badgeType }}</span>
   </div>
 </template>
 
