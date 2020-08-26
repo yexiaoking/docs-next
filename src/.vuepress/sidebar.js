@@ -2,8 +2,13 @@
  * sidebar
  * */
 module.exports = {
-  guide: [
-    {
+
+  cookbook: [{
+    title: 'Cookbook',
+    collapsable: false,
+    children: ['/cookbook/', '/cookbook/editable-svg-icons']
+  }],
+  guide: [{
       title: '基础',
       collapsable: false,
       children: [
@@ -59,8 +64,7 @@ module.exports = {
     {
       title: '高级指南',
       collapsable: false,
-      children: [
-        {
+      children: [{
           title: '响应式',
           children: [
             '/guide/reactivity',
@@ -176,21 +180,19 @@ module.exports = {
     },
     '/api/composition-api'
   ],
-  examples: [
-    {
-      title: '示例',
-      collapsable: false,
-      children: [
-        '/examples/markdown',
-        '/examples/commits',
-        '/examples/grid-component',
-        '/examples/tree-view',
-        '/examples/svg',
-        '/examples/modal',
-        '/examples/elastic-header',
-        '/examples/select2',
-        '/examples/todomvc'
-      ]
-    }
-  ]
+  examples: [{
+    title: '示例',
+    collapsable: false,
+    children: [
+      '/examples/markdown',
+      '/examples/commits',
+      '/examples/grid-component',
+      '/examples/tree-view',
+      '/examples/svg',
+      '/examples/modal',
+      '/examples/elastic-header',
+      '/examples/select2',
+      '/examples/todomvc'
+    ]
+  }]
 }
