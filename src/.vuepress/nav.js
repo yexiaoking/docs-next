@@ -8,7 +8,8 @@ module.exports = [
     items: [
       { text: '教程', link: '/guide/introduction' },
       { text: '风格指南', link: '/style-guide/' },
-      { text: '示例', link: '/examples/markdown' }
+      { text: '示例', link: '/examples/markdown' },
+      { text: 'Cookbook', link: '/cookbook/' }
     ]
   },
   { text: 'API Reference', link: '/api/application-config' },

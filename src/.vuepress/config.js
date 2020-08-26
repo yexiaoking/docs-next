@@ -42,7 +42,8 @@ module.exports = {
       '/guide/': sidebar.guide,
       '/community/': sidebar.community,
       '/api/': sidebar.api,
-      '/examples/': sidebar.examples
+      '/examples/': sidebar.examples,
+      '/cookbook/': sidebar.cookbook
     },
     smoothScroll: false,
     nav
