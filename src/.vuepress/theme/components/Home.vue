@@ -12,7 +12,9 @@
             id="main-title"
           >{{ data.heroText || $title || 'Vue.js' }}</h1>
 
-          <h2 class="tagline" v-if="tagline" v-html="tagline"></h2>
+          <client-only>
+            <h2 class="tagline" v-if="tagline" v-html="tagline"></h2>
+          </client-only>
 
           <div v-if="data.actionButtons.length" class="actions">
             <HomeActionLink
