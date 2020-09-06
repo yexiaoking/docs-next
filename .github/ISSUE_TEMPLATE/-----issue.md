@@ -1,10 +1,10 @@
 ---
-name: 翻译模板 issue
-about: about what?
-title: "【翻译】：src/xx"
-labels: ''
+name: 申请翻译模板
+about: 这将使用社区协作的发起翻译模板 issue
+title: "【翻译】：src/index.md"
+labels: '认领翻译'
 assignees: ''
 
 ---
 
-内容？
+id：{dsada}
