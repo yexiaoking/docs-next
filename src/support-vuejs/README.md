@@ -69,4 +69,4 @@ Recurring pledges come with exclusive perks, e.g. having your name listed in the
 
 If you run a business and are using Vue in a revenue-generating product, it makes business sense to sponsor Vue development: **it ensures the project that your product relies on stays healthy and actively maintained.** It can also help your exposure in the Vue community and makes it easier to attract Vue developers.
 
-If you are an individual user and have enjoyed the productivity of using Vue, consider donating as a sign of appreciation - like buying me coffee once in a while.
+如果你是个人用户，已享受了使用 Vue 带来的效率，那么可以考虑捐赠作为一种感谢的象征，比如偶尔给我买杯咖啡。
